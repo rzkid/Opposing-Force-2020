@@ -189,6 +189,7 @@ void CHudAmmo::UpdatePlayerAmmo( C_BasePlayer *player )
 
 void CHudAmmo::UpdateVehicleAmmo( C_BasePlayer *player, IClientVehicle *pVehicle )
 {
+#ifdef HL2_CLIENT_DLL
 	m_hCurrentActiveWeapon = NULL;
 	CBaseEntity *pVehicleEnt = pVehicle->GetVehicleEnt();
 
@@ -244,6 +245,7 @@ void CHudAmmo::UpdateVehicleAmmo( C_BasePlayer *player, IClientVehicle *pVehicle
 		g_pClientMode->GetViewportAnimationController()->StartAnimationSequence("WeaponChanged");
 		m_hCurrentVehicle = pVehicleEnt;
 	}
+#endif
 }
 
 //-----------------------------------------------------------------------------

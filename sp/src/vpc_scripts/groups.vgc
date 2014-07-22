@@ -22,11 +22,25 @@ $Group "game"
 	"server"
 	"tier1"
 	"vgui_controls"
+	"vmf_tweak"
+}
+
+$Group "of2projects"
+{
+	"client"
+	"mathlib"
+	"raytrace"
+	"server"
+	"tier1"
+	"vgui_controls"
+	"vmf_tweak"
+	"game_shader_generic_of2"
 }
 
 $Group "shaders"
 {
 	"game_shader_dx9"
+	"game_shader_generic_of2"
 }
 
 $Group "everything"
@@ -35,6 +49,7 @@ $Group "everything"
 	"client"
 	"fgdlib"
 	"game_shader_dx9"
+	"game_shader_generic_of2"
 	"glview"
 	"height2normal"
 	"mathlib"
@@ -49,6 +64,7 @@ $Group "everything"
 	"vbsp"
 	"vgui_controls"
 	"vice"
+	"vmf_tweak"
 	"vrad_dll"
 	"vrad_launcher"
 	"vtf2tga"

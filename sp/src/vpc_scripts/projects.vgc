@@ -31,6 +31,11 @@ $Project "game_shader_dx9"
 	"materialsystem\stdshaders\game_shader_dx9_episodic.vpc"  [$EPISODIC]
 }
 
+$Project "game_shader_generic_of2"
+{
+	"materialsystem\stdshaders\game_shader_generic_of2.vpc" [$WIN32]
+}
+
 $Project "glview"
 {
 	"utils\glview\glview.vpc" [$WIN32]
@@ -101,6 +106,11 @@ $Project "vgui_controls"
 $Project "vice"
 {
 	"utils\vice\vice.vpc" [$WIN32]
+}
+
+$Project "vmf_tweak"
+{
+	"utils\vmf_tweak\vmf_tweak.vpc" [$WIN32]
 }
 
 $Project "vrad_dll"

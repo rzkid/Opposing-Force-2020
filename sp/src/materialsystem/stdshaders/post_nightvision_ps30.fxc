@@ -1,0 +1,66 @@
+#include "common_ps_fxc.h"
+ 
+sampler BaseTextureSampler : register( s0 );
+
+sampler	NoiseSampler : register( s1 );
+
+float	g_flBrightness					: register (c0);
+
+float	g_flNoiseScalar					: register( c1 );
+
+float	g_flTime						: register( c2 );
+
+float	g_flRadiusOuter					: register( c3 );
+
+float	g_flRadiusInner					: register( c4 );
+
+float4 main(float2 iTexCoord : TEXCOORD0) : COLOR
+{
+	float4 outColor = tex2D(BaseTextureSampler,iTexCoord);
+
+	outColor += tex2D(BaseTextureSampler, iTexCoord.xy - 0.001);
+	outColor += tex2D(BaseTextureSampler, iTexCoord.xy + 0.001);
+
+	outColor = outColor / 3;
+
+	float2 vUv0 = iTexCoord.xy * 10.0 + g_flTime;
+	float2 vUv1 = iTexCoord.yx * 20.0 - g_flTime;
+	float2 vNoiseTexelUv;
+	vNoiseTexelUv.x = tex2D( NoiseSampler, vUv0.xy ).g;
+	vNoiseTexelUv.y = tex2D( NoiseSampler, vUv1.xy ).g;
+	float flNoiseTexel = tex2D( NoiseSampler, vNoiseTexelUv.xy ).g;
+
+	float3 vTmp = { 0.2125f, 0.7154f, 0.0721f };
+	float flLuminance = saturate( dot( outColor.rgb, vTmp.rgb ) );
+
+	float flNoiseScalar = 0.2f + 0.8f * ( saturate( pow( 1.0 - flLuminance, 12.0 ) ) );
+	outColor.rgb += ( ( flNoiseTexel * 0.3f ) - 0.15f  ) * g_flNoiseScalar * flNoiseScalar;
+
+	outColor.g = (outColor.r + outColor.g + outColor.b) / 3;
+	outColor.r = outColor.b = 0;
+
+	float testBrightness = g_flBrightness;
+	if (testBrightness < 2.0 )
+	{
+		testBrightness = 2.0;
+	}
+	if (outColor.g < 0.1 )
+	{
+		outColor.g += (0.08 * (testBrightness - 2.0) ) ;
+	}
+
+	outColor.rgb *= g_flBrightness;
+
+	//float dist = distance(iTexCoord.xy, float2(0.5,0.5));
+  	//float flVignette = smoothstep(g_flRadiusOuter, g_flRadiusInner, dist);
+	
+	//outColor.rgba *= flVignette;
+
+
+	//float2 dist = iTexCoord - 0.5f;
+	//dist.x = 1 - dot(dist, dist);
+	//outColor *= saturate(pow(dist.x, 5.5f));
+
+	return outColor;
+	// try multiplying brightness before vignette
+} 	

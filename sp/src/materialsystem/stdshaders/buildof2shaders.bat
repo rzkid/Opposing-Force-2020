@@ -18,4 +18,21 @@ rem ==== MOD PATH CONFIGURATIONS END ===
 rem ====================================
 
 
-call buildsdkshaders.bat
+rem Use dynamic shaders to build .inc files only
+rem set dynamic_shaders=1
+rem == Setup path to nmake.exe, from vc 2013 common tools directory ==
+call "%VS100COMNTOOLS%vsvars32.bat"
+
+set BUILD_SHADER=call buildshaders.bat
+set ARG_EXTRA=
+
+%BUILD_SHADER% of2shader_dx9_30		-game %GAMEDIR% -source %SOURCEDIR%
+
+rem echo.
+if not "%dynamic_shaders%" == "1" (
+  echo Finished full buildallshaders %*
+) else (
+  echo Finished dynamic buildallshaders %*
+)
+
+PAUSE

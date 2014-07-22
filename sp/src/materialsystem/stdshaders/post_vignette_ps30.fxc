@@ -1,0 +1,21 @@
+#include "common_ps_fxc.h"
+
+const HALF inRadius : register (c0); //this is a variable to set the inner radius of the vignette
+const HALF outRadius : register (c1); //this is a variable to set the outer radius of the vignette
+
+sampler BaseTextureSampler : register( s0 ); //a sampler to get the texture this shader will be used on (in this case it will be a frame buffer)
+
+HALF4 main(float2 iTexCoord : TEXCOORD0) : COLOR //out main function
+{
+ 
+	float4 cColor = tex2D(BaseTextureSampler,iTexCoord); //this takes our sampler and turns the rgba into floats between 0 and 1;
+
+	//cColor.g = 0; // sets green the the average of rgb
+	//cColor.r = 1; //removes red and blue colors
+	//cColor.b = 1;
+	//cColor.a = .5;
+
+	float dist = distance(iTexCoord.xy, float2(0.5,0.5));
+  	cColor.rgb *= smoothstep(outRadius, inRadius, dist);
+	return cColor;
+}

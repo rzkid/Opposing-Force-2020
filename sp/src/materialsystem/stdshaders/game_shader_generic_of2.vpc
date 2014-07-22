@@ -51,6 +51,10 @@ $Project "Shaders (OF2)"
 	$Folder	"Source Files"
 	{
 		$File	"BaseVSShader.cpp"
+		$File	"post_chromatic_aberration.cpp"
+		$File	"post_cubic.cpp"
+		$File	"post_nightvision.cpp"
+		$File	"post_vignette.cpp"
 	}
 
 	$Folder	"Header Files"

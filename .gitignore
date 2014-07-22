@@ -65,3 +65,34 @@ config.cfg
 # shader files
 *.tmp
 
+sp/game/mod_of2sp/modelsounds.cache
+sp/game/mod_of2sp/stats.txt
+sp/game/mod_of2sp/voice_ban.dt
+sp/game/mod_of2sp/sound/sound.cache
+sp/src/materialsystem/stdshaders/inclist.txt
+sp/src/materialsystem/stdshaders/makefile.stdshader_dx9_20b
+sp/src/materialsystem/stdshaders/makefile.stdshader_dx9_20b.copy
+sp/src/materialsystem/stdshaders/makefile.stdshader_dx9_30
+sp/src/materialsystem/stdshaders/Debug_dx9_mod_of2sp/*
+sp/src/materialsystem/stdshaders/fxctmp9/*
+sp/src/materialsystem/stdshaders/fxctmp9_tmp/*
+sp/src/materialsystem/stdshaders/shaders/*
+sp/src/materialsystem/stdshaders/filelist.txt
+sp/src/materialsystem/stdshaders/filelistgen.txt
+sp/src/materialsystem/stdshaders/filestocopy.txt
+sp/src/materialsystem/stdshaders/makefile.of2shader_dx9_30
+sp/src/materialsystem/stdshaders/makefile.of2shader_dx9_30.copy
+sp/src/materialsystem/stdshaders/uniquefilestocopy.txt
+sp/game/mod_of2sp/shaders/fxc/example_model_ps20b.vcs
+sp/game/mod_of2sp/shaders/fxc/example_model_vs20.vcs
+sp/game/mod_of2sp/shaders/fxc/passthrough_vs30.vcs
+sp/game/mod_of2sp/shaders/fxc/post_chromatic_aberration_ps30.vcs
+sp/game/mod_of2sp/shaders/fxc/post_nightvision_ps30.vcs
+sp/game/mod_of2sp/shaders/fxc/post_vignette_ps30.vcs
+sp/game/mod_of2sp/shaders/fxc/sdk_bloomadd_ps20.vcs
+sp/game/mod_of2sp/shaders/fxc/sdk_bloomadd_ps20b.vcs
+sp/game/mod_of2sp/shaders/fxc/post_cubic_ps30.vcs
+sp/game/mod_of2sp/shaders/fxc/sdk_bloom_ps20.vcs
+sp/game/mod_of2sp/shaders/fxc/sdk_bloom_ps20b.vcs
+sp/game/mod_of2sp/shaders/fxc/sdk_screenspaceeffect_vs20.vcs
+sp/src/materialsystem/stdshaders/vcslist.txt

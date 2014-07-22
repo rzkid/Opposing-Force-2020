@@ -1,0 +1,16 @@
+#include "common_ps_fxc.h"
+ 
+const HALF dist : register (c0);
+
+sampler BaseTextureSampler : register( s0 ); 
+ 
+HALF4 main(float2 iTexCoord : TEXCOORD0) : COLOR
+{
+	float4 cColor;
+	cColor.r = tex2D(BaseTextureSampler,iTexCoord).r;
+	cColor.g = tex2D(BaseTextureSampler, iTexCoord.xy + dist).g;
+	cColor.b = tex2D(BaseTextureSampler, iTexCoord.xy + dist + dist).b;
+	cColor.a = 1.0;
+
+	return cColor;
+}

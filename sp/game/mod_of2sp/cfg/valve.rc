@@ -11,7 +11,7 @@ viewmodel_fov 65
 // stuff command line statements
 //
 stuffcmds
-//startupmenu
+startupmenu
 //---
 
 //map_background background01

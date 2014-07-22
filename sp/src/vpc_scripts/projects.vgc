@@ -15,6 +15,7 @@ $Project "captioncompiler"
 
 $Project "client"
 {
+	"game\client\client_of2.vpc"	[($WIN32||$X360||$POSIX) && $OF2]
 	"game\client\client_hl2.vpc"		[($WIN32||$X360||$POSIX) && $HL2]
 	"game\client\client_episodic.vpc"	[($WIN32||$X360||$POSIX) && $EPISODIC]
 }
@@ -42,6 +43,7 @@ $Project "height2normal"
 
 $Project "server"
 {
+	"game\server\server_of2.vpc"		[($WIN32||$X360||$POSIX) && $OF2]
 	"game\server\server_hl2.vpc"		[($WIN32||$X360||$POSIX) && $HL2]
 	"game\server\server_episodic.vpc"	[($WIN32||$X360||$POSIX) && $EPISODIC]
 }

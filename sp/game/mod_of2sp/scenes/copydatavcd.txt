@@ -1,0 +1,114 @@
+// Choreo version 1
+actor "radio"
+{
+  channel "Voice"
+  {
+    event gesture "g_Rifle_LHand"
+    {
+      time 98.404762 105.130951
+      param "g_Rifle_LHand"
+      absolutetags playback_time
+      {
+        "apex" 0.080531
+        "accent" 0.348673
+        "loop" 0.437168
+        "end" 0.492035
+      }
+      absolutetags shifted_time
+      {
+        "apex" 0.250000
+        "accent" 0.390625
+        "loop" 0.500000
+        "end" 0.625000
+      }
+      sequenceduration 2.166667
+    }
+    event moveto "movetomonitor"
+    {
+      time 100.428566 111.571434
+      param "lookmonitor"
+      param3 "lookmonitor"
+      distancetotarget 30.00
+      forceshortmovement
+    }
+    event gesture "GestureButton"
+    {
+      time 105.738098 107.871429
+      param "GestureButton"
+      absolutetags playback_time
+      {
+        "apex" 0.222222
+        "accent" 0.904762
+        "loop" 0.920635
+        "end" 0.936508
+      }
+      absolutetags shifted_time
+      {
+        "apex" 0.222222
+        "accent" 0.904762
+        "loop" 0.920635
+        "end" 0.936508
+      }
+      sequenceduration 2.133333
+    }
+    event gesture "g_consoleType_rifle"
+    {
+      time 107.404762 109.371429
+      param "g_consoleType_rifle"
+      absolutetags playback_time
+      {
+        "in" 0.275862
+        "loop" 0.344828
+        "end" 0.758621
+        "out" 0.775862
+      }
+      absolutetags shifted_time
+      {
+        "in" 0.275862
+        "loop" 0.344828
+        "end" 0.758621
+        "out" 0.775862
+      }
+      sequenceduration 1.966667
+    }
+    event gesture "Posture04"
+    {
+      time 109.119057 111.085724
+      param "Posture04"
+      absolutetags playback_time
+      {
+        "apex" 0.517241
+        "loop" 0.551724
+        "end" 0.603448
+      }
+      absolutetags shifted_time
+      {
+        "apex" 0.517241
+        "loop" 0.551724
+        "end" 0.603448
+      }
+      sequenceduration 1.966667
+    }
+    event gesture "g_cb_wave_noLoop"
+    {
+      time 101.750008 104.650009
+      param "g_cb_wave_noLoop"
+      absolutetags playback_time
+      {
+        "apex" 0.139535
+        "accent" 0.523256
+        "loop" 0.780698
+        "end" 0.790698
+      }
+      absolutetags shifted_time
+      {
+        "apex" 0.139535
+        "accent" 0.523256
+        "loop" 0.790698
+        "end" 0.790698
+      }
+      sequenceduration 2.900000
+    }
+  }
+}
+

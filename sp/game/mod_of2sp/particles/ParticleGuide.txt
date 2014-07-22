@@ -1,0 +1,24 @@
+of2_city.pcf
+-of2_city_brokenhydrant: Large and expensive effect for a broken fire hydrant. Aprrox. 770 units tall, 389 max particles.
+-of2_city_buildingsmoke_01: Large smoke effect for burning buildings. 105 max particles.
+-of2_city_buildingsmoke_02: Large smoke effect for burning buildings. 50 max particles. For use in distant areas that the player will never come close to.
+-of2_city_manholesteam: Small, subtle steam effect for a manhole cover. Diameter of manhole is 50 units. Works best in dark areas. 70 particles.
+-of2_city_manholesteam_big: Larger steam effect for a manhole cover. Diameter of manhole is 50 units. Works best in dark areas. 140 particles.
+-of2_city_ventblock: Steam effect for 64x64x64 vent blocks, emits steam from four sides. 120 particles.
+
+of2_npc_mortarsynth.pcf
+-of2_npc_mortarsynth_charge: Charging effect for the mortar synth. Attach to the model on the attachment the charge should appear at. Charging takes about three seconds. Does not self terminate.
+-of2_npc_mortarsynth_explosion: Explosion effect for the mortar synth's mortar.
+-of2_npc_mortarsynth_mortar: Effect for the mortar synth's mortar projectile. Attach to the projectile.
+
+of2_heli.pcf
+-of2_heli_cutscenemissile_manager: Placeholder for intro cutscene until missile entity is coded. Missiles will from from Control Point 1 to the origin of the effect at a set speed, will explode after one second.
+-of2_heli_missile: Missile flare, jet, and smoke effect. Parent to missile entity.
+-of2_heli_missileexplosion: Missile explosion effect. Very large orange fireball with burning debris and lingering smoke.
+
+of2_gunshipscene.pcf
+-of2_gunshipscene_explosion_core: Large yellow explosion with rays and shockwave intended for use on gunship destruction. Lingering smoke.
+-of2_gunshipscene_flame: Bright flame effect. Attach to gunship to make it burn.
+
+of2_xen_teleport.pcf
+-(WIP) of2_xen_teleport: Green teleport effect with lightning and glow, lasts 2 seconds.

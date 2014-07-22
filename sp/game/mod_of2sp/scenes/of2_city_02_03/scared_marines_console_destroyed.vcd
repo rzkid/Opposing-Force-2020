@@ -1,0 +1,92 @@
+// Choreo version 1
+actor "Scared_Soldier_1"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_02_03\aliensobs1"
+    {
+      time 0.013333 3.917233
+      param "VO\of2_city_02_03\aliensobs1.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "Flex"
+  {
+  }
+  channel "Look At"
+  {
+  }
+  faceposermodel "models\characters\phoenix_marine_face04.mdl"
+}
+
+actor "Scared_Soldier_2"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_02_03\HellYeah"
+    {
+      time 4.406668 9.075693
+      param "VO\of2_city_02_03\HellYeah.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "Flex"
+  {
+    event flexanimation "Face3"
+    {
+      time 4.400000 9.093334
+      param ""
+      flexanimations samples_use_time defaultcurvetype=curve_catmullrom_normalize_x_to_curve_catmullrom_normalize_x
+      {
+        "inner_raiser" combo 
+        {
+          0.0620 0.0700
+          1.3480 0.0900
+        }
+        {
+        }
+        "outer_raiser" combo 
+        {
+          0.1360 0.1700
+          0.2680 0.6100
+          0.8580 0.2300
+        }
+        {
+        }
+        "wrinkler" 
+        {
+          0.1620 0.2667
+          0.9380 0.2900
+        }
+        "jaw_drop" 
+        {
+          0.1280 0.5800
+          0.3220 0.1300
+          0.6120 0.2600
+          0.8060 0.0500
+        }
+        "smile" 
+        {
+          0.0920 0.1500
+          0.2380 0.1800
+        }
+      }
+    }
+  }
+}
+
+scalesettings
+{
+  "CChoreoView" "100"
+  "SceneRampTool" "100"
+  "ExpressionTool" "96"
+  "GestureTool" "100"
+  "RampTool" "100"
+}
+fps 60
+snap off
+ignorePhonemes off

@@ -1,0 +1,117 @@
+// Choreo version 1
+actor "Scared_Soldier_1"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_02_03\situation3"
+    {
+      time 0.002319 6.375358
+      param "VO\of2_city_02_03\situation3.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "Flex"
+  {
+  }
+  channel "Look At"
+  {
+  }
+  faceposermodel "models\characters\phoenix_marine_face04.mdl"
+}
+
+actor "Scared_Soldier_2"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_02_03\MortarTargeting"
+    {
+      time 6.653333 10.714648
+      param "of2_city_02_03.MortarTargeting"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "Flex"
+  {
+    event flexanimation "Face2"
+    {
+      time 6.633334 10.740002
+      param ""
+      flexanimations samples_use_time defaultcurvetype=curve_catmullrom_normalize_x_to_curve_catmullrom_normalize_x
+      {
+        "inner_raiser" combo 
+        {
+          0.0880 0.1600
+          0.3740 0.0000
+          0.8321 0.1100
+          0.9421 0.3300
+          1.1301 0.0500
+          1.8120 0.4600
+          2.2200 0.1600
+        }
+        {
+        }
+        "outer_raiser" combo 
+        {
+          0.2100 0.2100
+          0.4100 0.0700
+          0.8020 0.1500
+          0.9220 0.4400
+          1.1220 0.1400
+          1.7280 0.1300
+          1.9080 0.4800
+          2.3860 0.0600
+        }
+        {
+        }
+        "lowerer" combo 
+        {
+          1.3320 0.0800
+          1.5040 0.4000
+          1.7180 0.1200
+        }
+        {
+        }
+        "cheek_raiser" combo 
+        {
+          0.0600 0.1500
+          0.3240 0.0600
+        }
+        {
+        }
+        "wrinkler" 
+        {
+          0.0400 0.0700
+          0.3400 0.0400
+          1.3000 0.1300
+          1.4480 0.4800
+          1.7480 0.1400
+        }
+      }
+    }
+  }
+  channel "Animation"
+  {
+    event gesture "Hand_ToRight"
+    {
+      time 7.946667 9.096667
+      param "hand_toright"
+      sequenceduration 1.150000
+    }
+  }
+}
+
+scalesettings
+{
+  "CChoreoView" "100"
+  "SceneRampTool" "100"
+  "ExpressionTool" "96"
+  "GestureTool" "100"
+  "RampTool" "100"
+}
+fps 60
+snap off
+ignorePhonemes off

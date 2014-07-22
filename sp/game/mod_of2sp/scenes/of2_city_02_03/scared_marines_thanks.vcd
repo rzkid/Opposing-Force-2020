@@ -1,0 +1,44 @@
+// Choreo version 1
+actor "Scared_Soldier_1"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_02_03\thanks4"
+    {
+      time 0.009431 9.242991
+      param "VO\of2_city_02_03\thanks4.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "Flex"
+  {
+  }
+  channel "Look At"
+  {
+  }
+  faceposermodel "models\characters\phoenix_marine_face04.mdl"
+}
+
+actor "Scared_Soldier_2"
+{
+  channel "Voice"
+  {
+  }
+  channel "Flex"
+  {
+  }
+}
+
+scalesettings
+{
+  "CChoreoView" "72"
+  "SceneRampTool" "100"
+  "ExpressionTool" "96"
+  "GestureTool" "100"
+  "RampTool" "100"
+}
+fps 60
+snap off
+ignorePhonemes off

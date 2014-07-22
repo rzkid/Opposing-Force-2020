@@ -1,0 +1,123 @@
+// Choreo version 1
+actor "Scared_Soldier_1"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_02_03\HECUGUY"
+    {
+      time -0.013333 4.524536
+      param "VO\of2_city_02_03\HECUGUY.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_02_03\situation3"
+    {
+      time 7.688986 14.062025
+      param "VO\of2_city_02_03\situation3.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_02_03\aliensobs1"
+    {
+      time 18.626667 22.530567
+      param "VO\of2_city_02_03\aliensobs1.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_02_03\holyshit3"
+    {
+      time 27.946667 32.551270
+      param "VO\of2_city_02_03\holyshit3.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_02_03\thanks4"
+    {
+      time 38.846668 48.080231
+      param "VO\of2_city_02_03\thanks4.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_02_03\tothetruck4"
+    {
+      time 48.820004 51.220730
+      param "VO\of2_city_02_03\tothetruck4.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_02_03\gotosubway"
+    {
+      time 52.086670 61.966579
+      param "VO\of2_city_02_03\gotosubway.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  faceposermodel "models\characters\phoenix_marine_face04.mdl"
+}
+
+actor "Scared_Soldier_2"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_02_03\1"
+    {
+      time 4.620000 7.560952
+      param "VO\of2_city_02_03\1.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_02_03\2"
+    {
+      time 14.339999 18.401314
+      param "VO\of2_city_02_03\2.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_02_03\3"
+    {
+      time 23.020002 27.689028
+      param "VO\of2_city_02_03\3.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_02_03\5"
+    {
+      time 33.186668 38.492428
+      param "VO\of2_city_02_03\5.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_02_03\6"
+    {
+      time 62.366669 63.895943
+      param "VO\of2_city_02_03\6.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+}
+
+scalesettings
+{
+  "CChoreoView" "100"
+  "SceneRampTool" "100"
+  "ExpressionTool" "100"
+  "GestureTool" "100"
+  "RampTool" "100"
+}
+fps 60
+snap off
+ignorePhonemes off

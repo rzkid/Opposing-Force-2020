@@ -1,0 +1,99 @@
+"NPC_Pitdrone.Idle"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_90dB"
+
+	"rndwave"
+	{
+		"wave"	"npc\pitdrone\pit_drone_alert1.wav"
+		"wave"	"npc\pitdrone\pit_drone_alert2.wav"
+		"wave"	"npc\pitdrone\pit_drone_alert3.wav"
+	}
+}
+
+"NPC_Pitdrone.Alert"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_90dB"
+
+	"rndwave"
+	{
+		"wave"	"npc\pitdrone\pit_drone_alert1.wav"
+		"wave"	"npc\pitdrone\pit_drone_alert2.wav"
+		"wave"	"npc\pitdrone\pit_drone_alert3.wav"
+	}
+}
+
+"NPC_Pitdrone.ShootSpike"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_90dB"
+
+	"rndwave"
+	{
+		"wave"	"npc\pitdrone\pit_drone_attack_spike1.wav"
+		"wave"	"npc\pitdrone\pit_drone_attack_spike2.wav"
+
+	}
+}
+
+"NPC_Pitdrone.Death"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_90dB"
+
+	"rndwave"
+	{
+		"wave"	"npc\pitdrone\pit_drone_die1.wav"
+		"wave"	"npc\pitdrone\pit_drone_die2.wav"
+		"wave"	"npc\pitdrone\pit_drone_die3.wav"
+
+	}
+}
+
+"NPC_Pitdrone.MeleeAttack"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_90dB"
+
+	"rndwave"
+	{
+		"wave"	"npc\pitdrone\pit_drone_melee_attack1.wav"
+		"wave"	"npc\pitdrone\pit_drone_melee_attack2.wav"
+		"wave"	"npc\pitdrone\pit_drone_melee_attack3.wav"
+
+	}
+}
+
+"NPC_Pitdrone.Pain"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_90dB"
+
+	"rndwave"
+	{
+		"wave"	"npc\pitdrone\pit_drone_pain1.wav"
+		"wave"	"npc\pitdrone\pit_drone_pain2.wav"
+		"wave"	"npc\pitdrone\pit_drone_pain3.wav"
+		"wave"	"npc\pitdrone\pit_drone_pain4.wav"
+
+	}
+}

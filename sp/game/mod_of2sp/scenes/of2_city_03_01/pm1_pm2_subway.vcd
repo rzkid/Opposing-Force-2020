@@ -1,0 +1,674 @@
+// Choreo version 1
+actor "PM1"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_03_01\ahhey"
+    {
+      time 0.013333 1.952381
+      param "VO\of2_city_03_01\ahhey.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\asskickexpress"
+    {
+      time 30.208040 34.526951
+      param "VO\of2_city_03_01\asskickexpress.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\iguess"
+    {
+      time 81.455879 85.623863
+      param "VO\of2_city_03_01\iguess.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\iknow"
+    {
+      time 50.911564 53.152290
+      param "VO\of2_city_03_01\iknow.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\iwonder"
+    {
+      time 73.859802 76.599754
+      param "VO\of2_city_03_01\iwonder.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\knock"
+    {
+      time 16.410788 19.940220
+      param "VO\of2_city_03_01\knock.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\paintrain"
+    {
+      time 46.793919 48.616684
+      param "VO\of2_city_03_01\paintrain.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\shield"
+    {
+      time 63.128429 66.914192
+      param "VO\of2_city_03_01\shield.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\hesright"
+    {
+      time 39.823528 42.830513
+      param "VO\of2_city_03_01\hesright.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\p1_youre"
+    {
+      time 95.135422 96.104942
+      param "VO\of2_city_03_01\p1_youre.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\p1_oh"
+    {
+      time 101.104172 101.750519
+      param "VO\of2_city_03_01\p1_oh.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\p1_i_used_to_ride"
+    {
+      time 102.427086 104.089127
+      param "VO\of2_city_03_01\p1_i_used_to_ride.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\p1_newspaper"
+    {
+      time 109.739594 113.525352
+      param "VO\of2_city_03_01\p1_newspaper.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\p1_wereallbumsnow"
+    {
+      time 117.833344 122.219284
+      param "VO\of2_city_03_01\p1_wereallbumsnow.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\p1_redirect"
+    {
+      time 130.870377 135.394821
+      param "VO\of2_city_03_01\p1_redirect.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\p1_thatwasawesome"
+    {
+      time 154.925919 158.480835
+      param "VO\of2_city_03_01\p1_thatwasawesome.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\p1_were_gonna_try_to"
+    {
+      time 177.722214 184.047195
+      param "VO\of2_city_03_01\p1_were_gonna_try_to.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "Gesture"
+  {
+  }
+  channel "Posture"
+  {
+  }
+  channel "Flex"
+  {
+  }
+  channel "Look At"
+  {
+    event lookat "LookPlayer"
+    {
+      time 0.019608 8.088236
+      param "!player"
+    }
+    event lookat "LookAtPM2"
+    {
+      time 8.568627 10.666667
+      param "PM2"
+    }
+    event lookat "LookAtPlayer"
+    {
+      time 16.294119 17.980392
+      param "!player"
+    }
+    event lookat "LookAtPM2"
+    {
+      time 17.970589 19.921570
+      param "PM2"
+    }
+    event lookat "LookAtPlayer"
+    {
+      time 19.921570 23.794119
+      param "!player"
+    }
+    event lookat "LK_PM2"
+    {
+      time 23.539217 26.539217
+      param "PM2"
+    }
+    event lookat "LK_PM2"
+    {
+      time 31.166668 35.392159
+      param "PM2"
+    }
+    event lookat "LK_PM2"
+    {
+      time 51.500000 53.294121
+      param "PM2"
+    }
+    event lookat "LK_PM2"
+    {
+      time 63.027775 69.583328
+      param "PM2"
+    }
+    event lookat "LK_PLR"
+    {
+      time 82.444443 86.277779
+      param "!player"
+    }
+    event lookat "LK_PM2"
+    {
+      time 95.574081 101.574081
+      param "PM2"
+    }
+    event lookat "LK_PM2"
+    {
+      time 106.435196 113.685196
+      param "PM2"
+    }
+    event lookat "LK_PM2"
+    {
+      time 132.814819 134.074081
+      param "PM2"
+    }
+    event lookat "LK_PLR"
+    {
+      time 134.018509 135.509247
+      param "!player"
+    }
+    event lookat "LK_PM2"
+    {
+      time 137.750015 141.685196
+      param "PM2"
+    }
+    event lookat "LK_PLR"
+    {
+      time 141.666672 145.148148
+      param "!player"
+    }
+    event lookat "LK_PM2"
+    {
+      time 151.277771 152.722214
+      param "PM2"
+    }
+    event lookat "LK_PLR"
+    {
+      time 152.805557 154.490753
+      param "!player"
+    }
+    event lookat "LK_PLR"
+    {
+      time 154.935196 158.620377
+      param "!player"
+    }
+    event lookat "LK_PLR"
+    {
+      time 177.555557 186.666672
+      param "!player"
+    }
+    event lookat "LK_PM2"
+    {
+      time 168.870377 170.750015
+      param "PM2"
+    }
+    event lookat "LK_Barrier"
+    {
+      time 171.777786 173.166672
+      param "Barrier"
+    }
+    event lookat "LK_PLR"
+    {
+      time 173.564819 176.185196
+      param "!player"
+      event_ramp
+      {
+        0.4940 0.1769
+        1.4020 0.5850
+        1.7100 0.7687
+      }
+    }
+  }
+  channel "Move To"
+  {
+  }
+  faceposermodel "models\humans\group03\Male_04.mdl"
+}
+
+actor "PM2"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_03_01\of2_city_03_01_PM2_17"
+    {
+      time 158.488342 162.966614
+      param "VO\of2_city_03_01\of2_city_03_01_PM2_17.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "vo\of2_city_03_01\of2_city_03_01_PM2_1"
+    {
+      time 2.097466 10.638510
+      param "vo\of2_city_03_01\of2_city_03_01_PM2_1.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "\VO\of2_city_03_01\of2_city_03_01_PM2_2"
+    {
+      time 11.000001 16.170795
+      param "\VO\of2_city_03_01\of2_city_03_01_PM2_2.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "\VO\of2_city_03_01\of2_city_03_01_PM2_3"
+    {
+      time 20.107843 30.080090
+      param "\VO\of2_city_03_01\of2_city_03_01_PM2_3.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\of2_city_03_01_PM2_4"
+    {
+      time 35.647057 39.663654
+      param "VO\of2_city_03_01\of2_city_03_01_PM2_4.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\of2_city_03_01_PM2_5"
+    {
+      time 43.196083 46.473995
+      param "VO\of2_city_03_01\of2_city_03_01_PM2_5.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\of2_city_03_01_PM2_6"
+    {
+      time 48.725491 50.341362
+      param "VO\of2_city_03_01\of2_city_03_01_PM2_6.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\of2_city_03_01_PM2_7"
+    {
+      time 53.539219 59.587200
+      param "VO\of2_city_03_01\of2_city_03_01_PM2_7.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\of2_city_03_01_PM2_9"
+    {
+      time 76.931374 81.271149
+      param "VO\of2_city_03_01\of2_city_03_01_PM2_9.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\of2_city_03_01_PM2_8"
+    {
+      time 67.068626 73.762955
+      param "VO\of2_city_03_01\of2_city_03_01_PM2_8.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_03_01\of2_city_03_01_PM2_10"
+    {
+      time 85.735298 94.368675
+      param "VO\of2_city_03_01\of2_city_03_01_PM2_10.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "vo\of2_city_03_01\of2_city_03_01_PM2_12"
+    {
+      time 104.599258 109.908554
+      param "vo\of2_city_03_01\of2_city_03_01_PM2_12.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "vo\of2_city_03_01\of2_city_03_01_PM2_13"
+    {
+      time 113.806976 117.823578
+      param "vo\of2_city_03_01\of2_city_03_01_PM2_13.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "\VO\of2_city_03_01\of2_city_03_01_PM2_16"
+    {
+      time 149.706787 152.661530
+      param "\VO\of2_city_03_01\of2_city_03_01_PM2_16.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "vo\of2_city_03_01\of2_city_03_01_PM2_11"
+    {
+      time 96.508575 101.079185
+      param "vo\of2_city_03_01\of2_city_03_01_PM2_11.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "vo\of2_city_03_01\of2_city_03_01_PM2_14"
+    {
+      time 122.919724 129.798721
+      param "vo\of2_city_03_01\of2_city_03_01_PM2_14.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "vo\of2_city_03_01\of2_city_03_01_PM2_15"
+    {
+      time 135.530289 149.472961
+      param "vo\of2_city_03_01\of2_city_03_01_PM2_15.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "vo\of2_city_03_01\of2_city_03_01_PM2_18"
+    {
+      time 163.894135 177.513641
+      param "vo\of2_city_03_01\of2_city_03_01_PM2_18.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "vo\of2_city_03_01\of2_city_03_01_PM2_19"
+    {
+      time 183.993805 186.763870
+      param "vo\of2_city_03_01\of2_city_03_01_PM2_19.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "Gesture"
+  {
+    event gesture "g_consoleType_rifle"
+    {
+      time 6.052083 8.018750
+      param "g_consoleType_rifle"
+      absolutetags playback_time
+      {
+        "in" 0.275862
+        "loop" 0.560847
+        "end" 0.758621
+        "out" 0.867725
+      }
+      absolutetags shifted_time
+      {
+        "in" 0.275862
+        "loop" 0.344828
+        "end" 0.758621
+        "out" 0.775862
+      }
+      sequenceduration 1.966667
+    }
+  }
+  channel "Posture"
+  {
+    event gesture "g_Rifle_Raise"
+    {
+      time 3.019608 5.814952
+      param "g_Rifle_Raise"
+      absolutetags playback_time
+      {
+        "apex" 0.096590
+        "accent" 0.315776
+        "loop" 0.527531
+        "end" 0.720712
+      }
+      absolutetags shifted_time
+      {
+        "apex" 0.102564
+        "accent" 0.384615
+        "loop" 0.641026
+        "end" 0.769231
+      }
+      sequenceduration 2.633333
+    }
+    event gesture "g_Rifle_LHand_low"
+    {
+      time 8.156250 10.322917
+      param "g_Rifle_LHand_low"
+      absolutetags playback_time
+      {
+        "apex" 0.250000
+        "accent" 0.390625
+        "loop" 0.500000
+        "end" 0.625000
+      }
+      absolutetags shifted_time
+      {
+        "apex" 0.250000
+        "accent" 0.390625
+        "loop" 0.500000
+        "end" 0.625000
+      }
+      sequenceduration 2.166667
+    }
+  }
+  channel "Flex"
+  {
+  }
+  channel "Look At"
+  {
+    event lookat "LK_PLR"
+    {
+      time 0.882353 9.078432
+      param "!player"
+    }
+    event lookat "LK_PLR"
+    {
+      time 12.333333 17.450981
+      param "!player"
+    }
+    event lookat "LK_PM1"
+    {
+      time 17.441175 19.303921
+      param "PM1"
+    }
+    event lookat "LK_PM1"
+    {
+      time 24.921570 29.509806
+      param "PM1"
+    }
+    event lookat "LK_PLR"
+    {
+      time 29.392159 32.509808
+      param "!player"
+    }
+    event lookat "LK_PM1"
+    {
+      time 33.941177 35.823532
+      param "PM1"
+    }
+    event lookat "LK_PLR"
+    {
+      time 36.362747 39.343140
+      param "!player"
+    }
+    event lookat "LK_PM1"
+    {
+      time 54.145840 55.645840
+      param "PM1"
+    }
+    event lookat "LK_PLR"
+    {
+      time 56.390938 58.920349
+      param "!player"
+    }
+    event lookat "LK_COMPUTER"
+    {
+      time 55.616425 56.116425
+      param "computer_terimal"
+    }
+    event lookat "LK_COMPUTER"
+    {
+      time 59.263485 69.302704
+      param "computer_terimal"
+    }
+    event lookat "LK_PM1"
+    {
+      time 69.509804 70.558823
+      param "PM1"
+    }
+    event lookat "LK_COMPUTER"
+    {
+      time 70.509804 72.156860
+      param "computer_terminal"
+    }
+    event lookat "LK_PM1"
+    {
+      time 72.107849 73.774513
+      param "PM1"
+    }
+    event lookat "LK_COMPUTER"
+    {
+      time 74.362747 96.039230
+      param "computer_terminal"
+    }
+    event lookat "LK_PM1"
+    {
+      time 96.686279 99.196083
+      param "PM1"
+    }
+    event lookat "LK_PM1"
+    {
+      time 114.472229 119.194450
+      param "PM1"
+    }
+    event lookat "LK_PLR"
+    {
+      time 126.240738 129.925934
+      param "!player"
+    }
+    event lookat "LK_PM1"
+    {
+      time 131.296295 134.453705
+      param "PM1"
+    }
+    event lookat "LK_PLR"
+    {
+      time 137.546295 149.990738
+      param "!player"
+    }
+    event lookat "LK_PM1"
+    {
+      time 150.574081 152.166672
+      param "PM1"
+    }
+    event lookat "LK_PM1"
+    {
+      time 164.814804 166.287033
+      param "PM1"
+    }
+    event lookat "LK_PLR"
+    {
+      time 168.249985 170.398132
+      param "!player"
+    }
+    event lookat "LK_Barrier"
+    {
+      time 170.833328 172.833328
+      param "Barrier"
+    }
+    event lookat "LK_PLR"
+    {
+      time 173.796295 177.592590
+      param "!player"
+      event_ramp
+      {
+        0.2540 0.1156
+        1.0840 0.3197
+        1.7520 0.7551
+        3.0919 0.5442
+      }
+    }
+    event lookat "LK_PM1"
+    {
+      time 180.240753 183.453720
+      param "PM1"
+    }
+    event lookat "LK_PLR"
+    {
+      time 184.694443 186.981476
+      param "!player"
+    }
+    event lookat "LK_PLR"
+    {
+      time 177.962967 179.981491
+      param "!player"
+    }
+  }
+  channel "Move To"
+  {
+  }
+  faceposermodel "models\humans\group03\male_08.mdl"
+}
+
+scalesettings
+{
+  "CChoreoView" "72"
+  "SceneRampTool" "100"
+  "ExpressionTool" "100"
+  "GestureTool" "100"
+  "RampTool" "100"
+}
+fps 60
+snap off
+ignorePhonemes off

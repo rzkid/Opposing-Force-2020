@@ -1,0 +1,119 @@
+"NPC_MortarSynth.Alert"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_90dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/mortarsynth/alert1.wav"
+		"wave"	"npc/mortarsynth/alert2.wav"
+		"wave"	"npc/mortarsynth/alert3.wav"
+	}
+}
+
+"NPC_MortarSynth.Charge"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_120dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/mortarsynth/charge1.wav"
+	}
+}
+
+"NPC_MortarSynth.Death"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_110dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/mortarsynth/death1.wav"
+		"wave"	"npc/mortarsynth/death2.wav"
+		"wave"	"npc/mortarsynth/death3.wav"
+	}
+}
+
+
+"NPC_MortarSynth.Explode"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_70dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/mortarsynth/Explode1.wav"
+	}
+}
+
+"NPC_MortarSynth.Fire"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_100dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/mortarsynth/fire1.wav"
+		"wave"	"npc/mortarsynth/fire2.wav"
+		"wave"	"npc/mortarsynth/fire3.wav"
+	}
+}
+
+"NPC_MortarSynth.Idle"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_80dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/mortarsynth/idle1.wav"
+		"wave"	"npc/mortarsynth/idle2.wav"
+		"wave"	"npc/mortarsynth/idle3.wav"
+		"wave"	"npc/mortarsynth/idle4.wav"
+		"wave"	"npc/mortarsynth/idle5.wav"
+		"wave"	"npc/mortarsynth/idle6.wav"
+		"wave"	"npc/mortarsynth/idle7.wav"
+		"wave"	"npc/mortarsynth/idle8.wav"
+		"wave"	"npc/mortarsynth/idle9.wav"
+		"wave"	"npc/mortarsynth/idle10.wav"
+	}
+}
+
+
+"NPC_MortarSynth.Pain"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_100dB"
+
+	"rndwave"
+	{
+		"wave"	"npc/mortarsynth/pain1.wav"
+		"wave"	"npc/mortarsynth/pain2.wav"
+		"wave"	"npc/mortarsynth/pain3.wav"
+		"wave"	"npc/mortarsynth/pain4.wav"
+		"wave"	"npc/mortarsynth/pain5.wav"
+		"wave"	"npc/mortarsynth/pain6.wav"
+	}
+}

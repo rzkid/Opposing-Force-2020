@@ -1,0 +1,224 @@
+//Lieutenant
+"of2_city_02_03.1-StaringatGhost"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/1-StaringatGhost.wav"
+}
+"of2_city_02_03.2-YouretheHecu"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/2-YouretheHecu.wav"
+}
+"of2_city_02_03.3-NewsTravelsFast"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/3-NewsTravelsFast.wav"
+}
+"of2_city_02_03.4-Barely5Min"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/4-Barely5Min.wav"
+}
+"of2_city_02_03.5-EveryoneKnowsYou"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/5-EveryoneKnowsYou.wav"
+}
+"of2_city_02_03.6-StillJustCorpral"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/6-StillJustCorpral.wav"
+}
+"of2_city_02_03.7-RightNowJeffersonAve"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/7-RightNowJeffersonAve.wav"
+}
+"of2_city_02_03.8-MakeThisQuick"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/8-MakeThisQuick.wav"
+}
+"of2_city_02_03.9-PinnedDown"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/9-PinnedDown.wav"
+}
+"of2_city_02_03.10-OrStrider_1"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/10-OrStrider_1.wav"
+}
+"of2_city_02_03.11-BrushOffBadCold_1"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/11-BrushOffBadCold_1.wav"
+}
+"of2_city_02_03.12-DumpsterCover"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/12-DumpsterCover.wav"
+}
+"of2_city_02_03.13-EscortToSubway"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/13-EscortToSubway.wav"
+}
+"of2_city_02_03.14-MoveYourAss"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/14-MoveYourAss.wav"
+}
+//Scared_Marines
+"of2_city_02_03.HECUguy"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/HECUguy.wav"
+}
+"of2_city_02_03.SomeKindaBadass"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/SomeKindaBadass.wav"
+}
+"of2_city_02_03.Situation3"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/Situation3.wav"
+}
+"of2_city_02_03.MortarTargeting"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/MortarTargeting.wav"
+}
+"of2_city_02_03.AlienSOBS1"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/AlienSOBS1.wav"
+}
+"of2_city_02_03.HellYeah"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/HellYeah.wav"
+}
+"of2_city_02_03.Holyshit3"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/Holyshit3.wav"
+}
+"of2_city_02_03.Combine"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_03/Combine.wav"
+}
+
+

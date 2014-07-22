@@ -1,0 +1,75 @@
+WeaponData {
+
+	"printname""#OF2_SRIFLE"
+	"viewmodel""models/weapons/v_sniper.mdl"
+	"playermodel""models/weapons/w_irifle.mdl"
+	"anim_prefix" "ar2"
+	"bucket" "4"
+	"bucket_position" "3"
+	"clip_size" "10"
+	"default_clip" "40"
+	"clip2_size" "-1"
+	"default_clip2" "-1"
+	"primary_ammo" "SniperRound"
+	"secondary_ammo" "None"
+	"weight" "11"
+	"BuiltRightHanded" "0"
+	"AllowFlipping" "1"
+	"damage" "35"
+	
+	SoundData
+	{
+		"special1"    "weapon_sniper.Special1"
+		"special2"    "weapon_sniper.Special2"
+		"single_shot" "Weapon_SniperRifle.Single"
+		"reload"      "weapon_sniper.Reload"
+		"empty"       "weapon_IRifle.Empty"
+	}
+	
+		// Weapon Sprite data is loaded by the Client DLL.
+	TextureData
+	{
+		"weapon"
+		{
+				"font"		"WeaponIcons"
+				"character"	"g"
+		}
+		"weapon_s"
+		{	
+				"font"		"WeaponIconsSelected"
+				"character"	"g"
+		}
+		"ammo"
+		{
+				"font"		"WeaponIcons"
+				"character"	"w"
+		}
+		"crosshair"
+		{
+				"font"		"Crosshairs"
+				"character"	"Q"
+		}		
+		"autoaim"
+		{
+			"file"		"sprites/crosshairs"
+			"x"		"0"
+			"y"		"96"
+			"width"		"24"
+			"height"	"24"
+		}
+		"zoom"
+		{
+				"font"		"Crosshairs"
+				"character"	"Q"
+		}		
+		"zoom_autoaim"
+		{
+			"file"		"sprites/crosshairs"
+			"x"		"24"
+			"y"		"112"
+			"width"		"104"
+			"height"	"16"
+		}
+	}
+}
+		

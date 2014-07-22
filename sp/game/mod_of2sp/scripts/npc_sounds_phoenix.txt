@@ -1,0 +1,4813 @@
+//
+//
+// NOTE:  AUTOMATICALLY GENERATED FILE, ANY HAND EDITED COMMENTS WILL BE LOST!!!
+// NOTE:  AUTOMATICALLY GENERATED FILE, ANY HAND EDITED COMMENTS WILL BE LOST!!!
+// NOTE:  AUTOMATICALLY GENERATED FILE, ANY HAND EDITED COMMENTS WILL BE LOST!!!
+//
+// VOL_NORM		1.0f
+//
+//-----------------------------------------------------------------------------
+// common attenuation values
+//-----------------------------------------------------------------------------
+//
+// DON'T USE THESE - USE SNDLVL_ INSTEAD!!!
+//	ATTN_NONE		0.0f	
+//	ATTN_NORM		0.8f
+//	ATTN_IDLE		2.0f
+//	ATTN_STATIC		1.25f 
+//	ATTN_RICOCHET	1.5f
+//	ATTN_GUNFIRE	0.27f
+//
+//	SNDLVL_NONE		= 0,
+//	SNDLVL_25dB		= 25,
+//	SNDLVL_30dB		= 30,
+//	SNDLVL_35dB		= 35,
+//	SNDLVL_40dB		= 40,
+//	SNDLVL_45dB		= 45,
+//	SNDLVL_50dB		= 50,	= 3.9
+//	SNDLVL_55dB		= 55,	= 3.0
+//	SNDLVL_IDLE		= 60,	= 2.0
+//	SNDLVL_TALKING		= 60,	= 2.0
+//	SNDLVL_60dB		= 60,	= 2.0
+//	SNDLVL_65dB		= 65,	= 1.5
+//	SNDLVL_STATIC		= 66,	= 1.25
+//	SNDLVL_70dB		= 70,	= 1.0
+//	SNDLVL_NORM		= 75,
+//	SNDLVL_75dB		= 75,	= 0.8
+//	SNDLVL_80dB		= 80,	= 0.7
+//	SNDLVL_85dB		= 85,	= 0.6
+//	SNDLVL_90dB		= 90,	= 0.5
+//	SNDLVL_95dB		= 95,
+//	SNDLVL_100dB	= 100,	= 0.4
+//	SNDLVL_105dB	= 105,
+//	SNDLVL_120dB	= 120,
+//	SNDLVL_130dB	= 130,
+//	SNDLVL_GUNFIRE	= 140, = 0.27
+//	SNDLVL_140dB	= 140,	= 0.2
+//	SNDLVL_150dB	= 150,	= 0.2
+//
+
+
+
+
+"testcommands"
+{
+	"channel"		"CHAN_AUTO"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"closecaption/testcommands_phoenix.wav"
+}
+
+"npc_phoenix.FootstepLeft"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"0.600000"
+	"pitch"			"95, 105"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"player/footsteps/concrete1.wav"
+		"wave"	"player/footsteps/concrete2.wav"
+	}
+}
+
+"npc_phoenix.FootstepRight"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"0.600000"
+	"pitch"			"95, 105"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"player/footsteps/concrete3.wav"
+		"wave"	"player/footsteps/concrete4.wav"
+	}
+}
+
+"npc_phoenix.RunFootstepLeft"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"0.400000"
+	"pitch"			"95, 105"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"npc/footsteps/hardboot_generic1.wav"
+		"wave"	"npc/footsteps/hardboot_generic3.wav"
+		"wave"	"npc/footsteps/hardboot_generic5.wav"
+	}
+}
+
+"npc_phoenix.RunFootstepRight"
+{
+	"channel"		"CHAN_BODY"
+	"volume"		"0.400000"
+	"pitch"			"95, 105"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"npc/footsteps/hardboot_generic2.wav"
+		"wave"	"npc/footsteps/hardboot_generic4.wav"
+		"wave"	"npc/footsteps/hardboot_generic6.wav"
+	}
+}
+
+
+
+"npc_phoenix.die"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"rndwave"
+	{
+		"wave"	"*vo/npc/phoenix/pain01.wav"
+		"wave"	"*vo/npc/phoenix/pain02.wav"
+		"wave"	"*vo/npc/phoenix/pain03.wav"
+		"wave"	"*vo/npc/phoenix/pain04.wav"
+		"wave"	"*vo/npc/phoenix/pain05.wav"
+		"wave"	"*vo/npc/phoenix/pain06.wav"
+		"wave"	"*vo/npc/phoenix/pain07.wav"
+		"wave"	"*vo/npc/phoenix/pain08.wav"
+		"wave"	"*vo/npc/phoenix/pain09.wav"
+	}
+}
+
+"npc_phoenix.abouttime01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/abouttime01.wav"
+}
+
+"npc_phoenix.abouttime02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.500000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/abouttime02.wav"
+}
+
+"npc_phoenix.almosthityou01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.750000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/almosthityou01.wav"
+}
+
+"npc_phoenix.antguard01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.750000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/antguard01.wav"
+}
+
+"npc_phoenix.antguard02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.750000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/antguard02.wav"
+}
+
+"npc_phoenix.antlion01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/antlion01.wav"
+}
+
+"npc_phoenix.antlion02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/antlion02.wav"
+}
+
+"npc_phoenix.antlions01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/antlions01.wav"
+}
+
+"npc_phoenix.antlions02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/antlions02.wav"
+}
+
+"npc_phoenix.areyoucrazy"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/areyoucrazy.wav"
+}
+
+"npc_phoenix.barnacles01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/barnacles01.wav"
+}
+
+"npc_phoenix.barnacles02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/barnacles02.wav"
+}
+
+"npc_phoenix.bouncebombs01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/bouncebombs01.wav"
+}
+
+"npc_phoenix.bouncebombs02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/bouncebombs02.wav"
+}
+
+"npc_phoenix.damntiddly01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/damntiddly01.wav"
+}
+
+"npc_phoenix.damntiddly02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/damntiddly02.wav"
+}
+
+"npc_phoenix.hoppers01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/hoppers01.wav"
+}
+
+"npc_phoenix.hoppers02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/hoppers02.wav"
+}
+
+"npc_phoenix.howdimissthat"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/howdimissthat.wav"
+}
+
+"npc_phoenix.busy01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/busy01.wav"
+}
+
+"npc_phoenix.busy02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/busy02.wav"
+}
+
+"npc_phoenix.busy03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/busy03.wav"
+}
+
+"npc_phoenix.busy04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/busy04.wav"
+}
+
+"npc_phoenix.busy05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/busy05.wav"
+}
+
+"npc_phoenix.careful01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.800000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/careful01.wav"
+}
+
+"npc_phoenix.careful02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.800000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/careful02.wav"
+}
+
+"npc_phoenix.carefultherefm"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.800000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/carefultherefm.wav"
+}
+
+"npc_phoenix.combine01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/combine01.wav"
+}
+
+"npc_phoenix.doingsomething"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.450000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/doingsomething.wav"
+}
+
+"npc_phoenix.getdown01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/getdown01.wav"
+}
+
+"npc_phoenix.getdown02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/getdown02.wav"
+}
+
+"npc_phoenix.getgoingsoon"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.465000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/getgoingsoon.wav"
+}
+
+"npc_phoenix.goodgod"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.550000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/goodgod.wav"
+}
+
+"npc_phoenix.gotone01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gotone01.wav"
+}
+
+"npc_phoenix.gotone02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gotone02.wav"
+}
+
+"npc_phoenix.gunship02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gunship02.wav"
+}
+
+"npc_phoenix.imhurt01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/imhurt01.wav"
+}
+
+"npc_phoenix.imhurt02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.700000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/imhurt02.wav"
+}
+
+"npc_phoenix.likethat"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/likethat.wav"
+}
+
+"npc_phoenix.likethemapples"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/likethemapples.wav"
+}
+
+"npc_phoenix.lookoutfm01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/lookoutfm01.wav"
+}
+
+"npc_phoenix.lookoutfm02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/lookoutfm02.wav"
+}
+
+"npc_phoenix.moan01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.300000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/moan01.wav"
+}
+
+"npc_phoenix.moan02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.300000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/moan02.wav"
+}
+
+"npc_phoenix.moan03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.300000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/moan03.wav"
+}
+
+"npc_phoenix.moan04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/moan04.wav"
+}
+
+"npc_phoenix.moan05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.300000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/moan05.wav"
+}
+
+"npc_phoenix.ohno"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/ohno.wav"
+}
+
+"npc_phoenix.ok01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/ok01.wav"
+}
+
+"npc_phoenix.ok02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/ok02.wav"
+}
+
+"npc_phoenix.okdoc01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/okdoc01.wav"
+}
+
+"npc_phoenix.okdoc02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/okdoc02.wav"
+}
+
+"npc_phoenix.okimready01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/okimready01.wav"
+}
+
+"npc_phoenix.okimready02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/okimready02.wav"
+}
+
+"npc_phoenix.okimready03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/okimready03.wav"
+}
+
+"npc_phoenix.onyourside"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/onyourside.wav"
+}
+
+"npc_phoenix.outthere01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/outthere01.wav"
+}
+
+"npc_phoenix.outthere02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/outthere02.wav"
+}
+
+"npc_phoenix.overhere01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/overhere01.wav"
+}
+
+"npc_phoenix.overhere01a"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/overhere01a.wav"
+}
+
+"npc_phoenix.overhere02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/overhere02.wav"
+}
+
+"npc_phoenix.overhere03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/overhere03.wav"
+}
+
+"npc_phoenix.ow01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/ow01.wav"
+}
+
+"npc_phoenix.ow02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/ow02.wav"
+}
+
+"npc_phoenix.pain01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/pain01.wav"
+}
+
+"npc_phoenix.pain02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/pain02.wav"
+}
+
+"npc_phoenix.pain03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/pain03.wav"
+}
+
+"npc_phoenix.pain04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/pain04.wav"
+}
+
+"npc_phoenix.pain05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/pain05.wav"
+}
+
+"npc_phoenix.pain06"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/pain06.wav"
+}
+
+"npc_phoenix.pain07"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/pain07.wav"
+}
+
+"npc_phoenix.pain08"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/pain08.wav"
+}
+
+"npc_phoenix.pain09"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/pain09.wav"
+}
+
+"npc_phoenix.no01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/no01.wav"
+}
+
+"npc_phoenix.no02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/no02.wav"
+}
+
+"npc_phoenix.startle01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.500000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/startle01.wav"
+}
+
+"npc_phoenix.startle02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/startle02.wav"
+}
+
+"npc_phoenix.stopitfm"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/stopitfm.wav"
+}
+
+"npc_phoenix.uhoh"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".7"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/uhoh.wav"
+}
+
+"npc_phoenix.waitingsomebody"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".5"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/waitingsomebody.wav"
+}
+
+"npc_phoenix.watchout"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/watchout.wav"
+}
+
+"npc_phoenix.watchwhat"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/watchwhat.wav"
+}
+
+"npc_phoenix.question01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question01.wav"
+}
+
+"npc_phoenix.question02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question02.wav"
+}
+
+"npc_phoenix.question03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question03.wav"
+}
+
+"npc_phoenix.question04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question04.wav"
+}
+
+"npc_phoenix.question05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question05.wav"
+}
+
+"npc_phoenix.question06"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question06.wav"
+}
+
+"npc_phoenix.question07"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question07.wav"
+}
+
+"npc_phoenix.question08"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question08.wav"
+}
+
+"npc_phoenix.question09"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question09.wav"
+}
+
+"npc_phoenix.question10"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question10.wav"
+}
+
+"npc_phoenix.question11"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question11.wav"
+}
+
+"npc_phoenix.question12"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question12.wav"
+}
+
+"npc_phoenix.question13"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question13.wav"
+}
+
+"npc_phoenix.question14"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question14.wav"
+}
+
+"npc_phoenix.question15"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question15.wav"
+}
+
+"npc_phoenix.question16"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question16.wav"
+}
+
+"npc_phoenix.question17"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question17.wav"
+}
+
+"npc_phoenix.question18"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question18.wav"
+}
+
+"npc_phoenix.question19"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question19.wav"
+}
+
+"npc_phoenix.question20"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question20.wav"
+}
+
+"npc_phoenix.question21"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question21.wav"
+}
+
+"npc_phoenix.question22"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question22.wav"
+}
+
+"npc_phoenix.question23"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question23.wav"
+}
+
+"npc_phoenix.question24"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question24.wav"
+}
+
+"npc_phoenix.question25"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question25.wav"
+}
+
+"npc_phoenix.question26"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question26.wav"
+}
+
+"npc_phoenix.question27"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question27.wav"
+}
+
+"npc_phoenix.question28"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question28.wav"
+}
+
+"npc_phoenix.question29"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question29.wav"
+}
+
+"npc_phoenix.question30"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question30.wav"
+}
+
+"npc_phoenix.question31"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/question31.wav"
+}
+
+"npc_phoenix.answer01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer01.wav"
+}
+
+"npc_phoenix.answer02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer02.wav"
+}
+
+"npc_phoenix.answer03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer03.wav"
+}
+
+"npc_phoenix.answer04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer04.wav"
+}
+
+"npc_phoenix.answer05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer05.wav"
+}
+
+"npc_phoenix.answer06"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer06.wav"
+}
+
+"npc_phoenix.answer07"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer07.wav"
+}
+
+"npc_phoenix.answer08"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer08.wav"
+}
+
+"npc_phoenix.answer09"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer09.wav"
+}
+
+"npc_phoenix.answer10"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer10.wav"
+}
+
+"npc_phoenix.answer11"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer11.wav"
+}
+
+"npc_phoenix.answer12"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer12.wav"
+}
+
+"npc_phoenix.answer13"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer13.wav"
+}
+
+"npc_phoenix.answer14"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer14.wav"
+}
+
+"npc_phoenix.answer15"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer15.wav"
+}
+
+"npc_phoenix.answer16"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer16.wav"
+}
+
+"npc_phoenix.answer17"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer17.wav"
+}
+
+"npc_phoenix.answer18"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer18.wav"
+}
+
+"npc_phoenix.answer19"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer19.wav"
+}
+
+"npc_phoenix.answer20"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer20.wav"
+}
+
+"npc_phoenix.answer21"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer21.wav"
+}
+
+"npc_phoenix.answer22"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer22.wav"
+}
+
+"npc_phoenix.answer23"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer23.wav"
+}
+
+"npc_phoenix.answer24"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer24.wav"
+}
+
+"npc_phoenix.answer25"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer25.wav"
+}
+
+"npc_phoenix.answer26"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer26.wav"
+}
+
+"npc_phoenix.answer27"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer27.wav"
+}
+
+"npc_phoenix.answer28"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer28.wav"
+}
+
+"npc_phoenix.answer29"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer29.wav"
+}
+
+"npc_phoenix.answer30"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer30.wav"
+}
+
+"npc_phoenix.answer31"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer31.wav"
+}
+
+"npc_phoenix.answer32"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer32.wav"
+}
+
+"npc_phoenix.answer33"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer33.wav"
+}
+
+"npc_phoenix.answer34"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer34.wav"
+}
+
+"npc_phoenix.answer35"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer35.wav"
+}
+
+"npc_phoenix.answer36"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer36.wav"
+}
+
+"npc_phoenix.answer37"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer37.wav"
+}
+
+"npc_phoenix.answer38"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer38.wav"
+}
+
+"npc_phoenix.answer39"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer39.wav"
+}
+
+"npc_phoenix.answer40"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/answer40.wav"
+}
+
+"npc_phoenix.vanswer01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vanswer01.wav"
+}
+
+"npc_phoenix.vanswer02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vanswer02.wav"
+}
+
+"npc_phoenix.vanswer03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vanswer03.wav"
+}
+
+"npc_phoenix.vanswer04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vanswer04.wav"
+}
+
+"npc_phoenix.vanswer05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vanswer05.wav"
+}
+
+"npc_phoenix.vanswer06"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vanswer06.wav"
+}
+
+"npc_phoenix.vanswer07"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vanswer07.wav"
+}
+
+"npc_phoenix.vanswer08"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vanswer08.wav"
+}
+
+"npc_phoenix.vanswer09"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vanswer09.wav"
+}
+
+"npc_phoenix.vanswer10"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vanswer10.wav"
+}
+
+"npc_phoenix.vanswer11"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vanswer11.wav"
+}
+
+"npc_phoenix.vanswer12"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vanswer12.wav"
+}
+
+"npc_phoenix.vanswer13"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vanswer13.wav"
+}
+
+"npc_phoenix.vanswer14"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vanswer14.wav"
+}
+
+"npc_phoenix.vquestion01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vquestion01.wav"
+}
+
+"npc_phoenix.vquestion02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vquestion02.wav"
+}
+
+"npc_phoenix.vquestion03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vquestion03.wav"
+}
+
+"npc_phoenix.vquestion04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vquestion04.wav"
+}
+
+"npc_phoenix.vquestion05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vquestion05.wav"
+}
+
+"npc_phoenix.vquestion06"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vquestion06.wav"
+}
+
+"npc_phoenix.vquestion07"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/vquestion07.wav"
+}
+
+"npc_phoenix.ahgordon01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.400000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/ahgordon01.wav"
+}
+
+"npc_phoenix.ahgordon02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.350000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/ahgordon02.wav"
+}
+
+"npc_phoenix.docfreeman01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.400000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/docfreeman01.wav"
+}
+
+"npc_phoenix.docfreeman02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.440000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/docfreeman02.wav"
+}
+
+"npc_phoenix.freeman"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.370000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/freeman.wav"
+}
+
+"npc_phoenix.goodidea01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.700000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/goodidea01.wav"
+}
+
+"npc_phoenix.goodidea02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/goodidea02.wav"
+}
+
+"npc_phoenix.goodplan01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/goodplan01.wav"
+}
+
+"npc_phoenix.goodplan02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/goodplan02.wav"
+}
+
+"npc_phoenix.goodplandoc"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/goodplandoc.wav"
+}
+
+"npc_phoenix.goodplandoc01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/goodplandoc01.wav"
+}
+
+"npc_phoenix.goodplandoc02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/goodplandoc02.wav"
+}
+
+"npc_phoenix.hellodrfm01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.400000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/hellodrfm01.wav"
+}
+
+"npc_phoenix.hellodrfm02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.400000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/hellodrfm02.wav"
+}
+
+"npc_phoenix.heydoc01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".35"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/heydoc01.wav"
+}
+
+"npc_phoenix.heydoc02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.400000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/heydoc02.wav"
+}
+
+"npc_phoenix.heythanksfm01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/heythanksfm01.wav"
+}
+
+"npc_phoenix.heythanksfm02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/heythanksfm02.wav"
+}
+
+"npc_phoenix.hi01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.400000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/hi01.wav"
+}
+
+"npc_phoenix.hi02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.400000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/hi02.wav"
+}
+
+"npc_phoenix.leadon01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.800000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/leadon01.wav"
+}
+
+"npc_phoenix.leadon02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/leadon02.wav"
+}
+
+"npc_phoenix.leadtheway01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/leadtheway01.wav"
+}
+
+"npc_phoenix.leadtheway02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/leadtheway02.wav"
+}
+
+"npc_phoenix.letsgo01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/letsgo01.wav"
+}
+
+"npc_phoenix.letsgo02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/letsgo02.wav"
+}
+
+"npc_phoenix.readywhenyouare01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/readywhenyouare01.wav"
+}
+
+"npc_phoenix.readywhenyouare02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/readywhenyouare02.wav"
+}
+
+"npc_phoenix.heretohelp01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/heretohelp01.wav"
+}
+
+"npc_phoenix.heretohelp02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/heretohelp02.wav"
+}
+
+"npc_phoenix.wetrustedyou01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".75"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/wetrustedyou01.wav"
+}
+
+"npc_phoenix.wetrustedyou02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".75"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/wetrustedyou02.wav"
+}
+
+"npc_phoenix.notthemanithought01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".6"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/notthemanithought01.wav"
+}
+
+"npc_phoenix.notthemanithought02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".5"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/notthemanithought02.wav"
+}
+
+"npc_phoenix.holddownspot01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/holddownspot01.wav"
+}
+
+"npc_phoenix.holddownspot02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/holddownspot02.wav"
+}
+
+"npc_phoenix.imstickinghere01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.550000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/imstickinghere01.wav"
+}
+
+"npc_phoenix.littlecorner01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.500000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/littlecorner01.wav"
+}
+
+"npc_phoenix.gordead_ques01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques01.wav"
+}
+
+"npc_phoenix.gordead_ques02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques02.wav"
+}
+
+"npc_phoenix.gordead_ques03a"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques03a.wav"
+}
+
+"npc_phoenix.gordead_ques03b"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques03b.wav"
+}
+
+"npc_phoenix.gordead_ques04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques04.wav"
+}
+
+"npc_phoenix.gordead_ques05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques05.wav"
+}
+
+"npc_phoenix.gordead_ques06"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques06.wav"
+}
+
+"npc_phoenix.gordead_ques07"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques07.wav"
+}
+
+"npc_phoenix.gordead_ques08"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques08.wav"
+}
+
+"npc_phoenix.gordead_ques09"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques09.wav"
+}
+
+"npc_phoenix.gordead_ques10"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques10.wav"
+}
+
+"npc_phoenix.gordead_ques11"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques11.wav"
+}
+
+"npc_phoenix.gordead_ques12"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques12.wav"
+}
+
+"npc_phoenix.gordead_ques13"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques13.wav"
+}
+
+"npc_phoenix.gordead_ques14"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques14.wav"
+}
+
+"npc_phoenix.gordead_ques15"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques15.wav"
+}
+
+"npc_phoenix.gordead_ques16"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques16.wav"
+}
+
+"npc_phoenix.gordead_ques17"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ques17.wav"
+}
+
+"npc_phoenix.gordead_ans01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans01.wav"
+}
+
+"npc_phoenix.gordead_ans02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans02.wav"
+}
+
+"npc_phoenix.gordead_ans03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans03.wav"
+}
+
+"npc_phoenix.gordead_ans04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans04.wav"
+}
+
+"npc_phoenix.gordead_ans05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans05.wav"
+}
+
+"npc_phoenix.gordead_ans06"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans06.wav"
+}
+
+"npc_phoenix.gordead_ans07"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans07.wav"
+}
+
+"npc_phoenix.gordead_ans08"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans08.wav"
+}
+
+"npc_phoenix.gordead_ans09"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans09.wav"
+}
+
+"npc_phoenix.gordead_ans10"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans10.wav"
+}
+
+"npc_phoenix.gordead_ans11"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans11.wav"
+}
+
+"npc_phoenix.gordead_ans12"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans12.wav"
+}
+
+"npc_phoenix.gordead_ans13"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans13.wav"
+}
+
+"npc_phoenix.gordead_ans14"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans14.wav"
+}
+
+"npc_phoenix.gordead_ans15"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans15.wav"
+}
+
+"npc_phoenix.gordead_ans16"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans16.wav"
+}
+
+"npc_phoenix.gordead_ans17"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans17.wav"
+}
+
+"npc_phoenix.gordead_ans18"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans18.wav"
+}
+
+"npc_phoenix.gordead_ans19"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans19.wav"
+}
+
+"npc_phoenix.gordead_ans20"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gordead_ans20.wav"
+}
+
+"npc_phoenix.illstayhere01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.500000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/illstayhere01.wav"
+}
+
+"npc_phoenix.health01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/health01.wav"
+}
+
+"npc_phoenix.health02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.700000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/health02.wav"
+}
+
+"npc_phoenix.health03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.850000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/health03.wav"
+}
+
+"npc_phoenix.health04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.850000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/health04.wav"
+}
+
+"npc_phoenix.health05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.700000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/health05.wav"
+}
+
+"npc_phoenix.ammo01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.740000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/ammo01.wav"
+}
+
+"npc_phoenix.ammo02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.750000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/ammo02.wav"
+}
+
+"npc_phoenix.ammo03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.750000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/ammo03.wav"
+}
+
+"npc_phoenix.ammo04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.750000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/ammo04.wav"
+}
+
+"npc_phoenix.ammo05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.750000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/ammo05.wav"
+}
+
+"npc_phoenix.gethellout"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gethellout.wav"
+}
+
+"npc_phoenix.strider_run"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/strider_run.wav"
+}
+
+"npc_phoenix.help01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/help01.wav"
+}
+
+"npc_phoenix.help02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/help02.wav"
+}
+
+"npc_phoenix.help03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/help03.wav"
+}
+
+"npc_phoenix.help04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/help04.wav"
+}
+
+"npc_phoenix.help05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/help05.wav"
+}
+
+"npc_phoenix.helpme01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/helpme01.wav"
+}
+
+"npc_phoenix.helpme02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/helpme02.wav"
+}
+
+"npc_phoenix.helpoverhere01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/helpoverhere01.wav"
+}
+
+"npc_phoenix.helpoverhere02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/helpoverhere02.wav"
+}
+
+"npc_phoenix.helpus01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/helpus01.wav"
+}
+
+"npc_phoenix.helpus02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/helpus02.wav"
+}
+
+"npc_phoenix.civilprotection01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/civilprotection01.wav"
+}
+
+"npc_phoenix.civilprotection02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/civilprotection02.wav"
+}
+
+"npc_phoenix.cps01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/cps01.wav"
+}
+
+"npc_phoenix.cps02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/cps02.wav"
+}
+
+"npc_phoenix.heretheycome01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/heretheycome01.wav"
+}
+
+"npc_phoenix.heretheycome02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/heretheycome02.wav"
+}
+
+"npc_phoenix.heretheycome03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/heretheycome03.wav"
+}
+
+"npc_phoenix.runforyourlife01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/runforyourlife01.wav"
+}
+
+"npc_phoenix.runforyourlife02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/runforyourlife02.wav"
+}
+
+"npc_phoenix.runforyourlife03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/runforyourlife03.wav"
+}
+
+"npc_phoenix.snakebitme"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".5"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/snakebitme.wav"
+}
+
+"npc_phoenix.headsup01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/headsup01.wav"
+}
+
+"npc_phoenix.headsup02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/headsup02.wav"
+}
+
+"npc_phoenix.incoming01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/incoming01.wav"
+}
+
+"npc_phoenix.incoming02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/incoming02.wav"
+}
+
+"npc_phoenix.inthere01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/inthere01.wav"
+}
+
+"npc_phoenix.inthere02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/inthere02.wav"
+}
+
+"npc_phoenix.takecover01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/takecover01.wav"
+}
+
+"npc_phoenix.takecover02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/takecover02.wav"
+}
+
+"npc_phoenix.sorryfm01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".4"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/sorryfm01.wav"
+}
+
+"npc_phoenix.sorryfm02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".4"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/sorryfm02.wav"
+}
+
+"npc_phoenix.sorrydoc01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".4"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/sorrydoc01.wav"
+}
+
+"npc_phoenix.sorrydoc02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".4"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/sorrydoc02.wav"
+}
+
+"npc_phoenix.sorrydoc04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".4"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/sorrydoc04.wav"
+}
+
+"npc_phoenix.excuseme01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.400000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/excuseme01.wav"
+}
+
+"npc_phoenix.excuseme02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.400000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/excuseme02.wav"
+}
+
+"npc_phoenix.pardonme01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".35"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/pardonme01.wav"
+}
+
+"npc_phoenix.pardonme02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".35"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/pardonme02.wav"
+}
+
+"npc_phoenix.sorry01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".4"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/sorry01.wav"
+}
+
+"npc_phoenix.sorry02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".4"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/sorry02.wav"
+}
+
+"npc_phoenix.sorry03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".4"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/sorry03.wav"
+}
+
+"npc_phoenix.outofyourway01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".4"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/outofyourway01.wav"
+}
+
+"npc_phoenix.outofyourway02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".4"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/outofyourway02.wav"
+}
+
+"npc_phoenix.whoops01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".35"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/whoops01.wav"
+}
+
+"npc_phoenix.nice01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/nice01.wav"
+}
+
+"npc_phoenix.nice02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/nice02.wav"
+}
+
+"npc_phoenix.yeah01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/yeah01.wav"
+}
+
+"npc_phoenix.yeah02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/yeah02.wav"
+}
+
+"npc_phoenix.fantastic01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.700000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/fantastic01.wav"
+}
+
+"npc_phoenix.fantastic02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/fantastic02.wav"
+}
+
+"npc_phoenix.thislldonicely01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/thislldonicely01.wav"
+}
+
+"npc_phoenix.oneforme01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".6"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/oneforme01.wav"
+}
+
+"npc_phoenix.myarm01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/myarm01.wav"
+}
+
+"npc_phoenix.myarm02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/myarm02.wav"
+}
+
+"npc_phoenix.myleg01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/myleg01.wav"
+}
+
+"npc_phoenix.myleg02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/myleg02.wav"
+}
+
+"npc_phoenix.mygut01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/mygu01.wav"
+}
+
+"npc_phoenix.mygut02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/mygut02.wav"
+}
+
+"npc_phoenix.hitingut01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/hitingut01.wav"
+}
+
+"npc_phoenix.hitingut02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/hitingut02.wav"
+}
+
+"npc_phoenix.cit_dropper01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_150dB"
+
+	"wave"			"*vo/npc/phoenix/cit_dropper01.wav"
+}
+
+"npc_phoenix.cit_dropper02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_150dB"
+
+	"wave"			"*vo/npc/phoenix/cit_dropper02.wav"
+}
+
+"npc_phoenix.cit_dropper03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_150dB"
+
+	"wave"			"*vo/npc/phoenix/cit_dropper03.wav"
+}
+
+"npc_phoenix.cit_dropper04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_150dB"
+
+	"wave"			"*vo/npc/phoenix/cit_dropper04.wav"
+}
+
+"npc_phoenix.cit_dropper05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_150dB"
+
+	"wave"			"*vo/npc/phoenix/cit_dropper05.wav"
+}
+
+"npc_phoenix.cit_dropper06"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_150dB"
+
+	"wave"			"*vo/npc/phoenix/cit_dropper06.wav"
+}
+
+"npc_phoenix.squad_affirm01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".65"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_affirm01.wav"
+}
+
+"npc_phoenix.squad_affirm02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".65"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_affirm02.wav"
+}
+
+"npc_phoenix.squad_affirm03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".65"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_affirm03.wav"
+}
+
+"npc_phoenix.squad_affirm04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".58"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_affirm04.wav"
+}
+
+"npc_phoenix.squad_affirm05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".55"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_affirm05.wav"
+}
+
+"npc_phoenix.squad_affirm06"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".57"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_affirm06.wav"
+}
+
+"npc_phoenix.squad_affirm07"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".6"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_affirm07.wav"
+}
+
+"npc_phoenix.squad_affirm08"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".6"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_affirm08.wav"
+}
+
+"npc_phoenix.squad_affirm09"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".6"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_affirm09.wav"
+}
+
+"npc_phoenix.squad_approach01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_approach01.wav"
+}
+
+"npc_phoenix.squad_approach02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_approach02.wav"
+}
+
+"npc_phoenix.squad_approach03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_approach03.wav"
+}
+
+"npc_phoenix.squad_approach04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_approach04.wav"
+}
+
+"npc_phoenix.squad_away01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_away01.wav"
+}
+
+"npc_phoenix.squad_away02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_away02.wav"
+}
+
+"npc_phoenix.squad_away03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_away03.wav"
+}
+
+"npc_phoenix.squad_follow01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_follow01.wav"
+}
+
+"npc_phoenix.squad_follow02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_follow02.wav"
+}
+
+"npc_phoenix.squad_follow03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_follow03.wav"
+}
+
+"npc_phoenix.squad_follow04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_follow04.wav"
+}
+
+"npc_phoenix.squad_greet01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.700000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_greet01.wav"
+}
+
+"npc_phoenix.squad_greet02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.700000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_greet02.wav"
+}
+
+"npc_phoenix.squad_greet03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".7"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_greet03.wav"
+}
+
+"npc_phoenix.squad_greet04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".6"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_greet04.wav"
+}
+
+"npc_phoenix.squad_greet05"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".65"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_greet05.wav"
+}
+
+"npc_phoenix.squad_greet06"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".65"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_greet06.wav"
+}
+
+"npc_phoenix.squad_train01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.450000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_train01.wav"
+}
+
+"npc_phoenix.squad_train02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".6"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_train02.wav"
+}
+
+"npc_phoenix.squad_train03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_train03.wav"
+}
+
+"npc_phoenix.squad_train04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".6"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_train04.wav"
+}
+
+"npc_phoenix.squad_reinforce_group01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_reinforce_group01.wav"
+}
+
+"npc_phoenix.squad_reinforce_group02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_reinforce_group02.wav"
+}
+
+"npc_phoenix.squad_reinforce_group03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_reinforce_group03.wav"
+}
+
+"npc_phoenix.squad_reinforce_group04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_reinforce_group04.wav"
+}
+
+"npc_phoenix.squad_reinforce_single01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_reinforce_single01.wav"
+}
+
+"npc_phoenix.squad_reinforce_single02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_reinforce_single02.wav"
+}
+
+"npc_phoenix.squad_reinforce_single03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_reinforce_single03.wav"
+}
+
+"npc_phoenix.squad_reinforce_single04"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/squad_reinforce_single04.wav"
+}
+
+"npc_phoenix.coverwhilereload01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/coverwhilereload01.wav"
+}
+
+"npc_phoenix.coverwhilereload02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/coverwhilereload02.wav"
+}
+
+"npc_phoenix.gottareload01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/gottareload01.wav"
+}
+
+"npc_phoenix.dontforgetreload01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/dontforgetreload01.wav"
+}
+
+"npc_phoenix.reloadfm01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/reloadfm01.wav"
+}
+
+"npc_phoenix.reloadfm02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/reloadfm02.wav"
+}
+
+"npc_phoenix.youdbetterreload01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/youdbetterreload01.wav"
+}
+
+"npc_phoenix.nice"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/nice.wav"
+}
+
+"npc_phoenix.thislldonicely"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/thislldonicely.wav"
+}
+
+"npc_phoenix.finally"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.600000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/finally.wav"
+}
+
+"npc_phoenix.finally01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/finally01.wav"
+}
+
+"npc_phoenix.finally02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.650000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/finally02.wav"
+}
+
+"npc_phoenix.oneforme"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".6"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/oneforme.wav"
+}
+
+"npc_phoenix.evenodds"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.450000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/evenodds.wav"
+}
+
+"npc_phoenix.evenodds01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.450000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/evenodds01.wav"
+}
+
+"npc_phoenix.upthere01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/upthere01.wav"
+}
+
+"npc_phoenix.upthere02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/upthere02.wav"
+}
+
+"npc_phoenix.behindyou01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/behindyou01.wav"
+}
+
+"npc_phoenix.behindyou02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/behindyou02.wav"
+}
+
+"npc_phoenix.downthere01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/downthere01.wav"
+}
+
+"npc_phoenix.downthere02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/downthere02.wav"
+}
+
+"npc_phoenix.overthere01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/overthere01.wav"
+}
+
+"npc_phoenix.overthere02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/overthere02.wav"
+}
+
+"npc_phoenix.combine02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/combine02.wav"
+}
+
+"npc_phoenix.headcrabs01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/headcrabs01.wav"
+}
+
+"npc_phoenix.headcrabs02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/headcrabs02.wav"
+}
+
+"npc_phoenix.zombies01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/zombies01.wav"
+}
+
+"npc_phoenix.zombies02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/zombies02.wav"
+}
+
+"npc_phoenix.scanners01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/scanners01.wav"
+}
+
+"npc_phoenix.scanners02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/scanners02.wav"
+}
+
+"npc_phoenix.strider"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/strider.wav"
+}
+
+"npc_phoenix.itsamanhack01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/itsamanhack01.wav"
+}
+
+"npc_phoenix.itsamanhack02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/itsamanhack02.wav"
+}
+
+"npc_phoenix.herecomehacks01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/herecomehacks01.wav"
+}
+
+"npc_phoenix.herecomehacks02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/herecomehacks02.wav"
+}
+
+"npc_phoenix.thehacks01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/thehacks01.wav"
+}
+
+"npc_phoenix.thehacks02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/thehacks02.wav"
+}
+
+"npc_phoenix.hacks01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/hacks01.wav"
+}
+
+"npc_phoenix.hacks02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/hacks02.wav"
+}
+
+"npc_phoenix.yougotit02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/yougotit02.wav"
+}
+
+"npc_phoenix.scan_check_near01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".75"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/scan_check_near01.wav"
+}
+
+"npc_phoenix.scan_check_near02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".75"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/scan_check_near02.wav"
+}
+
+"npc_phoenix.scan_check_near03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".75"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/scan_check_near03.wav"
+}
+
+"npc_phoenix.scan_check_far01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/scan_check_far01.wav"
+}
+
+"npc_phoenix.scan_check_far02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/scan_check_far02.wav"
+}
+
+"npc_phoenix.scan_check_far03"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/scan_check_far03.wav"
+}
+
+"npc_phoenix.whatwaitfor"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".5"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/whatwaitfor.wav"
+}
+
+"npc_phoenix.wowniceshot01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".8"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/wowniceshot01.wav"
+}
+
+"npc_phoenix.wowniceshot02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/wowniceshot02.wav"
+}
+
+"npc_phoenix.overwatch01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/overwatch01.wav"
+}
+
+"npc_phoenix.overwatch02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/overwatch02.wav"
+}
+
+"npc_phoenix.surething01"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".6"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/surething01.wav"
+}
+
+"npc_phoenix.surething02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		".6"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/surething02.wav"
+}
+
+"npc_phoenix.turret"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/turret.wav"
+}
+
+"npc_phoenix.turrets"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/turrets.wav"
+}
+
+"npc_phoenix.cantbeseen02"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"0.440000"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_NORM"
+
+	"wave"			"*vo/npc/phoenix/cantbeseen02.wav"
+}
+

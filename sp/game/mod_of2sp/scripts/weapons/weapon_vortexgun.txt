@@ -1,0 +1,79 @@
+//Vortex Gun
+
+WeaponData
+{
+	"printname"			"#OF2_Vortex_Gun"
+	"viewmodel"			"models/weapons/v_vortexgun.mdl" //temporary
+	"playermodel"			"models/weapons/w_rocket_launcher.mdl" //temporary
+	"anim_prefix"			"vortex_gun"
+	"bucket"			"5"
+	"bucket_position"		"0"
+	
+	"clip_size"			"-1"
+	"default_clip"			"1"
+
+	"clip2_size"			"-1"
+	"default_clip2"			"-1"
+
+	"primary_ammo"			"Vortex_Energy_Cell" //uses it's own custom ammo
+	"secondary_ammo"		"None"
+
+	"weight"			"5"
+	"item_flags"			"0"
+
+	"BuiltRightHanded"		"0"
+	"AllowFlipping"			"1"
+
+	//Sounds
+	SoundData
+	{
+		"special1"		"Weapon_CombineGuard.Special1"
+		"empty"			"Weapon_IRifle.Empty"
+		"double_shot"		"Weapon_IRifle.Single"
+		"reload"		"Weapon_AR2.Reload"
+		"single_shot"		"Weapon_VortexGun.Fire"
+
+		// NPC SECTION
+		"single_shot_npc"	"Weapon_AR2.NPC_Single"
+		"reload_npc"		"Weapon_AR2.NPC_Reload"
+		"double_shot_npc"	"Weapon_AR2.NPC_Double"
+	}
+
+		// Weapon Sprite data is loaded by the Client DLL.
+	TextureData
+	{
+		"weapon"
+		{
+				"font"		"WeaponIcons"
+				"character"	"l"
+		}
+		"weapon_s"
+		{	
+				"font"		"WeaponIconsSelected"
+				"character"	"l"
+		}
+		"ammo"
+		{
+				"font"		"WeaponIcons"
+				"character"	"u"
+		}
+		"ammo2"
+		{
+				"font"		"WeaponIcons"
+				"character"	"z"
+		}
+		"crosshair"
+		{
+				"font"		"Crosshairs"
+				"character"	"Q"
+		}
+		"autoaim"
+		{
+				"file"		"sprites/crosshairs"
+				"x"			"0"
+				"y"			"48"
+				"width"		"24"
+				"height"	"24"
+		}
+	}
+}

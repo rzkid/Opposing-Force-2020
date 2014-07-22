@@ -1,0 +1,161 @@
+// Choreo version 1
+actor "Scared_Soldier_1"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_02_03\HECUGUY"
+    {
+      time -0.013333 4.524536
+      param "VO\of2_city_02_03\HECUGUY.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_02_03\situation3"
+    {
+      time 7.688986 14.062025
+      param "VO\of2_city_02_03\situation3.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "Flex"
+  {
+    event lookat "LK_PLR"
+    {
+      time 0.013333 3.666667
+      param "!player"
+    }
+  }
+  channel "Look At"
+  {
+    event lookat "LK_SS2"
+    {
+      time 3.653333 4.526667
+      param "Scared_Soldier_1"
+    }
+  }
+  faceposermodel "models\characters\phoenix_marine_face04.mdl"
+}
+
+actor "Scared_Soldier_2"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_02_03\1"
+    {
+      time 4.620000 7.560952
+      param "VO\of2_city_02_03\1.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_02_03\2"
+    {
+      time 14.339999 18.401314
+      param "VO\of2_city_02_03\2.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "Flex"
+  {
+    event flexanimation "Face"
+    {
+      time 4.600000 7.686666
+      param ""
+      flexanimations samples_use_time defaultcurvetype=curve_catmullrom_normalize_x_to_curve_catmullrom_normalize_x
+      {
+        "inner_raiser" combo 
+        {
+          0.1640 0.1900
+          0.3340 0.1600
+          0.6240 0.6000
+          0.9560 0.3200
+          1.1060 0.8000
+          1.4000 0.7700
+          2.3460 0.4100
+          2.5140 0.4700
+        }
+        {
+        }
+        "smile" 
+        {
+          1.2900 0.2500
+          2.0360 0.2200
+          2.2980 0.2800
+        }
+      }
+    }
+    event flexanimation "Face2"
+    {
+      time 14.320001 18.426668
+      param ""
+      flexanimations samples_use_time defaultcurvetype=curve_catmullrom_normalize_x_to_curve_catmullrom_normalize_x
+      {
+        "inner_raiser" combo 
+        {
+          0.0880 0.1600
+          0.3740 0.0000
+          0.8321 0.1100
+          0.9421 0.3300
+          1.1301 0.0500
+          1.8120 0.4600
+          2.2200 0.1600
+        }
+        {
+        }
+        "outer_raiser" combo 
+        {
+          0.2100 0.2100
+          0.4100 0.0700
+          0.8020 0.1500
+          0.9220 0.4400
+          1.1220 0.1400
+          1.7280 0.1300
+          1.9080 0.4800
+          2.3860 0.0600
+        }
+        {
+        }
+        "lowerer" combo 
+        {
+          1.3320 0.0800
+          1.5040 0.4000
+          1.7180 0.1200
+        }
+        {
+        }
+        "cheek_raiser" combo 
+        {
+          0.0600 0.1500
+          0.3240 0.0600
+        }
+        {
+        }
+        "wrinkler" 
+        {
+          0.0400 0.0700
+          0.3400 0.0400
+          1.3000 0.1300
+          1.4480 0.4800
+          1.7480 0.1400
+        }
+      }
+    }
+  }
+}
+
+scalesettings
+{
+  "RampTool" "100"
+  "GestureTool" "100"
+  "ExpressionTool" "96"
+  "SceneRampTool" "100"
+  "CChoreoView" "100"
+}
+fps 60
+snap off
+ignorePhonemes off

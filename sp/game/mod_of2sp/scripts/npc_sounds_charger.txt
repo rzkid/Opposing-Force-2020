@@ -1,0 +1,98 @@
+"NPC_Charger.Idle"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_90dB"
+
+	"rndwave"
+	{
+		"wave"	"npc\charger\idlebreathing1.wav"
+		"wave"	"npc\charger\idlebreathing2.wav"
+		"wave"	"npc\charger\idlebreathing3.wav"
+		"wave"	"npc\charger\idlebreathing4.wav"
+		"wave"	"npc\charger\idlebreathing5.wav"
+	}
+}
+
+"NPC_Charger.Pain"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_90dB"
+
+	"rndwave"
+	{
+		"wave"	"npc\charger\pain1.wav"
+		"wave"	"npc\charger\pain2.wav"
+		"wave"	"npc\charger\pain3.wav"
+	}
+}
+
+
+"NPC_Charger.Death"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_90dB"
+
+	"rndwave"
+	{
+		"wave"	"npc\charger\death1.wav"
+		"wave"	"npc\charger\death2.wav"
+	}
+}
+
+
+"NPC_Charger.StartCharge"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_90dB"
+
+	"rndwave"
+	{
+		"wave"	"npc\charger\chargebark1.wav"
+		"wave"	"npc\charger\chargebark2.wav"
+		"wave"	"npc\charger\chargebark3.wav"
+	}
+}
+
+
+"NPC_Charger.ChargeHitEnemy"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_90dB"
+
+	"rndwave"
+	{
+		"wave"	"npc\charger\chargehit.wav"
+
+	}
+}
+
+
+"NPC_Charger.ChargeHitWorld"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"VOL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_90dB"
+
+	"rndwave"
+	{
+		"wave"	"npc\charger\chargehitwall.wav"
+
+	}
+}

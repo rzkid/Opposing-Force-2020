@@ -1,0 +1,915 @@
+//============================================================================================================
+// Phoenix criteria
+//============================================================================================================
+criterion "IsPhoenix" "classname" "npc_phoenix" "required"
+criterion "IsRPGUser" "attacking_with_weapon" "weapon_rpg" required
+criterion "EnemyIsSniper" "enemy" "npc_sniper" required
+criterion "EnemyIsStrider" "enemy" "npc_strider" required
+criterion "HurtByFire" "hurt_by_fire" "1" required
+
+
+//============================================================================================================
+// Phoenix Hello speech
+//============================================================================================================
+response "PhoenixHello"
+{
+	scene "scenes/npc/phoenix/abouttime01.vcd"
+	scene "scenes/npc/phoenix/abouttime02.vcd"
+	scene "scenes/npc/phoenix/ahgordon01.vcd"
+	scene "scenes/npc/phoenix/ahgordon02.vcd"
+	scene "scenes/npc/phoenix/docfreeman01.vcd"
+	scene "scenes/npc/phoenix/docfreeman02.vcd"
+	scene "scenes/npc/phoenix/freeman.vcd"
+	scene "scenes/npc/phoenix/hellodrfm01.vcd"
+	scene "scenes/npc/phoenix/hellodrfm02.vcd"
+	scene "scenes/npc/phoenix/heydoc01.vcd"
+	scene "scenes/npc/phoenix/heydoc02.vcd"
+	scene "scenes/npc/phoenix/hi01.vcd"
+	scene "scenes/npc/phoenix/hi02.vcd"
+}
+
+rule PhoenixHello
+{
+	criteria		IsPhoenix ConceptTalkHello IsGordonCriminal NPCIdle PlayerNear SeePlayer
+	response		PhoenixHello
+}
+
+//============================================================================================================
+// Phoenix Idle speech
+//============================================================================================================
+response "PhoenixTalkStare"
+{
+ scene "scenes/npc/phoenix/doingsomething.vcd"
+ scene "scenes/npc/phoenix/getgoingsoon.vcd"
+ scene "scenes/npc/phoenix/waitingsomebody.vcd"
+}
+ 
+rule PhoenixTalkStare
+{
+ criteria      IsPhoenix ConceptTalkStare IsGordonCriminal NPCIdle
+ response  	PhoenixTalkStare
+}
+ 
+
+//------------------------------------------------------------------------------------------------------------
+response "PhoenixTalkPlayerPushed"
+{
+   scene "scenes/npc/phoenix/sorryfm01.vcd"
+   scene "scenes/npc/phoenix/sorryfm02.vcd"
+   scene "scenes/npc/phoenix/sorrydoc01.vcd"
+   scene "scenes/npc/phoenix/sorrydoc02.vcd"
+   scene "scenes/npc/phoenix/sorrydoc04.vcd"
+   scene "scenes/npc/phoenix/excuseme01.vcd"
+   scene "scenes/npc/phoenix/excuseme02.vcd"
+   scene "scenes/npc/phoenix/pardonme01.vcd"
+   scene "scenes/npc/phoenix/pardonme02.vcd"
+   scene "scenes/npc/phoenix/sorry01.vcd"
+   scene "scenes/npc/phoenix/sorry02.vcd"
+   scene "scenes/npc/phoenix/sorry03.vcd"
+   scene "scenes/npc/phoenix/outofyourway01.vcd"
+   scene "scenes/npc/phoenix/outofyourway02.vcd"
+   scene "scenes/npc/phoenix/whoops01.vcd"
+}
+
+rule PhoenixTalkPlayerPushed
+{
+	criteria		IsPhoenix  ConceptTalkPlayerPushed SeenByPlayer NoRecentCombat
+	response		PhoenixTalkPlayerPushed
+}
+
+//============================================================================================================
+// Phoenix Questions & Responses speech
+//============================================================================================================
+response "PhoenixQuestion"
+{
+	scene "scenes/npc/phoenix/question01.vcd" delay 1
+	scene "scenes/npc/phoenix/question02.vcd" delay 1
+	scene "scenes/npc/phoenix/question03.vcd" delay 1
+	scene "scenes/npc/phoenix/question04.vcd" delay 1
+	scene "scenes/npc/phoenix/question05.vcd" delay 1
+	scene "scenes/npc/phoenix/question06.vcd" delay 1
+	scene "scenes/npc/phoenix/question07.vcd" delay 1
+	scene "scenes/npc/phoenix/question08.vcd" delay 1
+	scene "scenes/npc/phoenix/question09.vcd" delay 1
+	scene "scenes/npc/phoenix/question10.vcd" delay 1
+	scene "scenes/npc/phoenix/question11.vcd" delay 1
+	scene "scenes/npc/phoenix/question12.vcd" delay 1
+	scene "scenes/npc/phoenix/question13.vcd" delay 1
+	scene "scenes/npc/phoenix/question14.vcd" delay 1
+	scene "scenes/npc/phoenix/question15.vcd" delay 1
+	scene "scenes/npc/phoenix/question16.vcd" delay 1
+	scene "scenes/npc/phoenix/question17.vcd" delay 1
+	scene "scenes/npc/phoenix/question18.vcd" delay 1
+	scene "scenes/npc/phoenix/question19.vcd" delay 1
+	scene "scenes/npc/phoenix/question20.vcd" delay 1
+	scene "scenes/npc/phoenix/question21.vcd" delay 1
+	scene "scenes/npc/phoenix/question22.vcd" delay 1
+	scene "scenes/npc/phoenix/question23.vcd" delay 1
+	scene "scenes/npc/phoenix/question25.vcd" delay 1
+	scene "scenes/npc/phoenix/question26.vcd" delay 1
+	scene "scenes/npc/phoenix/question27.vcd" delay 1
+	scene "scenes/npc/phoenix/question28.vcd" delay 1
+	scene "scenes/npc/phoenix/question29.vcd" delay 1
+	scene "scenes/npc/phoenix/question30.vcd" delay 1
+	scene "scenes/npc/phoenix/question31.vcd" delay 1
+}
+
+rule PhoenixQuestion
+{
+	criteria		IsPhoenix ConceptTalkQuestion IsGordonCriminal PlayerAlive
+	response 		PhoenixQuestion
+}
+
+//------------------------------------------------------------------------------------------------------------
+response "PhoenixAnswer"
+{
+	scene "scenes/npc/phoenix/answer01.vcd" delay 2
+	scene "scenes/npc/phoenix/answer02.vcd" delay 2
+	scene "scenes/npc/phoenix/answer03.vcd" delay 2
+	scene "scenes/npc/phoenix/answer04.vcd" delay 2
+	scene "scenes/npc/phoenix/answer05.vcd" delay 2
+	scene "scenes/npc/phoenix/answer07.vcd" delay 2
+	scene "scenes/npc/phoenix/answer08.vcd" delay 2
+	scene "scenes/npc/phoenix/answer09.vcd" delay 2
+	scene "scenes/npc/phoenix/answer10.vcd" delay 2
+	scene "scenes/npc/phoenix/answer11.vcd" delay 2
+	scene "scenes/npc/phoenix/answer12.vcd" delay 2
+	scene "scenes/npc/phoenix/answer13.vcd" delay 2
+	scene "scenes/npc/phoenix/answer14.vcd" delay 2
+	scene "scenes/npc/phoenix/answer15.vcd" delay 2
+	scene "scenes/npc/phoenix/answer16.vcd" delay 2
+	scene "scenes/npc/phoenix/answer17.vcd" delay 2
+	scene "scenes/npc/phoenix/answer18.vcd" delay 2
+	scene "scenes/npc/phoenix/answer19.vcd" delay 2
+	scene "scenes/npc/phoenix/answer20.vcd" delay 2
+	scene "scenes/npc/phoenix/answer21.vcd" delay 2
+	scene "scenes/npc/phoenix/answer22.vcd" delay 2
+	scene "scenes/npc/phoenix/answer23.vcd" delay 2
+	scene "scenes/npc/phoenix/answer24.vcd" delay 2
+	scene "scenes/npc/phoenix/answer25.vcd" delay 2
+	scene "scenes/npc/phoenix/answer26.vcd" delay 2
+	scene "scenes/npc/phoenix/answer27.vcd" delay 2
+	scene "scenes/npc/phoenix/answer28.vcd" delay 2
+	scene "scenes/npc/phoenix/answer29.vcd" delay 2
+	scene "scenes/npc/phoenix/answer30.vcd" delay 2
+	scene "scenes/npc/phoenix/answer31.vcd" delay 2
+	scene "scenes/npc/phoenix/answer32.vcd" delay 2
+	scene "scenes/npc/phoenix/answer33.vcd" delay 2
+	scene "scenes/npc/phoenix/answer34.vcd" delay 2
+	scene "scenes/npc/phoenix/answer35.vcd" delay 2
+	scene "scenes/npc/phoenix/answer36.vcd" delay 2
+	scene "scenes/npc/phoenix/answer37.vcd" delay 2
+	scene "scenes/npc/phoenix/answer38.vcd" delay 2
+	scene "scenes/npc/phoenix/answer39.vcd" delay 2
+	scene "scenes/npc/phoenix/answer40.vcd" delay 2
+}
+//---------------------
+rule PhoenixAnswer
+{
+	criteria		IsPhoenix ConceptTalkAnswer IsGordonCriminal PlayerAlive 
+	response		PhoenixAnswer
+}
+
+//============================================================================================================
+// Phoenix Questions & Responses with Vortigaunts in Scene
+//============================================================================================================
+response "PhoenixQuestionVort"
+{
+	scene "scenes/npc/phoenix/vquestion01.vcd" delay 1
+	scene "scenes/npc/phoenix/vquestion02.vcd" delay 1
+	scene "scenes/npc/phoenix/vquestion03.vcd" delay 1
+	scene "scenes/npc/phoenix/vquestion04.vcd" delay 1
+	scene "scenes/npc/phoenix/vquestion05.vcd" delay 1
+	scene "scenes/npc/phoenix/vquestion06.vcd" delay 1
+	scene "scenes/npc/phoenix/vquestion07.vcd" delay 1
+
+}
+
+rule PhoenixQuestionVort
+{
+	criteria		IsPhoenix ConceptTalkQuestionVort IsGordonCriminal NPCIdle PlayerAlive
+	response 		PhoenixQuestionVort
+}
+
+//------------------------------------------------------------------------------------------------------------
+response "PhoenixAnswerVort"
+{
+	scene "scenes/npc/phoenix/vanswer01.vcd" delay 2
+	scene "scenes/npc/phoenix/vanswer02.vcd" delay 2
+	scene "scenes/npc/phoenix/vanswer03.vcd" delay 2
+	scene "scenes/npc/phoenix/vanswer04.vcd" delay 2
+	scene "scenes/npc/phoenix/vanswer05.vcd" delay 2
+	scene "scenes/npc/phoenix/vanswer06.vcd" delay 2
+	scene "scenes/npc/phoenix/vanswer07.vcd" delay 2
+	scene "scenes/npc/phoenix/vanswer08.vcd" delay 2
+	scene "scenes/npc/phoenix/vanswer09.vcd" delay 2
+	scene "scenes/npc/phoenix/vanswer10.vcd" delay 2
+	scene "scenes/npc/phoenix/vanswer11.vcd" delay 2
+	scene "scenes/npc/phoenix/vanswer12.vcd" delay 2
+	scene "scenes/npc/phoenix/vanswer13.vcd" delay 2
+	scene "scenes/npc/phoenix/vanswer14.vcd" delay 2
+
+}
+
+rule PhoenixAnswerVort
+{
+	criteria		IsPhoenix ConceptTalkAnswerVort IsGordonCriminal NPCIdle PlayerAlive 
+	response		PhoenixAnswerVort
+}
+
+
+//============================================================================================================
+// Phoenix Mourning the player's death
+//============================================================================================================
+
+response "PhoenixMournQ"
+{
+	scene "scenes/npc/phoenix/gordead_ques01.vcd"
+	scene "scenes/npc/phoenix/gordead_ques02.vcd"
+	scene "scenes/npc/phoenix/gordead_ques03a.vcd"
+	scene "scenes/npc/phoenix/gordead_ques03b.vcd"
+	scene "scenes/npc/phoenix/gordead_ques04.vcd"
+	scene "scenes/npc/phoenix/gordead_ques05.vcd"
+	scene "scenes/npc/phoenix/gordead_ques06.vcd"
+	scene "scenes/npc/phoenix/gordead_ques07.vcd"
+	scene "scenes/npc/phoenix/gordead_ques08.vcd"
+	scene "scenes/npc/phoenix/gordead_ques09.vcd"
+	scene "scenes/npc/phoenix/gordead_ques10.vcd"
+	scene "scenes/npc/phoenix/gordead_ques11.vcd"
+	scene "scenes/npc/phoenix/gordead_ques12.vcd"
+	scene "scenes/npc/phoenix/gordead_ques13.vcd"
+	scene "scenes/npc/phoenix/gordead_ques14.vcd"
+	scene "scenes/npc/phoenix/gordead_ques15.vcd"
+	scene "scenes/npc/phoenix/gordead_ques16.vcd"
+	scene "scenes/npc/phoenix/gordead_ques17.vcd"
+}
+
+rule PhoenixMournQ
+{
+	criteria 		IsPhoenix ConceptTalkQuestion IsGordonCriminal PlayerDead
+	response 		PhoenixMournQ
+	matchonce
+}
+
+//------------------------------------------------------------------------------------------------------------
+response "PhoenixMournA"
+{
+	scene "scenes/npc/phoenix/gordead_ans01.vcd"
+	scene "scenes/npc/phoenix/gordead_ans02.vcd"
+	scene "scenes/npc/phoenix/gordead_ans03.vcd"
+	scene "scenes/npc/phoenix/gordead_ans04.vcd"
+	scene "scenes/npc/phoenix/gordead_ans05.vcd"
+	scene "scenes/npc/phoenix/gordead_ans06.vcd"
+	scene "scenes/npc/phoenix/gordead_ans07.vcd"
+	scene "scenes/npc/phoenix/gordead_ans08.vcd"
+	scene "scenes/npc/phoenix/gordead_ans09.vcd"
+	scene "scenes/npc/phoenix/gordead_ans10.vcd"
+	scene "scenes/npc/phoenix/gordead_ans11.vcd"
+	scene "scenes/npc/phoenix/gordead_ans12.vcd"
+	scene "scenes/npc/phoenix/gordead_ans13.vcd"
+	scene "scenes/npc/phoenix/gordead_ans14.vcd"
+	scene "scenes/npc/phoenix/gordead_ans15.vcd"
+	scene "scenes/npc/phoenix/gordead_ans16.vcd"
+	scene "scenes/npc/phoenix/gordead_ans17.vcd"
+	scene "scenes/npc/phoenix/gordead_ans18.vcd"
+	scene "scenes/npc/phoenix/gordead_ans19.vcd"
+	scene "scenes/npc/phoenix/gordead_ans20.vcd"
+}
+
+rule PhoenixMournA
+{
+	criteria 		IsPhoenix ConceptTalkAnswer IsGordonCriminal PlayerDead
+	response 		PhoenixMournA
+	matchonce
+}
+
+response "PhoenixMournAll"
+{
+   response PhoenixMournQ
+   response PhoenixMournA
+}
+
+rule PhoenixMourn
+{
+	criteria 		IsPhoenix ConceptPlayerDead IsGordonCriminal PlayerDead
+	response 		PhoenixMournAll
+	matchonce
+}
+
+//-----------------------------------------
+response "PhoenixHeal"
+{
+	scene "scenes/npc/phoenix/health01.vcd" delay 1
+	scene "scenes/npc/phoenix/health02.vcd" delay 1
+	scene "scenes/npc/phoenix/health03.vcd" delay 1
+	scene "scenes/npc/phoenix/health04.vcd" delay 1
+	scene "scenes/npc/phoenix/health05.vcd" delay 1
+}
+
+rule PhoenixHeal
+{
+	criteria		IsPhoenix ConceptTalkHeal
+	response		PhoenixHeal
+}
+//---------------------------
+response "PhoenixGiveAmmo"
+{
+	scene "scenes/npc/phoenix/ammo01.vcd" delay 1
+	scene "scenes/npc/phoenix/ammo02.vcd" delay 1
+	scene "scenes/npc/phoenix/ammo03.vcd" delay 1
+	scene "scenes/npc/phoenix/ammo04.vcd" delay 1
+	scene "scenes/npc/phoenix/ammo05.vcd" delay 1
+}
+
+rule PhoenixGiveAmmo
+{
+	criteria		IsPhoenix ConceptTalkGiveAmmo
+	response		PhoenixGiveAmmo
+}
+
+//============================================================================================================
+// Phoenix Combat speech
+//============================================================================================================
+response "PhoenixDanger" 
+{
+	permitrepeats
+	scene "scenes/npc/phoenix/watchout.vcd" weight 1
+	scene "scenes/npc/phoenix/uhoh.vcd" weight 1.1
+	scene "scenes/npc/phoenix/lookoutfm01.vcd" weight .9
+	scene "scenes/npc/phoenix/startle01.vcd" weight 1.1
+	scene "scenes/npc/phoenix/startle02.vcd" weight 1.1
+	scene "scenes/npc/phoenix/getdown02.vcd" weight 1
+}
+
+rule PhoenixDanger
+{
+	criteria		IsPhoenix ConceptTalkDanger
+	response		PhoenixDanger
+}
+
+response PhoenixDangerBig
+{
+	permitrepeats
+	scene "scenes/npc/phoenix/strider_run.vcd"
+	scene "scenes/npc/phoenix/gethellout.vcd"
+	response PhoenixDanger weight 12 // 6 * 2
+}
+
+rule PhoenixDangerBig
+{
+	criteria		IsPhoenix ConceptTalkDanger EnemyIsStrider
+	response		PhoenixDangerBig
+}
+
+response "PhoenixMortarDanger" 
+{
+	scene "scenes/npc/phoenix/watchout.vcd"
+	scene "scenes/npc/phoenix/headsup01.vcd"
+	scene "scenes/npc/phoenix/getdown02.vcd"
+	scene "scenes/npc/phoenix/headsup02.vcd"
+	scene "scenes/npc/phoenix/incoming02.vcd"
+	scene "scenes/npc/phoenix/takecover02.vcd"
+}
+
+rule PhoenixMortarDanger
+{
+	criteria		IsPhoenix ConceptTalkDanger EnemyIsMortar
+	response		PhoenixMortarDanger
+}
+
+response "PhoenixSniperDanger" 
+{
+	scene "scenes/npc/phoenix/uhoh.vcd"
+	scene "scenes/npc/phoenix/startle01.vcd"
+	scene "scenes/npc/phoenix/startle02.vcd"
+	scene "scenes/npc/phoenix/getdown02.vcd"
+}
+
+rule PhoenixSniperDanger
+{
+	criteria		IsPhoenix ConceptTalkDanger EnemyIsSniper
+	response		PhoenixSniperDanger
+}
+
+//============================================================================================================
+// Phoenix Reloads Weapon
+//============================================================================================================
+response "PhoenixHideAndReload" 
+{
+	scene "scenes/npc/phoenix/coverwhilereload01.vcd"
+	scene "scenes/npc/phoenix/coverwhilereload02.vcd"	
+	scene "scenes/npc/phoenix/gottareload01.vcd"
+//   print "Gotta reload!"
+}
+
+rule PhoenixHideAndReload
+{
+	criteria		IsPhoenix ConceptHideAndReload
+	response		PhoenixHideAndReload
+}
+
+//============================================================================================================
+// Phoenix Reminds Player to Reload
+//============================================================================================================
+response "PhoenixPlayerReload" 
+{
+	scene "scenes/npc/phoenix/dontforgetreload01.vcd"
+	scene "scenes/npc/phoenix/reloadfm01.vcd"
+	scene "scenes/npc/phoenix/reloadfm02.vcd"
+	scene "scenes/npc/phoenix/youdbetterreload01.vcd"
+//   print "You better reload, Doc."
+}
+
+rule PhoenixPlayerReload
+{
+	criteria		ConceptPlayerReload IsPhoenix PlayerNear SeePlayer
+	response		PhoenixPlayerReload
+}
+
+//------------------------------------------------------------------------------------------------------------
+response "PhoenixNewWeapon"
+{
+	scene "scenes/npc/phoenix/nice.vcd"
+	scene "scenes/npc/phoenix/nice01.vcd"
+	scene "scenes/npc/phoenix/nice02.vcd"
+	scene "scenes/npc/phoenix/thislldonicely.vcd"
+	scene "scenes/npc/phoenix/yeah01.vcd"
+	scene "scenes/npc/phoenix/fantastic01.vcd"
+	scene "scenes/npc/phoenix/fantastic02.vcd"
+	scene "scenes/npc/phoenix/finally.vcd"
+	scene "scenes/npc/phoenix/oneforme.vcd"
+	scene "scenes/npc/phoenix/evenodds.vcd"
+}
+
+rule PhoenixNewWeapon
+{
+	criteria		IsPhoenix  ConceptNewWeapon
+	response		PhoenixNewWeapon
+}
+
+//------------------------------------------------------------------------------------------------------------
+response PhoenixOuch
+{
+   permitrepeats
+	scene "scenes/npc/phoenix/ow01.vcd"
+	scene "scenes/npc/phoenix/ow02.vcd"
+	speak npc_phoenix.die weight 9   // there are nine waves in there
+}
+
+//------------------------------------------------------------------------------------------------------------
+
+response PhoenixMortalWound
+{
+	scene "scenes/npc/phoenix/imhurt01.vcd"
+	scene "scenes/npc/phoenix/imhurt02.vcd"
+}
+
+rule PhoenixMortalWound
+{
+	criteria		IsPhoenix  ConceptTalkMortal
+	response		PhoenixMortalWound
+}
+
+//------------------------------------------------------------------------------------------------------------
+
+rule PhoenixWound
+{
+	criteria		IsPhoenix  ConceptTalkWound
+   response PhoenixOuch
+}
+
+//------------------------------------------------------------------------------------------------------------
+
+response PhoenixWoundFire
+{
+	scene "scenes/npc/phoenix/ow01.vcd"
+	scene "scenes/npc/phoenix/no01.vcd"
+	scene "scenes/npc/phoenix/no02.vcd"
+}
+
+rule PhoenixWoundFire
+{
+	criteria	IsPhoenix  ConceptTalkWound HurtByFire
+   response PhoenixWoundFire
+}
+
+
+//------------------------------------------------------------------------------------------------------------
+response "PhoenixShotArm"
+{
+   permitrepeats
+	scene "scenes/npc/phoenix/myarm01.vcd"
+	scene "scenes/npc/phoenix/myarm02.vcd" 
+	response PhoenixOuch weight 8
+}
+
+rule PhoenixShotArm
+{
+   criteria    IsPhoenix ConceptShot ShotInArm
+   response    PhoenixShotArm
+}
+
+response "PhoenixShotLeg"
+{
+   permitrepeats
+	scene "scenes/npc/phoenix/myleg01.vcd"
+	scene "scenes/npc/phoenix/myleg02.vcd"
+	response  PhoenixOuch weight 8
+}
+
+
+rule PhoenixShotLeg
+{
+   criteria    IsPhoenix ConceptShot ShotInLeg
+   response    PhoenixShotLeg
+}
+
+response "PhoenixShotGut"
+{
+   permitrepeats
+	scene "scenes/npc/phoenix/mygut01.vcd"
+	scene "scenes/npc/phoenix/mygut02.vcd"
+	scene "scenes/npc/phoenix/hitingut01.vcd"
+	scene "scenes/npc/phoenix/hitingut02.vcd"
+	response  PhoenixOuch weight 16
+}
+
+rule PhoenixShotGut
+{
+   criteria    IsPhoenix ConceptShot ShotInGut
+   response    PhoenixShotGut
+}
+
+//------------------------------------------------------------------------------------------------------------
+response PhoenixWatchOut
+{
+	scene "scenes/npc/phoenix/lookoutfm01.vcd"
+	scene "scenes/npc/phoenix/lookoutfm02.vcd"
+}
+
+rule PhoenixWatchOut
+{
+	criteria		IsPhoenix  ConceptTalkWatchout
+	response		PhoenixWatchout
+}
+
+response PhoenixWatchOutUp
+{
+	scene "scenes/npc/phoenix/upthere01.vcd"
+	scene "scenes/npc/phoenix/upthere02.vcd"
+}
+
+rule PhoenixWatchOutUp
+{
+	criteria		IsPhoenix  ConceptTalkWatchout
+	"dangerloc" "above" required
+	response		PhoenixWatchOutUp
+}
+
+response PhoenixWatchOutBehind
+{
+	scene "scenes/npc/phoenix/behindyou01.vcd"
+	scene "scenes/npc/phoenix/behindyou02.vcd"
+}
+
+rule PhoenixWatchOutBehind
+{
+	criteria		IsPhoenix  ConceptTalkWatchout
+	"dangerloc" "behind" required
+	response		PhoenixWatchOutBehind
+}
+
+response PhoenixWatchOutFar
+{
+	scene "scenes/npc/phoenix/overthere01.vcd"
+	scene "scenes/npc/phoenix/overthere02.vcd"
+}
+
+rule PhoenixWatchOutFar
+{
+	criteria		IsPhoenix  ConceptTalkWatchout
+	"dangerloc" "far" required
+	response		PhoenixWatchOutFar
+}
+
+//------------------------------------------------------------------------------------------------------------
+response "PhoenixEnemyDead"
+{
+	scene "scenes/npc/phoenix/gotone01.vcd"
+	scene "scenes/npc/phoenix/gotone02.vcd"
+//	scene "scenes/npc/phoenix/likethemapples.vcd"
+	scene "scenes/npc/phoenix/likethat.vcd"
+}
+
+rule PhoenixEnemyDead
+{
+	criteria		IsPhoenix ConceptEnemyDead 
+	response		PhoenixEnemyDead
+	rescenedelay 		3
+}
+
+//------------------------------------------------------------------------------------------------------------
+response "PhoenixNoShoot"
+{
+	scene "scenes/npc/phoenix/onyourside.vcd"
+	scene "scenes/npc/phoenix/stopitfm.vcd"
+	scene "scenes/npc/phoenix/watchwhat.vcd"
+
+}
+
+rule PhoenixNoShoot
+{
+	criteria		IsPhoenix ConceptTalkNoShoot
+	response		PhoenixNoShoot
+}
+
+//------------------------------------------------------------------------------------------------------------
+response "PhoenixBetrayed"
+{
+	scene "scenes/npc/phoenix/heretohelp01.vcd"
+	scene "scenes/npc/phoenix/heretohelp02.vcd"
+	scene "scenes/npc/phoenix/wetrustedyou01.vcd"
+	scene "scenes/npc/phoenix/wetrustedyou02.vcd"
+	scene "scenes/npc/phoenix/notthemanithought01.vcd"
+	scene "scenes/npc/phoenix/notthemanithought02.vcd"
+}
+
+rule PhoenixBetrayed
+{
+	criteria		IsPhoenix ConceptTalkBetrayed
+	response		PhoenixBetrayed
+}
+
+//------------------------------------------------------------------------------------------------------------
+response "PhoenixAllyKilled"
+{
+	scene "scenes/npc/phoenix/ohno.vcd"
+	scene "scenes/npc/phoenix/goodgod.vcd"
+	scene "scenes/npc/phoenix/startle01.vcd"
+	scene "scenes/npc/phoenix/startle02.vcd"
+	scene "scenes/npc/phoenix/no01.vcd"
+	scene "scenes/npc/phoenix/no02.vcd"
+}
+
+rule PhoenixAllyKilled
+{
+	criteria 		IsPhoenix ConceptTalkAllyKilled
+	response		PhoenixAllyKilled
+}
+
+//------------------------------------------------------------------------------------------------------------
+
+response PhoenixCombineGroup
+{
+	scene "scenes/npc/phoenix/combine01.vcd"
+	scene "scenes/npc/phoenix/combine02.vcd"
+}
+
+response PhoenixCombine
+{
+   response PhoenixCombineGroup respeakdelay 300
+}
+
+rule PhoenixStartCombatCombine
+{
+	criteria    IsPhoenix ConceptStartCombat
+	enemy npc_combine_s required
+	response    PhoenixCombine
+}
+
+//------------------------------------------------------------------------------------------------------------
+
+response PhoenixHeadcrabGroup
+{
+	scene "scenes/npc/phoenix/headcrabs01.vcd"
+	scene "scenes/npc/phoenix/headcrabs02.vcd"
+}
+
+response PhoenixHeadcrab
+{
+   response PhoenixHeadcrabGroup respeakdelay 300
+}
+
+rule PhoenixStartCombatHeadcrab
+{
+	criteria    IsPhoenix ConceptStartCombat
+	enemy npc_headcrab required
+	response    PhoenixHeadcrab
+}
+
+rule PhoenixStartCombatHeadcrabFast
+{
+	criteria    IsPhoenix ConceptStartCombat
+	enemy npc_headcrab_fast required
+	response    PhoenixHeadcrab
+}
+
+rule PhoenixStartCombatHeadcrabBlack
+{
+	criteria    IsPhoenix ConceptStartCombat
+	enemy npc_headcrab_black required
+	response    PhoenixHeadcrab
+}
+
+//------------------------------------------------------------------------------------------------------------
+
+response PhoenixZombieGroup
+{
+	scene "scenes/npc/phoenix/zombies01.vcd"
+	scene "scenes/npc/phoenix/zombies02.vcd"
+}
+
+response PhoenixZombie
+{
+   response PhoenixZombieGroup respeakdelay 300
+}
+
+rule PhoenixStartCombatZombie
+{
+	criteria    IsPhoenix ConceptStartCombat
+	enemy npc_zombie required
+	response    PhoenixZombie
+}
+
+rule PhoenixStartCombatZombieTorso
+{
+	criteria    IsPhoenix ConceptStartCombat
+	enemy npc_zombie_torso required
+	response    PhoenixZombie
+}
+
+rule PhoenixStartCombatZombieFast
+{
+	criteria    IsPhoenix ConceptStartCombat
+	enemy npc_fastzombie required
+	response    PhoenixZombie
+}
+
+rule PhoenixStartCombatZombiePoison
+{
+	criteria    IsPhoenix ConceptStartCombat
+	enemy npc_poisonzombie required
+	response    PhoenixZombie
+}
+
+//------------------------------------------------------------------------------------------------------------
+
+response PhoenixScannersGroup
+{
+	scene "scenes/npc/phoenix/scanners01.vcd"
+	scene "scenes/npc/phoenix/scanners02.vcd"
+}
+
+response PhoenixScanners
+{
+   response PhoenixScannersGroup respeakdelay 300
+}
+
+
+rule PhoenixStartCombatScanners
+{
+	criteria    IsPhoenix ConceptStartCombat
+	enemy npc_cscanner required
+	response    PhoenixScanners
+}
+
+//------------------------------------------------------------------------------------------------------------
+
+response PhoenixStrider
+{
+	scene "scenes/npc/phoenix/strider.vcd" respeakdelay 300
+}
+
+rule PhoenixStartCombatStrider
+{
+	criteria    IsPhoenix ConceptStartCombat
+	enemy npc_strider required
+	response    PhoenixStrider
+}
+
+//------------------------------------------------------------------------------------------------------------
+
+response PhoenixManhacksGroup
+{
+	scene "scenes/npc/phoenix/itsamanhack01.vcd"
+	scene "scenes/npc/phoenix/itsamanhack02.vcd"
+	scene "scenes/npc/phoenix/herecomehacks01.vcd"
+	scene "scenes/npc/phoenix/herecomehacks02.vcd"
+	scene "scenes/npc/phoenix/thehacks01.vcd"
+	scene "scenes/npc/phoenix/thehacks02.vcd"
+	scene "scenes/npc/phoenix/hacks01.vcd"
+	scene "scenes/npc/phoenix/hacks02.vcd"
+}
+
+response PhoenixManhacks
+{
+   response PhoenixManhacksGroup respeakdelay 300
+}
+
+rule PhoenixStartCombatManhacks
+{
+	criteria    IsPhoenix ConceptStartCombat
+	enemy npc_manhack required
+	response    PhoenixManhacks
+}
+
+
+//------------------------------------------------------------------------------------------------------------
+
+response "PhoenixMetroGroup"
+{
+	scene "scenes/npc/phoenix/cps01.vcd"
+	scene "scenes/npc/phoenix/cps02.vcd"
+	scene "scenes/npc/phoenix/civilprotection01.vcd"
+	scene "scenes/npc/phoenix/civilprotection02.vcd"
+}
+
+response PhoenixMetro
+{
+   response PhoenixMetroGroup respeakdelay 300
+}
+
+
+rule PhoenixStartCombatMetro
+{
+	criteria    IsPhoenix ConceptStartCombat
+	enemy npc_metropolice required
+	response    PhoenixMetro
+}
+
+
+//============================================================================================================
+// Phoenix misc speech
+//============================================================================================================
+
+//------------------------------------------------------------------------------------------------------------
+response "PhoenixFiringRPG"
+{
+//
+}
+
+rule PhoenixFiringRPG
+{
+	criteria		IsPhoenix IsRPGUser
+	response		PhoenixFiringRPG
+}
+
+//============================================================================================================
+// Phoenix Leader speech (a Phoenix that's leading the player somewhere)
+//============================================================================================================
+response "PhoenixLeadWaitOver"
+{
+	scene "scenes/npc/phoenix/gotone02.vcd"
+}
+
+rule PhoenixLeadWaitOver
+{
+	criteria		ConceptLeadWaitOver
+	response		PhoenixLeadWaitOver
+}
+
+//------------------------------------------------------------------------------------------------------------
+response "PhoenixLeadAttractPlayer"
+{
+	scene "scenes/npc/phoenix/overhere01.vcd"
+}
+
+rule PhoenixLeadAttractPlayer
+{
+	criteria		IsPhoenix ConceptLeadAttractPlayer
+	response		PhoenixLeadAttractPlayer
+}
+
+response "PhoenixSeeCombine"
+{
+	scene "scenes/npc/phoenix/combine01.vcd"
+}
+
+rule PhoenixSeeCombine
+{
+	criteria		IsPhoenix ConceptSeeCombine
+	response		PhoenixSeeCombine
+	respeakdelay 	45
+}
+
+//============================================================================================================
+// Phoenix responding to the player 'attacking' them with a physics object
+//============================================================================================================
+response "PhoenixPlayerPhysAttack"
+{
+
+}
+
+rule PhoenixPlayerPhysAttack
+{
+	criteria		IsPhoenix ConceptTalkPlayerPhysAttack
+	response		PhoenixPlayerPhysAttack
+}
+
+//============================================================================================================
+//#include "talker/npc_Phoenix_commandermode.txt"
+//#include "talker/npc_Phoenix_terminal.txt"
+//#include "talker/npc_Phoenix_tenement.txt"
+//#include "talker/npc_Phoenix_coast.txt"
+//#include "talker/npc_Phoenix_canals.txt"
+//#include "talker/npc_Phoenix_c17.txt"

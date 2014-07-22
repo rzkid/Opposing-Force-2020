@@ -1,0 +1,170 @@
+// Choreo version 1
+actor "Scared_Soldier_1"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_02_03\HECUGUY"
+    {
+      time -0.013333 4.524536
+      param "VO\of2_city_02_03\HECUGUY.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "Flex"
+  {
+    event lookat "LK_PLR"
+    {
+      time 0.013333 3.666667
+      param "!player"
+    }
+    event flexanimation "Face"
+    {
+      time -0.000000 4.573333
+      param ""
+      flexanimations samples_use_time defaultcurvetype=curve_catmullrom_normalize_x_to_curve_catmullrom_normalize_x
+      {
+        "lid_droop" combo 
+        {
+        }
+        {
+        }
+        "outer_raiser" combo 
+        {
+        }
+        {
+        }
+        "lowerer" combo 
+        {
+        }
+        {
+        }
+      }
+    }
+  }
+  channel "Look At"
+  {
+    event lookat "LK_SS2"
+    {
+      time 3.653333 4.526667
+      param "Scared_Soldier_1"
+    }
+  }
+  channel "Gesture"
+  {
+    event gesture "crouch_reload_smg1"
+    {
+      time 4.523809 7.148809
+      param "crouch_reload_smg1"
+      sequenceduration 2.625000
+    }
+    event gesture "CrouchDToStand"
+    {
+      time 7.232142 8.065475
+      param "CrouchDToStand"
+      sequenceduration 0.833333
+    }
+  }
+  faceposermodel "models\characters\phoenix_marine_face04.mdl"
+}
+
+actor "Scared_Soldier_2"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_02_03\SomeKindaBadass"
+    {
+      time 4.620000 7.560952
+      param "of2_city_02_03.SomeKindaBadass"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "Flex"
+  {
+    event flexanimation "Face"
+    {
+      time 4.600000 7.686666
+      param ""
+      flexanimations samples_use_time defaultcurvetype=curve_catmullrom_normalize_x_to_curve_catmullrom_normalize_x
+      {
+        "inner_raiser" combo 
+        {
+          0.1640 0.1900
+          0.3340 0.1600
+          0.6240 0.6000
+          0.9560 0.3200
+          1.1060 0.8000
+          1.4000 0.7700
+          2.3460 0.4100
+          2.5140 0.4700
+        }
+        {
+        }
+        "smile" 
+        {
+          1.2900 0.2500
+          2.0360 0.2200
+          2.2980 0.2800
+        }
+        "lid_raiser" combo 
+        {
+        }
+        {
+        }
+        "cheek_raiser" combo 
+        {
+          0.3447 0.0900
+          0.4766 0.5300
+          0.8489 0.2600
+          1.0681 0.2600
+          1.1681 0.6100
+          1.4021 0.5400
+          1.7021 0.5300
+        }
+        {
+        }
+        "bite" 
+        {
+        }
+      }
+    }
+    event gesture "Crouch_to_stand"
+    {
+      time 7.041667 7.741667
+      param "Crouch_to_stand"
+    }
+  }
+  channel "Look At"
+  {
+    event lookat "LK_PLR"
+    {
+      time 4.318182 6.275758
+      param "!player"
+    }
+    event lookat "LK_SS1"
+    {
+      time 6.275757 7.063636
+      param "Scared_Soldier_1"
+    }
+    event lookat "LK_PLR"
+    {
+      time 7.054545 7.654545
+      param "!player"
+    }
+  }
+}
+
+scalesettings
+{
+  "CChoreoView" "220"
+  "SceneRampTool" "100"
+  "ExpressionTool" "76"
+  "GestureTool" "100"
+  "RampTool" "100"
+}
+fps 60
+snap off
+ignorePhonemes off

@@ -1,0 +1,151 @@
+//PHNX1 and Radio Operator
+"of2_city_02_a.heyyou"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/heyyou.wav"
+}
+"of2_city_02_a.radiooperator_0"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/radiooperator_0.wav"
+}
+"of2_city_02_a.myposition"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/myposition.wav"
+}
+"of2_city_02_a.radiooperator_1"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/radiooperator_1.wav"
+}
+"of2_city_02_a.uhkinda"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/uhkinda.wav"
+}
+"of2_city_02_a.whoeveryouare"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/whoeveryouare.wav"
+}
+"of2_city_02_a.cplbrian"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/cplbrian.wav"
+}
+"of2_city_02_a.heyuhsierra"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/heyuhsierra.wav"
+}
+"of2_city_02_a.radiooperator_2"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/radiooperator_2.wav"
+}
+"of2_city_02_a.theyre"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/theyre.wav"
+}
+"of2_city_02_a.radiooperator_3"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/radiooperator_3.wav"
+}
+"of2_city_02_a.nowwhat"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/nowwhat.wav"
+}
+"of2_city_02_a.radiooperator_4"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/radiooperator_4.wav"
+}
+"of2_city_02_a.iguessicantrustyou"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/iguessicantrustyou.wav"
+}
+"of2_city_02_a.hereopenthat"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"pitch"			"PITCH_NORM"
+
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"			"*vo/of2_city_02_a/hereopenthat.wav"
+}

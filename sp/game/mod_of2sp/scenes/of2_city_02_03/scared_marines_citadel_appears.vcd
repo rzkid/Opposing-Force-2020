@@ -1,0 +1,105 @@
+// Choreo version 1
+actor "Scared_Soldier_1"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_02_03\holyshit3"
+    {
+      time 0.007575 4.612178
+      param "VO\of2_city_02_03\holyshit3.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "Flex"
+  {
+  }
+  channel "Look At"
+  {
+  }
+  faceposermodel "models\characters\phoenix_marine_face04.mdl"
+}
+
+actor "Scared_Soldier_2"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_02_03\Combine"
+    {
+      time 5.247579 10.553339
+      param "VO\of2_city_02_03\Combine.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "Flex"
+  {
+    event flexanimation "Face4"
+    {
+      time 5.240911 10.607579
+      param ""
+      flexanimations samples_use_time defaultcurvetype=curve_catmullrom_normalize_x_to_curve_catmullrom_normalize_x
+      {
+        "inner_raiser" combo 
+        {
+          0.0820 0.0500
+          0.9271 0.2700
+          1.0458 0.2500
+        }
+        {
+        }
+        "outer_raiser" combo 
+        {
+          0.0600 0.2100
+          0.2979 0.0600
+          1.1958 0.4800
+          3.9167 0.2000
+          4.2813 0.6600
+          4.6000 0.0300
+        }
+        {
+        }
+        "lowerer" combo 
+        {
+          0.0458 0.1800
+          0.3208 0.3800
+          0.4625 0.7100
+          0.7104 0.5700
+          4.6396 0.1400
+          4.8771 0.6300
+        }
+        {
+        }
+        "wrinkler" 
+        {
+          0.0896 0.2500
+          0.2458 0.1600
+          0.7458 0.2000
+          0.8354 0.4200
+          1.1104 0.3100
+        }
+        "mouth_drop" combo 
+        {
+          1.1500 0.5700
+          4.6521 0.2000
+        }
+        {
+        }
+      }
+    }
+  }
+}
+
+scalesettings
+{
+  "CChoreoView" "88"
+  "SceneRampTool" "100"
+  "ExpressionTool" "96"
+  "GestureTool" "100"
+  "RampTool" "100"
+}
+fps 60
+snap off
+ignorePhonemes off

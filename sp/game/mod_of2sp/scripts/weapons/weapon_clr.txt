@@ -1,0 +1,81 @@
+// Combine Laser Rifle/CLR
+
+WeaponData
+{
+	// Weapon data is loaded by both the Game and Client DLLs.
+	"printname"	"Combine Laser Rifle"
+	"viewmodel"			"models/weapons/v_clr.mdl"
+	"playermodel"			"models/weapons/w_smg1.mdl"
+	"anim_prefix"			"clr"
+	"bucket"			"5"
+	"bucket_position"		"1"
+
+	"clip_size"			"90"
+	"default_clip"			"50"
+
+	"clip2_size"			"-1"
+	"default_clip2"			"-1"
+
+	"primary_ammo"			"combine"
+	//"primary_ammo"			"CLR"
+	"secondary_ammo"		"combine_altfire"
+
+	"weight"			"7"
+	"item_flags"			"0"
+
+	"BuiltRightHanded" "0" 
+	"AllowFlipping" "1" 
+
+	// Sounds for the weapon. There is a max of 16 sounds per category (i.e. max 16 "single_shot" sounds)
+	SoundData
+	{
+		"special1"		"Weapon_CombineGuard.Special1"
+		"empty"			"Weapon_IRifle.Empty"
+		"double_shot"		"Weapon_CLR.Double"
+		"reload"		"Weapon_AR2.Reload"
+		"single_shot"		"Weapon_CLR.Single"
+
+		// NPC SECTION
+		"single_shot_npc"	"Weapon_CLR.Single"
+		"reload_npc"		"Weapon_AR2.NPC_Reload"
+		"double_shot_npc"	"Weapon_CLR.Double"
+	}
+
+	// Weapon Sprite data is loaded by the Client DLL.
+	TextureData
+	{
+		"weapon"
+		{
+				"font"		"WeaponIcons"
+				"character"	"l"
+		}
+		"weapon_s"
+		{	
+				"font"		"WeaponIconsSelected"
+				"character"	"l"
+		}
+		"ammo"
+		{
+				"font"		"WeaponIcons"
+				"character"	"u"
+		}
+		"ammo2"
+		{
+				"font"		"WeaponIcons"
+				"character"	"z"
+		}
+		"crosshair"
+		{
+				"font"		"Crosshairs"
+				"character"	"Q"
+		}
+		"autoaim"
+		{
+				"file"		"sprites/crosshairs"
+				"x"			"0"
+				"y"			"48"
+				"width"		"24"
+				"height"	"24"
+		}
+	}
+}

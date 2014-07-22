@@ -1,0 +1,22 @@
+"OpFor2.NightVisOn"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_80dB"
+	"pitch"		"PITCH_NORM"
+	"rndwave"
+	{
+	"wave"	"items/nv_on.wav"
+	}	
+}
+"OpFor2.NightVisOff"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_80dB"
+	"pitch"		"PITCH_NORM"
+	"rndwave"
+	{
+	"wave"	"items/nv_off.wav"
+	}
+}

@@ -1,0 +1,97 @@
+// Choreo version 1
+actor "RS1"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_04\knoweachother1"
+    {
+      time 1.060000 2.722041
+      param "VO\of2_city_04\knoweachother1.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_04\buyustime3"
+    {
+      time 19.860001 25.076962
+      param "VO\of2_city_04\buyustime3.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+}
+
+actor "RS2"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_04\cockblock"
+    {
+      time 5.953333 13.801859
+      param "VO\of2_city_04\cockblock.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_04\precioustime"
+    {
+      time 14.526668 17.573742
+      param "VO\of2_city_04\precioustime.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_04\doingwhat"
+    {
+      time 17.993332 19.239862
+      param "VO\of2_city_04\doingwhat.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_04\gonnabreakit"
+    {
+      time 26.253334 28.238550
+      param "VO\of2_city_04\gonnabreakit.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+}
+
+actor "Torch Jackson"
+{
+  channel "Voice"
+  {
+    event speak "VO\of2_city_04\FuckIt"
+    {
+      time 28.686665 30.587662
+      param "VO\of2_city_04\FuckIt.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "VO\of2_city_04\damnright-2"
+    {
+      time 3.260000 5.071769
+      param "VO\of2_city_04\damnright-2.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+}
+
+scalesettings
+{
+  "RampTool" "100"
+  "GestureTool" "100"
+  "ExpressionTool" "100"
+  "SceneRampTool" "100"
+  "CChoreoView" "100"
+}
+fps 60
+snap off
+ignorePhonemes off

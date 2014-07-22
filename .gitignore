@@ -83,16 +83,5 @@ sp/src/materialsystem/stdshaders/filestocopy.txt
 sp/src/materialsystem/stdshaders/makefile.of2shader_dx9_30
 sp/src/materialsystem/stdshaders/makefile.of2shader_dx9_30.copy
 sp/src/materialsystem/stdshaders/uniquefilestocopy.txt
-sp/game/mod_of2sp/shaders/fxc/example_model_ps20b.vcs
-sp/game/mod_of2sp/shaders/fxc/example_model_vs20.vcs
-sp/game/mod_of2sp/shaders/fxc/passthrough_vs30.vcs
-sp/game/mod_of2sp/shaders/fxc/post_chromatic_aberration_ps30.vcs
-sp/game/mod_of2sp/shaders/fxc/post_nightvision_ps30.vcs
-sp/game/mod_of2sp/shaders/fxc/post_vignette_ps30.vcs
-sp/game/mod_of2sp/shaders/fxc/sdk_bloomadd_ps20.vcs
-sp/game/mod_of2sp/shaders/fxc/sdk_bloomadd_ps20b.vcs
-sp/game/mod_of2sp/shaders/fxc/post_cubic_ps30.vcs
-sp/game/mod_of2sp/shaders/fxc/sdk_bloom_ps20.vcs
-sp/game/mod_of2sp/shaders/fxc/sdk_bloom_ps20b.vcs
-sp/game/mod_of2sp/shaders/fxc/sdk_screenspaceeffect_vs20.vcs
 sp/src/materialsystem/stdshaders/vcslist.txt
+sp/game/mod_of2sp/shaders/*

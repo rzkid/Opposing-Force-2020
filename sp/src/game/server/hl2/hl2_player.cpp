@@ -36,7 +36,9 @@
 #include "te_effect_dispatch.h" 
 #include "ai_basenpc.h"
 #include "AI_Criteria.h"
+#ifdef HL2_DLL
 #include "npc_barnacle.h"
+#endif
 #include "entitylist.h"
 #include "env_zoom.h"
 #include "hl2_gamerules.h"
@@ -833,7 +835,7 @@ void CHL2_Player::PreThink(void)
 	{
 		m_Local.m_flFallVelocity = -GetAbsVelocity().z;
 	}
-
+#ifdef HL2_DLL
 	if ( m_afPhysicsFlags & PFLAG_ONBARNACLE )
 	{
 		bool bOnBarnacle = false;
@@ -862,6 +864,7 @@ void CHL2_Player::PreThink(void)
 			SetAbsVelocity( vec3_origin );
 		}
 	}
+#endif
 	// StudioFrameAdvance( );//!!!HACKHACK!!! Can't be hit by traceline when not animating?
 
 	// Update weapon's ready status
@@ -1016,6 +1019,7 @@ Class_T  CHL2_Player::Classify ( void )
 //-----------------------------------------------------------------------------
 bool CHL2_Player::HandleInteraction(int interactionType, void *data, CBaseCombatCharacter* sourceEnt)
 {
+#ifdef HL2_DLL
 	if ( interactionType == g_interactionBarnacleVictimDangle )
 		return false;
 	
@@ -1043,6 +1047,7 @@ bool CHL2_Player::HandleInteraction(int interactionType, void *data, CBaseCombat
 		ClearUseEntity();
 		return true;
 	}
+#endif
 	return false;
 }
 

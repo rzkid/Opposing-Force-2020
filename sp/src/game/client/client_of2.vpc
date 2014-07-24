@@ -30,7 +30,7 @@ $Project "Client (OF2)"
 
 		$Folder	"OF2"
 		{
-
+			$File	"of2\c_weapon_stubs_of2.cpp"
 		}
 
 		$Folder	"HL2 DLL"
@@ -76,7 +76,6 @@ $Project "Client (OF2)"
 			$File	"hl2\c_vehicle_crane.cpp"
 			$File	"hl2\c_vehicle_crane.h"
 			$File	"hl2\c_vehicle_prisoner_pod.cpp"
-			$File	"hl2\c_weapon__stubs_hl2.cpp"
 			$File	"hl2\c_weapon_crossbow.cpp"
 			$File	"hl2\c_weapon_physcannon.cpp"
 			$File	"hl2\c_weapon_stunstick.cpp"

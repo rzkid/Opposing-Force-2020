@@ -52,7 +52,17 @@ $Project "Server (OF2)"
 
 		$Folder	"OF2"
 		{
-
+			$File	"of2\weapon_csmg1.cpp"
+			$File	"of2\weapon_frag.cpp"
+			$File	"of2\weapon_glock.cpp"
+			$File	"of2\weapon_m16.cpp"
+			$File	"of2\weapon_m40.cpp"
+			$File	"of2\weapon_rpg.cpp"
+			$File	"of2\weapon_rpg.h"
+			$File	"of2\weapon_shotgun.cpp"
+			$File	"of2\weapon_smg1.cpp"
+			$File	"of2\weapon_wrench.cpp"
+			$File	"of2\weapon_wrench.h"
 		}
 
 		$Folder	"HL2 DLL"
@@ -128,6 +138,8 @@ $Project "Server (OF2)"
 			$File	"hl2\item_suit.cpp"
 			$File	"hl2\look_door.cpp"
 			$File	"hl2\monster_dummy.cpp"
+			$File	"hl2\npc_bullseye.cpp"
+			$File	"hl2\npc_bullseye.h"
 			$File	"hl2\point_apc_controller.cpp"
 			$File	"hl2\prop_combine_ball.cpp"
 			$File	"hl2\prop_combine_ball.h"

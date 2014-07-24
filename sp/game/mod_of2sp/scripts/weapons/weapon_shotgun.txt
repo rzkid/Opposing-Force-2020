@@ -4,7 +4,7 @@ WeaponData
 {
 	// Weapon data is loaded by both the Game and Client DLLs.
 	"printname"	"SPAS-12"
-	"viewmodel"				"models/weapons/v_shotgun.mdl"
+	"viewmodel"				"models/weapons/v_glock.mdl"
 	"playermodel"			"models/weapons/w_shotgun.mdl"
 	"anim_prefix"			"shotgun"
 	"bucket"				"3"

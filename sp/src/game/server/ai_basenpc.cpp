@@ -70,7 +70,7 @@
 #include "checksum_crc.h"
 #include "iservervehicle.h"
 #include "filters.h"
-#ifdef HL2_DLL
+#if defined(HL2_DLL) || defined(OF2_DLL)
 #include "npc_bullseye.h"
 #include "hl2_player.h"
 #include "weapon_physcannon.h"
@@ -9546,7 +9546,7 @@ void CAI_BaseNPC::CollectShotStats( const Vector &vecShootOrigin, const Vector &
 #endif
 }
 
-#ifdef HL2_DLL
+#if defined(HL2_DLL) || defined(OF2_DLL)
 //-----------------------------------------------------------------------------
 // Purpose: Return the actual position the NPC wants to fire at when it's trying
 //			to hit it's current enemy.

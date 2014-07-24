@@ -48,10 +48,18 @@ protected:
 	virtual	void	ImpactEffect( trace_t &trace );
 
 private:
+#ifdef OF2_DLL
+public:
+#endif
 	bool			ImpactWater( const Vector &start, const Vector &end );
+private:
 	void			Swing( int bIsSecondary );
 	void			Hit( trace_t &traceHit, Activity nHitActivity, bool bIsSecondary );
+#ifdef OF2_DLL
+public:
+#endif
 	Activity		ChooseIntersectionPointAndActivity( trace_t &hitTrace, const Vector &mins, const Vector &maxs, CBasePlayer *pOwner );
+
 };
 
 #endif

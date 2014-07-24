@@ -2108,6 +2108,7 @@ typedef enum
 	ACT_SPELL_VM_FIRE,
 
 	// this is the end of the global activities, private per-monster activities start here.
+	ACT_VM_FIX_GAUSS,
 	LAST_SHARED_ACTIVITY,
 } Activity;
 

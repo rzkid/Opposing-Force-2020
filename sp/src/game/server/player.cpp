@@ -6169,15 +6169,15 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveAmmo( 5,	"Hopwire" );
 #endif		
 #ifdef OF2_DLL
-		GiveNamedItem(" weapon_csmg1");
-		GiveNamedItem(" weapon_frag");
-		GiveNamedItem(" weapon_glock");
-		GiveNamedItem(" weapon_m16");
-		GiveNamedItem(" weapon_m40");
-		GiveNamedItem(" weapon_rpg");
-		GiveNamedItem(" weapon_shotgun");
-		GiveNamedItem(" weapon_smg1");
-		GiveNamedItem(" weapon_wrench");
+		GiveNamedItem( "weapon_csmg1" );
+		GiveNamedItem( "weapon_frag" );
+		GiveNamedItem( "weapon_glock" );
+		GiveNamedItem( "weapon_m16" );
+		GiveNamedItem( "weapon_m40" );
+		GiveNamedItem( "weapon_rpg" );
+		GiveNamedItem( "weapon_shotgun" );
+		GiveNamedItem( "weapon_smg1" );
+		GiveNamedItem( "weapon_wrench" );
 #else
 		GiveNamedItem( "weapon_smg1" );
 		GiveNamedItem( "weapon_frag" );

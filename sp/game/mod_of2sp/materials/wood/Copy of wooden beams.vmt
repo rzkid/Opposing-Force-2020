@@ -1,0 +1,9 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "WOOD/wooden planks"
+	"$bumpmap" "wood/wooden planks_n"
+        "$parallaxmap"	"wood/wooden planks_p"
+        "$parallaxmapscale"	0.2
+	"%keywords" "OF2"
+
+}

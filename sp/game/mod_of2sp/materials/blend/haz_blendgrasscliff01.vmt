@@ -1,0 +1,14 @@
+"WorldVertexTransition"
+{
+	"$basetexture" "nature/forest_gravel_01"
+	"$basetexture2" "nature/rockwall015a"
+	
+	"$surfaceprop" "dirt"
+	//"$blendmodulatetexture" "nature/pave_blendtexture01"
+	
+	"%keywords" "OF2"
+
+}
+
+
+

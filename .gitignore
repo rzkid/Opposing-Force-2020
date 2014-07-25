@@ -86,3 +86,6 @@ sp/src/materialsystem/stdshaders/uniquefilestocopy.txt
 sp/src/materialsystem/stdshaders/vcslist.txt
 sp/game/mod_of2sp/shaders/*
 sp/game/mod_of2sp/save/*
+sp/content/mod_of2sp/mapsrc/Miscellaneous/*.bsp
+sp/content/mod_of2sp/mapsrc/Miscellaneous/*.log
+sp/content/mod_of2sp/mapsrc/Miscellaneous/*.prt

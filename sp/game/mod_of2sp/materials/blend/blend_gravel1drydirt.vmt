@@ -1,0 +1,10 @@
+"worldvertextransition"
+{
+"$basetexture" "floors\gravel1"
+"$basetexture2" "floors/drydirt1"
+"$surfaceprop" "gravel"
+"$surfaceprop2" gravel"
+"%tooltexture" "blend/blend_gravel1drydirt"
+"$blendmodulatetexture"  "blend/Blend_modulate_1"
+	"%keywords" "OF2"
+}

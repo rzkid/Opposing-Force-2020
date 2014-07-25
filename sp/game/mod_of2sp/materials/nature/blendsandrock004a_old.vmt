@@ -1,0 +1,15 @@
+"WorldVertexTransition"
+{
+	"$basetexture" "nature/sandfloor009a_old"
+	"$basetexture2" "nature/rockfloor002a"
+	"%tooltexture" "nature/rockfloor002a"
+	"%keywords" "wasteland OF2"
+	"$surfaceprop" "sand"
+	"$bumpmap" "Nature/sandfloor009a_normal"
+	//"$normalmapalphaenvmapmask" 1
+	//"$envmapcontrast" 1
+	//"$envmapsaturation" 1
+	//"$envmaptint" "[ .5 .5 .5]"
+	//"$envmap" "env_cubemap"
+	"$bumpbasetexture2withbumpmap" "1"
+}

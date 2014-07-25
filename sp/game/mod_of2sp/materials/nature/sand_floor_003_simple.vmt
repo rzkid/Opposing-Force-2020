@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "nature/sand_floor_001"
+	"$normalmap" "nature/sand_floor_001_normal"
+}

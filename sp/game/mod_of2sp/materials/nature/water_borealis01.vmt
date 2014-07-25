@@ -1,0 +1,87 @@
+"Water"
+{
+	"Water_DX60"
+	{
+		"$fallbackmaterial" "Nature/water_borealis01_skybox"
+	}
+	"Water_DX80"
+	{
+		"$fogenable" 1
+		"$fogcolor" "{ 0.04 0.04 0.04 }"
+		"$fogstart" 1.00
+		"$fogend" 1600.00
+
+		"$refracttexture" "_rt_WaterRefraction"
+		"$refractamount" "1.0"
+		"$refracttint" "[0.95 1.0 0.97]"
+	}
+	"Water_DX81"
+	{
+	}
+
+	"%compilewater" 1
+	"%tooltexture" "Nature/water_haven001a"
+	"$basetexture" "Nature/water_haven001a"
+	"$abovewater" 1
+	"$scale" "[.1 .1]"
+	"%keywords" "OF2"
+
+	"$reflecttexture" "_rt_WaterReflection"
+	"$reflectamount" "1.0"
+	"$reflecttint" "[.25 .25 .25]"
+
+	"$bumpmap" "nature/water_borealis01_normal"
+	"$normalmap" "nature/water_borealis01_normal"
+
+	"$surfaceprop" "water"
+	"$bottommaterial" "dev/oceanbeneath"
+	"$bumpframe" "0"
+
+	"$envmap" "env_cubemap" //Environment Maps/borealis_sea
+	//"$envmaptint" "[.5 .5 .5]"
+
+	"$fogenable" 0
+	"$fogcolor" "{22 20 10}"
+	"$fogstart" 1.00
+	"$fogend" 400.00
+
+	"Proxies"
+	{
+		//"AnimatedTexture"
+		//{
+		//	"animatedtexturevar" "$normalmap"
+		//	"animatedtextureframenumvar" "$bumpframe"
+		//	"animatedtextureframerate" 30.00
+		//}
+
+		"WaterLOD"
+		{
+		}
+
+		"TextureScroll"
+		{
+			"texturescrollvar" "$bumptransform"
+			"texturescrollrate" .1
+			"texturescrollangle" 0.00
+		}
+	}	
+}
+
+// All of the old vmt
+//"LightmappedGeneric"
+//{
+//	"%tooltexture" "nature/water_borealis01"
+//	"$basetexture" "Nature/water_haven001a"
+//	"$bumpmap" "nature/water_borealis01_normal"
+//	"$envmap" "Environment Maps/borealis_sea"
+//	"$envmaptint" "[.5 .5 .5]"
+//	"Proxies"
+//	{
+//		"TextureScroll"
+//		{
+//			"texturescrollvar" "$bumptransform"
+//			"texturescrollrate" .1
+//			"texturescrollangle" 0.00
+//		}
+//	}
+//}

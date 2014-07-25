@@ -1,0 +1,10 @@
+"worldvertextransition"
+{
+"$basetexture" "nature\rock01"
+"$basetexture2" "nature/rock02"
+"$surfaceprop" "rock"
+"$surfaceprop2" "rock"
+"%tooltexture" "nature\rock01"
+"$blendmodulatetexture"  "blend/Blend_modulate_1"
+	"%keywords" "OF2"
+}

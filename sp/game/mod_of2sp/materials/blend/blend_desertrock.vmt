@@ -1,0 +1,11 @@
+"worldvertextransition"
+{
+"$basetexture" "walls/redcliff"
+"$basetexture2" "Nature/dirtfloor013a"
+"$surfaceprop" "dirt"
+"$surfaceprop2" dirt"
+"%tooltexture" "blend/blend_grassgravel"
+"$bumpmap" "walls/redcliff_NRM"
+"$blendmodulatetexture"  "blend/Blend_modulate_1"
+	"%keywords" "OF2"
+}

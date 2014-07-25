@@ -1,0 +1,8 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "nature/cave1"
+	"$bumpmap" "nature/cave1_NRM"
+	"$surfaceprop" "Rock"
+	"%keywords" "OF2"
+	"$basealphaenvmapmask"	"1"
+}

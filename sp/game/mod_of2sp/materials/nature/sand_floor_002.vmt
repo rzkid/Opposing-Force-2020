@@ -1,0 +1,7 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "nature/sand_floor_001"
+	"$normalmap" "nature/sand_floor_001_normal"
+	"%detailtype" "coastline_redgrass01"
+	"%keywords" "OF2"
+}

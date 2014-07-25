@@ -1,0 +1,9 @@
+"worldvertextransition"
+{
+"$basetexture" "concrete\concretefloor033a"
+"$basetexture2" "Concrete/concretefloor007a"
+"$surfaceprop" "concrete"
+"$surfaceprop2" concrete"
+"%tooltexture" "blend/blend_debrisconcrete"
+	"%keywords" "OF2"
+}

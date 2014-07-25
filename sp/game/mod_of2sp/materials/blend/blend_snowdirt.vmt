@@ -1,0 +1,10 @@
+"worldvertextransition"
+{
+"$basetexture" "nature\snowfloor001a"
+"$basetexture2" "nature/forest_dirt_02"
+"$surfaceprop" "snow"
+"$surfaceprop2" "grass"
+"%tooltexture" "blend/blend_snowdirt"
+"$blendmodulatetexture"  "blend/Blend_modulate_1"
+	"%keywords" "OF2"
+}

@@ -1,0 +1,23 @@
+"LightmappedGeneric"
+{
+	"%tooltexture" "nature/water_haven001a"
+	"$basetexture" "Nature/water_haven001a"
+	"%keywords" "OF2"
+
+	"$bumpmap" "nature/water_borealis01_normal"
+
+	"$envmap" "Environment Maps/borealis_sea"
+	"$envmaptint" "[.5 .5 .5]"
+
+	"$surfaceprop" "water"
+
+	"Proxies"
+	{
+		"TextureScroll"
+		{
+			"texturescrollvar" "$bumptransform"
+			"texturescrollrate" .1
+			"texturescrollangle" 0.00
+		}
+	}
+}

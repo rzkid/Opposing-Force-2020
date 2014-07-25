@@ -1,0 +1,7 @@
+"WorldVertexAlpha"
+{
+	"$basetexture" "nature/sandfloor009a_old"
+	"%tooltexture" "nature/sandfloor009a_old"
+	"%compilepassbullets" "1"
+	"%keywords" "wasteland OF2"
+}

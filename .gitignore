@@ -85,3 +85,4 @@ sp/src/materialsystem/stdshaders/makefile.of2shader_dx9_30.copy
 sp/src/materialsystem/stdshaders/uniquefilestocopy.txt
 sp/src/materialsystem/stdshaders/vcslist.txt
 sp/game/mod_of2sp/shaders/*
+sp/game/mod_of2sp/save/*

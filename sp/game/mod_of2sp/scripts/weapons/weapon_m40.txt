@@ -7,8 +7,8 @@ WeaponData
 	"viewmodel"			"models/weapons/v_m40.mdl"
 	"playermodel"		"models/weapons/w_357.mdl"
 	"anim_prefix"		"python"
-	"bucket"			"1"
-	"bucket_position"	"2"
+	"bucket"			"2"
+	"bucket_position"	"0"
 
 	"clip_size"			"6"
 	"default_clip"		"6"

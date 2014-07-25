@@ -7,7 +7,7 @@ WeaponData
 	"viewmodel"				"models/weapons/v_rpg.mdl"
 	"playermodel"			"models/weapons/w_rocket_launcher.mdl"
 	"anim_prefix"			"missile launcher"
-	"bucket"				"4"
+	"bucket"				"3"
 	"bucket_position"		"0"
 	"autoswitchfrom"		"0"
 

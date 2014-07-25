@@ -7,7 +7,7 @@ WeaponData
 	"viewmodel"				"models/weapons/v_shotgun.mdl"
 	"playermodel"			"models/weapons/w_shotgun.mdl"
 	"anim_prefix"			"shotgun"
-	"bucket"				"3"
+	"bucket"				"1"
 	"bucket_position"		"0"
 
 	"clip_size"				"8"

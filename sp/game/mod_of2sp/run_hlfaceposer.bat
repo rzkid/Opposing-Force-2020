@@ -1,3 +1,3 @@
 call %~dp0setvars
 
-"%SPBASE2013BIN%\hlfaceposer.exe" -game "%GameDir%"
+"%SPBASE2013%\bin\hlfaceposer.exe" -game "%GameDir%"

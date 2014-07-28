@@ -1,3 +1,3 @@
 call %~dp0setvars
 
-"%SPBASE2013BIN%\hammer.exe" -game "%GameDir%"
+"%SPBASE2013%\bin\hammer.exe" -game "%GameDir%"

@@ -14,7 +14,7 @@ $Configuration
 {
 	$Compiler
 	{
-		$AdditionalIncludeDirectories	"$BASE;$SRCDIR\game\shared\hl2;.\hl2"
+		$AdditionalIncludeDirectories	"$BASE;$SRCDIR\game\shared\hl2;.\hl2;$SRCDIR\game\shared\of2"
 		$PreprocessorDefinitions		"$BASE;USES_SAVERESTORE;OF2_DLL"
 	}
 }
@@ -63,6 +63,9 @@ $Project "Server (OF2)"
 			$File	"of2\weapon_smg1.cpp"
 			$File	"of2\weapon_wrench.cpp"
 			$File	"of2\weapon_wrench.h"
+			$File	"$SRCDIR\game\shared\of2\of2_gamerules.cpp"
+			$File	"$SRCDIR\game\shared\of2\of2_gamerules.h"
+			$File	"of2\of2_client.cpp"
 		}
 
 		$Folder	"HL2 DLL"
@@ -109,10 +112,7 @@ $Project "Server (OF2)"
 			$File	"hl2\grenade_frag.cpp"
 			$File	"hl2\grenade_frag.h"
 			$File	"hl2\hl2_ai_network.cpp"
-			$File	"hl2\hl2_client.cpp"
 			$File	"hl2\hl2_eventlog.cpp"
-			$File	"$SRCDIR\game\shared\hl2\hl2_gamerules.cpp"
-			$File	"$SRCDIR\game\shared\hl2\hl2_gamerules.h"
 			$File	"hl2\hl2_gamestats.cpp"
 			$File	"hl2\hl2_gamestats.h"
 			$File	"hl2\hl2_player.cpp"

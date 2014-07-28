@@ -15,7 +15,7 @@ $Configuration
 {
 	$Compiler
 	{
-		$AdditionalIncludeDirectories	".\hl2;.\hl2\elements;$SRCDIR\game\shared\hl2;$BASE;.\of2;.\of2\elements;$SRCDIR\game\shared\of2;"
+		$AdditionalIncludeDirectories	".\hl2;.\hl2\elements;$SRCDIR\game\shared\hl2;$BASE;.\of2;.\of2\elements;$SRCDIR\game\shared\of2"
 		$PreprocessorDefinitions		"$BASE;OF2_CLIENT_DLL"
 	}
 }
@@ -31,6 +31,8 @@ $Project "Client (OF2)"
 		$Folder	"OF2"
 		{
 			$File	"of2\c_weapon_stubs_of2.cpp"
+			$File	"$SRCDIR\game\shared\of2\of2_gamerules.cpp"
+			$File	"$SRCDIR\game\shared\of2\of2_gamerules.h"
 		}
 
 		$Folder	"HL2 DLL"
@@ -89,8 +91,6 @@ $Project "Client (OF2)"
 			$File	"hl2\fx_hl2_impacts.cpp"
 			$File	"hl2\fx_hl2_tracers.cpp"
 			$File	"hl2\hl2_clientmode.cpp"
-			$File	"$SRCDIR\game\shared\hl2\hl2_gamerules.cpp"
-			$File	"$SRCDIR\game\shared\hl2\hl2_gamerules.h"
 			$File	"$SRCDIR\game\shared\hl2\hl2_shareddefs.h"
 			$File	"$SRCDIR\game\shared\hl2\hl2_usermessages.cpp"
 			$File	"$SRCDIR\game\shared\hl2\hl_gamemovement.cpp"

@@ -3,6 +3,10 @@
 // Purpose: Game rules for Half-Life 2.
 //
 //=============================================================================//
+#if defined(OF2_DLL) || defined(OF2_CLIENT_DLL)
+you should not see this
+#endif
+
 
 #ifndef HL2_GAMERULES_H
 #define HL2_GAMERULES_H

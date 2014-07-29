@@ -20,13 +20,13 @@
 #include "te_effect_dispatch.h"
 #include "gamestats.h"
 #include "rumble_shared.h"
-#include "grenade_ar2.h"
+#include "grenade_m16.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
 //extern ConVar	sk_plr_dmg_m16_grenade;
-ConVar	sk_plr_dmg_m16_grenade("sk_plr_dmg_m16_grenade", "85");
+//ConVar	sk_plr_dmg_m16_grenade("sk_plr_dmg_m16_grenade", "85");
 
 
 ConVar dev_m16_rpm("dev_m16_rpm","650");//825
@@ -330,13 +330,13 @@ void CWeaponM16::SecondaryAttack( void )
 	//Create the grenade
 	QAngle angles;
 	VectorAngles( vecThrow, angles );
-	CGrenadeAR2 *pGrenade = (CGrenadeAR2*)Create( "grenade_ar2", vecSrc, angles, pPlayer );
+	CGrenadeM16 *pGrenade = (CGrenadeM16*)Create( "grenade_m16", vecSrc, angles, pPlayer );
 	pGrenade->SetAbsVelocity( vecThrow );
 
 	pGrenade->SetLocalAngularVelocity( RandomAngle( -400, 400 ) );
 	pGrenade->SetMoveType( MOVETYPE_FLYGRAVITY, MOVECOLLIDE_FLY_BOUNCE ); 
 	pGrenade->SetThrower( GetOwner() );
-	pGrenade->SetDamage( sk_plr_dmg_m16_grenade.GetFloat() );
+	//pGrenade->SetDamage( sk_plr_dmg_m16_grenade.GetFloat() );
 
 	SendWeaponAnim( ACT_VM_SECONDARYATTACK );
 

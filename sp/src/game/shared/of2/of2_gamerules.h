@@ -12,7 +12,7 @@
 
 #include "gamerules.h"
 #include "singleplay_gamerules.h"
-#include "hl2_shareddefs.h"
+#include "of2_shareddefs.h"
 
 #ifdef CLIENT_DLL
 	#define COpposingForce2 C_OpposingForce2
@@ -84,7 +84,7 @@ public:
 	bool	NPC_ShouldDropHealth( CBasePlayer *pRecipient );
 	void	NPC_DroppedHealth( void );
 	void	NPC_DroppedGrenade( void );
-	bool	MegaPhyscannonActive( void ) { return m_bMegaPhysgun;	}
+	//bool	MegaPhyscannonActive( void ) { return m_bMegaPhysgun;	}
 	
 	virtual bool IsAlyxInDarknessMode();
 

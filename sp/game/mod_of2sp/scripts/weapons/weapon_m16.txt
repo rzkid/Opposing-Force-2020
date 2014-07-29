@@ -17,7 +17,7 @@ WeaponData
 	"default_clip"			"20"
 	"default_clip2"			"-1"
 
-	"primary_ammo"			"M16"
+	"primary_ammo"			"5_56mm"
 	"secondary_ammo"		"M16_Grenade"
 
 	"weight"				"3"

@@ -17,7 +17,12 @@
 #include "ai_squad.h"
 #include "igamemovement.h"
 #include "ai_hull.h"
+#ifdef OF2_DLL
+#include "of2_shareddefs.h"
+#else
 #include "hl2_shareddefs.h"
+#endif
+
 #include "info_camera_link.h"
 #include "point_camera.h"
 #include "engine/IEngineSound.h"
@@ -41,7 +46,14 @@
 #endif
 #include "entitylist.h"
 #include "env_zoom.h"
+
+#ifdef OF2_DLL
+#include "of2_gamerules.h"
+#else
 #include "hl2_gamerules.h"
+#endif
+
+
 #include "prop_combine_ball.h"
 #include "datacache/imdlcache.h"
 #include "eventqueue.h"

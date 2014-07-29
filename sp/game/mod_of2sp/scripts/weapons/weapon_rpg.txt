@@ -17,7 +17,6 @@ WeaponData
 	"default_clip2"			"-1"
 
 	"primary_ammo"			"rpg_round"
-	"secondary_ammo"		"None"
 
 	"autoswitchto"			"0"
 	"weight"				"0"

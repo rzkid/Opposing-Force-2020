@@ -25,7 +25,7 @@
 #include "tier0/memdbgon.h"
 
 extern ConVar sk_auto_reload_time;
-extern ConVar sk_plr_num_shotgun_pellets;
+//extern ConVar sk_plr_num_shotgun_pellets;
 ConVar dev_shotgun_vector_cone("dev_shotgun_vector_cone","3.5");//last 3.5//originally 2
 
 class CWeaponShotgun : public CBaseHLCombatWeapon
@@ -507,7 +507,7 @@ void CWeaponShotgun::PrimaryAttack( void )
 	//}
 
 	// Fire the bullets, and force the first shot to be perfectly accuracy
-	pPlayer->FireBullets( sk_plr_num_shotgun_pellets.GetInt(), vecSrc, vecAiming, GetShotgunBulletSpread(), MAX_TRACE_LENGTH, m_iPrimaryAmmoType, 0, -1, -1, 0, NULL, true, true );
+	pPlayer->FireBullets( 1, vecSrc, vecAiming, GetShotgunBulletSpread(), MAX_TRACE_LENGTH, m_iPrimaryAmmoType, 0, -1, -1, 0, NULL, true, true );
 	
 	pPlayer->ViewPunch( QAngle( random->RandomFloat( -2, -1 ), random->RandomFloat( -2, 2 ), 0 ) );
 

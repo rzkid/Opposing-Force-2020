@@ -1,7 +1,7 @@
 "GameInfo"
 {
 	game 		"Opposing Force 2: 2013"
-	title 		"Opposing Force 2'"
+	title 		"Opposing Force 2"
 	title2		""
 
 	type		singleplayer_only

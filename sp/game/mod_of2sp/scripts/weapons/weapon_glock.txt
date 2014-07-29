@@ -12,9 +12,8 @@ WeaponData
 	"bucket_360"			"0"
 	"bucket_position_360"	"0"
 
-	"clip_size"			"18"
+	"clip_size"			"33"
 	"primary_ammo"		"9mm"
-	"secondary_ammo"	"None"
 
 	"weight"		"2"
 	"rumble"		"1"

@@ -12,8 +12,7 @@ WeaponData
 
 	"clip_size"			"6"
 	"default_clip"		"6"
-	"primary_ammo"		"SniperRound"
-	"secondary_ammo"	"-1"
+	"primary_ammo"		"7_62mm"
 
 	"weight"		"7"
 	"item_flags"		"0"

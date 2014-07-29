@@ -17,8 +17,7 @@ WeaponData
 	"default_clip"			"45"
 	"default_clip2"			"-1"
 
-	"primary_ammo"			"combine"
-	"secondary_ammo"		"combine_altfire"
+	"primary_ammo"			"combine_round"
 
 	"weight"				"3"
 	"item_flags"			"0"

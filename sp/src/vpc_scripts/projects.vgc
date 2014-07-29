@@ -33,7 +33,7 @@ $Project "game_shader_dx9"
 
 $Project "game_shader_generic_of2"
 {
-	"materialsystem\stdshaders\game_shader_generic_of2.vpc" [$WIN32]
+	"materialsystem\stdshaders\game_shader_generic_of2.vpc" [$OF2]
 }
 
 $Project "glview"

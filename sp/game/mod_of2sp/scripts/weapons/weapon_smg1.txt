@@ -17,7 +17,6 @@ WeaponData
 	"default_clip2"			"-1"
 
 	"primary_ammo"			"9mm"
-	"secondary_ammo"		"NONE"
 
 	"weight"				"3"
 	"item_flags"			"0"

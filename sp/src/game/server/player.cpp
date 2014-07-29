@@ -6138,20 +6138,15 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		EquipSuit();
 
 #ifdef OF2_DLL
-		GiveAmmo(255, "Pistol");
-		GiveAmmo(255, "combine");
-		GiveAmmo(255, "combine_altfire");
-		GiveAmmo(255, "SMG1");
-		GiveAmmo(400, "M16");
+		GiveAmmo(400, "9mm");
+		GiveAmmo(400, "7_62mm");
+		GiveAmmo(400, "5_56mm");
+		GiveAmmo(400, "Slug_Round");
+		GiveAmmo(400, "Combine_Round");
+		GiveAmmo(400, "RPG_Round");
 		GiveAmmo(400, "M16_Grenade");
-		GiveAmmo(255, "Buckshot");
-		GiveAmmo(255, "smg1_grenade");
-		GiveAmmo(255, "rpg_round");
-		GiveAmmo(255, "grenade");
-		GiveAmmo(255, "357");
-		GiveAmmo(255, "XBowBolt");
-		GiveAmmo(150, "SniperRound");
-		GiveAmmo(255, "Vortex_Energy_Cell");
+		GiveAmmo(400, "Grenade");
+		GiveAmmo(400, "CombineGrenade");
 #else
 		// Give the player everything!
 		GiveAmmo( 255,	"Pistol");
@@ -6169,6 +6164,7 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveAmmo( 5,	"Hopwire" );
 #endif		
 #ifdef OF2_DLL
+		GiveNamedItem( "weapon_cfrag" );
 		GiveNamedItem( "weapon_csmg1" );
 		GiveNamedItem( "weapon_frag" );
 		GiveNamedItem( "weapon_glock" );
@@ -6178,6 +6174,7 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveNamedItem( "weapon_shotgun" );
 		GiveNamedItem( "weapon_smg1" );
 		GiveNamedItem( "weapon_wrench" );
+		GiveNamedItem( "weapon_physcannon" );
 #else
 		GiveNamedItem( "weapon_smg1" );
 		GiveNamedItem( "weapon_frag" );

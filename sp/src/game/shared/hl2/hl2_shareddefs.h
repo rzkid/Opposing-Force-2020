@@ -4,6 +4,10 @@
 //
 // $NoKeywords: $
 //=============================================================================//
+#if defined(OF2_DLL) || defined(OF2_CLIENT_DLL)
+you should not see this
+#endif
+
 
 #ifndef HL2_SHAREDDEFS_H
 #define HL2_SHAREDDEFS_H

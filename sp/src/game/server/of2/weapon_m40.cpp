@@ -227,7 +227,7 @@ void CWeaponM40::ToggleZoom( void )
 	{
 		if ( pPlayer->SetFOV( this, 0, 0.2f ) )
 		{
-			cvar->FindVar("dev_m40ScopeOn")->SetValue(0);
+			//cvar->FindVar("dev_m40ScopeOn")->SetValue(0);
 			m_bInZoom = false;
 		}
 	}
@@ -235,7 +235,7 @@ void CWeaponM40::ToggleZoom( void )
 	{
 		if ( pPlayer->SetFOV( this, 20, 0.1f ) )
 		{
-			cvar->FindVar("dev_m40ScopeOn")->SetValue(1);
+			//cvar->FindVar("dev_m40ScopeOn")->SetValue(1);
 			m_bInZoom = true;
 		}
 	}

@@ -24,7 +24,7 @@
 #include "triggers.h"
 #include "smoke_trail.h"
 #include "collisionutils.h"
-#include "hl2_shareddefs.h"
+#include "of2_shareddefs.h"
 #include "rumble_shared.h"
 #include "gamestats.h"
 
@@ -1485,7 +1485,7 @@ void CWeaponRPG::Activate( void )
 		if ( pOwner->GetActiveWeapon() == this )
 		{
 			//DevMsg("start guiding in activate()\n");
-			StartGuiding();
+			//StartGuiding();
 		}
 	}
 }
@@ -1755,7 +1755,7 @@ void CWeaponRPG::ItemPostFrame( void )
 	if ( ( m_bInitialStateUpdate ) && ( GetActivity() != ACT_VM_DRAW ) )
 	{
 		//DevMsg("( m_bInitialStateUpdate ) && ( GetActivity() != ACT_VM_DRAW )\n");
-		StartGuiding();
+		//StartGuiding();
 		m_bInitialStateUpdate = false;
 	}
 

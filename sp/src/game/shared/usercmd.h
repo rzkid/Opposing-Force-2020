@@ -55,7 +55,7 @@ public:
 		mousedy = 0;
 
 		hasbeenpredicted = false;
-#if defined( HL2_DLL ) || defined( HL2_CLIENT_DLL )
+#if defined( HL2_DLL ) || defined( HL2_CLIENT_DLL ) || defined( OF2_DLL ) || defined( OF2_CLIENT_DLL )
 		entitygroundcontact.RemoveAll();
 #endif
 	}
@@ -81,7 +81,7 @@ public:
 
 		hasbeenpredicted	= src.hasbeenpredicted;
 
-#if defined( HL2_DLL ) || defined( HL2_CLIENT_DLL )
+#if defined( HL2_DLL ) || defined( HL2_CLIENT_DLL ) || defined( OF2_DLL ) || defined( OF2_CLIENT_DLL )
 		entitygroundcontact			= src.entitygroundcontact;
 #endif
 
@@ -159,7 +159,7 @@ public:
 	bool	hasbeenpredicted;
 
 	// Back channel to communicate IK state
-#if defined( HL2_DLL ) || defined( HL2_CLIENT_DLL )
+#if defined( HL2_DLL ) || defined( HL2_CLIENT_DLL ) || defined( OF2_DLL ) || defined( OF2_CLIENT_DLL )
 	CUtlVector< CEntityGroundContact > entitygroundcontact;
 #endif
 

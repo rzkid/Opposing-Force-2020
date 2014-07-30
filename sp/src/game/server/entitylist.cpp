@@ -1401,7 +1401,7 @@ public:
 		g_TouchManager.LevelInitPreEntity();
 		g_AimManager.LevelInitPreEntity();
 		g_SimThinkManager.LevelInitPreEntity();
-#ifdef HL2_DLL
+#if defined(HL2_DLL) /*|| defined(OF2_DLL)*/
 		OverrideMoveCache_LevelInitPreEntity();
 #endif	// HL2_DLL
 	}
@@ -1414,7 +1414,7 @@ public:
 		g_TouchManager.LevelShutdownPostEntity();
 		g_AimManager.LevelShutdownPostEntity();
 		g_SimThinkManager.LevelShutdownPostEntity();
-#ifdef HL2_DLL
+#if defined(HL2_DLL) /*|| defined(OF2_DLL)*/
 		OverrideMoveCache_LevelShutdownPostEntity();
 #endif // HL2_DLL
 		CBaseEntityClassList *pClassList = s_pClassLists;

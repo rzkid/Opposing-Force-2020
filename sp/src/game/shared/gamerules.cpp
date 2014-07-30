@@ -335,7 +335,7 @@ void CGameRules::RadiusDamage( const CTakeDamageInfo &info, const Vector &vecSrc
 
 	int bInWater = (UTIL_PointContents ( vecSrc ) & MASK_WATER) ? true : false;
 
-#ifdef HL2_DLL
+#if defined(HL2_DLL) || defined(OF2_DLL)
 	if( bInWater )
 	{
 		// Only muffle the explosion if deeper than 2 feet in water.

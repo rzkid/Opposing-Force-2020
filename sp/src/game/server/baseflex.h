@@ -251,7 +251,7 @@ public:
 	virtual void Teleport( const Vector *newPosition, const QAngle *newAngles, const Vector *newVelocity );
 
 
-#ifdef HL2_DLL
+#if defined(HL2_DLL) || defined(OF2_DLL)
 	Vector m_vecPrevOrigin;
 	Vector m_vecPrevVelocity;
 	CNetworkVector( m_vecLean );

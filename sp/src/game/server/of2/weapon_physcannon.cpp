@@ -1947,6 +1947,11 @@ void CWeaponPhysCannon::ApplyVelocityBasedForce( CBaseEntity *pEntity, const Vec
 	// Get the launch velocity
 	Vector vVel = Pickup_PhysGunLaunchVelocity( pEntity, forward, reason );
 	
+	if (g_debug_physcannon.GetBool())
+	{
+		DevMsg("launch velocity: %f\n", vVel.Length());
+		NDebugOverlay::Line(pEntity->GetAbsOrigin(), pEntity->GetAbsOrigin() + vVel, 255, 128, 0, true, 15);
+	}
 	// Get the launch angular impulse
 	AngularImpulse aVel = Pickup_PhysGunLaunchAngularImpulse( pEntity, reason );
 		
@@ -2141,7 +2146,7 @@ void CWeaponPhysCannon::PrimaryAttack( void )
 				return;
 			}
 		}
-
+		//NDebugOverlay::Line(pOwner->EyePosition(), pOwner->EyePosition() + forward * 400, 255, 0, 0, true, 15);
 		LaunchObject( forward, physcannon_maxforce.GetFloat() );
 
 		PrimaryFireEffect();
@@ -3383,6 +3388,7 @@ void CWeaponPhysCannon::LaunchObject( const Vector &vecDir, float flForce )
 		int		i;
 
 		UTIL_TraceLine( vecStart, vecStart + vecDir * flForce, MASK_SHOT, pObject, COLLISION_GROUP_NONE, &tr );
+		//NDebugOverlay::Line(vecStart, vecStart + vecDir * flForce, 0, 0, 255, true, 15);
 		iLength = ( tr.startpos - tr.endpos ).Length();
 		vecSpot = vecStart + vecDir * PHYSCANNON_DANGER_SOUND_RADIUS;
 

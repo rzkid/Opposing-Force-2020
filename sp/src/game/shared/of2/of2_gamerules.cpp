@@ -1337,7 +1337,7 @@ ConVar  alyx_darkness_force( "alyx_darkness_force", "0", FCVAR_CHEAT | FCVAR_REP
 		{
 			// A physics object has struck a player ally. Don't allow damage if it
 			// came from the player's physcannon. 
-#ifdef HL2_DLL
+#ifdef OF2_DLL
 			CBasePlayer *pPlayer = UTIL_PlayerByIndex(1);
 
 			if( pPlayer )

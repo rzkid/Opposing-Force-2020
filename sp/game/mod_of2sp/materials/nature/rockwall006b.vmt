@@ -1,8 +1,0 @@
-"LightmappedGeneric"
-{
-	"$basetexture" "Nature/rockwall006b"
-	"$surfaceprop" "concrete"
-	"$bumpmap" "nature/rockwall006a_ssbump"
-                "$ssbump" "1"
-	"%keywords" "OF2"
-}

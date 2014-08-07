@@ -1,9 +1,0 @@
-"LightmappedGeneric"
-{
-	"$basetexture" "WOOD/bark"
-	"$bumpmap" "wood/bark_n"
-        "$parallaxmap"	"wood/perlin parallax"
-        "$parallaxmapscale"	0.2
-	"%keywords" "OF2"
-
-}

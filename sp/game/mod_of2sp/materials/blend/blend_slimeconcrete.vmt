@@ -1,9 +1,0 @@
-"worldvertextransition"
-{
-"$basetexture" "Stone/stonefloor006a"
-"$basetexture2" "Nature/toxicslime002a"
-"$surfaceprop" "concrete"
-"$surfaceprop2" slime"
-"%tooltexture" "blend/blend_slimeconcrete"
-	"%keywords" "OF2"
-}

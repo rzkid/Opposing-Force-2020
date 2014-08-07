@@ -1,9 +1,0 @@
-"worldvertextransition"
-{
-"$basetexture" "concrete\concretefloor033a"
-"$basetexture2" "concrete\concretefloor020a"
-"$surfaceprop" "concrete"
-"$surfaceprop2" concrete"
-"%tooltexture" "blend/blend_debrisdebris"
-	"%keywords" "OF2"
-}

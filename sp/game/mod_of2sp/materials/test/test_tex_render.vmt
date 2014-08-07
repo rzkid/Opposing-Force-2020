@@ -1,6 +1,0 @@
-"LightmappedGeneric"
-{
-	"$basetexture" "test/tex_render_res_ao"
-	"$bumpmap" "test/tex_render_res_nrm"
-	
-}

@@ -1,9 +1,0 @@
-"worldvertextransition"
-{
-"$basetexture" "nature\rockwall007a"
-"$basetexture2" "cliffs\xenrock"
-"$surfaceprop" "concrete"
-"$surfaceprop2" concrete"
-"$blendmodulatetexture"  "blend/Blend_modulate_1"
-	"%keywords" "OF2"
-}

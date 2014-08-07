@@ -91,6 +91,7 @@ sp/content/mod_of2sp/mapsrc/Miscellaneous/*.log
 sp/content/mod_of2sp/mapsrc/Miscellaneous/*.prt
 sp/content/mod_of2sp/mapsrc/Miscellaneous/*.vmx
 sp/game/mod_of2sp/maps/*
-sp/game/mod_of2sp/maps/*.bsp
-sp/game/mod_of2sp/maps/graphs/*
-sp/game/mod_of2sp/maps/graphs/*.ain
+sp/game/mod_of2sp/materials/*
+sp/game/mod_of2sp/models/*
+sp/game/mod_of2sp/sound/*
+sp/game/mod_of2sp/particles/*

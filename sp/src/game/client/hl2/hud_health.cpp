@@ -54,7 +54,7 @@ public:
 private:
 	// old variables
 	int		m_iHealth;
-	
+//	CHudTexture *m_iconHealth;
 	int		m_bitsDamage;
 };	
 
@@ -75,6 +75,7 @@ CHudHealth::CHudHealth( const char *pElementName ) : CHudElement( pElementName )
 void CHudHealth::Init()
 {
 	HOOK_HUD_MESSAGE( CHudHealth, Damage );
+//	m_iconHealth = NULL;
 	Reset();
 }
 
@@ -85,6 +86,8 @@ void CHudHealth::Reset()
 {
 	m_iHealth		= INIT_HEALTH;
 	m_bitsDamage	= 0;
+
+//	wchar_t *LabelText2 = g_pVGuiLocalize->Find("#Valve_Hud_HEALTH2");
 
 	wchar_t *tempString = g_pVGuiLocalize->Find("#Valve_Hud_HEALTH");
 
@@ -139,6 +142,13 @@ void CHudHealth::OnThink()
 	}
 
 	SetDisplayValue(m_iHealth);
+
+	surface()->DrawSetTextColor(GetFgColor());
+	PaintNumbers(m_hNumberFont, text_xpos, text_ypos, m_iHealth);
+	Color col = GetFgColor();
+	col[3] *= 1.0f;
+	surface()->DrawSetTextColor(col);
+	PaintNumbers(m_hNumberGlowFont, text_xpos, text_ypos, m_iHealth);
 }
 
 //-----------------------------------------------------------------------------

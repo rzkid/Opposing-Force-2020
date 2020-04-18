@@ -116,18 +116,11 @@ void CHudNumericDisplay::PaintNumbers(HFont font, int xpos, int ypos, int value)
 	{
 		int iMinutes = value / 60;
 		int iSeconds = value - iMinutes * 60;
-#ifdef PORTAL
-		// portal uses a normal font for numbers so we need the seperate to be a renderable ':' char
-		if ( iSeconds < 10 )
-			V_snwprintf( unicode, ARRAYSIZE(unicode), L"%d:0%d", iMinutes, iSeconds );
-		else
-			V_snwprintf( unicode, ARRAYSIZE(unicode), L"%d:%d", iMinutes, iSeconds );		
-#else
+
 		if ( iSeconds < 10 )
 			V_snwprintf( unicode, ARRAYSIZE(unicode), L"%d`0%d", iMinutes, iSeconds );
 		else
 			V_snwprintf( unicode, ARRAYSIZE(unicode), L"%d`%d", iMinutes, iSeconds );
-#endif
 	}
 
 	// adjust the position to take into account 3 characters
@@ -154,6 +147,10 @@ void CHudNumericDisplay::PaintLabel( void )
 	surface()->DrawSetTextColor(GetFgColor());
 	surface()->DrawSetTextPos(text_xpos, text_ypos);
 	surface()->DrawUnicodeString( m_LabelText );
+//	surface()->DrawSetTextFont(m_hText2Font);
+//	surface()->DrawSetTextColor(GetFgColor());
+//	surface()->DrawSetTextPos(text2_xpos, text2_ypos);
+//	surface()->DrawUnicodeString(m_LabelText2);
 }
 
 //-----------------------------------------------------------------------------
@@ -161,36 +158,25 @@ void CHudNumericDisplay::PaintLabel( void )
 //-----------------------------------------------------------------------------
 void CHudNumericDisplay::Paint()
 {
-	if (m_bDisplayValue)
-	{
-		// draw our numbers
+//	if (m_bDisplayValue)
+//	{ 
 		surface()->DrawSetTextColor(GetFgColor());
 		PaintNumbers(m_hNumberFont, digit_xpos, digit_ypos, m_iValue);
-
-		// draw the overbright blur
-		for (float fl = m_flBlur; fl > 0.0f; fl -= 1.0f)
-		{
-			if (fl >= 1.0f)
-			{
-				PaintNumbers(m_hNumberGlowFont, digit_xpos, digit_ypos, m_iValue);
-			}
-			else
-			{
-				// draw a percentage of the last one
-				Color col = GetFgColor();
-				col[3] *= fl;
-				surface()->DrawSetTextColor(col);
-				PaintNumbers(m_hNumberGlowFont, digit_xpos, digit_ypos, m_iValue);
-			}
-		}
-	}
+		Color col = GetFgColor();
+		col[3] *= 1.0f;
+		surface()->DrawSetTextColor(col);
+		PaintNumbers(m_hNumberGlowFont, digit_xpos, digit_ypos, m_iValue);
+//	}
 
 	// total ammo
-	if (m_bDisplaySecondaryValue)
-	{
+//	if (m_bDisplaySecondaryValue)
+//	{
 		surface()->DrawSetTextColor(GetFgColor());
 		PaintNumbers(m_hSmallNumberFont, digit2_xpos, digit2_ypos, m_iSecondaryValue);
-	}
+		col[3] *= 1.0f;
+		surface()->DrawSetTextColor(col);
+		PaintNumbers(m_hSmallNumberGlowFont, digit2_xpos, digit2_ypos, m_iSecondaryValue);
+//	}
 
 	PaintLabel();
 }

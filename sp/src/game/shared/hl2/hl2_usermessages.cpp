@@ -45,6 +45,7 @@ void RegisterUserMessages( void )
 	usermessages->Register( "LogoTimeMsg", 4 );
 	usermessages->Register( "AchievementEvent", -1 );
 	usermessages->Register( "UpdateJalopyRadar", -1 );
+	usermessages->Register("ShowScope", 1); // show the sniper scope
 
 #ifndef _X360
 	// NVNT register haptic user messages

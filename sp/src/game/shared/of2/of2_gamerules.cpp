@@ -99,23 +99,38 @@ ConVar	sk_plr_health_drop_time		( "sk_plr_health_drop_time",	"30", FCVAR_REPLICA
 ConVar	sk_plr_grenade_drop_time	( "sk_plr_grenade_drop_time",	"30", FCVAR_REPLICATED );
 
 
-ConVar	sk_max_9mm					( "sk_max_9mm",					"400", FCVAR_REPLICATED );
+ConVar	sk_max_9mm					( "sk_max_9mm",					"150", FCVAR_REPLICATED );
 ConVar	sk_max_sniper_round			( "sk_max_sniper_round",		"400", FCVAR_REPLICATED );
-ConVar	sk_max_m16_round			( "sk_max_m16_round",			"400", FCVAR_REPLICATED );
-ConVar	sk_max_shotgun				( "sk_max_shotgun",				"400", FCVAR_REPLICATED );
-ConVar	sk_max_combine_round		( "sk_max_combine_round",		"400", FCVAR_REPLICATED );
+ConVar	sk_max_m16_round			( "sk_max_m16_round",			"360", FCVAR_REPLICATED );
+ConVar	sk_max_shotgun				( "sk_max_shotgun",				"125", FCVAR_REPLICATED );
+ConVar	sk_max_combine_round		( "sk_max_combine_round",		"225", FCVAR_REPLICATED );
 ConVar	sk_max_rpg_round			( "sk_max_rpg_round",			"400", FCVAR_REPLICATED );
-ConVar	sk_max_smg1_grenade			( "sk_max_smg1_grenade",		"400", FCVAR_REPLICATED );
+ConVar	sk_max_m16_grenade			( "sk_max_m16_grenade",		"400", FCVAR_REPLICATED );
 ConVar	sk_max_grenade				( "sk_max_grenade",				"400", FCVAR_REPLICATED );
 ConVar	sk_max_combinegrenade		( "sk_max_combinegrenade",		"400", FCVAR_REPLICATED );
 
-ConVar  sk_plr_dmg_m16_grenade		( "sk_plr_dmg_m16_grenade",		"12", FCVAR_REPLICATED);
-ConVar  sk_npc_dmg_m16_grenade		( "sk_npc_dmg_m16_grenade",		"12", FCVAR_REPLICATED);
 ConVar  sk_m16_grenade_radius		( "sk_m16_grenade_radius",		"25", FCVAR_REPLICATED);
 
-ConVar  sk_plr_dmg_grenade			( "sk_plr_dmg_grenade",			"10", FCVAR_REPLICATED);
+ConVar  sk_plr_dmg_9mm              ("sk_plr_dmg_9mm", "5", FCVAR_REPLICATED);
+ConVar  sk_plr_dmg_sniper_round     ("sk_plr_dmg_sniper_round", "120", FCVAR_REPLICATED);
+ConVar	sk_plr_dmg_m16_round        ("sk_plr_dmg_m16_round", "8", FCVAR_REPLICATED);
+ConVar	sk_plr_dmg_shotgun          ("sk_plr_dmg_shotgun", "8", FCVAR_REPLICATED);
+ConVar	sk_plr_dmg_combine_round    ("sk_plr_dmg_combine_round", "20", FCVAR_REPLICATED);
+ConVar	sk_plr_dmg_rpg_round        ("sk_plr_dmg_rpg_round", "725", FCVAR_REPLICATED);
+ConVar	sk_plr_dmg_m16_grenade      ("sk_plr_dmg_m16_grenade", "100", FCVAR_REPLICATED);
+ConVar	sk_plr_dmg_grenade          ("sk_plr_dmg_grenade", "150", FCVAR_REPLICATED);
+ConVar	sk_plr_dmg_combinegrenade   ("sk_plr_dmg_combinegrenade", "125", FCVAR_REPLICATED);
 
 
+ConVar  sk_npc_dmg_9mm              ("sk_npc_dmg_9mm", "3", FCVAR_REPLICATED);
+ConVar  sk_npc_dmg_sniper_round     ("sk_npc_dmg_sniper_round", "100", FCVAR_REPLICATED);
+ConVar	sk_npc_dmg_m16_round        ("sk_npc_dmg_m16_round", "3", FCVAR_REPLICATED);
+ConVar	sk_npc_dmg_shotgun          ("sk_npc_dmg_shotgun", "3", FCVAR_REPLICATED);
+ConVar	sk_npc_dmg_combine_round    ("sk_npc_dmg_combine_round", "10", FCVAR_REPLICATED);
+ConVar	sk_npc_dmg_rpg_round        ("sk_npc_dmg_rpg_round", "350", FCVAR_REPLICATED);
+ConVar	sk_npc_dmg_m16_grenade      ("sk_npc_dmg_m16_grenade", "50", FCVAR_REPLICATED);
+ConVar	sk_npc_dmg_grenade          ("sk_npc_dmg_grenade", "75", FCVAR_REPLICATED);
+ConVar	sk_npc_dmg_combinegrenade   ("sk_npc_dmg_combinegrenade", "75", FCVAR_REPLICATED);
 // Gunship & Dropship cannons
 ConVar	sk_npc_dmg_gunship			( "sk_npc_dmg_gunship",			"0", FCVAR_REPLICATED );
 ConVar	sk_npc_dmg_gunship_to_plr	( "sk_npc_dmg_gunship_to_plr",	"0", FCVAR_REPLICATED );
@@ -1739,19 +1754,18 @@ CAmmoDef *GetAmmoDef()
 	{
 		bInitted = true;
 
-		def.AddAmmoType("9mm",				DMG_BULLET,	TRACER_LINE_AND_WHIZ,	0, 0, "sk_max_9mm",				BULLET_IMPULSE(147, 1000), 0);
-		def.AddAmmoType("7_62mm",			DMG_BULLET,	TRACER_NONE,			0, 0, "sk_max_sniper_round",	BULLET_IMPULSE(650, 6000), 0);
-		def.AddAmmoType("5_56mm",			DMG_BULLET,	TRACER_NONE,			0, 0, "sk_max_m16_round",		BULLET_IMPULSE(650, 6000), 0);
-		
-		def.AddAmmoType("Slug_Round",		DMG_BULLET,	TRACER_LINE,			0, 0, "sk_max_shotgun",			BULLET_IMPULSE(546, 1476), 0);
+		def.AddAmmoType("9mm",              DMG_BULLET, TRACER_LINE_AND_WHIZ, "sk_plr_dmg_9mm",          "sk_npc_dmg_9mm",          "sk_max_9mm",          BULLET_IMPULSE(147, 1000), 0);
+		def.AddAmmoType("7_62mm",           DMG_BULLET, TRACER_NONE,          "sk_plr_dmg_sniper_round", "sk_npc_dmg_sniper_round", "sk_max_sniper_round", BULLET_IMPULSE(650, 6000), 0);
+		def.AddAmmoType("5_56mm",           DMG_BULLET, TRACER_NONE,          "sk_plr_dmg_sniper_round", "sk_npc_dmg_sniper_round", "sk_max_m16_round",	   BULLET_IMPULSE(650, 6000), 0);
+		def.AddAmmoType("Slug_Round",       DMG_BULLET, TRACER_LINE,          "sk_plr_dmg_shotgun",      "sk_npc_dmg_shotgun",      "sk_max_shotgun",      BULLET_IMPULSE(546, 1476), 0);
 
-		def.AddAmmoType("Combine_Round",	DMG_BULLET, TRACER_LINE_AND_WHIZ,	0, 0, "sk_max_combine_round",	BULLET_IMPULSE(147, 1000), 0);
+		def.AddAmmoType("Combine_Round",	DMG_BULLET, TRACER_LINE_AND_WHIZ, "sk_plr_dmg_combine_round",      "sk_npc_dmg_combine_round",     "sk_max_combine_round", BULLET_IMPULSE(147, 1000), 0);
 
-		def.AddAmmoType("RPG_Round",		DMG_BURN,	TRACER_NONE,			0, 0, "sk_max_rpg_round",		0, 0);
-		def.AddAmmoType("M16_Grenade",		DMG_BLAST,	TRACER_NONE,			0, 0, "sk_max_smg1_grenade",	0, 0);
+		def.AddAmmoType("RPG_Round",		DMG_BURN,	TRACER_NONE,		  "sk_plr_dmg_rpg_round",	 "sk_npc_dmg_rpg_round",	"sk_max_rpg_round",	   0, 0 );
+		def.AddAmmoType("M16_Grenade",      DMG_BURN,   TRACER_NONE,          "sk_plr_dmg_m16_grenade", "sk_npc_dmg_m16_grenade", "sk_max_m16_grenade", 0, 0);
 		
-		def.AddAmmoType("Grenade",			DMG_BLAST,	TRACER_NONE,			0, 0, "sk_max_grenade",			0, 0);
-		def.AddAmmoType("CombineGrenade",	DMG_BLAST,	TRACER_NONE,			0, 0, "sk_max_combinegrenade",	0, 0);
+		def.AddAmmoType("Grenade",          DMG_BURN,   TRACER_NONE,          "sk_plr_dmg_grenade",      "sk_npc_dmg_grenade",      "sk_max_grenade", 0, 0);
+		def.AddAmmoType("CombineGrenade",   DMG_BLAST, TRACER_NONE,           "sk_plr_dmg_combinegrenade", "sk_npc_dmg_combinegrenade", "sk_max_combinegrenade", 0, 0);
 		
 
 	}

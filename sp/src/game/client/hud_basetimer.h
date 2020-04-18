@@ -48,6 +48,7 @@ private:
 	CPanelAnimationVar( vgui::HFont, m_hNumberFont, "NumberFont", "HudNumbers" );
 	CPanelAnimationVar( vgui::HFont, m_hNumberGlowFont, "NumberGlowFont", "HudNumbersGlow" );
 	CPanelAnimationVar( vgui::HFont, m_hSmallNumberFont, "SmallNumberFont", "HudNumbersSmall" );
+	CPanelAnimationVar(vgui::HFont, m_hSmallNumberGlowFont, "SmallNumberGlowFont", "HudNumbersSmallGlow");
 	CPanelAnimationVar( vgui::HFont, m_hTextFont, "TextFont", "Default" );
 
 	CPanelAnimationVarAliasType( float, text_xpos, "text_xpos", "8", "proportional_float" );

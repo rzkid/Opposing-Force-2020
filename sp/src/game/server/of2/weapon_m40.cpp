@@ -46,6 +46,7 @@ public:
 
 	void	StopEffects();
 	void	ToggleZoom();
+	bool    m_bDrawViewmodel = true;
 
 	float	WeaponAutoAimScale()	{ return 0.6f; }
 	bool	IsWeaponZoomed() { return m_bInZoom; }
@@ -223,20 +224,30 @@ void CWeaponM40::ToggleZoom( void )
 	if ( pPlayer == NULL )
 		return;
 
-	if ( m_bInZoom )
+	if (m_bInZoom)
 	{
-		if ( pPlayer->SetFOV( this, 0, 0.2f ) )
+		if (pPlayer->SetFOV(this, 0, 0.2f))
 		{
-			//cvar->FindVar("dev_m40ScopeOn")->SetValue(0);
 			m_bInZoom = false;
+			m_bDrawViewmodel = true;
+			// Send a message to hide the scope
+			CSingleUserRecipientFilter filter(pPlayer);
+			UserMessageBegin(filter, "ShowScope");
+			WRITE_BYTE(0);
+			MessageEnd();
 		}
 	}
 	else
 	{
-		if ( pPlayer->SetFOV( this, 20, 0.1f ) )
+		if (pPlayer->SetFOV(this, 20, 0.1f))
 		{
-			//cvar->FindVar("dev_m40ScopeOn")->SetValue(1);
 			m_bInZoom = true;
+			m_bDrawViewmodel = false;
+			// Send a message to Show the scope
+			CSingleUserRecipientFilter filter(pPlayer);
+			UserMessageBegin(filter, "ShowScope");
+			WRITE_BYTE(1);
+			MessageEnd();
 		}
 	}
 }

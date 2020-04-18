@@ -359,22 +359,26 @@ void CWeaponSMG1::PrimaryAttack( void )
 
 	// To make the firing framerate independent, we may have to fire more than one bullet here on low-framerate systems, 
 	// especially if the weapon we're firing has a really fast rate of fire.
-	int iBulletsToFire = 0;
+	int iBulletsToFire = 3;
 	float fireRate = GetPrimaryFireRate();
 
 	// MUST call sound before removing a round from the clip of a CHLMachineGun
 	while ( m_flNextPrimaryAttack <= gpGlobals->curtime )
 	{
-		WeaponSound(SINGLE, m_flNextPrimaryAttack);
+		WeaponSound(BURST, m_flNextPrimaryAttack);
 		m_flNextPrimaryAttack = m_flNextPrimaryAttack + fireRate;
 		iBulletsToFire++;
 	}
 
 	// Make sure we don't fire more than the amount in the clip, if this weapon uses clips
-	if ( UsesClipsForAmmo1() )
+	if (UsesClipsForAmmo1())
 	{
-		if ( iBulletsToFire > m_iClip1 )
+		if (iBulletsToFire > 3)
+			iBulletsToFire = 3;
+
+		if (iBulletsToFire > m_iClip1)
 			iBulletsToFire = m_iClip1;
+
 		m_iClip1 -= iBulletsToFire;
 	}
 
@@ -398,8 +402,8 @@ void CWeaponSMG1::PrimaryAttack( void )
 	//Factor in the view kick
 	AddViewKick();
 
-	//Vector vecThrow = vecAiming * -500;
-	//pPlayer->SetAbsVelocity( vecThrow );
+//	Vector vecThrow = vecAiming * -500;
+//	pPlayer->SetAbsVelocity( vecThrow );
 	//NDebugOverlay::Line( vecSrc, vecSrc + vecThrow, 255, 128, 0, true, 5.1f );
 
 	CSoundEnt::InsertSound( SOUND_COMBAT, GetAbsOrigin(), SOUNDENT_VOLUME_MACHINEGUN, 0.2, pPlayer );
@@ -414,9 +418,10 @@ void CWeaponSMG1::PrimaryAttack( void )
 	pPlayer->SetAnimation( PLAYER_ATTACK1 );
 
 	// Register a muzzleflash for the AI
-	pPlayer->SetMuzzleFlashTime( gpGlobals->curtime + 0.5 );
+	pPlayer->SetMuzzleFlashTime( gpGlobals->curtime + 0.4 );
 
-	//SetWeaponIdleTime( gpGlobals->curtime + 3.0f );
+    SetWeaponIdleTime( gpGlobals->curtime + 3.0f );
+	m_flNextPrimaryAttack = gpGlobals->curtime + 0.4;
 }
 
 

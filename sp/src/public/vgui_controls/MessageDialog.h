@@ -132,6 +132,7 @@ private:
 
 	vgui::HFont			m_hButtonFont;
 	vgui::HFont			m_hTextFont;
+	vgui::HFont			m_hTextFont2;
 	uint				m_nType;
 	Color				m_ButtonTextColor;
 	int					m_ButtonPressed;

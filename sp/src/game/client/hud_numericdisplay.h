@@ -48,6 +48,7 @@ protected:
 	int m_iValue;
 	int m_iSecondaryValue;
 	wchar_t m_LabelText[32];
+	wchar_t m_LabelText2[32];
 	bool m_bDisplayValue, m_bDisplaySecondaryValue;
 	bool m_bIndent;
 	bool m_bIsTime;
@@ -59,10 +60,14 @@ protected:
 	CPanelAnimationVar( vgui::HFont, m_hNumberFont, "NumberFont", "HudNumbers" );
 	CPanelAnimationVar( vgui::HFont, m_hNumberGlowFont, "NumberGlowFont", "HudNumbersGlow" );
 	CPanelAnimationVar( vgui::HFont, m_hSmallNumberFont, "SmallNumberFont", "HudNumbersSmall" );
+	CPanelAnimationVar(vgui::HFont, m_hSmallNumberGlowFont, "SmallNumberGlowFont", "HudNumbersSmallGlow");
 	CPanelAnimationVar( vgui::HFont, m_hTextFont, "TextFont", "Default" );
+	CPanelAnimationVar(vgui::HFont, m_hText2Font, "Text2Font", "Default");
 
 	CPanelAnimationVarAliasType( float, text_xpos, "text_xpos", "8", "proportional_float" );
 	CPanelAnimationVarAliasType( float, text_ypos, "text_ypos", "20", "proportional_float" );
+	CPanelAnimationVarAliasType(float, text2_xpos, "text2_xpos", "4", "proportional_float");
+	CPanelAnimationVarAliasType(float, text2_ypos, "text2_ypos", "10", "proportional_float");
 	CPanelAnimationVarAliasType( float, digit_xpos, "digit_xpos", "50", "proportional_float" );
 	CPanelAnimationVarAliasType( float, digit_ypos, "digit_ypos", "2", "proportional_float" );
 	CPanelAnimationVarAliasType( float, digit2_xpos, "digit2_xpos", "98", "proportional_float" );

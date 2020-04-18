@@ -1,7 +1,7 @@
 #include "BaseVSShader.h"
 
-#include "PassThrough_vs30.inc"
-#include "post_chromatic_aberration_ps30.inc"
+//#include "PassThrough_vs30.inc"
+//#include "post_chromatic_aberration_ps30.inc"
 
 BEGIN_VS_SHADER( Post_Chromatic_Aberration, "Help for Post_Chromatic_Aberration" )
 

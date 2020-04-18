@@ -27,7 +27,7 @@
 #define	PISTOL_ACCURACY_SHOT_PENALTY_TIME		0.2f	// Applied amount of time each shot adds to the time we must recover from
 #define	PISTOL_ACCURACY_MAXIMUM_PENALTY_TIME	1.5f	// Maximum penalty to deal out
 
-ConVar	dev_glock_rpm("dev_glock_rpm", "1200");
+//ConVar	dev_glock_rpm("dev_glock_rpm", "1200");
 
 ConVar	pistol_use_new_accuracy( "pistol_use_new_accuracy", "1" );
 
@@ -103,8 +103,7 @@ public:
 
 	virtual float GetFireRate( void ) 
 	{
-		//return 0.5f;
-		return ( 60.f / dev_glock_rpm.GetFloat());
+		return 0.4f;
 	}
 
 	DECLARE_ACTTABLE();

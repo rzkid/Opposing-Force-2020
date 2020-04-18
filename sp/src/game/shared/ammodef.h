@@ -16,7 +16,7 @@
 
 class ConVar;
 
-struct Ammo_t 
+struct Ammo_t
 {
 	char 				*pName;
 	int					nDamageType;
@@ -83,14 +83,14 @@ public:
 	int					MaxSplashSize(int nAmmoIndex);
 	int					Flags(int nAmmoIndex);
 
-	void				AddAmmoType(char const* name, int damageType, int tracerType, int plr_dmg, int npc_dmg, int carry, float physicsForceImpulse, int nFlags, int minSplashSize = 4, int maxSplashSize = 8 );
-	void				AddAmmoType(char const* name, int damageType, int tracerType, char const* plr_cvar, char const* npc_var, char const* carry_cvar, float physicsForceImpulse, int nFlags, int minSplashSize = 4, int maxSplashSize = 8 );
+	void				AddAmmoType(char const* name, int damageType, int tracerType, int plr_dmg, int npc_dmg, int carry, float physicsForceImpulse, int nFlags, int minSplashSize = 4, int maxSplashSize = 8);
+	void				AddAmmoType(char const* name, int damageType, int tracerType, char const* plr_cvar, char const* npc_var, char const* carry_cvar, float physicsForceImpulse, int nFlags, int minSplashSize = 4, int maxSplashSize = 8);
 
 	CAmmoDef(void);
-	virtual ~CAmmoDef( void );
+	virtual ~CAmmoDef(void);
 
 private:
-	bool				AddAmmoType(char const* name, int damageType, int tracerType, int nFlags, int minSplashSize, int maxSplashSize );
+	bool				AddAmmoType(char const* name, int damageType, int tracerType, int nFlags, int minSplashSize, int maxSplashSize);
 };
 
 
@@ -100,4 +100,4 @@ CAmmoDef* GetAmmoDef();
 
 
 #endif // AI_AMMODEF_H
- 
+

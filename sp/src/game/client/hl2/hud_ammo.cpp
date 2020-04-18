@@ -345,10 +345,10 @@ void CHudAmmo::Paint( void )
 		surface()->GetTextSize( m_hTextFont, m_LabelText, nLabelWidth, nLabelHeight );
 
 		// Figure out where we're going to put this
-		int x = text_xpos + ( nLabelWidth - m_iconPrimaryAmmo->Width() ) / 2;
-		int y = text_ypos - ( nLabelHeight + ( m_iconPrimaryAmmo->Height() / 2 ) );
+//		int x = text_xpos + ( nLabelWidth - m_iconPrimaryAmmo->Width() ) / 2;
+//		int y = text_ypos - ( nLabelHeight + ( m_iconPrimaryAmmo->Height() / 2 ) );
 		
-		m_iconPrimaryAmmo->DrawSelf( x, y, GetFgColor() );
+//		m_iconPrimaryAmmo->DrawSelf( x, y, GetFgColor() );
 	}
 #endif // HL2MP
 }

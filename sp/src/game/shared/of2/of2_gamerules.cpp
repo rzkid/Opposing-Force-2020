@@ -109,9 +109,12 @@ ConVar	sk_max_m16_grenade			( "sk_max_m16_grenade",		"400", FCVAR_REPLICATED );
 ConVar	sk_max_grenade				( "sk_max_grenade",				"400", FCVAR_REPLICATED );
 ConVar	sk_max_combinegrenade		( "sk_max_combinegrenade",		"400", FCVAR_REPLICATED );
 
+ConVar	sk_max_50cal                ("sk_max_50cal", "28", FCVAR_REPLICATED);
+
 ConVar  sk_m16_grenade_radius		( "sk_m16_grenade_radius",		"25", FCVAR_REPLICATED);
 
 ConVar  sk_plr_dmg_9mm              ("sk_plr_dmg_9mm", "5", FCVAR_REPLICATED);
+ConVar  sk_plr_dmg_50cal             ("sk_plr_dmg_50cal", "60", FCVAR_REPLICATED);
 ConVar  sk_plr_dmg_sniper_round     ("sk_plr_dmg_sniper_round", "120", FCVAR_REPLICATED);
 ConVar	sk_plr_dmg_m16_round        ("sk_plr_dmg_m16_round", "8", FCVAR_REPLICATED);
 ConVar	sk_plr_dmg_shotgun          ("sk_plr_dmg_shotgun", "8", FCVAR_REPLICATED);
@@ -123,6 +126,7 @@ ConVar	sk_plr_dmg_combinegrenade   ("sk_plr_dmg_combinegrenade", "125", FCVAR_RE
 
 
 ConVar  sk_npc_dmg_9mm              ("sk_npc_dmg_9mm", "3", FCVAR_REPLICATED);
+ConVar  sk_npc_dmg_50cal            ("sk_npc_dmg_50cal", "25", FCVAR_REPLICATED);
 ConVar  sk_npc_dmg_sniper_round     ("sk_npc_dmg_sniper_round", "100", FCVAR_REPLICATED);
 ConVar	sk_npc_dmg_m16_round        ("sk_npc_dmg_m16_round", "3", FCVAR_REPLICATED);
 ConVar	sk_npc_dmg_shotgun          ("sk_npc_dmg_shotgun", "3", FCVAR_REPLICATED);
@@ -1758,6 +1762,8 @@ CAmmoDef *GetAmmoDef()
 		def.AddAmmoType("7_62mm",           DMG_BULLET, TRACER_NONE,          "sk_plr_dmg_sniper_round", "sk_npc_dmg_sniper_round", "sk_max_sniper_round", BULLET_IMPULSE(650, 6000), 0);
 		def.AddAmmoType("5_56mm",           DMG_BULLET, TRACER_NONE,          "sk_plr_dmg_sniper_round", "sk_npc_dmg_sniper_round", "sk_max_m16_round",	   BULLET_IMPULSE(650, 6000), 0);
 		def.AddAmmoType("Slug_Round",       DMG_BULLET, TRACER_LINE,          "sk_plr_dmg_shotgun",      "sk_npc_dmg_shotgun",      "sk_max_shotgun",      BULLET_IMPULSE(546, 1476), 0);
+
+		def.AddAmmoType("50cal", DMG_BULLET, TRACER_NONE, "sk_plr_dmg_50cal", "sk_npc_dmg_50cal", "sk_max_50cal", BULLET_IMPULSE(650, 6000), 0);
 
 		def.AddAmmoType("Combine_Round",	DMG_BULLET, TRACER_LINE_AND_WHIZ, "sk_plr_dmg_combine_round",      "sk_npc_dmg_combine_round",     "sk_max_combine_round", BULLET_IMPULSE(147, 1000), 0);
 

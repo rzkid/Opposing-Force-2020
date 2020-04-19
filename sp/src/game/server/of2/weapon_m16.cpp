@@ -577,7 +577,7 @@ void CWeaponM16::AddViewKick( void )
 		flDuration = min( flDuration, 0.75f );
 	}
 
-	DoMachineGunKick( pPlayer, EASY_DAMPEN, MAX_VERTICAL_KICK, 0.1, SLIDE_LIMIT );
+	DoMachineGunKick(pPlayer, EASY_DAMPEN, MAX_VERTICAL_KICK, 0.01, SLIDE_LIMIT);
 }
 
 //-----------------------------------------------------------------------------

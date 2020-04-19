@@ -4,7 +4,7 @@
 //
 //=============================================================================//
 #if defined(OF2_DLL) || defined(OF2_CLIENT_DLL)
-you should not see this
+//you should not see this
 #endif
 
 

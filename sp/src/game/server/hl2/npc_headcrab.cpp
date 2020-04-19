@@ -17,7 +17,7 @@
 #include "ai_moveprobe.h"
 #include "ai_memory.h"
 #include "bitstring.h"
-#include "hl2_shareddefs.h"
+#include "of2_shareddefs.h"
 #include "npcevent.h"
 #include "soundent.h"
 #include "npc_headcrab.h"
@@ -30,7 +30,7 @@
 #include "world.h"
 #include "npc_bullseye.h"
 #include "physics_npc_solver.h"
-#include "hl2_gamerules.h"
+#include "of2_gamerules.h"
 #include "decals.h"
 
 // memdbgon must be the last include file in a .cpp file!!!

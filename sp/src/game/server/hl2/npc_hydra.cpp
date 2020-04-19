@@ -955,8 +955,8 @@ bool CNPC_Hydra::ContractBetweenStuckSegments( )
 			}
 		}
 	}
-	if (iShortest = -1)
-		return false;
+//	if (iShortest = -1)
+	//	return false;
 
 	// FIXME: check for tunneling
 	m_body.Remove( iShortest );
@@ -1700,7 +1700,7 @@ IPhysicsConstraint *CHydraImpale::CreateConstraint( CNPC_Hydra *pHydra, IPhysics
 		m_pConstraint->SetGameData( (void *)this );
 	}
 
-	SetThink( ImpaleThink );
+	//SetThink( ImpaleThink );
 	SetNextThink( gpGlobals->curtime );
 	return m_pConstraint;
 }

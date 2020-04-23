@@ -21,7 +21,7 @@
 #include "Sprite.h"
 #include "soundenvelope.h"
 #include "weapon_physcannon.h"
-#include "hl2_gamerules.h"
+#include "of2_gamerules.h"
 #include "gameweaponmanager.h"
 #include "vehicle_base.h"
 
@@ -37,7 +37,7 @@ ConVar sk_combine_guard_kick( "sk_combine_guard_kick", "0");
 // Whether or not the combine guard should spawn health on death
 ConVar combine_guard_spawn_health( "combine_guard_spawn_health", "1" );
 
-extern ConVar sk_plr_dmg_buckshot;	
+extern ConVar sk_plr_dmg_shotgun;	
 extern ConVar sk_plr_num_shotgun_pellets;
 
 //Whether or not the combine should spawn health on death
@@ -339,22 +339,22 @@ void CNPC_CombineS::Event_Killed( const CTakeDamageInfo &info )
 			}
 		}
 
-		CHalfLife2 *pHL2GameRules = static_cast<CHalfLife2 *>(g_pGameRules);
+		COpposingForce2 *pOF2GameRules = static_cast<COpposingForce2 *>(g_pGameRules);
 
 		// Attempt to drop health
-		if ( pHL2GameRules->NPC_ShouldDropHealth( pPlayer ) )
+		if (pOF2GameRules->NPC_ShouldDropHealth(pPlayer))
 		{
 			DropItem( "item_healthvial", WorldSpaceCenter()+RandomVector(-4,4), RandomAngle(0,360) );
-			pHL2GameRules->NPC_DroppedHealth();
+			pOF2GameRules->NPC_DroppedHealth();
 		}
 		
 		if ( HasSpawnFlags( SF_COMBINE_NO_GRENADEDROP ) == false )
 		{
 			// Attempt to drop a grenade
-			if ( pHL2GameRules->NPC_ShouldDropGrenade( pPlayer ) )
+			if ( pOF2GameRules->NPC_ShouldDropGrenade( pPlayer ) )
 			{
 				DropItem( "weapon_frag", WorldSpaceCenter()+RandomVector(-4,4), RandomAngle(0,360) );
-				pHL2GameRules->NPC_DroppedGrenade();
+				pOF2GameRules->NPC_DroppedGrenade();
 			}
 		}
 	}
@@ -390,7 +390,7 @@ bool CNPC_CombineS::IsHeavyDamage( const CTakeDamageInfo &info )
 	// Shotgun blasts where at least half the pellets hit me are heavy damage
 	if ( info.GetDamageType() & DMG_BUCKSHOT )
 	{
-		int iHalfMax = sk_plr_dmg_buckshot.GetFloat() * sk_plr_num_shotgun_pellets.GetInt() * 0.5;
+		int iHalfMax = sk_plr_dmg_shotgun.GetFloat() * sk_plr_num_shotgun_pellets.GetInt() * 0.5;
 		if ( info.GetDamage() >= iHalfMax )
 			return true;
 	}

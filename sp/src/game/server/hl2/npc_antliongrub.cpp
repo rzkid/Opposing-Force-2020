@@ -766,11 +766,11 @@ void CAntlionGrub::Squash( CBaseEntity *pOther, bool bDealDamage, bool bSpawnBlo
 	EmitSound( "NPC_Antlion_Grub.Squish" );
 
 	// if vort stepped on me, maybe he wants to say something
-	if ( pOther && FClassnameIs( pOther, "npc_vortigaunt" ) )
-	{
-		Assert(dynamic_cast<CNPC_Vortigaunt *>(pOther));
-		static_cast<CNPC_Vortigaunt *>(pOther)->OnSquishedGrub(this);
-	}
+//	if ( pOther && FClassnameIs( pOther, "npc_vortigaunt" ) )
+//	{
+//		Assert(dynamic_cast<CNPC_Vortigaunt *>(pOther));
+//		static_cast<CNPC_Vortigaunt *>(pOther)->OnSquishedGrub(this);
+//	}
 
 	SetTouch( NULL );
 

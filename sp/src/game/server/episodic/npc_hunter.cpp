@@ -54,7 +54,7 @@
 #include "physics_prop_ragdoll.h"
 #include "vehicle_base.h"
 #include "coordsize.h"
-#include "hl2_shareddefs.h"
+#include "of2_shareddefs.h"
 #include "te_effect_dispatch.h"
 #include "beam_flags.h"
 #include "prop_combine_ball.h"
@@ -258,46 +258,46 @@ enum SquadSlot_t
 // We're doing this quite a lot, so this makes the check a lot faster since
 // we don't have to compare strings.
 //-----------------------------------------------------------------------------
-bool IsStriderBuster( CBaseEntity *pEntity )
-{
-	if ( !pEntity )
-		return false;
-
-	if( pEntity->m_iClassname == s_iszStriderBusterClassname || 
-		pEntity->m_iClassname == s_iszMagnadeClassname)
-		return true;
-
-	return false;
-}
+//bool IsStriderBuster( CBaseEntity *pEntity )
+//{
+//	if ( !pEntity )
+//		return false;
+//
+//	if( pEntity->m_iClassname == s_iszStriderBusterClassname || 
+//		pEntity->m_iClassname == s_iszMagnadeClassname)
+//		return true;
+//
+//	return false;
+//}
 
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-bool HateThisStriderBuster( CBaseEntity *pTarget )
-{
-	if ( StriderBuster_WasKnockedOffStrider(pTarget) )
-		return false;
+//bool HateThisStriderBuster( CBaseEntity *pTarget )
+//{
+//	if ( StriderBuster_WasKnockedOffStrider(pTarget) )
+//		return false;
+//
+//	if ( pTarget->VPhysicsGetObject() )
+//	{
+//		if ( hunter_hate_held_striderbusters.GetBool() || 
+//			hunter_hate_thrown_striderbusters.GetBool() ||
+//			hunter_hate_attached_striderbusters.GetBool() )
+//		{
+//			if ( ( pTarget->VPhysicsGetObject()->GetGameFlags() & ( FVPHYSICS_PLAYER_HELD | FVPHYSICS_WAS_THROWN ) ) )
+//			{
+//				return true;
+//			}
 
-	if ( pTarget->VPhysicsGetObject() )
-	{
-		if ( hunter_hate_held_striderbusters.GetBool() || 
-			hunter_hate_thrown_striderbusters.GetBool() ||
-			hunter_hate_attached_striderbusters.GetBool() )
-		{
-			if ( ( pTarget->VPhysicsGetObject()->GetGameFlags() & ( FVPHYSICS_PLAYER_HELD | FVPHYSICS_WAS_THROWN ) ) )
-			{
-				return true;
-			}
+//			if ( StriderBuster_IsAttachedStriderBuster( pTarget ) )
+//			{
+//				return true;
+//			}
+//		}
+//	}
 
-			if ( StriderBuster_IsAttachedStriderBuster( pTarget ) )
-			{
-				return true;
-			}
-		}
-	}
-
-	return false;
-}
+//	return false;
+//}
 
 
 //-----------------------------------------------------------------------------
@@ -614,7 +614,7 @@ void CHunterFlechette::StickTo( CBaseEntity *pOther, trace_t &tr )
 	//DispatchEffect( "BoltImpact", data );
 	
 	Vector vecVelocity = GetAbsVelocity();
-	bool bAttachedToBuster = StriderBuster_OnFlechetteAttach( pOther, vecVelocity );
+//	bool bAttachedToBuster = StriderBuster_OnFlechetteAttach( pOther, vecVelocity );
 
 	SetTouch( NULL );
 
@@ -626,15 +626,15 @@ void CHunterFlechette::StickTo( CBaseEntity *pOther, trace_t &tr )
 	SetContextThink( NULL, 0, s_szHunterFlechetteSeekThink );
 
 	// Get ready to explode.
-	if ( !bAttachedToBuster )
-	{
-		SetThink( &CHunterFlechette::DangerSoundThink );
-		SetNextThink( gpGlobals->curtime + (hunter_flechette_explode_delay.GetFloat() - HUNTER_FLECHETTE_WARN_TIME) );
-	}
-	else
-	{
+//	if ( !bAttachedToBuster )
+//	{
+//		SetThink( &CHunterFlechette::DangerSoundThink );
+//		SetNextThink( gpGlobals->curtime + (hunter_flechette_explode_delay.GetFloat() - HUNTER_FLECHETTE_WARN_TIME) );
+//	}
+//	else
+//	{
 		DangerSoundThink();
-	}
+//	}
 
 	// Play our impact animation.
 	ResetSequence( s_nHunterFlechetteImpact );
@@ -1303,8 +1303,8 @@ public:
 	//---------------------------------
 	// Magnade
 	//---------------------------------	
-	void	StriderBusterAttached( CBaseEntity *pAttached );
-	void	StriderBusterDetached( CBaseEntity *pAttached );
+//	void	StriderBusterAttached( CBaseEntity *pAttached );
+//	void	StriderBusterDetached( CBaseEntity *pAttached );
 
 private:
 
@@ -1325,8 +1325,10 @@ private:
 
 	void BeginVolley( int nNum, float flStartTime );
 	bool ShootFlechette( CBaseEntity *pTargetEntity, bool bSingleShot );
-	bool ShouldSeekTarget( CBaseEntity *pTargetEntity, bool bStriderBuster );
-	void GetShootDir( Vector &vecDir, const Vector &vecSrc, CBaseEntity *pTargetEntity, bool bStriderbuster, int nShotNum, bool bSingleShot );
+//	bool ShouldSeekTarget( CBaseEntity *pTargetEntity, bool bStriderBuster );
+	bool ShouldSeekTarget(CBaseEntity *pTargetEntity);
+//	void GetShootDir( Vector &vecDir, const Vector &vecSrc, CBaseEntity *pTargetEntity, bool bStriderbuster, int nShotNum, bool bSingleShot );
+	void GetShootDir(Vector &vecDir, const Vector &vecSrc, CBaseEntity *pTargetEntity, int nShotNum, bool bSingleShot);
 	bool ClampShootDir( Vector &vecDir );
 
 	void SetAim( const Vector &aimDir, float flInterval );
@@ -1973,7 +1975,7 @@ void CNPC_Hunter::Activate()
 {
 	BaseClass::Activate();
 
-	s_iszStriderBusterClassname = AllocPooledString( "weapon_striderbuster" );
+//	s_iszStriderBusterClassname = AllocPooledString( "weapon_striderbuster" );
 	s_iszStriderClassname  = AllocPooledString( "npc_strider" );
 	s_iszMagnadeClassname = AllocPooledString( "npc_grenade_magna" );
 	s_iszPhysPropClassname = AllocPooledString( "prop_physics" );
@@ -2567,10 +2569,10 @@ void CNPC_Hunter::BuildScheduleTestBits()
 	}
 
 	// If our enemy is anything but a striderbuster, drop everything if we see one.
-	if ( !IsStriderBuster( GetEnemy() ) )
-	{
-		SetCustomInterruptCondition( COND_HUNTER_SEE_STRIDERBUSTER );
-	}
+//	if ( !IsStriderBuster( GetEnemy() ) )
+//	{
+//		SetCustomInterruptCondition( COND_HUNTER_SEE_STRIDERBUSTER );
+//	}
 
 	// If we're not too busy, allow ourselves to ACK found enemy signals.
 	if ( !GetEnemy() )
@@ -2762,21 +2764,21 @@ int CNPC_Hunter::SelectCombatSchedule()
 		return SCHED_COMBAT_FACE;
 	}
 
-	bool bStriderBuster = IsStriderBuster( pEnemy );
-	if ( bStriderBuster )
-	{
-		if ( gpGlobals->curtime - CAI_HunterEscortBehavior::gm_flLastDefendSound > 10.0 )
-		{
-			EmitSound( "NPC_Hunter.DefendStrider" );
-			CAI_HunterEscortBehavior::gm_flLastDefendSound = gpGlobals->curtime;
-		}
-
-		if ( HasCondition( COND_CAN_RANGE_ATTACK2 ) || HasCondition( COND_NOT_FACING_ATTACK ) )
-		{
-			return SCHED_HUNTER_RANGE_ATTACK2;
-		}
-		return SCHED_ESTABLISH_LINE_OF_FIRE;
-	}
+//	bool bStriderBuster = IsStriderBuster( pEnemy );
+//	if ( bStriderBuster )
+//	{
+//		if ( gpGlobals->curtime - CAI_HunterEscortBehavior::gm_flLastDefendSound > 10.0 )
+//		{
+//			EmitSound( "NPC_Hunter.DefendStrider" );
+//			CAI_HunterEscortBehavior::gm_flLastDefendSound = gpGlobals->curtime;
+//		}
+//
+//		if ( HasCondition( COND_CAN_RANGE_ATTACK2 ) || HasCondition( COND_NOT_FACING_ATTACK ) )
+//		{
+//			return SCHED_HUNTER_RANGE_ATTACK2;
+//		}
+//		return SCHED_ESTABLISH_LINE_OF_FIRE;
+//	}
 
 	// Certain behaviors, like flanking and melee attacks, only make sense on visible,
 	// corporeal enemies (NOT bullseyes).
@@ -2810,25 +2812,25 @@ int CNPC_Hunter::SelectCombatSchedule()
 
 	// Fire a flechette volley. Ignore squad slots if we're attacking a striderbuster.
 	// See if there is an opportunity to charge.
-	if ( !bStriderBuster && bIsCorporealEnemy && HasCondition( COND_HUNTER_CAN_CHARGE_ENEMY ) )
-	{
-		if ( hunter_charge_test.GetBool() || random->RandomInt( 1, 100 ) < hunter_charge_pct.GetInt() )
-		{
-			if ( hunter_charge_test.GetBool() || OccupyStrategySlot( SQUAD_SLOT_HUNTER_CHARGE ) )
-			{
-				return SCHED_HUNTER_CHARGE_ENEMY;
-			}
-		}
-	}
+//	if ( !bStriderBuster && bIsCorporealEnemy && HasCondition( COND_HUNTER_CAN_CHARGE_ENEMY ) )
+//	{
+//		if ( hunter_charge_test.GetBool() || random->RandomInt( 1, 100 ) < hunter_charge_pct.GetInt() )
+//		{
+//			if ( hunter_charge_test.GetBool() || OccupyStrategySlot( SQUAD_SLOT_HUNTER_CHARGE ) )
+//			{
+//				return SCHED_HUNTER_CHARGE_ENEMY;
+//			}
+//		}
+//	}
 
-	if ( HasCondition( COND_CAN_RANGE_ATTACK2 ) )
-	{
-		if ( bStriderBuster || CountRangedAttackers() < hunter_flechette_max_concurrent_volleys.GetInt() )
-		{
-			DelayRangedAttackers( hunter_flechette_volley_start_min_delay.GetFloat(), hunter_flechette_volley_start_max_delay.GetFloat(), true );
-			return SCHED_HUNTER_RANGE_ATTACK2;
-		}
-	}
+//	if ( HasCondition( COND_CAN_RANGE_ATTACK2 ) )
+//	{
+//		if ( bStriderBuster || CountRangedAttackers() < hunter_flechette_max_concurrent_volleys.GetInt() )
+//		{
+//			DelayRangedAttackers( hunter_flechette_volley_start_min_delay.GetFloat(), hunter_flechette_volley_start_max_delay.GetFloat(), true );
+//			return SCHED_HUNTER_RANGE_ATTACK2;
+//		}
+//	}
 
 	if ( pEnemy->GetGroundEntity() == this )
 	{
@@ -2857,28 +2859,28 @@ int CNPC_Hunter::SelectCombatSchedule()
 		return SCHED_HUNTER_SIDESTEP;
 	}
 
-	if ( !bStriderBuster && bIsCorporealEnemy )
-	{
-		if ( HasCondition( COND_HUNTER_CAN_CHARGE_ENEMY ) )
-		{
-			if ( OccupyStrategySlot( SQUAD_SLOT_HUNTER_CHARGE ) )
-			{
-				return SCHED_HUNTER_CHARGE_ENEMY;
-			}
+//	if ( !bStriderBuster && bIsCorporealEnemy )
+//	{
+//		if ( HasCondition( COND_HUNTER_CAN_CHARGE_ENEMY ) )
+//		{
+//			if ( OccupyStrategySlot( SQUAD_SLOT_HUNTER_CHARGE ) )
+//			{
+//				return SCHED_HUNTER_CHARGE_ENEMY;
+//			}
 /*
 			else
 			{
 				return SCHED_HUNTER_SIDESTEP;
 			}
 */
-		}
+//		}
 
 		// Try to be a flanker.
-		if ( ( NumHuntersInMySquad() > 1 ) && OccupyStrategySlotRange( SQUAD_SLOT_HUNTER_FLANK_FIRST, SQUAD_SLOT_HUNTER_FLANK_LAST ) )
-		{
-			return SCHED_HUNTER_FLANK_ENEMY;
-		}
-	}
+//		if ( ( NumHuntersInMySquad() > 1 ) && OccupyStrategySlotRange( SQUAD_SLOT_HUNTER_FLANK_FIRST, SQUAD_SLOT_HUNTER_FLANK_LAST ) )
+//		{
+//			return SCHED_HUNTER_FLANK_ENEMY;
+//		}
+//	}
 	
 	// Can't see my enemy.
 	if ( HasCondition( COND_ENEMY_OCCLUDED ) || HasCondition( COND_ENEMY_TOO_FAR ) || HasCondition( COND_TOO_FAR_TO_ATTACK ) || HasCondition( COND_NOT_FACING_ATTACK ) )
@@ -3147,11 +3149,11 @@ int CNPC_Hunter::TranslateSchedule( int scheduleType )
 				Msg( "HUNTER IGNORING SQUAD SLOTS\n" );
 			}
 
-			if ( IsStriderBuster( GetEnemy() ) )
-			{
-				// Attack as FAST as possible. The point is to shoot down the buster.
-				return SCHED_HUNTER_RANGE_ATTACK2_VS_STRIDERBUSTER;
-			}
+//			if ( IsStriderBuster( GetEnemy() ) )
+//			{
+//				// Attack as FAST as possible. The point is to shoot down the buster.
+//				return SCHED_HUNTER_RANGE_ATTACK2_VS_STRIDERBUSTER;
+//			}
 
 			return SCHED_HUNTER_RANGE_ATTACK2;
 		}
@@ -3400,14 +3402,14 @@ void CNPC_Hunter::StartTask( const Task_t *pTask )
 		// the plant transition animation will take care of that.
 		case TASK_HUNTER_PRE_RANGE_ATTACK2:
 		{
-			if ( !m_bPlanted  || ( GetEnemy() && IsStriderBuster( GetEnemy() ) ) )
-			{
-				TaskComplete();
-			}
-			else
-			{
+//			if ( !m_bPlanted  || ( GetEnemy() && IsStriderBuster( GetEnemy() ) ) )
+//			{
+//				TaskComplete();
+//			}
+//			else
+//			{
 				SetIdealActivity( ACT_HUNTER_ANGRY );
-			}
+//			}
 			break;
 		}
 
@@ -3423,15 +3425,15 @@ void CNPC_Hunter::StartTask( const Task_t *pTask )
 		{
 			if ( GetEnemy() )
 			{
-				bool bIsBuster = IsStriderBuster( GetEnemy() );
-				if ( bIsBuster )
-				{
-					AddFacingTarget( GetEnemy(), GetEnemy()->GetAbsOrigin() + GetEnemy()->GetSmoothedVelocity() * .5, 1.0, 0.8 );
-				}
-
-				// Start the firing sound.
-				//CSoundEnvelopeController &controller = CSoundEnvelopeController::GetController();
-				//controller.SoundChangeVolume( m_pGunFiringSound, 1.0, hunter_first_flechette_delay.GetFloat() );
+//				bool bIsBuster = IsStriderBuster( GetEnemy() );
+//				if ( bIsBuster )
+//				{
+//					AddFacingTarget( GetEnemy(), GetEnemy()->GetAbsOrigin() + GetEnemy()->GetSmoothedVelocity() * .5, 1.0, 0.8 );
+//				}
+//
+//				// Start the firing sound.
+//				//CSoundEnvelopeController &controller = CSoundEnvelopeController::GetController();
+//				//controller.SoundChangeVolume( m_pGunFiringSound, 1.0, hunter_first_flechette_delay.GetFloat() );
 
 				SetIdealActivity( ACT_RANGE_ATTACK2 );
 
@@ -3444,10 +3446,10 @@ void CNPC_Hunter::StartTask( const Task_t *pTask )
 
 				// Decide when to fire the first shot.
 				float initialDelay = hunter_first_flechette_delay.GetFloat();
-				if ( bIsBuster )
-				{
-					initialDelay = 0; //*= 0.5;
-				}
+//				if ( bIsBuster )
+//				{
+//					initialDelay = 0; //*= 0.5;
+//				}
 
 				BeginVolley( nShots, gpGlobals->curtime + initialDelay );
 
@@ -3610,33 +3612,33 @@ void CNPC_Hunter::RunTask( const Task_t *pTask )
 
 		case TASK_RANGE_ATTACK2:
 		{
-			if( !hunter_hate_thrown_striderbusters.GetBool() && GetEnemy() != NULL && IsStriderBuster( GetEnemy() ) )
-			{
-				if( !IsValidEnemy(GetEnemy()) )
-				{
-					TaskFail("No longer hate this StriderBuster");
-				}
-			}
+//			if( !hunter_hate_thrown_striderbusters.GetBool() && GetEnemy() != NULL && IsStriderBuster( GetEnemy() ) )
+//			{
+//				if( !IsValidEnemy(GetEnemy()) )
+//				{
+//					TaskFail("No longer hate this StriderBuster");
+//				}
+//			}
 
-			bool bIsBuster = IsStriderBuster( GetEnemy() );
-			if ( bIsBuster )
-			{
-				Vector vFuturePosition = GetEnemy()->GetAbsOrigin() + GetEnemy()->GetSmoothedVelocity() * .3;
-				AddFacingTarget( GetEnemy(), vFuturePosition, 1.0, 0.8 );
-
-				Vector2D vToFuturePositon = ( vFuturePosition.AsVector2D() - GetAbsOrigin().AsVector2D() );
-				vToFuturePositon.NormalizeInPlace();
-				Vector2D facingDir = BodyDirection2D().AsVector2D();
-
-				float flDot = DotProduct2D( vToFuturePositon, facingDir );
-
-				if ( flDot < .4 )
-				{
-					GetMotor()->SetIdealYawToTarget( vFuturePosition );
-					GetMotor()->UpdateYaw();
-					break;
-				}
-			}
+//			bool bIsBuster = IsStriderBuster( GetEnemy() );
+//			if ( bIsBuster )
+//			{
+//				Vector vFuturePosition = GetEnemy()->GetAbsOrigin() + GetEnemy()->GetSmoothedVelocity() * .3;
+//				AddFacingTarget( GetEnemy(), vFuturePosition, 1.0, 0.8 );
+//
+//				Vector2D vToFuturePositon = ( vFuturePosition.AsVector2D() - GetAbsOrigin().AsVector2D() );
+//				vToFuturePositon.NormalizeInPlace();
+//				Vector2D facingDir = BodyDirection2D().AsVector2D();
+//
+//				float flDot = DotProduct2D( vToFuturePositon, facingDir );
+//
+//				if ( flDot < .4 )
+//				{
+//					GetMotor()->SetIdealYawToTarget( vFuturePosition );
+//					GetMotor()->UpdateYaw();
+//					break;
+//				}
+//			}
 
 			if ( gpGlobals->curtime >= m_flNextFlechetteTime )
 			{
@@ -4230,10 +4232,10 @@ Activity CNPC_Hunter::NPC_TranslateActivity( Activity baseAct )
 	}
 	else if ( baseAct == ACT_RANGE_ATTACK2 )
 	{
-		if ( !m_bPlanted && ( m_bEnableUnplantedShooting || IsStriderBuster( GetEnemy() ) ) )
-		{
-			return (Activity)ACT_HUNTER_RANGE_ATTACK2_UNPLANTED;
-		}
+	//	if ( !m_bPlanted && ( m_bEnableUnplantedShooting || IsStriderBuster( GetEnemy() ) ) )
+	//	{
+	//		return (Activity)ACT_HUNTER_RANGE_ATTACK2_UNPLANTED;
+	//	}
 	}
 	
 	return BaseClass::NPC_TranslateActivity( baseAct );
@@ -4612,57 +4614,57 @@ bool CNPC_Hunter::FVisible( CBaseEntity *pEntity, int traceMask, CBaseEntity **p
 //-----------------------------------------------------------------------------
 bool CNPC_Hunter::IsValidEnemy( CBaseEntity *pTarget )
 {
-	if ( IsStriderBuster( pTarget) )
-	{
-		if ( !m_EscortBehavior.m_bEnabled || !m_EscortBehavior.GetEscortTarget() )
-		{
-			// We only hate striderbusters when we are actively protecting a strider.
-			return false;
-		}
-
-		if ( pTarget->VPhysicsGetObject() )
-		{
-			if ( ( pTarget->VPhysicsGetObject()->GetGameFlags() & FVPHYSICS_PLAYER_HELD ) &&
-				hunter_hate_held_striderbusters.GetBool() )
-			{
-				if ( gpGlobals->curtime - StriderBuster_GetPickupTime( pTarget ) > hunter_hate_held_striderbusters_delay.GetFloat())
-				{
-					if ( StriderBuster_NumFlechettesAttached( pTarget ) <= 2 )
-					{
-						if ( m_EscortBehavior.GetEscortTarget() && 
-							( m_EscortBehavior.GetEscortTarget()->GetAbsOrigin().AsVector2D() - pTarget->GetAbsOrigin().AsVector2D() ).LengthSqr() < Square( hunter_hate_held_striderbusters_tolerance.GetFloat() ) )
-						{
-							return true;
-						}
-					}
-				}
-				return false;
-			}
-
-			bool bThrown = ( pTarget->VPhysicsGetObject()->GetGameFlags() & FVPHYSICS_WAS_THROWN ) != 0;
-			bool bAttached = StriderBuster_IsAttachedStriderBuster( pTarget );
-
-			if ( ( bThrown && !bAttached ) && hunter_hate_thrown_striderbusters.GetBool() )
-			{
-				float t;
-				float dist = CalcDistanceSqrToLineSegment2D( m_EscortBehavior.GetEscortTarget()->GetAbsOrigin().AsVector2D(), 
-					pTarget->GetAbsOrigin().AsVector2D(), 
-					pTarget->GetAbsOrigin().AsVector2D() + pTarget->GetSmoothedVelocity().AsVector2D(), &t );
-
-				if ( t > 0 && dist < Square( hunter_hate_thrown_striderbusters_tolerance.GetFloat() ))
-				{
-					return true;
-				}
-				return false;
-			}
-
-			if ( bAttached && StriderBuster_IsAttachedStriderBuster( pTarget, m_EscortBehavior.GetEscortTarget() ) && hunter_hate_attached_striderbusters.GetBool() )
-			{
-				return true;
-			}
-		}
-		return false;
-	}
+//	if ( IsStriderBuster( pTarget) )
+//	{
+//		if ( !m_EscortBehavior.m_bEnabled || !m_EscortBehavior.GetEscortTarget() )
+//		{
+//			// We only hate striderbusters when we are actively protecting a strider.
+//			return false;
+//		}
+//	
+//	if ( pTarget->VPhysicsGetObject() )
+//		{
+//			if ( ( pTarget->VPhysicsGetObject()->GetGameFlags() & FVPHYSICS_PLAYER_HELD ) &&
+//				hunter_hate_held_striderbusters.GetBool() )
+//			{
+//				if ( gpGlobals->curtime - StriderBuster_GetPickupTime( pTarget ) > hunter_hate_held_striderbusters_delay.GetFloat())
+//				{
+//					if ( StriderBuster_NumFlechettesAttached( pTarget ) <= 2 )
+//					{
+//						if ( m_EscortBehavior.GetEscortTarget() && 
+//							( m_EscortBehavior.GetEscortTarget()->GetAbsOrigin().AsVector2D() - pTarget->GetAbsOrigin().AsVector2D() ).LengthSqr() < Square( hunter_hate_held_striderbusters_tolerance.GetFloat() ) )
+//						{
+//							return true;
+//						}
+//					}
+//				}
+//				return false;
+//			}
+//
+//			bool bThrown = ( pTarget->VPhysicsGetObject()->GetGameFlags() & FVPHYSICS_WAS_THROWN ) != 0;
+//			bool bAttached = StriderBuster_IsAttachedStriderBuster( pTarget );
+//
+//			if ( ( bThrown && !bAttached ) && hunter_hate_thrown_striderbusters.GetBool() )
+//			{
+//				float t;
+//				float dist = CalcDistanceSqrToLineSegment2D( m_EscortBehavior.GetEscortTarget()->GetAbsOrigin().AsVector2D(), 
+//					pTarget->GetAbsOrigin().AsVector2D(), 
+//					pTarget->GetAbsOrigin().AsVector2D() + pTarget->GetSmoothedVelocity().AsVector2D(), &t );
+//
+//				if ( t > 0 && dist < Square( hunter_hate_thrown_striderbusters_tolerance.GetFloat() ))
+//				{
+//					return true;
+//				}
+//				return false;
+//			}
+//
+//			if ( bAttached && StriderBuster_IsAttachedStriderBuster( pTarget, m_EscortBehavior.GetEscortTarget() ) && hunter_hate_attached_striderbusters.GetBool() )
+//			{
+//				return true;
+//			}
+//		}
+//		return false;
+//	}
 
 	return BaseClass::IsValidEnemy( pTarget );
 }
@@ -4676,21 +4678,21 @@ Disposition_t CNPC_Hunter::IRelationType( CBaseEntity *pTarget )
 	if ( !pTarget )
 		return D_NU;
 
-	if ( IsStriderBuster( pTarget ) )
-	{
-		if ( HateThisStriderBuster( pTarget ) )
-			return D_HT;
+//	if ( IsStriderBuster( pTarget ) )
+//	{
+//		if ( HateThisStriderBuster( pTarget ) )
+//			return D_HT;
 
-		return D_NU;
-	}
+//		return D_NU;
+//	}
 
-	if ( hunter_retreat_striderbusters.GetBool() )
-	{
-		if ( pTarget->IsPlayer() && (m_hAttachedBusters.Count() > 0) )
-		{
-			return D_FR;
-		}
-	}
+//	if ( hunter_retreat_striderbusters.GetBool() )
+//	{
+//		if ( pTarget->IsPlayer() && (m_hAttachedBusters.Count() > 0) )
+//		{
+//			return D_FR;
+//		}
+//	}
 		
 	return BaseClass::IRelationType( pTarget );
 }
@@ -4700,11 +4702,11 @@ Disposition_t CNPC_Hunter::IRelationType( CBaseEntity *pTarget )
 //-----------------------------------------------------------------------------
 int CNPC_Hunter::IRelationPriority( CBaseEntity *pTarget )
 {
-	if ( IsStriderBuster( pTarget ) )
-	{
-		// If we're here, we already know that we hate striderbusters.
-		return 1000.0f;
-	}
+//	if ( IsStriderBuster( pTarget ) )
+//	{
+//		// If we're here, we already know that we hate striderbusters.
+//		return 1000.0f;
+//	}
 
 	return BaseClass::IRelationPriority( pTarget );
 }
@@ -4726,10 +4728,10 @@ void CNPC_Hunter::OnSeeEntity( CBaseEntity *pEntity )
 {
 	BaseClass::OnSeeEntity(pEntity);
 
-	if ( IsStriderBuster( pEntity ) && IsValidEnemy( pEntity ) )
-	{
-		SetCondition( COND_HUNTER_SEE_STRIDERBUSTER );
-	}
+//	if ( IsStriderBuster( pEntity ) && IsValidEnemy( pEntity ) )
+//	{
+//		SetCondition( COND_HUNTER_SEE_STRIDERBUSTER );
+//	}
 }
 
 
@@ -4958,8 +4960,8 @@ bool CNPC_Hunter::IsCorporealEnemy( CBaseEntity *pEnemy )
 		return false;
 
 	// Don't flank, melee attack striderbusters.
-	if ( IsStriderBuster( pEnemy ) )
-		return false;
+//	if ( IsStriderBuster( pEnemy ) )
+//		return false;
 
 	return true;
 }
@@ -4977,13 +4979,13 @@ int CNPC_Hunter::RangeAttack1Conditions( float flDot, float flDist )
 //-----------------------------------------------------------------------------
 int CNPC_Hunter::RangeAttack2Conditions( float flDot, float flDist )
 {
-	bool bIsBuster = IsStriderBuster( GetEnemy() );
-	bool bIsPerfectBullseye = ( GetEnemy() && dynamic_cast<CNPC_Bullseye *>(GetEnemy()) && ((CNPC_Bullseye *)GetEnemy())->UsePerfectAccuracy() );
+//	bool bIsBuster = IsStriderBuster( GetEnemy() );
+//	bool bIsPerfectBullseye = ( GetEnemy() && dynamic_cast<CNPC_Bullseye *>(GetEnemy()) && ((CNPC_Bullseye *)GetEnemy())->UsePerfectAccuracy() );
 
-	if ( !bIsPerfectBullseye && !bIsBuster && !hunter_flechette_test.GetBool() && ( gpGlobals->curtime < m_flNextRangeAttack2Time ) )
-	{
-		return COND_NONE;
-	}
+//	if ( !bIsPerfectBullseye && !bIsBuster && !hunter_flechette_test.GetBool() && ( gpGlobals->curtime < m_flNextRangeAttack2Time ) )
+//	{
+//		return COND_NONE;
+//	}
 
 	if ( m_bDisableShooting )
 	{
@@ -5002,23 +5004,23 @@ int CNPC_Hunter::RangeAttack2Conditions( float flDot, float flDist )
 		flMaxFlechetteRange *= HUNTER_SIEGE_MAX_DIST_MODIFIER;
 	}
 
- 	if ( !bIsBuster && ( flDist > flMaxFlechetteRange ) )
-	{
-		return COND_TOO_FAR_TO_ATTACK;
-	}
-	else if ( !bIsBuster && ( !GetEnemy() || !GetEnemy()->ClassMatches( "npc_bullseye" ) ) && flDist < hunter_flechette_min_range.GetFloat() )
-	{
-		return COND_TOO_CLOSE_TO_ATTACK;
-	}
+// 	if ( !bIsBuster && ( flDist > flMaxFlechetteRange ) )
+//	{
+//		return COND_TOO_FAR_TO_ATTACK;
+//	}
+//	else if ( !bIsBuster && ( !GetEnemy() || !GetEnemy()->ClassMatches( "npc_bullseye" ) ) && flDist < hunter_flechette_min_range.GetFloat() )
+//	{
+//		return COND_TOO_CLOSE_TO_ATTACK;
+//	}
 	else if ( flDot < HUNTER_FACING_DOT )
 	{
 		return COND_NOT_FACING_ATTACK;
 	}
 	
-	if ( !bIsBuster && !m_bEnableUnplantedShooting && !hunter_flechette_test.GetBool() && !CanPlantHere( GetAbsOrigin() ) )
-	{
-		return COND_HUNTER_CANT_PLANT;
-	}
+//	if ( !bIsBuster && !m_bEnableUnplantedShooting && !hunter_flechette_test.GetBool() && !CanPlantHere( GetAbsOrigin() ) )
+//	{
+//		return COND_HUNTER_CANT_PLANT;
+//	}
 
 	return COND_CAN_RANGE_ATTACK2;
 }
@@ -5628,17 +5630,17 @@ int CNPC_Hunter::OnTakeDamage_Alive( const CTakeDamageInfo &info )
 	CBaseEntity *pAttacker = info.GetAttacker();
 	if ( pInflictor )
 	{
-		if ( IsStriderBuster( pInflictor ) )
-		{
-			// Get a tesla effect on our hitboxes for a little while.
-			SetContextThink( &CNPC_Hunter::TeslaThink, gpGlobals->curtime, HUNTER_ZAP_THINK ); 
-			m_flTeslaStopTime = gpGlobals->curtime + 2.0f;
-			
-			myInfo.SetDamage( sk_hunter_dmg_from_striderbuster.GetFloat() ) ;
-
-			SetCondition( COND_HUNTER_STAGGERED );
-		}
-		else if ( pInflictor->ClassMatches( GetClassname() ) && !( info.GetDamageType() == DMG_GENERIC ) )
+	//	if ( IsStriderBuster( pInflictor ) )
+	//	{
+	//		// Get a tesla effect on our hitboxes for a little while.
+	//		SetContextThink( &CNPC_Hunter::TeslaThink, gpGlobals->curtime, HUNTER_ZAP_THINK ); 
+	//		m_flTeslaStopTime = gpGlobals->curtime + 2.0f;
+	//		
+	//		myInfo.SetDamage( sk_hunter_dmg_from_striderbuster.GetFloat() ) ;
+	//
+	//		SetCondition( COND_HUNTER_STAGGERED );
+	//	}
+		if ( pInflictor->ClassMatches( GetClassname() ) && !( info.GetDamageType() == DMG_GENERIC ) )
 		{
 			return 0;
 		}
@@ -5853,10 +5855,10 @@ void CNPC_Hunter::StartBleeding()
 //-----------------------------------------------------------------------------
 float CNPC_Hunter::MaxYawSpeed()
 {
-	if ( IsStriderBuster( GetEnemy() ) )
-	{
-		return 60;
-	}
+//	if ( IsStriderBuster( GetEnemy() ) )
+//	{
+//		return 60;
+//	}
 
 	if ( GetActivity() == ACT_HUNTER_ANGRY )
 		return 0;
@@ -6020,7 +6022,7 @@ void CNPC_Hunter::DelayRangedAttackers( float minDelay, float maxDelay, bool bFo
 //-----------------------------------------------------------------------------
 // Given a target to shoot at, decide where to aim.
 //-----------------------------------------------------------------------------
-void CNPC_Hunter::GetShootDir( Vector &vecDir, const Vector &vecSrc, CBaseEntity *pTargetEntity, bool bStriderBuster, int nShotNum, bool bSingleShot )
+void CNPC_Hunter::GetShootDir( Vector &vecDir, const Vector &vecSrc, CBaseEntity *pTargetEntity, int nShotNum, bool bSingleShot )
 {
 	//RestartGesture( ACT_HUNTER_GESTURE_SHOOT );
 
@@ -6042,8 +6044,8 @@ void CNPC_Hunter::GetShootDir( Vector &vecDir, const Vector &vecSrc, CBaseEntity
 	Vector vecTarget = vecBodyTarget;
 
 	Vector vecDelta = pTargetEntity->GetAbsOrigin() - GetAbsOrigin();
-	float flDist = vecDelta.Length();
-
+//	float flDist = vecDelta.Length();
+	/*
 	if ( !bStriderBuster )
 	{
 		// If we're not firing at a strider buster, miss in an entertaining way for the 
@@ -6089,6 +6091,7 @@ void CNPC_Hunter::GetShootDir( Vector &vecDir, const Vector &vecSrc, CBaseEntity
 			vecTarget = m_vecEnemyLastSeen + vecDelta;
 		}
 	}
+
 	else
 	{
 		// If we're firing at a striderbuster, lead it.
@@ -6106,6 +6109,7 @@ void CNPC_Hunter::GetShootDir( Vector &vecDir, const Vector &vecSrc, CBaseEntity
 
 	vecDir = vecTarget - vecSrc;
 	VectorNormalize( vecDir );
+	*/
 }
 
 
@@ -6149,11 +6153,11 @@ bool CNPC_Hunter::ClampShootDir( Vector &vecDir )
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-bool CNPC_Hunter::ShouldSeekTarget( CBaseEntity *pTargetEntity, bool bStriderBuster )
+bool CNPC_Hunter::ShouldSeekTarget( CBaseEntity *pTargetEntity )
 {
 	bool bSeek = false;
 
-	if ( bStriderBuster )
+/*	if ( bStriderBuster )
 	{
 		bool bSeek = false;
 
@@ -6177,7 +6181,7 @@ bool CNPC_Hunter::ShouldSeekTarget( CBaseEntity *pTargetEntity, bool bStriderBus
 			}
 		}
 	}
-
+*/
 	return bSeek;
 }	
 
@@ -6204,7 +6208,7 @@ bool CNPC_Hunter::ShootFlechette( CBaseEntity *pTargetEntity, bool bSingleShot )
 
 	int nShotNum = hunter_flechette_volley_size.GetInt() - m_nFlechettesQueued;
 
-	bool bStriderBuster = IsStriderBuster( pTargetEntity );
+//	bool bStriderBuster = IsStriderBuster( pTargetEntity );
 
 	// Choose the next muzzle to shoot from.
 	Vector vecSrc;
@@ -6224,7 +6228,7 @@ bool CNPC_Hunter::ShootFlechette( CBaseEntity *pTargetEntity, bool bSingleShot )
 	m_bTopMuzzle = !m_bTopMuzzle;
 
 	Vector vecDir;
-	GetShootDir( vecDir, vecSrc, pTargetEntity, bStriderBuster, nShotNum, bSingleShot );
+	GetShootDir( vecDir, vecSrc, pTargetEntity, nShotNum, bSingleShot );
 
 	bool bClamped = false;
 	if ( hunter_clamp_shots.GetBool() )
@@ -6257,9 +6261,9 @@ bool CNPC_Hunter::ShootFlechette( CBaseEntity *pTargetEntity, bool bSingleShot )
 
 	vecShoot *= hunter_flechette_speed.GetFloat();
 
-	pFlechette->Shoot( vecShoot, bStriderBuster );
+	pFlechette->Shoot(vecSrc, 0);
 
-	if ( ShouldSeekTarget( pTargetEntity, bStriderBuster ) )
+	if ( ShouldSeekTarget( pTargetEntity ) )
 	{
 		pFlechette->SetSeekTarget( pTargetEntity );
 	}
@@ -6504,29 +6508,29 @@ void CNPC_Hunter::PlayExpressionForState( NPC_STATE state )
 //-----------------------------------------------------------------------------
 // TODO: remove if we're not doing striderbuster stuff
 //-----------------------------------------------------------------------------
-void CNPC_Hunter::StriderBusterAttached( CBaseEntity *pAttached )
-{
-	// Add another to the list
-	m_hAttachedBusters.AddToTail( pAttached );
-
-	SetCondition( COND_HUNTER_HIT_BY_STICKYBOMB );
-	if (m_hAttachedBusters.Count() == 1)
-	{
-		EmitSound( "NPC_Hunter.Alert" );
-	}
-}
+//void CNPC_Hunter::StriderBusterAttached( CBaseEntity *pAttached )
+//{
+//	// Add another to the list
+//	m_hAttachedBusters.AddToTail( pAttached );
+//
+//	SetCondition( COND_HUNTER_HIT_BY_STICKYBOMB );
+//	if (m_hAttachedBusters.Count() == 1)
+//	{
+//		EmitSound( "NPC_Hunter.Alert" );
+//	}
+//}
 
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-void CNPC_Hunter::StriderBusterDetached( CBaseEntity *pAttached )
-{
-	int elem = m_hAttachedBusters.Find(pAttached);
-	if (elem >= 0)
-	{
-		m_hAttachedBusters.FastRemove(elem);
-	}
-}
+//void CNPC_Hunter::StriderBusterDetached( CBaseEntity *pAttached )
+//{
+//	int elem = m_hAttachedBusters.Find(pAttached);
+//	if (elem >= 0)
+//	{
+//		m_hAttachedBusters.FastRemove(elem);
+//	}
+//}
 
 
 //-----------------------------------------------------------------------------
@@ -6736,8 +6740,8 @@ void CAI_HunterEscortBehavior::GatherConditions( void )
 //-----------------------------------------------------------------------------
 bool CAI_HunterEscortBehavior::ShouldFollow()
 {
-	if ( IsStriderBuster( GetEnemy() ) )
-		return false;
+//	if ( IsStriderBuster( GetEnemy() ) )
+//		return false;
 
 	if ( HasCondition( COND_HEAR_PHYSICS_DANGER ) )
 		return false;
@@ -7037,52 +7041,52 @@ bool Hunter_IsHunter(CBaseEntity *pEnt)
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-void Hunter_StriderBusterLaunched( CBaseEntity *pBuster )
-{
-	CAI_BaseNPC **ppAIs = g_AI_Manager.AccessAIs();
-	int nAIs = g_AI_Manager.NumAIs();
-
-	for ( int i = 0; i < nAIs; i++ )
-	{
-		CAI_BaseNPC *pNPC = ppAIs[ i ];
-		if ( pNPC && ( pNPC->Classify() == CLASS_COMBINE_HUNTER ) && pNPC->m_lifeState == LIFE_ALIVE )
-		{
-			if ( !pNPC->GetEnemy() || !IsStriderBuster( pNPC->GetEnemy() ) )
-			{
-				Vector vecDelta = pNPC->GetAbsOrigin() - pBuster->GetAbsOrigin();
-				if ( vecDelta.Length2DSqr() < 9437184.0f ) // 3072 * 3072
-				{
-					pNPC->SetEnemy( pBuster );
-					pNPC->SetState( NPC_STATE_COMBAT );
-					pNPC->UpdateEnemyMemory( pBuster, pBuster->GetAbsOrigin() );
-
-					// Stop whatever we're doing.
-					pNPC->SetCondition( COND_SCHEDULE_DONE );
-				}
-			}
-		}
-	}
-}
-
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-void Hunter_StriderBusterAttached( CBaseEntity *pHunter, CBaseEntity *pAttached )
-{
-	Assert(dynamic_cast<CNPC_Hunter *>(pHunter));
-
-	static_cast<CNPC_Hunter *>(pHunter)->StriderBusterAttached(pAttached);
-}
+//void Hunter_StriderBusterLaunched( CBaseEntity *pBuster )
+//{
+//	CAI_BaseNPC **ppAIs = g_AI_Manager.AccessAIs();
+//	int nAIs = g_AI_Manager.NumAIs();
+//
+//	for ( int i = 0; i < nAIs; i++ )
+//	{
+//		CAI_BaseNPC *pNPC = ppAIs[ i ];
+//		if ( pNPC && ( pNPC->Classify() == CLASS_COMBINE_HUNTER ) && pNPC->m_lifeState == LIFE_ALIVE )
+//		{
+//			if ( !pNPC->GetEnemy() || !IsStriderBuster( pNPC->GetEnemy() ) )
+//			{
+//				Vector vecDelta = pNPC->GetAbsOrigin() - pBuster->GetAbsOrigin();
+//				if ( vecDelta.Length2DSqr() < 9437184.0f ) // 3072 * 3072
+//				{
+//					pNPC->SetEnemy( pBuster );
+//					pNPC->SetState( NPC_STATE_COMBAT );
+//					pNPC->UpdateEnemyMemory( pBuster, pBuster->GetAbsOrigin() );
+//
+//					// Stop whatever we're doing.
+//					pNPC->SetCondition( COND_SCHEDULE_DONE );
+//				}
+//			}
+//		}
+//	}
+//}
 
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-void Hunter_StriderBusterDetached( CBaseEntity *pHunter, CBaseEntity *pAttached )
-{
-	Assert(dynamic_cast<CNPC_Hunter *>(pHunter));
+//void Hunter_StriderBusterAttached( CBaseEntity *pHunter, CBaseEntity *pAttached )
+//{
+//	Assert(dynamic_cast<CNPC_Hunter *>(pHunter));
+//
+//	static_cast<CNPC_Hunter *>(pHunter)->StriderBusterAttached(pAttached);
+//}
 
-	static_cast<CNPC_Hunter *>(pHunter)->StriderBusterDetached(pAttached);
-}
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+//void Hunter_StriderBusterDetached( CBaseEntity *pHunter, CBaseEntity *pAttached )
+//{
+//	Assert(dynamic_cast<CNPC_Hunter *>(pHunter));
+//
+//	static_cast<CNPC_Hunter *>(pHunter)->StriderBusterDetached(pAttached);
+//}
 
 //-------------------------------------------------------------------------------------------------
 //

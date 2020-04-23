@@ -23,7 +23,7 @@
 #include "antlion_maker.h"
 #include "npc_antlion.h"
 #include "decals.h"
-#include "hl2_shareddefs.h"
+#include "of2_shareddefs.h"
 #include "explode.h"
 #include "weapon_physcannon.h"
 #include "baseparticleentity.h"
@@ -69,7 +69,7 @@ ConVar g_antlion_cascade_push( "g_antlion_cascade_push", "1", FCVAR_ARCHIVE );
  
 ConVar g_debug_antlion_worker( "g_debug_antlion_worker", "0" );
 
-extern ConVar bugbait_radius;
+//extern ConVar bugbait_radius;
 
 int AE_ANTLION_WALK_FOOTSTEP;
 int AE_ANTLION_MELEE_HIT1;
@@ -2364,12 +2364,12 @@ int CNPC_Antlion::SelectSchedule( void )
 		if ( m_bHasHeardSound )
 		{		
 			//Mark anything in the area as more interesting
-			CBaseEntity *pTarget = NULL;
+//			CBaseEntity *pTarget = NULL;
 			CBaseEntity *pNewEnemy = NULL;
 			Vector		soundOrg = m_vecHeardSound;
 
 			//Find all entities within that sphere
-			while ( ( pTarget = gEntList.FindEntityInSphere( pTarget, soundOrg, bugbait_radius.GetInt() ) ) != NULL )
+/*			while ( ( pTarget = gEntList.FindEntityInSphere( pTarget, soundOrg, bugbait_radius.GetInt() ) ) != NULL )
 			{
 				CAI_BaseNPC *pNPC = pTarget->MyNPCPointer();
 
@@ -2392,7 +2392,7 @@ int CNPC_Antlion::SelectSchedule( void )
 					}
 				}
 			}
-			
+*/			
 			// If we have a new enemy, take it
 			if ( pNewEnemy != NULL )
 			{
@@ -3641,12 +3641,12 @@ bool CNPC_Antlion::IsValidEnemy( CBaseEntity *pEnemy )
 		return false;
 
 	//If we're chasing bugbait, close to within a certain radius before picking up enemies
-	if ( IsCurSchedule( GetGlobalScheduleId( SCHED_ANTLION_CHASE_BUGBAIT ) ) && ( GetNavigator() != NULL ) )
-	{
-		//If the enemy is without the target radius, then don't allow them
-		if ( ( GetNavigator()->IsGoalActive() ) && ( GetNavigator()->GetGoalPos() - pEnemy->GetAbsOrigin() ).Length() > bugbait_radius.GetFloat() )
-			return false;
-	}
+//	if ( IsCurSchedule( GetGlobalScheduleId( SCHED_ANTLION_CHASE_BUGBAIT ) ) && ( GetNavigator() != NULL ) )
+//	{
+//		//If the enemy is without the target radius, then don't allow them
+//		if ( ( GetNavigator()->IsGoalActive() ) && ( GetNavigator()->GetGoalPos() - pEnemy->GetAbsOrigin() ).Length() > bugbait_radius.GetFloat() )
+//			return false;
+//	}
 
 	// If we're following an entity we limit our attack distances
 	if ( m_FollowBehavior.GetFollowTarget() != NULL )

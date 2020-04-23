@@ -104,9 +104,9 @@ public:
 	int SelectFailSchedule( int failedSchedule, int failedTask, AI_TaskFailureCode_t taskFailCode );
 	int TranslateSchedule( int scheduleType );
 
-#ifndef HL2_EPISODIC
-	void CheckFlinches() {} // Zombie has custom flinch code
-#endif // HL2_EPISODIC
+//#ifndef HL2_EPISODIC
+//	void CheckFlinches() {} // Zombie has custom flinch code
+//#endif // HL2_EPISODIC
 
 	Activity NPC_TranslateActivity( Activity newActivity );
 

@@ -40,7 +40,7 @@
 #include "soundent.h"
 #include "npc_citizen17.h"
 #include "physics_saverestore.h"
-#include "hl2_shareddefs.h"
+#include "of2_shareddefs.h"
 #include "props.h"
 #include "npc_attackchopper.h"
 #include "citadel_effects_shared.h"
@@ -2502,11 +2502,11 @@ void CNPC_CombineGunship::SelfDestruct( void )
 
 	UTIL_Remove( this );
 
-	// Record this so a nearby citizen can respond.
-	if ( GetCitizenResponse() )
-	{
-		GetCitizenResponse()->AddResponseTrigger( CR_PLAYER_KILLED_GUNSHIP );
-	}
+//	// Record this so a nearby citizen can respond.
+//	if ( GetCitizenResponse() )
+//	{
+//		GetCitizenResponse()->AddResponseTrigger( CR_PLAYER_KILLED_GUNSHIP );
+//	}
 
 #ifdef HL2_EPISODIC
 	NPCEventResponse()->TriggerEvent( "TLK_CITIZEN_RESPONSE_KILLED_GUNSHIP", false, false );
@@ -2850,10 +2850,10 @@ void CNPC_CombineGunship::TraceAttack( const CTakeDamageInfo &info, const Vector
 		// If this is from a player, record it so a nearby citizen can respond.
 		if ( info.GetAttacker()->IsPlayer() )
 		{
-			if ( GetCitizenResponse() )
-			{
-				GetCitizenResponse()->AddResponseTrigger( CR_PLAYER_SHOT_GUNSHIP );
-			}
+//			if ( GetCitizenResponse() )
+//			{
+//				GetCitizenResponse()->AddResponseTrigger( CR_PLAYER_SHOT_GUNSHIP );
+//			}
 
 #ifdef HL2_EPISODIC
 			NPCEventResponse()->TriggerEvent( "TLK_CITIZEN_RESPONSE_SHOT_GUNSHIP", false, false );

@@ -20,7 +20,7 @@
 #ifdef HL2MP
 #include "hl2mp/weapon_crowbar.h"
 #else
-#include "weapon_crowbar.h"
+//#include "weapon_crowbar.h"
 #endif
 
 #include "eventqueue.h"
@@ -239,13 +239,13 @@ END_DATADESC()
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
-class CMattsPipe : public CWeaponCrowbar
-{
-	DECLARE_CLASS( CMattsPipe, CWeaponCrowbar );
-
-	const char *GetWorldModel() const	{ return "models/props_canal/mattpipe.mdl"; }
-	void SetPickupTouch( void )	{	/* do nothing */ }
-};
+//class CMattsPipe : public CWeaponCrowbar
+//{
+//	DECLARE_CLASS( CMattsPipe, CWeaponCrowbar );
+//
+//	const char *GetWorldModel() const	{ return "models/props_canal/mattpipe.mdl"; }
+//	void SetPickupTouch( void )	{	/* do nothing */ }
+//};
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
@@ -256,30 +256,21 @@ class CMattsPipe : public CWeaponCrowbar
 
 static const char *g_ppszRandomHeads[] = 
 {
-	"male_01.mdl",
-	"male_02.mdl",
-	"female_01.mdl",
-	"male_03.mdl",
-	"female_02.mdl",
-	"male_04.mdl",
-	"female_03.mdl",
-	"male_05.mdl",
-	"female_04.mdl",
-	"male_06.mdl",
-	"female_06.mdl",
-	"male_07.mdl",
-	"female_07.mdl",
-	"male_08.mdl",
-	"male_09.mdl",
+	"phoenix_marine_face01.mdl",
+	"phoenix_marine_face02.mdl",
+	"phoenix_marine_face03.mdl",
+	"phoenix_marine_face04.mdl",
+	"phoenix_marine_face05.mdl",
+	"phoenix_marine_face06.mdl",
+	"phoenix_marine_face07.mdl",
+	"phoenix_marine_face08.mdl",
+	"phoenix_marine_face09.mdl",
 };
 
-static const char *g_ppszModelLocs[] =
-{
-	"Group01",
-	"Group01",
-	"Group02",
-	"Group03%s",
-};
+//static const char *g_ppszModelLocs[] =
+//{
+//	"characters",
+//};
 
 #define IsExcludedHead( type, bMedic, iHead) false // see XBox codeline for an implementation
 
@@ -296,7 +287,7 @@ int	ACT_CIT_STARTLED;		// Startled by sneaky scanner
 
 //---------------------------------------------------------
 
-LINK_ENTITY_TO_CLASS( npc_citizen, CNPC_Citizen );
+LINK_ENTITY_TO_CLASS( npc_phoenix, CNPC_Citizen );
 
 //---------------------------------------------------------
 
@@ -373,7 +364,7 @@ CSimpleSimTimer CNPC_Citizen::gm_PlayerSquadEvaluateTimer;
 bool CNPC_Citizen::CreateBehaviors()
 {
 	BaseClass::CreateBehaviors();
-	AddBehavior( &m_FuncTankBehavior );
+//	AddBehavior( &m_FuncTankBehavior );
 	
 	return true;
 }
@@ -435,20 +426,10 @@ void CNPC_Citizen::PrecacheAllOfType( CitizenType_t type )
 	{
 		if ( !IsExcludedHead( type, false, i ) )
 		{
-			PrecacheModel( CFmtStr( "models/Humans/%s/%s", (const char *)(CFmtStr(g_ppszModelLocs[m_Type], "")), g_ppszRandomHeads[i] ) );
+			PrecacheModel( CFmtStr( "models/characters/%s", (const char *)(CFmtStr) g_ppszRandomHeads[i] ) );
 		}
 	}
 
-	if ( m_Type == CT_REBEL )
-	{
-		for ( i = 0; i < nHeads; ++i )
-		{
-			if ( !IsExcludedHead( type, true, i ) )
-			{
-				PrecacheModel( CFmtStr( "models/Humans/%s/%s", (const char *)(CFmtStr(g_ppszModelLocs[m_Type], "m")), g_ppszRandomHeads[i] ) );
-			}
-		}
-	}
 }
 
 //-----------------------------------------------------------------------------
@@ -710,12 +691,6 @@ void CNPC_Citizen::SelectModel()
 		if ( !*pszModelName )
 			return;
 	}
-
-	// Unique citizen models are left alone
-	if ( m_Type != CT_UNIQUE )
-	{
-		SetModelName( AllocPooledString( CFmtStr( "models/Humans/%s/%s", (const char *)(CFmtStr(g_ppszModelLocs[ m_Type ], ( IsMedic() ) ? "m" : "" )), pszModelName ) ) );
-	}
 }
 
 //-----------------------------------------------------------------------------
@@ -750,22 +725,22 @@ void CNPC_Citizen::SelectExpressionType()
 //-----------------------------------------------------------------------------
 void CNPC_Citizen::FixupMattWeapon()
 {
-	CBaseCombatWeapon *pWeapon = GetActiveWeapon();
-	if ( pWeapon && pWeapon->ClassMatches( "weapon_crowbar" ) && NameMatches( "matt" ) )
-	{
-		Weapon_Drop( pWeapon );
-		UTIL_Remove( pWeapon );
-		pWeapon = (CBaseCombatWeapon *)CREATE_UNSAVED_ENTITY( CMattsPipe, "weapon_crowbar" );
-		pWeapon->SetName( AllocPooledString( "matt_weapon" ) );
-		DispatchSpawn( pWeapon );
-
-#ifdef DEBUG
-		extern bool g_bReceivedChainedActivate;
-		g_bReceivedChainedActivate = false;
-#endif
-		pWeapon->Activate();
-		Weapon_Equip( pWeapon );
-	}
+//	CBaseCombatWeapon *pWeapon = GetActiveWeapon();
+	//if ( pWeapon && pWeapon->ClassMatches( "weapon_crowbar" ) && NameMatches( "matt" ) )
+	//{
+	//	Weapon_Drop( pWeapon );
+	//	UTIL_Remove( pWeapon );
+	//	pWeapon = (CBaseCombatWeapon *)CREATE_UNSAVED_ENTITY( CMattsPipe, "weapon_crowbar" );
+	//	pWeapon->SetName( AllocPooledString( "matt_weapon" ) );
+	//	DispatchSpawn( pWeapon );
+//
+//#ifdef DEBUG
+//		extern bool g_bReceivedChainedActivate;
+//		g_bReceivedChainedActivate = false;
+//endif
+//		pWeapon->Activate();
+//		Weapon_Equip( pWeapon );
+//	}
 }
 
 //-----------------------------------------------------------------------------
@@ -801,10 +776,10 @@ string_t CNPC_Citizen::GetModelName() const
 	// If the model refers to an obsolete model, pretend it was blank
 	// so that we pick the new default model.
 	//
-	if (!Q_strnicmp(STRING(iszModelName), "models/c17_", 11) ||
-		!Q_strnicmp(STRING(iszModelName), "models/male", 11) ||
-		!Q_strnicmp(STRING(iszModelName), "models/female", 13) ||
-		!Q_strnicmp(STRING(iszModelName), "models/citizen", 14))
+	if (!Q_strnicmp(STRING(iszModelName), "models/characters", 11) ||
+		!Q_strnicmp(STRING(iszModelName), "models/characters", 11) ||
+		!Q_strnicmp(STRING(iszModelName), "models/characters", 13) ||
+		!Q_strnicmp(STRING(iszModelName), "models/characters", 14))
 	{
 		return NULL_STRING;
 	}
@@ -836,14 +811,14 @@ bool CNPC_Citizen::ShouldAlwaysThink()
 	
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-#define CITIZEN_FOLLOWER_DESERT_FUNCTANK_DIST	45.0f*12.0f
+//#define CITIZEN_FOLLOWER_DESERT_FUNCTANK_DIST	45.0f*12.0f
 bool CNPC_Citizen::ShouldBehaviorSelectSchedule( CAI_BehaviorBase *pBehavior )
 {
 	if( pBehavior == &m_FollowBehavior )
 	{
 		// Suppress follow behavior if I have a func_tank and the func tank is near
 		// what I'm supposed to be following.
-		if( m_FuncTankBehavior.CanSelectSchedule() )
+/*		if( m_FuncTankBehavior.CanSelectSchedule() )
 		{
 			// Is the tank close to the follow target?
 			Vector vecTank = m_FuncTankBehavior.GetFuncTank()->WorldSpaceCenter();
@@ -869,6 +844,7 @@ bool CNPC_Citizen::ShouldBehaviorSelectSchedule( CAI_BehaviorBase *pBehavior )
 				return false;
 			}
 		}
+		*/
 	}
 
 	return BaseClass::ShouldBehaviorSelectSchedule( pBehavior );
@@ -876,7 +852,7 @@ bool CNPC_Citizen::ShouldBehaviorSelectSchedule( CAI_BehaviorBase *pBehavior )
 
 void CNPC_Citizen::OnChangeRunningBehavior( CAI_BehaviorBase *pOldBehavior,  CAI_BehaviorBase *pNewBehavior )
 {
-	if ( pNewBehavior == &m_FuncTankBehavior )
+/*	if ( pNewBehavior == &m_FuncTankBehavior )
 	{
 		m_bReadinessCapable = false;
 	}
@@ -884,7 +860,7 @@ void CNPC_Citizen::OnChangeRunningBehavior( CAI_BehaviorBase *pOldBehavior,  CAI
 	{
 		m_bReadinessCapable = IsReadinessCapable();
 	}
-
+*/
 	BaseClass::OnChangeRunningBehavior( pOldBehavior, pNewBehavior );
 }
 
@@ -1392,22 +1368,22 @@ int CNPC_Citizen::SelectScheduleNonCombat()
 //-----------------------------------------------------------------------------
 int CNPC_Citizen::SelectScheduleManhackCombat()
 {
-	if ( m_NPCState == NPC_STATE_COMBAT && IsManhackMeleeCombatant() )
-	{
-		if ( !HasCondition( COND_CAN_MELEE_ATTACK1 ) )
-		{
-			float distSqEnemy = ( GetEnemy()->GetAbsOrigin() - EyePosition() ).LengthSqr();
-			if ( distSqEnemy < 48.0*48.0 &&
-				 ( ( GetEnemy()->GetAbsOrigin() + GetEnemy()->GetSmoothedVelocity() * .1 ) - EyePosition() ).LengthSqr() < distSqEnemy )
-				return SCHED_COWER;
-
-			int iRoll = random->RandomInt( 1, 4 );
-			if ( iRoll == 1 )
-				return SCHED_BACK_AWAY_FROM_ENEMY;
-			else if ( iRoll == 2 )
-				return SCHED_CHASE_ENEMY;
-		}
-	}
+	//if ( m_NPCState == NPC_STATE_COMBAT && IsManhackMeleeCombatant() )
+	//{
+	//	if ( !HasCondition( COND_CAN_MELEE_ATTACK1 ) )
+	//	{
+	//		float distSqEnemy = ( GetEnemy()->GetAbsOrigin() - EyePosition() ).LengthSqr();
+	//		if ( distSqEnemy < 48.0*48.0 &&
+	//			 ( ( GetEnemy()->GetAbsOrigin() + GetEnemy()->GetSmoothedVelocity() * .1 ) - EyePosition() ).LengthSqr() < distSqEnemy )
+	//			return SCHED_COWER;
+//
+//			int iRoll = random->RandomInt( 1, 4 );
+//			if ( iRoll == 1 )
+//				return SCHED_BACK_AWAY_FROM_ENEMY;
+//			else if ( iRoll == 2 )
+//				return SCHED_CHASE_ENEMY;
+//		}
+//	}
 	
 	return SCHED_NONE;
 }
@@ -1416,9 +1392,9 @@ int CNPC_Citizen::SelectScheduleManhackCombat()
 //-----------------------------------------------------------------------------
 int CNPC_Citizen::SelectScheduleCombat()
 {
-	int schedule = SelectScheduleManhackCombat();
-	if ( schedule != SCHED_NONE )
-		return schedule;
+//	int schedule = SelectScheduleManhackCombat();
+//	if ( schedule != SCHED_NONE )
+//		return schedule;
 		
 	return BaseClass::SelectScheduleCombat();
 }
@@ -1631,10 +1607,10 @@ void CNPC_Citizen::RunTask( const Task_t *pTask )
 	{
 		case TASK_WAIT_FOR_MOVEMENT:
 		{
-			if ( IsManhackMeleeCombatant() )
-			{
-				AddFacingTarget( GetEnemy(), 1.0, 0.5 );
-			}
+			//if ( IsManhackMeleeCombatant() )
+			//{
+			//	AddFacingTarget( GetEnemy(), 1.0, 0.5 );
+			//}
 
 			BaseClass::RunTask( pTask );
 			break;
@@ -1950,14 +1926,14 @@ void CNPC_Citizen::PickupItem( CBaseEntity *pItem )
 //-----------------------------------------------------------------------------
 bool CNPC_Citizen::IgnorePlayerPushing( void )
 {
-	// If the NPC's on a func_tank that the player cannot man, ignore player pushing
+/*	// If the NPC's on a func_tank that the player cannot man, ignore player pushing
 	if ( m_FuncTankBehavior.IsMounted() )
 	{
 		CFuncTank *pTank = m_FuncTankBehavior.GetFuncTank();
 		if ( pTank && !pTank->IsControllable() )
 			return true;
 	}
-
+*/
 	return false;
 }
 
@@ -2088,12 +2064,12 @@ void CNPC_Citizen::LocateEnemySound()
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-bool CNPC_Citizen::IsManhackMeleeCombatant()
-{
-	CBaseCombatWeapon *pWeapon = GetActiveWeapon();
-	CBaseEntity *pEnemy = GetEnemy();
-	return ( pEnemy && pWeapon && pEnemy->Classify() == CLASS_MANHACK && pWeapon->ClassMatches( "weapon_crowbar" ) );
-}
+//bool CNPC_Citizen::IsManhackMeleeCombatant()
+//{
+//	CBaseCombatWeapon *pWeapon = GetActiveWeapon();
+//	CBaseEntity *pEnemy = GetEnemy();
+//	return ( pEnemy && pWeapon && pEnemy->Classify() == CLASS_MANHACK && pWeapon->ClassMatches( "weapon_crowbar" ) );
+//}
 
 //-----------------------------------------------------------------------------
 // Purpose: Return the actual position the NPC wants to fire at when it's trying
@@ -3309,64 +3285,63 @@ bool CNPC_Citizen::HandleInteraction(int interactionType, void *data, CBaseComba
 {
 	// TODO:  As citizen gets more complex, we will have to only allow
 	//		  these interruptions to happen from certain schedules
-	if (interactionType ==	g_interactionScannerInspect)
-	{
-		if ( gpGlobals->curtime > m_fNextInspectTime )
-		{
-			//SetLookTarget(sourceEnt);
-
-			// Don't let anyone else pick me for a couple seconds
-			SetNextScannerInspectTime( gpGlobals->curtime + 5.0 );
-			return true;
-		}
-		return false;
-	}
-	else if (interactionType ==	g_interactionScannerInspectBegin)
-	{
-		// Don't inspect me again for a while
-		SetNextScannerInspectTime( gpGlobals->curtime + CIT_INSPECTED_DELAY_TIME );
-		
-		Vector	targetDir = ( sourceEnt->WorldSpaceCenter() - WorldSpaceCenter() );
-		VectorNormalize( targetDir );
-
-		// If we're hit from behind, startle
-		if ( DotProduct( targetDir, BodyDirection3D() ) < 0 )
-		{
-			m_nInspectActivity = ACT_CIT_STARTLED;
-		}
-		else
-		{
-			// Otherwise we're blinded by the flash
-			m_nInspectActivity = ACT_CIT_BLINDED;
-		}
-		
-		SetCondition( COND_CIT_START_INSPECTION );
-		return true;
-	}
-	else if (interactionType ==	g_interactionScannerInspectHandsUp)
-	{
-		m_nInspectActivity = ACT_CIT_HANDSUP;
-		SetSchedule(SCHED_CITIZEN_PLAY_INSPECT_ACTIVITY);
-		return true;
-	}
-	else if (interactionType ==	g_interactionScannerInspectShowArmband)
-	{
-		m_nInspectActivity = ACT_CIT_SHOWARMBAND;
-		SetSchedule(SCHED_CITIZEN_PLAY_INSPECT_ACTIVITY);
-		return true;
-	}
-	else if (interactionType ==	g_interactionScannerInspectDone)
-	{
-		SetSchedule(SCHED_IDLE_WANDER);
-		return true;
-	}
-	else if (interactionType == g_interactionHitByPlayerThrownPhysObj )
+//	if (interactionType ==	g_interactionScannerInspect)
+//	{
+//		if ( gpGlobals->curtime > m_fNextInspectTime )
+//		{
+//			//SetLookTarget(sourceEnt);
+//
+//			// Don't let anyone else pick me for a couple seconds
+//			SetNextScannerInspectTime( gpGlobals->curtime + 5.0 );
+//			return true;
+//		}
+//		return false;
+//	}
+//	else if (interactionType ==	g_interactionScannerInspectBegin)
+//	{
+//		// Don't inspect me again for a while
+//		SetNextScannerInspectTime( gpGlobals->curtime + CIT_INSPECTED_DELAY_TIME );
+//		
+//		Vector	targetDir = ( sourceEnt->WorldSpaceCenter() - WorldSpaceCenter() );
+//		VectorNormalize( targetDir );
+//
+//		// If we're hit from behind, startle
+//		if ( DotProduct( targetDir, BodyDirection3D() ) < 0 )
+//		{
+//			m_nInspectActivity = ACT_CIT_STARTLED;
+//		}
+//		else
+//		{
+//			// Otherwise we're blinded by the flash
+//			m_nInspectActivity = ACT_CIT_BLINDED;
+//		}
+//		
+//		SetCondition( COND_CIT_START_INSPECTION );
+//		return true;
+//	}
+//	else if (interactionType ==	g_interactionScannerInspectHandsUp)
+//	{
+//		m_nInspectActivity = ACT_CIT_HANDSUP;
+//		SetSchedule(SCHED_CITIZEN_PLAY_INSPECT_ACTIVITY);
+//		return true;
+//	}
+//	else if (interactionType ==	g_interactionScannerInspectShowArmband)
+//	{
+//		m_nInspectActivity = ACT_CIT_SHOWARMBAND;
+//		SetSchedule(SCHED_CITIZEN_PLAY_INSPECT_ACTIVITY);
+//		return true;
+//	}
+//	else if (interactionType ==	g_interactionScannerInspectDone)
+//	{
+//		SetSchedule(SCHED_IDLE_WANDER);
+//		return true;
+//	}
+	if (interactionType == g_interactionHitByPlayerThrownPhysObj )
 	{
 		if ( IsOkToSpeakInResponseToPlayer() )
 		{
 			Speak( TLK_PLYR_PHYSATK );
-		}
-		return true;
+		}		return true;
 	}
 
 	return BaseClass::HandleInteraction( interactionType, data, sourceEnt );

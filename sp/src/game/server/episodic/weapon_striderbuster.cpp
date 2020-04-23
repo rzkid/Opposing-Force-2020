@@ -500,7 +500,7 @@ bool CWeaponStriderBuster::StickToEntity( CBaseEntity *pOther )
 					return false;
 
 				// Notify the strider we're attaching to him
-				pStrider->StriderBusterAttached( this );
+//				pStrider->StriderBusterAttached( this );
 				
 				m_OnAttachToStrider.FireOutput( this, this );
 

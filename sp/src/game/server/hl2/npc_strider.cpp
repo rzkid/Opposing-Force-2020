@@ -46,7 +46,7 @@
 #include "physics_prop_ragdoll.h"
 #include "vehicle_base.h"
 #include "coordsize.h"
-#include "hl2_shareddefs.h"
+#include "of2_shareddefs.h"
 #include "te_effect_dispatch.h"
 #include "beam_flags.h"
 #include "prop_combine_ball.h"
@@ -3057,8 +3057,8 @@ int CNPC_Strider::OnTakeDamage_Alive( const CTakeDamageInfo &info )
 		return 0;
 
 	// special interaction with combine balls
-	if ( UTIL_IsCombineBall( info.GetInflictor() ) )
-		return TakeDamageFromCombineBall( info );
+//	if ( UTIL_IsCombineBall( info.GetInflictor() ) )
+//		return TakeDamageFromCombineBall( info );
 
 	if ( info.GetDamageType() == DMG_GENERIC )
 		return BaseClass::OnTakeDamage_Alive( info );
@@ -3182,6 +3182,7 @@ int CNPC_Strider::OnTakeDamage_Alive( const CTakeDamageInfo &info )
 
 //---------------------------------------------------------
 //---------------------------------------------------------
+/*
 int CNPC_Strider::TakeDamageFromCombineBall( const CTakeDamageInfo &info )
 {
 	float damage = info.GetDamage();
@@ -3215,34 +3216,29 @@ int CNPC_Strider::TakeDamageFromCombineBall( const CTakeDamageInfo &info )
 
 	return damage;
 }
-
+*/
 //---------------------------------------------------------
 //---------------------------------------------------------
 void CNPC_Strider::Event_Killed( const CTakeDamageInfo &info )
 {
 	// Do a special death if we're killed by a combine ball in the Citadel
-	if ( info.GetInflictor() && UTIL_IsCombineBall( info.GetInflictor() ) )
-	{
-		if ( m_lifeState == LIFE_DYING )
-			return;
-
-		// Tracker 23610:  Strider playing death sounds twice (AI_BaseNPC calls it in Event_Killed, too)
-		// DeathSound( info );
-		m_lifeState = LIFE_DYING;
-
-		// Start dying
-		RestartGesture( (Activity) ACT_STRIDER_GESTURE_DEATH );
-
-		// Stop our mini-cannon
-		m_pMinigun->StopShootingForSeconds( this, m_pMinigun->GetTarget(), 100.0f );
-	}
-	else
-	{
+//	if ( info.GetInflictor() && UTIL_IsCombineBall( info.GetInflictor() ) )
+//	{
+//		if ( m_lifeState == LIFE_DYING )
+//			return;
+//
+//		// Tracker 23610:  Strider playing death sounds twice (AI_BaseNPC calls it in Event_Killed, too)
+//		// DeathSound( info );
+//		m_lifeState = LIFE_DYING;
+//
+//		// Start dying
+//		RestartGesture( (Activity) ACT_STRIDER_GESTURE_DEATH );
+//
+//		// Stop our mini-cannon
+//		m_pMinigun->StopShootingForSeconds( this, m_pMinigun->GetTarget(), 100.0f );
+//	}
 		StopSmoking();
-
 		m_BoneFollowerManager.DestroyBoneFollowers();
-	
-	}
 
 	if( IsUsingAggressiveBehavior() )
 	{
@@ -3322,8 +3318,8 @@ bool CNPC_Strider::ShouldExplodeFromDamage( const CTakeDamageInfo &info )
 		return false;
 
 	// Combine balls make us explode
-	if ( UTIL_IsCombineBall( info.GetInflictor() ) )
-		return true;
+//	if ( UTIL_IsCombineBall( info.GetInflictor() ) )
+//		return true;
 
 	// Stickybombs make us explode
 	CBaseEntity *pAttacker = info.GetAttacker();
@@ -4138,7 +4134,7 @@ void CNPC_Strider::VPhysicsShadowCollision( int index, gamevcollisionevent_t *pE
 
 	int otherIndex = !index;
 	CBaseEntity *pOther = pEvent->pEntities[otherIndex];
-	if ( pOther && UTIL_IsCombineBall( pOther ) )
+	if ( pOther )
 	{
 		Vector damagePos;
 		pEvent->pInternalData->GetContactPoint( damagePos );

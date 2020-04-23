@@ -109,6 +109,11 @@ ConVar	sk_max_m16_grenade			( "sk_max_m16_grenade",		"400", FCVAR_REPLICATED );
 ConVar	sk_max_grenade				( "sk_max_grenade",				"400", FCVAR_REPLICATED );
 ConVar	sk_max_combinegrenade		( "sk_max_combinegrenade",		"400", FCVAR_REPLICATED );
 
+ConVar	sk_dmg_sniper_penetrate_plr("sk_dmg_sniper_penetrate_plr", "0", FCVAR_REPLICATED);
+ConVar	sk_dmg_sniper_penetrate_npc("sk_dmg_sniper_penetrate_npc", "0", FCVAR_REPLICATED);
+
+ConVar	sk_plr_num_shotgun_pellets  ("sk_plr_num_shotgun_pellets", "7", FCVAR_REPLICATED);
+
 ConVar	sk_max_50cal                ("sk_max_50cal", "28", FCVAR_REPLICATED);
 
 ConVar  sk_m16_grenade_radius		( "sk_m16_grenade_radius",		"25", FCVAR_REPLICATED);

@@ -25,7 +25,7 @@
 #include "tier0/memdbgon.h"
 
 extern ConVar sk_auto_reload_time;
-//extern ConVar sk_plr_num_shotgun_pellets;
+extern ConVar sk_plr_num_shotgun_pellets;
 ConVar dev_shotgun_vector_cone("dev_shotgun_vector_cone","3.5");//last 3.5//originally 2
 
 class CWeaponShotgun : public CBaseHLCombatWeapon

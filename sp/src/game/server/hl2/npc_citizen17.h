@@ -10,7 +10,7 @@
 
 #include "npc_playercompanion.h"
 
-#include "ai_behavior_functank.h"
+//#include "ai_behavior_functank.h"
 
 struct SquadCandidate_t;
 
@@ -328,7 +328,7 @@ private:
 	COutputEvent		m_OnNavFailBlocked;
 
 	//-----------------------------------------------------
-	CAI_FuncTankBehavior	m_FuncTankBehavior;
+//	CAI_FuncTankBehavior	m_FuncTankBehavior;
 
 	CHandle<CAI_FollowGoal>	m_hSavedFollowGoalEnt;
 

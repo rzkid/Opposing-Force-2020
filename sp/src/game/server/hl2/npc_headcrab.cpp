@@ -2092,52 +2092,51 @@ bool CBaseHeadcrab::HandleInteraction(int interactionType, void *data, CBaseComb
 		// Die instantly
 		return false;
 	}
-	else if (interactionType ==	g_interactionVortigauntStomp)
-	{
-		SetIdealState( NPC_STATE_PRONE );
-		return true;
-	}
-	else if (interactionType ==	g_interactionVortigauntStompFail)
-	{
-		SetIdealState( NPC_STATE_COMBAT );
-		return true;
-	}
-	else if (interactionType ==	g_interactionVortigauntStompHit)
-	{
-		// Gib the existing guy, but only with legs and guts
-		m_nGibCount = HEADCRAB_LEGS_GIB_COUNT;
-		OnTakeDamage ( CTakeDamageInfo( sourceEnt, sourceEnt, m_iHealth, DMG_CRUSH|DMG_ALWAYSGIB ) );
-		
-		// Create dead headcrab in its place
-		CBaseHeadcrab *pEntity = (CBaseHeadcrab*) CreateEntityByName( "npc_headcrab" );
-		pEntity->Spawn();
-		pEntity->SetLocalOrigin( GetLocalOrigin() );
-		pEntity->SetLocalAngles( GetLocalAngles() );
-		pEntity->m_NPCState = NPC_STATE_DEAD;
-		return true;
-	}
-	else if (	interactionType ==	g_interactionVortigauntKick
-				/* || (interactionType ==	g_interactionBullsquidThrow) */
-				)
-	{
-		SetIdealState( NPC_STATE_PRONE );
-		
-		if( HasHeadroom() )
-		{
-			MoveOrigin( Vector( 0, 0, 1 ) );
-		}
-
-		Vector vHitDir = GetLocalOrigin() - sourceEnt->GetLocalOrigin();
-		VectorNormalize(vHitDir);
-
-		CTakeDamageInfo info( sourceEnt, sourceEnt, m_iHealth+1, DMG_CLUB );
-		CalculateMeleeDamageForce( &info, vHitDir, GetAbsOrigin() );
-
-		TakeDamage( info );
-
-		return true;
-	}
-
+//	else if (interactionType ==	g_interactionVortigauntStomp)
+//	{
+//		SetIdealState( NPC_STATE_PRONE );
+//		return true;
+//	}
+//	else if (interactionType ==	g_interactionVortigauntStompFail)
+//	{
+//		SetIdealState( NPC_STATE_COMBAT );
+//		return true;
+//	}
+//	else if (interactionType ==	g_interactionVortigauntStompHit)
+//	{
+//		// Gib the existing guy, but only with legs and guts
+//		m_nGibCount = HEADCRAB_LEGS_GIB_COUNT;
+//		OnTakeDamage ( CTakeDamageInfo( sourceEnt, sourceEnt, m_iHealth, DMG_CRUSH|DMG_ALWAYSGIB ) );
+//		
+//		// Create dead headcrab in its place
+//		CBaseHeadcrab *pEntity = (CBaseHeadcrab*) CreateEntityByName( "npc_headcrab" );
+//		pEntity->Spawn();
+//		pEntity->SetLocalOrigin( GetLocalOrigin() );
+//		pEntity->SetLocalAngles( GetLocalAngles() );
+//		pEntity->m_NPCState = NPC_STATE_DEAD;
+//		return true;
+//	}
+//	else if (	interactionType ==	g_interactionVortigauntKick
+//				/* || (interactionType ==	g_interactionBullsquidThrow) */
+//				)
+//	{
+//		SetIdealState( NPC_STATE_PRONE );
+//		
+//		if( HasHeadroom() )
+//		{
+//			MoveOrigin( Vector( 0, 0, 1 ) );
+//		}
+//
+//		Vector vHitDir = GetLocalOrigin() - sourceEnt->GetLocalOrigin();
+//		VectorNormalize(vHitDir);
+//
+//		CTakeDamageInfo info( sourceEnt, sourceEnt, m_iHealth+1, DMG_CLUB );
+//		CalculateMeleeDamageForce( &info, vHitDir, GetAbsOrigin() );
+//
+//		TakeDamage( info );
+//
+//		return true;
+//	}
 	return BaseClass::HandleInteraction( interactionType, data, sourceEnt );
 }
 

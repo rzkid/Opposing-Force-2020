@@ -363,7 +363,7 @@ bool CNPC_Combine::CreateBehaviors()
 	AddBehavior( &m_AssaultBehavior );
 	AddBehavior( &m_StandoffBehavior );
 	AddBehavior( &m_FollowBehavior );
-	AddBehavior( &m_FuncTankBehavior );
+//	AddBehavior( &m_FuncTankBehavior );
 
 	return BaseClass::CreateBehaviors();
 }
@@ -1739,10 +1739,10 @@ int CNPC_Combine::SelectSchedule( void )
 		if ( HasCondition( COND_COMBINE_HIT_BY_BUGBAIT ) )
 		{
 			// Don't do this if we're mounting a func_tank
-			if ( m_FuncTankBehavior.IsMounted() == true )
-			{
-				m_FuncTankBehavior.Dismount();
-			}
+//			if ( m_FuncTankBehavior.IsMounted() == true )
+//			{
+//				m_FuncTankBehavior.Dismount();
+//			}
 
 			ClearCondition( COND_COMBINE_HIT_BY_BUGBAIT );
 			return SCHED_COMBINE_BUGBAIT_DISTRACTION;
@@ -3205,20 +3205,20 @@ bool CNPC_Combine::ActiveWeaponIsFullyLoaded()
 //-----------------------------------------------------------------------------
 bool CNPC_Combine::HandleInteraction(int interactionType, void *data, CBaseCombatCharacter *sourceEnt)
 {
-	if ( interactionType == g_interactionTurretStillStanding )
-	{
-		// A turret that I've kicked recently is still standing 5 seconds later. 
-		if ( sourceEnt == GetEnemy() )
-		{
-			// It's still my enemy. Time to grenade it.
-			Vector forward, up;
-			AngleVectors( GetLocalAngles(), &forward, NULL, &up );
-			m_vecTossVelocity = forward * 10;
-			SetCondition( COND_COMBINE_DROP_GRENADE );
-			ClearSchedule( "Failed to kick over turret" );
-		}
-		return true;
-	}
+//	if ( interactionType == g_interactionTurretStillStanding )
+//	{
+//		// A turret that I've kicked recently is still standing 5 seconds later. 
+//		if ( sourceEnt == GetEnemy() )
+//		{
+///			// It's still my enemy. Time to grenade it.
+//			Vector forward, up;
+//			AngleVectors( GetLocalAngles(), &forward, NULL, &up );
+//			m_vecTossVelocity = forward * 10;
+//			SetCondition( COND_COMBINE_DROP_GRENADE );
+//			ClearSchedule( "Failed to kick over turret" );
+//		}
+//		return true;
+//	}
 
 	return BaseClass::HandleInteraction( interactionType, data, sourceEnt );
 }

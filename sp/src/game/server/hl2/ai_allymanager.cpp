@@ -7,7 +7,7 @@
 #include "cbase.h"
 #include "entitylist.h"
 #include "ai_basenpc.h"
-#include "npc_citizen17.h"
+#include "of2\npc_phoenix.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -143,7 +143,7 @@ void CAI_AllyManager::CountAllies( int *pTotal, int *pMedics )
 				continue;
 
 			// They only count if I can use them.
-			if( ppAIs[i]->HasSpawnFlags(SF_CITIZEN_NOT_COMMANDABLE) )
+			if( ppAIs[i]->HasSpawnFlags(SF_PHOENIX_NOT_COMMANDABLE) )
 				continue;
 			
 			// They only count if I can use them.
@@ -160,28 +160,14 @@ void CAI_AllyManager::CountAllies( int *pTotal, int *pMedics )
 #ifdef OF2_DLL
 			if (FClassnameIs(ppAIs[i], "npc_phoenix"))
 			{
-				//CNPC_Phoenix *pPhoenix = assert_cast<CNPC_Phoenix *>(ppAIs[i]);
-				//if (!pPhoenix->CanJoinPlayerSquad())
-				//	continue;
-
-				//if (pPhoenix->WasInPlayerSquad() && !pPhoenix->IsInPlayerSquad())
-				//	continue;
-
-				//if ( ppAIs[i]->HasSpawnFlags( SF_CITIZEN_MEDIC ) )
-				//	(*pMedics)++;
-			}
-#endif
-#ifdef HL2_DLL
-			if( FClassnameIs( ppAIs[i], "npc_citizen" ) ) 
-			{  
-				CNPC_Citizen *pCitizen = assert_cast<CNPC_Citizen *>(ppAIs[i]);
-				if ( !pCitizen->CanJoinPlayerSquad() )
+				CNPC_Phoenix *pPhoenix = assert_cast<CNPC_Phoenix *>(ppAIs[i]);
+				if (!pPhoenix->CanJoinPlayerSquad())
 					continue;
 
-				if ( pCitizen->WasInPlayerSquad() && !pCitizen->IsInPlayerSquad() )
+				if (pPhoenix->WasInPlayerSquad() && !pPhoenix->IsInPlayerSquad())
 					continue;
 
-				if ( ppAIs[i]->HasSpawnFlags( SF_CITIZEN_MEDIC ) )
+				if ( ppAIs[i]->HasSpawnFlags( SF_PHOENIX_MEDIC ) )
 					(*pMedics)++;
 			}
 #endif

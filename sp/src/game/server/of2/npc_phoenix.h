@@ -1,12 +1,12 @@
 //========= Copyright Valve Corporation, All rights reserved. ============//
 //
-// Purpose: The downtrodden citizens of City 17. Timid when unarmed, they will
+// Purpose: The downtrodden phoenixes of City 17. Timid when unarmed, they will
 //			rise up against their Combine oppressors when given a weapon.
 //
 //=============================================================================//
 
-#ifndef	NPC_CITIZEN_H
-#define	NPC_CITIZEN_H
+#ifndef	NPC_PHOENIX_H
+#define	NPC_PHOENIX_H
 
 #include "npc_playercompanion.h"
 
@@ -16,7 +16,7 @@ struct SquadCandidate_t;
 
 //-----------------------------------------------------------------------------
 //
-// CLASS: CNPC_Citizen
+// CLASS: CNPC_Phoenix
 //
 //-----------------------------------------------------------------------------
 
@@ -24,50 +24,25 @@ struct SquadCandidate_t;
 // Spawnflags
 //-------------------------------------
 
-#define SF_CITIZEN_FOLLOW			( 1 << 16 )	//65536 follow the player as soon as I spawn.
-#define	SF_CITIZEN_MEDIC			( 1 << 17 )	//131072
-#define SF_CITIZEN_RANDOM_HEAD		( 1 << 18 )	//262144
-#define SF_CITIZEN_AMMORESUPPLIER	( 1 << 19 )	//524288
-#define SF_CITIZEN_NOT_COMMANDABLE	( 1 << 20 ) //1048576
-#define SF_CITIZEN_IGNORE_SEMAPHORE ( 1 << 21 ) //2097152		Work outside the speech semaphore system
-#define SF_CITIZEN_RANDOM_HEAD_MALE	( 1 << 22 )	//4194304
-#define SF_CITIZEN_RANDOM_HEAD_FEMALE ( 1 << 23 )//8388608
-#define SF_CITIZEN_USE_RENDER_BOUNDS ( 1 << 24 )//16777216
+#define SF_PHOENIX_FOLLOW			( 1 << 16 )	//65536 follow the player as soon as I spawn.
+#define	SF_PHOENIX_MEDIC			( 1 << 17 )	//131072
+#define SF_PHOENIX_RANDOM_HEAD		( 1 << 18 )	//262144
+#define SF_PHOENIX_AMMORESUPPLIER	( 1 << 19 )	//524288
+#define SF_PHOENIX_NOT_COMMANDABLE	( 1 << 20 ) //1048576
+#define SF_PHOENIX_IGNORE_SEMAPHORE ( 1 << 21 ) //2097152		Work outside the speech semaphore system
+#define SF_PHOENIX_USE_RENDER_BOUNDS ( 1 << 22 )//4194304
 
 //-------------------------------------
 // Animation events
 //-------------------------------------
 
-enum CitizenType_t
-{
-	CT_DEFAULT,
-	CT_DOWNTRODDEN,
-	CT_REFUGEE,
-	CT_REBEL,
-	CT_UNIQUE
-};
-
-//-----------------------------------------------------------------------------
-// Citizen expression types
-//-----------------------------------------------------------------------------
-enum CitizenExpressionTypes_t
-{
-	CIT_EXP_UNASSIGNED,	// Defaults to this, selects other in spawn.
-
-	CIT_EXP_SCARED,
-	CIT_EXP_NORMAL,
-	CIT_EXP_ANGRY,
-
-	CIT_EXP_LAST_TYPE,
-};
-
 //-------------------------------------
 
-class CNPC_Citizen : public CNPC_PlayerCompanion
+class CNPC_Phoenix : public CNPC_PlayerCompanion
 {
-	DECLARE_CLASS( CNPC_Citizen, CNPC_PlayerCompanion );
+	DECLARE_CLASS( CNPC_Phoenix, CNPC_PlayerCompanion );
 public:
-	CNPC_Citizen()
+	CNPC_Phoenix()
 	 :	m_iHead( -1 )
 	{
 	}
@@ -75,18 +50,12 @@ public:
 	//---------------------------------
 	bool			CreateBehaviors();
 	void			Precache();
-	void			PrecacheAllOfType( CitizenType_t );
+	void			PrecacheAllOfType();
 	void			Spawn();
 	void			PostNPCInit();
 	virtual void	SelectModel();
-	void			SelectExpressionType();
 	void			Activate();
 	virtual void	OnGivenWeapon( CBaseCombatWeapon *pNewWeapon );
-	void			FixupMattWeapon();
-
-#ifdef HL2_EPISODIC
-	virtual float	GetJumpGravity() const		{ return 1.8f; }
-#endif//HL2_EPISODIC
 
 	void			OnRestore();
 	
@@ -115,7 +84,6 @@ public:
 	int 			SelectScheduleHeal();
 	int 			SelectScheduleRetrieveItem();
 	int 			SelectScheduleNonCombat();
-	int 			SelectScheduleManhackCombat();
 	int 			SelectScheduleCombat();
 	bool			ShouldDeferToFollowBehavior();
 	int 			TranslateSchedule( int scheduleType );
@@ -148,8 +116,6 @@ public:
 	
 	virtual bool	UseAttackSquadSlots()	{ return false; }
 	void 			LocateEnemySound();
-
-	bool			IsManhackMeleeCombatant();
 	
 	Vector 			GetActualShootPosition( const Vector &shootOrigin );
 	void 			OnChangeActiveWeapon( CBaseCombatWeapon *pOldWeapon, CBaseCombatWeapon *pNewWeapon );
@@ -196,11 +162,6 @@ public:
 	void			RemoveInsignia();
 	bool			SpeakCommandResponse( AIConcept_t concept, const char *modifiers = NULL );
 	
-	//---------------------------------
-	// Scanner interaction
-	//---------------------------------
-	float 			GetNextScannerInspectTime() { return m_fNextInspectTime; }
-	void			SetNextScannerInspectTime( float flTime ) { m_fNextInspectTime = flTime; }
 	bool			HandleInteraction(int interactionType, void *data, CBaseCombatCharacter* sourceEnt);
 	
 	//---------------------------------
@@ -211,8 +172,8 @@ public:
 	//---------------------------------
 	// Special abilities
 	//---------------------------------
-	bool 			IsMedic() 			{ return HasSpawnFlags(SF_CITIZEN_MEDIC); }
-	bool 			IsAmmoResupplier() 	{ return HasSpawnFlags(SF_CITIZEN_AMMORESUPPLIER); }
+	bool 			IsMedic() 			{ return HasSpawnFlags(SF_PHOENIX_MEDIC); }
+	bool 			IsAmmoResupplier() 	{ return HasSpawnFlags(SF_PHOENIX_AMMORESUPPLIER); }
 	
 	bool 			CanHeal();
 	bool 			ShouldHealTarget( CBaseEntity *pTarget, bool bActiveUse = false );
@@ -256,31 +217,21 @@ private:
 	//-----------------------------------------------------
 	enum
 	{
-		COND_CIT_PLAYERHEALREQUEST = BaseClass::NEXT_CONDITION,
-		COND_CIT_COMMANDHEAL,
-		COND_CIT_HURTBYFIRE,
-		COND_CIT_START_INSPECTION,
+		COND_PHO_PLAYERHEALREQUEST = BaseClass::NEXT_CONDITION,
+		COND_PHO_COMMANDHEAL,
+		COND_PHO_HURTBYFIRE,
 		
-		SCHED_CITIZEN_PLAY_INSPECT_ACTIVITY = BaseClass::NEXT_SCHEDULE,
-		SCHED_CITIZEN_HEAL,
-		SCHED_CITIZEN_RANGE_ATTACK1_RPG,
-		SCHED_CITIZEN_PATROL,
-		SCHED_CITIZEN_MOURN_PLAYER,
-		SCHED_CITIZEN_SIT_ON_TRAIN,
-		SCHED_CITIZEN_STRIDER_RANGE_ATTACK1_RPG,
-#ifdef HL2_EPISODIC
-		SCHED_CITIZEN_HEAL_TOSS,
-#endif
+		SCHED_PHOENIX_PLAY_INSPECT_ACTIVITY = BaseClass::NEXT_SCHEDULE,
+		SCHED_PHOENIX_HEAL,
+		SCHED_PHOENIX_RANGE_ATTACK1_RPG,
+		SCHED_PHOENIX_PATROL,
+		SCHED_PHOENIX_MOURN_PLAYER,
+		SCHED_PHOENIX_STRIDER_RANGE_ATTACK1_RPG,
 		
-		TASK_CIT_HEAL = BaseClass::NEXT_TASK,
-		TASK_CIT_RPG_AUGER,
-		TASK_CIT_PLAY_INSPECT_SEQUENCE,
-		TASK_CIT_SIT_ON_TRAIN,
-		TASK_CIT_LEAVE_TRAIN,
-		TASK_CIT_SPEAK_MOURNING,
-#ifdef HL2_EPISODIC
-		TASK_CIT_HEAL_TOSS,
-#endif
+		TASK_PHO_HEAL = BaseClass::NEXT_TASK,
+		TASK_PHO_RPG_AUGER,
+		TASK_PHO_PLAY_INSPECT_SEQUENCE,
+		TASK_PHO_SPEAK_MOURNING,
 
 	};
 
@@ -288,8 +239,6 @@ private:
 	
 	int				m_nInspectActivity;
 	float			m_flNextFearSoundTime;
-	float			m_flStopManhackFlinch;
-	float			m_fNextInspectTime;		// Next time I'm allowed to get inspected by a scanner
 	float			m_flPlayerHealTime;
 	float			m_flNextHealthSearchTime; // Next time I'm allowed to look for a healthkit
 	float			m_flAllyHealTime;
@@ -306,9 +255,6 @@ private:
 
 	CSimpleSimTimer	m_AutoSummonTimer;
 	Vector			m_vAutoSummonAnchor;
-
-	CitizenType_t	m_Type;
-	CitizenExpressionTypes_t	m_ExpressionType;
 
 	int				m_iHead;
 
@@ -346,7 +292,7 @@ protected:
 
 //---------------------------------------------------------
 //---------------------------------------------------------
-inline bool CNPC_Citizen::NearCommandGoal()
+inline bool CNPC_Phoenix::NearCommandGoal()
 {
 	const float flDistSqr = COMMAND_GOAL_TOLERANCE * COMMAND_GOAL_TOLERANCE;
 	return ( ( GetAbsOrigin() - GetCommandGoal() ).LengthSqr() <= flDistSqr );
@@ -354,7 +300,7 @@ inline bool CNPC_Citizen::NearCommandGoal()
 
 //---------------------------------------------------------
 //---------------------------------------------------------
-inline bool CNPC_Citizen::VeryFarFromCommandGoal()
+inline bool CNPC_Phoenix::VeryFarFromCommandGoal()
 {
 	const float flDistSqr = (12*50) * (12*50);
 	return ( ( GetAbsOrigin() - GetCommandGoal() ).LengthSqr() > flDistSqr );
@@ -363,17 +309,17 @@ inline bool CNPC_Citizen::VeryFarFromCommandGoal()
 
 
 //==============================================================================
-// CITIZEN PLAYER-RESPONSE SYSTEM
+// PHOENIX PLAYER-RESPONSE SYSTEM
 //
 // NOTE: This system is obsolete, and left here for legacy support.
 //		 It has been superseded by the ai_eventresponse system.
 //
 //==============================================================================
-#define CITIZEN_RESPONSE_DISTANCE			768			// Maximum distance for responding citizens
-#define CITIZEN_RESPONSE_REFIRE_TIME		15.0		// Time after giving a response before giving any more
-#define CITIZEN_RESPONSE_GIVEUP_TIME		4.0			// Time after a response trigger was fired before discarding it without responding
+#define PHOENIX_RESPONSE_DISTANCE			768			// Maximum distance for responding phoenixes
+#define PHOENIX_RESPONSE_REFIRE_TIME		15.0		// Time after giving a response before giving any more
+#define PHOENIX_RESPONSE_GIVEUP_TIME		4.0			// Time after a response trigger was fired before discarding it without responding
 
-enum citizenresponses_t
+enum phoenixresponses_t
 {
 	CR_PLAYER_SHOT_GUNSHIP,		// Player has shot the gunship with a bullet weapon
 	CR_PLAYER_KILLED_GUNSHIP,	// Player has destroyed the gunship
@@ -381,21 +327,21 @@ enum citizenresponses_t
 
 	// Add new responses here
 
-	MAX_CITIZEN_RESPONSES,
+	MAX_PHOENIX_RESPONSES,
 };
 
 //-------------------------------------
 
-class CCitizenResponseSystem : public CBaseEntity
+class CPhoenixResponseSystem : public CBaseEntity
 {
-	DECLARE_CLASS( CCitizenResponseSystem, CBaseEntity );
+	DECLARE_CLASS( CPhoenixResponseSystem, CBaseEntity );
 public:
 	DECLARE_DATADESC();
 
 	void	Spawn();
 	void	OnRestore();
 
-	void	AddResponseTrigger( citizenresponses_t	iTrigger );
+	void	AddResponseTrigger( phoenixresponses_t	iTrigger );
 
 	void	ResponseThink();
 
@@ -405,7 +351,7 @@ public:
 	void 	InputResponseVitalNPC( inputdata_t &inputdata );
 
 private:
-	float	m_flResponseAddedTime[ MAX_CITIZEN_RESPONSES ];		// Time at which the response was added. 0 if we have no response.
+	float	m_flResponseAddedTime[ MAX_PHOENIX_RESPONSES ];		// Time at which the response was added. 0 if we have no response.
 	float	m_flNextResponseTime;
 };
 
@@ -419,8 +365,8 @@ class CSquadInsignia : public CBaseAnimating
 
 //-------------------------------------
 
-CCitizenResponseSystem	*GetCitizenResponse();
+CPhoenixResponseSystem	*GetPhoenixResponse();
 
 //-----------------------------------------------------------------------------
 
-#endif	//NPC_CITIZEN_H
+#endif	//NPC_PHOENIX_H

@@ -23,17 +23,17 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
-ConVar dev_csmg1_npc_damage("dev_csmg1_npc_damage","2");
-ConVar dev_csmg1_player_damage("dev_csmg1_player_damage","2");
-ConVar dev_csmg1_npc_primary_rpm("dev_csmg1_npc_primary_rpm", "1000" );
-ConVar dev_csmg1_primary_rpm("dev_csmg1_primary_rpm","1000");
-ConVar dev_csmg1_secondary_rpm("dev_csmg1_secondary_rpm","1000");
+ConVar dev_csmg1_npc_damage("dev_csmg1_npc_damage", "2", FCVAR_CHEAT);
+ConVar dev_csmg1_player_damage("dev_csmg1_player_damage", "2", FCVAR_CHEAT);
+ConVar dev_csmg1_npc_primary_rpm("dev_csmg1_npc_primary_rpm", "1000", FCVAR_CHEAT);
+ConVar dev_csmg1_primary_rpm("dev_csmg1_primary_rpm", "1000", FCVAR_CHEAT);
+ConVar dev_csmg1_secondary_rpm("dev_csmg1_secondary_rpm", "1000", FCVAR_CHEAT);
 ConVar dev_csmg1_altfire("dev_csmg1_altfire","1");
-ConVar dev_weapon_csmg1_alt_fire_vel("dev_weapon_csmg1_alt_fire_vel", "1000");
-ConVar dev_weapon_csmg1_alt_fire_radius( "dev_weapon_csmg1_alt_fire_radius", "2" );
-ConVar dev_weapon_csmg1_alt_fire_duration( "dev_weapon_csmg1_alt_fire_duration", "2" );
-ConVar dev_weapon_csmg1_alt_fire_mass( "dev_weapon_csmg1_alt_fire_mass", "150" );
-ConVar dev_csmg1_vector_cone("dev_csmg1_vector_cone","1");
+ConVar dev_weapon_csmg1_alt_fire_vel("dev_weapon_csmg1_alt_fire_vel", "1000", FCVAR_CHEAT);
+ConVar dev_weapon_csmg1_alt_fire_radius("dev_weapon_csmg1_alt_fire_radius", "2", FCVAR_CHEAT);
+ConVar dev_weapon_csmg1_alt_fire_duration("dev_weapon_csmg1_alt_fire_duration", "2", FCVAR_CHEAT);
+ConVar dev_weapon_csmg1_alt_fire_mass("dev_weapon_csmg1_alt_fire_mass", "150", FCVAR_CHEAT);
+ConVar dev_csmg1_vector_cone("dev_csmg1_vector_cone", "1", FCVAR_CHEAT);
 
 
 class CWeaponCSMG1 : public CHLSelectFireMachineGun

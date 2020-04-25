@@ -23,16 +23,16 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
-ConVar dev_smg1_npc_primary_rpm("dev_smg1_npc_primary_rpm", "850" );
-ConVar dev_smg1_primary_rpm("dev_smg1_primary_rpm","850");
-ConVar dev_smg1_secondary_rpm("dev_smg1_secondary_rpm","1000");
-ConVar dev_smg1_altfire("dev_smg1_altfire","0");
-ConVar dev_weapon_smg1_alt_fire_radius( "dev_weapon_smg1_alt_fire_radius", "2" );
-ConVar dev_weapon_smg1_alt_fire_duration( "dev_weapon_smg1_alt_fire_duration", "2" );
-ConVar dev_weapon_smg1_alt_fire_mass( "dev_weapon_smg1_alt_fire_mass", "150" );
-ConVar dev_smg1_vector_cone_min("dev_smg1_vector_cone_min","1");
-ConVar dev_smg1_vector_cone_max("dev_smg1_vector_cone_max","10");
-ConVar dev_smg1_vector_cone_time("dev_smg1_vector_cone_time", "1");
+ConVar dev_smg1_npc_primary_rpm("dev_smg1_npc_primary_rpm", "700", FCVAR_CHEAT);
+ConVar dev_smg1_primary_rpm("dev_smg1_primary_rpm","600", FCVAR_CHEAT);
+ConVar dev_smg1_secondary_rpm("dev_smg1_secondary_rpm", "1000", FCVAR_CHEAT);
+ConVar dev_smg1_altfire("dev_smg1_altfire", "0", FCVAR_CHEAT);
+ConVar dev_weapon_smg1_alt_fire_radius("dev_weapon_smg1_alt_fire_radius", "2", FCVAR_CHEAT);
+ConVar dev_weapon_smg1_alt_fire_duration("dev_weapon_smg1_alt_fire_duration", "2", FCVAR_CHEAT);
+ConVar dev_weapon_smg1_alt_fire_mass("dev_weapon_smg1_alt_fire_mass", "150", FCVAR_CHEAT);
+ConVar dev_smg1_vector_cone_min("dev_smg1_vector_cone_min", "1", FCVAR_CHEAT);
+ConVar dev_smg1_vector_cone_max("dev_smg1_vector_cone_max", "10", FCVAR_CHEAT);
+ConVar dev_smg1_vector_cone_time("dev_smg1_vector_cone_time", "1", FCVAR_CHEAT);
 
 
 class CWeaponSMG1 : public CHLSelectFireMachineGun
@@ -162,6 +162,7 @@ CWeaponSMG1::CWeaponSMG1( )
 	m_fMaxRange1		= 1400;
 
 	m_bAltFiresUnderwater = false;
+	m_iFireMode = FIREMODE_3RNDBURST;
 }
 
 //-----------------------------------------------------------------------------
@@ -339,6 +340,8 @@ void CWeaponSMG1::AddViewKick( void )
 
 void CWeaponSMG1::PrimaryAttack( void )
 {
+	BaseClass::PrimaryAttack();
+
 	if (m_bFireOnEmpty)
 	{
 		return;
@@ -356,16 +359,15 @@ void CWeaponSMG1::PrimaryAttack( void )
 	m_nShotsFired++;
 
 	pPlayer->DoMuzzleFlash();
-
 	// To make the firing framerate independent, we may have to fire more than one bullet here on low-framerate systems, 
 	// especially if the weapon we're firing has a really fast rate of fire.
-	int iBulletsToFire = 3;
+	int iBulletsToFire = 1;
 	float fireRate = GetPrimaryFireRate();
 
 	// MUST call sound before removing a round from the clip of a CHLMachineGun
 	while ( m_flNextPrimaryAttack <= gpGlobals->curtime )
 	{
-		WeaponSound(BURST, m_flNextPrimaryAttack);
+		
 		m_flNextPrimaryAttack = m_flNextPrimaryAttack + fireRate;
 		iBulletsToFire++;
 	}
@@ -373,17 +375,12 @@ void CWeaponSMG1::PrimaryAttack( void )
 	// Make sure we don't fire more than the amount in the clip, if this weapon uses clips
 	if (UsesClipsForAmmo1())
 	{
-		if (iBulletsToFire > 3)
-			iBulletsToFire = 3;
-
 		if (iBulletsToFire > m_iClip1)
 			iBulletsToFire = m_iClip1;
-
 		m_iClip1 -= iBulletsToFire;
 	}
 
-	m_iPrimaryAttacks++;
-	gamestats->Event_WeaponFired( pPlayer, true, GetClassname() );
+	
 
 	Vector vecSrc = pPlayer->Weapon_ShootPosition( );
 	Vector vecAiming = pPlayer->GetAutoaimVector( AUTOAIM_SCALE_DEFAULT );
@@ -418,10 +415,10 @@ void CWeaponSMG1::PrimaryAttack( void )
 	pPlayer->SetAnimation( PLAYER_ATTACK1 );
 
 	// Register a muzzleflash for the AI
-	pPlayer->SetMuzzleFlashTime( gpGlobals->curtime + 0.4 );
+//	pPlayer->SetMuzzleFlashTime( gpGlobals->curtime + 0.4 );
 
     SetWeaponIdleTime( gpGlobals->curtime + 3.0f );
-	m_flNextPrimaryAttack = gpGlobals->curtime + 0.4;
+//	m_flNextPrimaryAttack = gpGlobals->curtime + 0.4;
 }
 
 
@@ -432,7 +429,7 @@ void CWeaponSMG1::PrimaryAttack( void )
 //-----------------------------------------------------------------------------
 void CWeaponSMG1::SecondaryAttack( void )
 {
-
+	//BaseClass::SecondaryAttack();
 }
 
 

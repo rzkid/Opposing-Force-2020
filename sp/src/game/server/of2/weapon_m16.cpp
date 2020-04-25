@@ -29,10 +29,10 @@
 //ConVar	sk_plr_dmg_m16_grenade("sk_plr_dmg_m16_grenade", "85");
 
 
-ConVar dev_m16_rpm("dev_m16_rpm","650");//825
+ConVar dev_m16_rpm("dev_m16_rpm", "650", FCVAR_CHEAT);//825
 //ConVar dev_m16_bfcr("dev_m16_bfcr","0.5");
-ConVar dev_m16_vector_cone("dev_m16_vector_cone","0");
-ConVar dev_m16_grenade_velocity("dev_m16_grenade_velocity","1100");
+ConVar dev_m16_vector_cone("dev_m16_vector_cone", "0", FCVAR_CHEAT);
+ConVar dev_m16_grenade_velocity("dev_m16_grenade_velocity", "1100", FCVAR_CHEAT);
 //ConVar dev_m16_forward("dev_m16_forward","40");
 //ConVar dev_m16_right("dev_m16_right","0");
 //ConVar dev_m16_up("dev_m16_up","0");

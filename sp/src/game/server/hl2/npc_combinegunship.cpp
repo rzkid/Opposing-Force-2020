@@ -38,7 +38,7 @@
 #include "physics_prop_ragdoll.h"
 #include "iservervehicle.h"
 #include "soundent.h"
-#include "npc_citizen17.h"
+#include "of2/npc_phoenix.h"
 #include "physics_saverestore.h"
 #include "of2_shareddefs.h"
 #include "props.h"

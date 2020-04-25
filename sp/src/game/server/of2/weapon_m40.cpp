@@ -23,8 +23,8 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
-ConVar dev_m40_rpm("dev_m40_rpm","60");
-ConVar dev_m40_vector_cone("dev_m40_vector_cone","0");//originally 1
+ConVar dev_m40_rpm("dev_m40_rpm", "60", FCVAR_CHEAT);
+ConVar dev_m40_vector_cone("dev_m40_vector_cone", "0", FCVAR_CHEAT);//originally 1
 
 //-----------------------------------------------------------------------------
 // CWeaponM40

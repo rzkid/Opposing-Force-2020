@@ -356,6 +356,7 @@ void CHLSelectFireMachineGun::PrimaryAttack( void )
 	CBasePlayer *pOwner = ToBasePlayer( GetOwner() );
 	if ( pOwner )
 	{
+		WeaponSound(BURST, m_flNextPrimaryAttack);
 		m_iPrimaryAttacks++;
 		gamestats->Event_WeaponFired( pOwner, true, GetClassname() );
 	}

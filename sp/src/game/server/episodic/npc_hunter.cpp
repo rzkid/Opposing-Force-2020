@@ -6261,7 +6261,7 @@ bool CNPC_Hunter::ShootFlechette( CBaseEntity *pTargetEntity, bool bSingleShot )
 
 	vecShoot *= hunter_flechette_speed.GetFloat();
 
-	pFlechette->Shoot(vecSrc, 0);
+	pFlechette->Shoot(vecShoot, 1);
 
 	if ( ShouldSeekTarget( pTargetEntity ) )
 	{

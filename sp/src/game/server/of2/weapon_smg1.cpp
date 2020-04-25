@@ -162,7 +162,7 @@ CWeaponSMG1::CWeaponSMG1( )
 	m_fMaxRange1		= 1400;
 
 	m_bAltFiresUnderwater = false;
-	m_iFireMode = FIREMODE_3RNDBURST;
+	m_iFireMode = FIREMODE_FULLAUTO;
 }
 
 //-----------------------------------------------------------------------------

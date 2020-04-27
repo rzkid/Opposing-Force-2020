@@ -13,7 +13,6 @@
 #include "tier0/memdbgon.h"
 
 STUB_WEAPON_CLASS( cycler_weapon, WeaponCycler, C_BaseCombatWeapon );
-
 STUB_WEAPON_CLASS(weapon_csmg1, WeaponCSMG1, C_HLSelectFireMachineGun);
 STUB_WEAPON_CLASS(weapon_frag, WeaponFrag, C_BaseHLCombatWeapon);
 STUB_WEAPON_CLASS(weapon_glock, WeaponGlock, C_BaseHLCombatWeapon);

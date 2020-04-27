@@ -255,7 +255,7 @@ void CWeaponM16::PrimaryAttack( void )
 
 	//pPlayer->SnapEyeAngles( angles );
 
-	pPlayer->ViewPunch( QAngle( -1.5, random->RandomFloat( 0, -0.25 ), 0 ) );
+	pPlayer->ViewPunch( QAngle( -.5, random->RandomFloat( 0, -.25 ), 0 ) );
 	//pPlayer->ViewPunch( QAngle( -8, random->RandomFloat( -2, 2 ), 0 ) );
 
 	CSoundEnt::InsertSound( SOUND_COMBAT, GetAbsOrigin(), 600, 0.2, GetOwner() );
@@ -380,7 +380,7 @@ float	CWeaponM16::GetFireRate( void )
 
 Vector CWeaponM16::GetM16BulletSpread( void )
 {
-	float spread = sin( DEG2RAD( 3 /2.0f ));
+	float spread = sin( DEG2RAD( dev_m16_vector_cone.GetFloat() /2.0f ));
 	return Vector(spread,spread,spread);
 }
 
@@ -557,7 +557,7 @@ void CWeaponM16::AddViewKick( void )
 {
 	//DevMsg("view kick\n");
 	#define	EASY_DAMPEN			0.5f
-	#define	MAX_VERTICAL_KICK	0.0f	//Degrees
+	#define	MAX_VERTICAL_KICK	8.0f	//Degrees
 	#define	SLIDE_LIMIT			0.35f	//Seconds
 	
 	//Get the view kick
@@ -566,7 +566,16 @@ void CWeaponM16::AddViewKick( void )
 	if (!pPlayer)
 		return;
 
-//	float flDuration = m_fFireDuration;
+	float flDuration = m_fFireDuration;
+
+	if( g_pGameRules->GetAutoAimMode() == AUTOAIM_ON_CONSOLE )
+	{
+		// On the 360 (or in any configuration using the 360 aiming scheme), don't let the
+		// AR2 progressive into the late, highly inaccurate stages of its kick. Just
+		// spoof the time to make it look (to the kicking code) like we haven't been
+		// firing for very long.
+		flDuration = min( flDuration, 0.75f );
+	}
 
 	DoMachineGunKick(pPlayer, EASY_DAMPEN, MAX_VERTICAL_KICK, 0.01, SLIDE_LIMIT);
 }

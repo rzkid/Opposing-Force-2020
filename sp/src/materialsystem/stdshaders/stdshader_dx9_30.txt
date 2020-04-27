@@ -8,3 +8,11 @@
 //
 
 // There are no examples of such shaders in the SDK, but add yours here.
+PassThrough_vs30.fxc
+post_nightvision_ps30.fxc
+post_vignette_ps30.fxc
+post_chromatic_aberration_ps30.fxc
+post_cubic_ps30.fxc
+ssao_ps30.fxc
+gauss_blur_3x3.fxc
+ssao_combine_ps30.fxc

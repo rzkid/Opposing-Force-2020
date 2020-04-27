@@ -31,7 +31,7 @@ ConVar dev_weapon_smg1_alt_fire_radius("dev_weapon_smg1_alt_fire_radius", "2", F
 ConVar dev_weapon_smg1_alt_fire_duration("dev_weapon_smg1_alt_fire_duration", "2", FCVAR_CHEAT);
 ConVar dev_weapon_smg1_alt_fire_mass("dev_weapon_smg1_alt_fire_mass", "150", FCVAR_CHEAT);
 ConVar dev_smg1_vector_cone_min("dev_smg1_vector_cone_min", "1", FCVAR_CHEAT);
-ConVar dev_smg1_vector_cone_max("dev_smg1_vector_cone_max", "3.5", FCVAR_CHEAT);
+ConVar dev_smg1_vector_cone_max("dev_smg1_vector_cone_max", "10", FCVAR_CHEAT);
 ConVar dev_smg1_vector_cone_time("dev_smg1_vector_cone_time", "1", FCVAR_CHEAT);
 
 
@@ -70,7 +70,7 @@ public:
 	Vector GetSMG1BulletSpread( void )
 	{
 		//DevMsg("the angle is %f\n", m_flConeAngle);
-		float spread = sin( DEG2RAD( 2.5 /2.0f ));
+		float spread = sin( DEG2RAD( m_flConeAngle /2.0f ));
 		return Vector(spread,spread,spread);
 	}
 
@@ -162,6 +162,7 @@ CWeaponSMG1::CWeaponSMG1( )
 	m_fMaxRange1		= 1400;
 
 	m_bAltFiresUnderwater = false;
+	m_iFireMode = FIREMODE_FULLAUTO;
 }
 
 //-----------------------------------------------------------------------------
@@ -324,7 +325,7 @@ float CWeaponSMG1::GetSecondaryFireRate( void )
 void CWeaponSMG1::AddViewKick( void )
 {
 	#define	EASY_DAMPEN			0.5f
-	#define	MAX_VERTICAL_KICK	3.0f	//Degrees
+	#define	MAX_VERTICAL_KICK	1.0f	//Degrees
 	#define	SLIDE_LIMIT			2.0f	//Seconds
 	
 	//DevMsg("in CWeaponSMG1::AddViewKick\n");
@@ -339,33 +340,34 @@ void CWeaponSMG1::AddViewKick( void )
 
 void CWeaponSMG1::PrimaryAttack( void )
 {
+	BaseClass::PrimaryAttack();
+
 	if (m_bFireOnEmpty)
 	{
 		return;
 	}
 
 	// Only the player fires this way so we can cast
-	CBasePlayer *pPlayer = ToBasePlayer(GetOwner());
+	CBasePlayer *pPlayer = ToBasePlayer( GetOwner() );
 	if (!pPlayer)
 		return;
-
+	
 	// Abort here to handle burst and auto fire modes
-	if ((UsesClipsForAmmo1() && m_iClip1 == 0) || (!UsesClipsForAmmo1() && !pPlayer->GetAmmoCount(m_iPrimaryAmmoType)))
+	if ( (UsesClipsForAmmo1() && m_iClip1 == 0) || ( !UsesClipsForAmmo1() && !pPlayer->GetAmmoCount(m_iPrimaryAmmoType) ) )
 		return;
 
 	m_nShotsFired++;
 
 	pPlayer->DoMuzzleFlash();
-
 	// To make the firing framerate independent, we may have to fire more than one bullet here on low-framerate systems, 
 	// especially if the weapon we're firing has a really fast rate of fire.
 	int iBulletsToFire = 0;
 	float fireRate = GetPrimaryFireRate();
 
 	// MUST call sound before removing a round from the clip of a CHLMachineGun
-	while (m_flNextPrimaryAttack <= gpGlobals->curtime)
+	while ( m_flNextPrimaryAttack <= gpGlobals->curtime )
 	{
-		WeaponSound(SINGLE, m_flNextPrimaryAttack);
+		
 		m_flNextPrimaryAttack = m_flNextPrimaryAttack + fireRate;
 		iBulletsToFire++;
 	}
@@ -378,11 +380,10 @@ void CWeaponSMG1::PrimaryAttack( void )
 		m_iClip1 -= iBulletsToFire;
 	}
 
-	m_iPrimaryAttacks++;
-	gamestats->Event_WeaponFired(pPlayer, true, GetClassname());
+	
 
-	Vector vecSrc = pPlayer->Weapon_ShootPosition();
-	Vector vecAiming = pPlayer->GetAutoaimVector(AUTOAIM_SCALE_DEFAULT);
+	Vector vecSrc = pPlayer->Weapon_ShootPosition( );
+	Vector vecAiming = pPlayer->GetAutoaimVector( AUTOAIM_SCALE_DEFAULT );
 
 	// Fire the bullets
 	FireBulletsInfo_t info;
@@ -393,30 +394,31 @@ void CWeaponSMG1::PrimaryAttack( void )
 	info.m_flDistance = MAX_TRACE_LENGTH;
 	info.m_iAmmoType = m_iPrimaryAmmoType;
 	info.m_iTracerFreq = 2;
-	FireBullets(info);
+	FireBullets( info );
 
 	//Factor in the view kick
 	AddViewKick();
 
-	//Vector vecThrow = vecAiming * -500;
-	//pPlayer->SetAbsVelocity( vecThrow );
+//	Vector vecThrow = vecAiming * -500;
+//	pPlayer->SetAbsVelocity( vecThrow );
 	//NDebugOverlay::Line( vecSrc, vecSrc + vecThrow, 255, 128, 0, true, 5.1f );
 
-	CSoundEnt::InsertSound(SOUND_COMBAT, GetAbsOrigin(), SOUNDENT_VOLUME_MACHINEGUN, 0.2, pPlayer);
-
+	CSoundEnt::InsertSound( SOUND_COMBAT, GetAbsOrigin(), SOUNDENT_VOLUME_MACHINEGUN, 0.2, pPlayer );
+	
 	if (!m_iClip1 && pPlayer->GetAmmoCount(m_iPrimaryAmmoType) <= 0)
 	{
 		// HEV suit - indicate out of ammo condition
-		pPlayer->SetSuitUpdate("!HEV_AMO0", FALSE, 0);
+		pPlayer->SetSuitUpdate("!HEV_AMO0", FALSE, 0); 
 	}
 
-	SendWeaponAnim(GetPrimaryAttackActivity());
-	pPlayer->SetAnimation(PLAYER_ATTACK1);
+	SendWeaponAnim( GetPrimaryAttackActivity() );
+	pPlayer->SetAnimation( PLAYER_ATTACK1 );
 
 	// Register a muzzleflash for the AI
-	pPlayer->SetMuzzleFlashTime(gpGlobals->curtime + 0.5);
+//	pPlayer->SetMuzzleFlashTime( gpGlobals->curtime + 0.4 );
 
-	//SetWeaponIdleTime( gpGlobals->curtime + 3.0f );
+    SetWeaponIdleTime( gpGlobals->curtime + 3.0f );
+//	m_flNextPrimaryAttack = gpGlobals->curtime + 0.4;
 }
 
 

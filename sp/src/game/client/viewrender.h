@@ -33,10 +33,6 @@ class C_BaseEntity;
 struct WriteReplayScreenshotParams_t;
 class CReplayScreenshotTaker;
 
-#ifdef HL2_EPISODIC
-	class CStunEffect;
-#endif // HL2_EPISODIC
-
 //-----------------------------------------------------------------------------
 // Data specific to intro mode to control rendering.
 //-----------------------------------------------------------------------------
@@ -104,28 +100,28 @@ struct ViewCustomVisibility_t
 	ViewCustomVisibility_t()
 	{
 		m_nNumVisOrigins = 0;
-		m_VisData.m_fDistToAreaPortalTolerance = FLT_MAX; 
+		m_VisData.m_fDistToAreaPortalTolerance = FLT_MAX;
 		m_iForceViewLeaf = -1;
 	}
 
-	void AddVisOrigin( const Vector& origin )
+	void AddVisOrigin(const Vector& origin)
 	{
 		// Don't allow them to write past array length
-		AssertMsg( m_nNumVisOrigins < MAX_VIS_LEAVES, "Added more origins than will fit in the array!" );
+		AssertMsg(m_nNumVisOrigins < MAX_VIS_LEAVES, "Added more origins than will fit in the array!");
 
 		// If the vis origin count is greater than the size of our array, just fail to add this origin
-		if ( m_nNumVisOrigins >= MAX_VIS_LEAVES )
+		if (m_nNumVisOrigins >= MAX_VIS_LEAVES)
 			return;
 
-		m_rgVisOrigins[ m_nNumVisOrigins++ ] = origin;
+		m_rgVisOrigins[m_nNumVisOrigins++] = origin;
 	}
 
-	void ForceVisOverride( VisOverrideData_t& visData )
+	void ForceVisOverride(VisOverrideData_t& visData)
 	{
 		m_VisData = visData;
 	}
 
-	void ForceViewLeaf ( int iViewLeaf )
+	void ForceViewLeaf(int iViewLeaf)
 	{
 		m_iForceViewLeaf = iViewLeaf;
 	}
@@ -135,7 +131,7 @@ struct ViewCustomVisibility_t
 	//  will be used as the origin for vis, too.
 	int				m_nNumVisOrigins;
 	// Array of origins
-	Vector			m_rgVisOrigins[ MAX_VIS_LEAVES ];
+	Vector			m_rgVisOrigins[MAX_VIS_LEAVES];
 
 	// The view data overrides for visibility calculations with area portals
 	VisOverrideData_t m_VisData;
@@ -160,14 +156,42 @@ struct WaterRenderInfo_t
 };
 
 //-----------------------------------------------------------------------------
+// Describes a pruned set of leaves to be rendered this view. Reference counted
+// because potentially shared by a number of views
+//-----------------------------------------------------------------------------
+struct ClientWorldListInfo_t : public CRefCounted1<WorldListInfo_t>
+{
+	ClientWorldListInfo_t()
+	{
+		memset(static_cast<WorldListInfo_t *>(this), 0, sizeof(WorldListInfo_t));
+		m_pActualLeafIndex = NULL;
+		m_bPooledAlloc = false;
+	}
+
+	// Allocate a list intended for pruning
+	static ClientWorldListInfo_t *AllocPooled(const ClientWorldListInfo_t &exemplar);
+
+	// Because we remap leaves to eliminate unused leaves, we need a remap
+	// when drawing translucent surfaces, which requires the *original* leaf index
+	// using m_pActualLeafMap[ remapped leaf index ] == actual leaf index
+	LeafIndex_t *m_pActualLeafIndex;
+
+private:
+	virtual bool OnFinalRelease();
+
+	bool m_bPooledAlloc;
+	static CObjectPool<ClientWorldListInfo_t> gm_Pool;
+};
+
+//-----------------------------------------------------------------------------
 // 
 //-----------------------------------------------------------------------------
 class CBase3dView : public CRefCounted<>,
-					protected CViewSetup
+	protected CViewSetup
 {
-	DECLARE_CLASS_NOBASE( CBase3dView );
+	DECLARE_CLASS_NOBASE(CBase3dView);
 public:
-	CBase3dView( CViewRender *pMainView );
+	CBase3dView(CViewRender *pMainView);
 
 	VPlane *		GetFrustum();
 	virtual int		GetDrawFlags() { return 0; }
@@ -187,12 +211,12 @@ protected:
 //-----------------------------------------------------------------------------
 class CRendering3dView : public CBase3dView
 {
-	DECLARE_CLASS( CRendering3dView, CBase3dView );
+	DECLARE_CLASS(CRendering3dView, CBase3dView);
 public:
-	CRendering3dView( CViewRender *pMainView );
+	CRendering3dView(CViewRender *pMainView);
 	virtual ~CRendering3dView() { ReleaseLists(); }
 
-	void Setup( const CViewSetup &setup );
+	virtual void	Setup(const CViewSetup &setup);
 
 	// What are we currently rendering? Returns a combination of DF_ flags.
 	virtual int		GetDrawFlags();
@@ -202,42 +226,42 @@ public:
 protected:
 
 	// Fog setup
-	void			EnableWorldFog( void );
-	void			SetFogVolumeState( const VisibleFogVolumeInfo_t &fogInfo, bool bUseHeightFog );
+	void			EnableWorldFog(void);
+	void			SetFogVolumeState(const VisibleFogVolumeInfo_t &fogInfo, bool bUseHeightFog);
 
 	// Draw setup
-	void			SetupRenderablesList( int viewID );
+	void			SetupRenderablesList(int viewID);
 
 	void			UpdateRenderablesOpacity();
 
 	// If iForceViewLeaf is not -1, then it uses the specified leaf as your starting area for setting up area portal culling.
 	// This is used by water since your reflected view origin is often in solid space, but we still want to treat it as though
 	// the first portal we're looking out of is a water portal, so our view effectively originates under the water.
-	void			BuildWorldRenderLists( bool bDrawEntities, int iForceViewLeaf = -1, bool bUseCacheIfEnabled = true, bool bShadowDepth = false, float *pReflectionWaterHeight = NULL );
+	void			BuildWorldRenderLists(bool bDrawEntities, int iForceViewLeaf = -1, bool bUseCacheIfEnabled = true, bool bShadowDepth = false, float *pReflectionWaterHeight = NULL);
 
 	// Purpose: Builds render lists for renderables. Called once for refraction, once for over water
-	void			BuildRenderableRenderLists( int viewID );
+	void			BuildRenderableRenderLists(int viewID);
 
 	// More concise version of the above BuildRenderableRenderLists().  Called for shadow depth map rendering
 	void			BuildShadowDepthRenderableRenderLists();
 
-	void			DrawWorld( float waterZAdjust );
+	void			DrawWorld(float waterZAdjust);
 
 	// Draws all opaque/translucent renderables in leaves that were rendered
-	void			DrawOpaqueRenderables( ERenderDepthMode DepthMode );
-	void			DrawTranslucentRenderables( bool bInSkybox, bool bShadowDepth );
+	void			DrawOpaqueRenderables(ERenderDepthMode DepthMode);
+	void			DrawTranslucentRenderables(bool bInSkybox, bool bShadowDepth);
 
 	// Renders all translucent entities in the render list
-	void			DrawTranslucentRenderablesNoWorld( bool bInSkybox );
+	void			DrawTranslucentRenderablesNoWorld(bool bInSkybox);
 
 	// Draws translucent renderables that ignore the Z buffer
-	void			DrawNoZBufferTranslucentRenderables( void );
+	void			DrawNoZBufferTranslucentRenderables(void);
 
 	// Renders all translucent world surfaces in a particular set of leaves
-	void			DrawTranslucentWorldInLeaves( bool bShadowDepth );
+	void			DrawTranslucentWorldInLeaves(bool bShadowDepth);
 
 	// Renders all translucent world + detail objects in a particular set of leaves
-	void			DrawTranslucentWorldAndDetailPropsInLeaves( int iCurLeaf, int iFinalLeaf, int nEngineDrawFlags, int &nDetailLeafCount, LeafIndex_t* pDetailLeafList, bool bShadowDepth );
+	void			DrawTranslucentWorldAndDetailPropsInLeaves(int iCurLeaf, int iFinalLeaf, int nEngineDrawFlags, int &nDetailLeafCount, LeafIndex_t* pDetailLeafList, bool bShadowDepth);
 
 	// Purpose: Computes the actual world list info based on the render flags
 	void			PruneWorldListInfo();
@@ -266,13 +290,13 @@ protected:
 
 class CRenderExecutor
 {
-	DECLARE_CLASS_NOBASE( CRenderExecutor );
+	DECLARE_CLASS_NOBASE(CRenderExecutor);
 public:
-	virtual void AddView( CRendering3dView *pView ) = 0;
+	virtual void AddView(CRendering3dView *pView) = 0;
 	virtual void Execute() = 0;
 
 protected:
-	CRenderExecutor( CViewRender *pMainView ) : m_pMainView( pMainView ) {}
+	CRenderExecutor(CViewRender *pMainView) : m_pMainView(pMainView) {}
 	CViewRender *m_pMainView;
 };
 
@@ -282,11 +306,11 @@ protected:
 
 class CSimpleRenderExecutor : public CRenderExecutor
 {
-	DECLARE_CLASS( CSimpleRenderExecutor, CRenderExecutor );
+	DECLARE_CLASS(CSimpleRenderExecutor, CRenderExecutor);
 public:
-	CSimpleRenderExecutor( CViewRender *pMainView ) : CRenderExecutor( pMainView ) {}
+	CSimpleRenderExecutor(CViewRender *pMainView) : CRenderExecutor(pMainView) {}
 
-	void AddView( CRendering3dView *pView );
+	void AddView(CRendering3dView *pView);
 	void Execute() {}
 };
 
@@ -295,52 +319,54 @@ public:
 //-----------------------------------------------------------------------------
 
 class CViewRender : public IViewRender,
-					public IReplayScreenshotSystem
+	public IReplayScreenshotSystem
 {
-	DECLARE_CLASS_NOBASE( CViewRender );
+	DECLARE_CLASS_NOBASE(CViewRender);
 public:
-	virtual void	Init( void );
-	virtual void	Shutdown( void );
+	virtual void	Init(void);
+	virtual void	Shutdown(void);
 
-	const CViewSetup *GetPlayerViewSetup( ) const;
+	const CViewSetup *GetPlayerViewSetup() const;
 
-	virtual void	StartPitchDrift( void );
-	virtual void	StopPitchDrift( void );
+	virtual void	StartPitchDrift(void);
+	virtual void	StopPitchDrift(void);
 
 	virtual float	GetZNear();
 	virtual float	GetZFar();
 
 	virtual void	OnRenderStart();
-	void			DriftPitch (void);
+	void			DriftPitch(void);
 
-	static CViewRender *	GetMainView() { return assert_cast<CViewRender *>( view ); }
+	static CViewRender *	GetMainView() { return assert_cast<CViewRender *>(view); }
 
-	void			AddViewToScene( CRendering3dView *pView ) { m_SimpleExecutor.AddView( pView ); }
+	void			AddViewToScene(CRendering3dView *pView) { m_SimpleExecutor.AddView(pView); }
 protected:
 	// Sets up the view parameters for all views (left, middle and right eyes).
-    void            SetUpViews();
+	void            SetUpViews();
 
 	// Sets up the view parameters of map overview mode (cl_leveloverview)
 	void			SetUpOverView();
 
 	// generates a low-res screenshot for save games
-	virtual void	WriteSaveGameScreenshotOfSize( const char *pFilename, int width, int height, bool bCreatePowerOf2Padded = false, bool bWriteVTF = false );
-	void			WriteSaveGameScreenshot( const char *filename );
+	virtual void	WriteSaveGameScreenshotOfSize(const char *pFilename, int width, int height, bool bCreatePowerOf2Padded = false, bool bWriteVTF = false);
+	void			WriteSaveGameScreenshot(const char *filename);
 
 	virtual IReplayScreenshotSystem *GetReplayScreenshotSystem() { return this; }
 
+	//virtual void	PostSimulate();
+
 	// IReplayScreenshot implementation
-	virtual void	WriteReplayScreenshot( WriteReplayScreenshotParams_t &params );
+	virtual void	WriteReplayScreenshot(WriteReplayScreenshotParams_t &params);
 	virtual void	UpdateReplayScreenshotCache();
 
-    StereoEye_t		GetFirstEye() const;
-    StereoEye_t		GetLastEye() const;
-    CViewSetup &    GetView(StereoEye_t eEye);
-    const CViewSetup &    GetView(StereoEye_t eEye) const ;
+	StereoEye_t		GetFirstEye() const;
+	StereoEye_t		GetLastEye() const;
+	CViewSetup &    GetView(StereoEye_t eEye);
+	const CViewSetup &    GetView(StereoEye_t eEye) const;
 
 
 	// This stores all of the view setup parameters that the engine needs to know about.
-    // Best way to pick the right one is with ::GetView(), rather than directly.
+	// Best way to pick the right one is with ::GetView(), rather than directly.
 	CViewSetup		m_View;         // mono <- in stereo mode, this will be between the two eyes and is the "main" view.
 	CViewSetup		m_ViewLeft;     // left (unused for mono)
 	CViewSetup		m_ViewRight;    // right (unused for mono)
@@ -349,57 +375,57 @@ protected:
 	CPitchDrift		m_PitchDrift;
 
 public:
-					CViewRender();
-	virtual			~CViewRender( void ) {}
+	CViewRender();
+	virtual			~CViewRender(void) {}
 
-// Implementation of IViewRender interface
+	// Implementation of IViewRender interface
 public:
 
-	void			SetupVis( const CViewSetup& view, unsigned int &visFlags, ViewCustomVisibility_t *pCustomVisibility = NULL );
+	void			SetupVis(const CViewSetup& view, unsigned int &visFlags, ViewCustomVisibility_t *pCustomVisibility = NULL);
 
 
 	// Render functions
-	virtual	void	Render( vrect_t *rect );
-	virtual void	RenderView( const CViewSetup &view, int nClearFlags, int whatToDraw );
+	virtual	void	Render(vrect_t *rect);
+	virtual void	RenderView(const CViewSetup &view, int nClearFlags, int whatToDraw);
 	virtual void	RenderPlayerSprites();
-	virtual void	Render2DEffectsPreHUD( const CViewSetup &view );
-	virtual void	Render2DEffectsPostHUD( const CViewSetup &view );
+	virtual void	Render2DEffectsPreHUD(const CViewSetup &view);
+	virtual void	Render2DEffectsPostHUD(const CViewSetup &view);
 
 
-	void			DisableFog( void );
+	void			DisableFog(void);
 
 	// Called once per level change
-	void			LevelInit( void );
-	void			LevelShutdown( void );
+	void			LevelInit(void);
+	void			LevelShutdown(void);
 
 	// Add entity to transparent entity queue
 
-	bool			ShouldDrawEntities( void );
-	bool			ShouldDrawBrushModels( void );
+	bool			ShouldDrawEntities(void);
+	bool			ShouldDrawBrushModels(void);
 
-	const CViewSetup *GetViewSetup( ) const;
-	
-	void			DisableVis( void );
+	const CViewSetup *GetViewSetup() const;
+
+	void			DisableVis(void);
 
 	// Sets up the view model position relative to the local player
-	void			MoveViewModels( );
+	void			MoveViewModels();
 
 	// Gets the abs origin + angles of the view models
-	void			GetViewModelPosition( int nIndex, Vector *pPos, QAngle *pAngle );
+	void			GetViewModelPosition(int nIndex, Vector *pPos, QAngle *pAngle);
 
-	void			SetCheapWaterStartDistance( float flCheapWaterStartDistance );
-	void			SetCheapWaterEndDistance( float flCheapWaterEndDistance );
+	void			SetCheapWaterStartDistance(float flCheapWaterStartDistance);
+	void			SetCheapWaterEndDistance(float flCheapWaterEndDistance);
 
-	void			GetWaterLODParams( float &flCheapWaterStartDistance, float &flCheapWaterEndDistance );
+	void			GetWaterLODParams(float &flCheapWaterStartDistance, float &flCheapWaterEndDistance);
 
-	virtual void	QueueOverlayRenderView( const CViewSetup &view, int nClearFlags, int whatToDraw );
+	virtual void	QueueOverlayRenderView(const CViewSetup &view, int nClearFlags, int whatToDraw);
 
-	virtual void	GetScreenFadeDistances( float *min, float *max );
+	virtual void	GetScreenFadeDistances(float *min, float *max);
 
 	virtual C_BaseEntity *GetCurrentlyDrawingEntity();
-	virtual void		  SetCurrentlyDrawingEntity( C_BaseEntity *pEnt );
+	virtual void		  SetCurrentlyDrawingEntity(C_BaseEntity *pEnt);
 
-	virtual bool		UpdateShadowDepthTexture( ITexture *pRenderTarget, ITexture *pDepthTexture, const CViewSetup &shadowView );
+	virtual bool		UpdateShadowDepthTexture(ITexture *pRenderTarget, ITexture *pDepthTexture, const CViewSetup &shadowView);
 
 	int GetBaseDrawFlags() { return m_BaseDrawFlags; }
 	virtual bool ShouldForceNoVis()  { return m_bForceNoVis; }
@@ -409,74 +435,77 @@ public:
 	int				BuildWorldListsNumber() const;
 	int				IncWorldListsNumber() { return ++m_BuildWorldListsNumber; }
 
-	virtual VPlane*	GetFrustum() { return ( m_pActiveRenderer ) ? m_pActiveRenderer->GetFrustum() : m_Frustum; }
+	virtual VPlane*	GetFrustum() { return (m_pActiveRenderer) ? m_pActiveRenderer->GetFrustum() : m_Frustum; }
 
 	// What are we currently rendering? Returns a combination of DF_ flags.
-	virtual int		GetDrawFlags() { return ( m_pActiveRenderer ) ? m_pActiveRenderer->GetDrawFlags() : 0; }
+	virtual int		GetDrawFlags() { return (m_pActiveRenderer) ? m_pActiveRenderer->GetDrawFlags() : 0; }
 
 	CBase3dView *	GetActiveRenderer() { return m_pActiveRenderer; }
-	CBase3dView *	SetActiveRenderer( CBase3dView *pActiveRenderer ) { CBase3dView *pPrevious = m_pActiveRenderer; m_pActiveRenderer =  pActiveRenderer; return pPrevious; }
+	CBase3dView *	SetActiveRenderer(CBase3dView *pActiveRenderer) { CBase3dView *pPrevious = m_pActiveRenderer; m_pActiveRenderer = pActiveRenderer; return pPrevious; }
 
-	void			FreezeFrame( float flFreezeTime );
+	void			FreezeFrame(float flFreezeTime);
 
-	void SetWaterOverlayMaterial( IMaterial *pMaterial )
+	void SetWaterOverlayMaterial(IMaterial *pMaterial)
 	{
-		m_UnderWaterOverlayMaterial.Init( pMaterial );
+		m_UnderWaterOverlayMaterial.Init(pMaterial);
 	}
 private:
 	int				m_BuildWorldListsNumber;
 
-
 	// General draw methods
 	// baseDrawFlags is a combination of DF_ defines. DF_MONITOR is passed into here while drawing a monitor.
-	void			ViewDrawScene( bool bDrew3dSkybox, SkyboxVisibility_t nSkyboxVisible, const CViewSetup &view, int nClearFlags, view_id_t viewID, bool bDrawViewModel = false, int baseDrawFlags = 0, ViewCustomVisibility_t *pCustomVisibility = NULL );
+	void			ViewDrawScene(bool bDrew3dSkybox, SkyboxVisibility_t nSkyboxVisible, const CViewSetup &view, int nClearFlags, view_id_t viewID, bool bDrawViewModel = false, int baseDrawFlags = 0, ViewCustomVisibility_t *pCustomVisibility = NULL);
+	void			ViewDrawScene_Intro(const CViewSetup &view, int nClearFlags, const IntroData_t &introData);
 
-	void			DrawMonitors( const CViewSetup &cameraView );
+	void			DrawMonitors(const CViewSetup &cameraView);
 
-	bool			DrawOneMonitor( ITexture *pRenderTarget, int cameraNum, C_PointCamera *pCameraEnt, const CViewSetup &cameraView, C_BasePlayer *localPlayer, 
-						int x, int y, int width, int height );
+	void			SSAO_DepthPass(const CViewSetup &viewSet);
+	void			SSAO_DrawResults();
+
+	bool			DrawOneMonitor(ITexture *pRenderTarget, int cameraNum, C_PointCamera *pCameraEnt, const CViewSetup &cameraView, C_BasePlayer *localPlayer,
+		int x, int y, int width, int height);
 
 	// Drawing primitives
-	bool			ShouldDrawViewModel( bool drawViewmodel );
-	void			DrawViewModels( const CViewSetup &view, bool drawViewmodel );
-
-	void			PerformScreenSpaceEffects( int x, int y, int w, int h );
+	bool			ShouldDrawViewModel(bool drawViewmodel);
+public:
+	void			DrawViewModels(const CViewSetup &view, bool drawViewmodel);
+private:
+	void			PerformScreenSpaceEffects(int x, int y, int w, int h);
 
 	// Overlays
-	void			SetScreenOverlayMaterial( IMaterial *pMaterial );
-	IMaterial		*GetScreenOverlayMaterial( );
-	void			PerformScreenOverlay( int x, int y, int w, int h );
+	void			SetScreenOverlayMaterial(IMaterial *pMaterial);
+	IMaterial		*GetScreenOverlayMaterial();
+	void			PerformScreenOverlay(int x, int y, int w, int h);
 
-	void DrawUnderwaterOverlay( void );
+	void DrawUnderwaterOverlay(void);
 
 	// Water-related methods
-	void			DrawWorldAndEntities( bool drawSkybox, const CViewSetup &view, int nClearFlags, ViewCustomVisibility_t *pCustomVisibility = NULL );
-
-	virtual void			ViewDrawScene_Intro( const CViewSetup &view, int nClearFlags, const IntroData_t &introData );
+	void			DrawWorldAndEntities(bool drawSkybox, const CViewSetup &view, int nClearFlags, ViewCustomVisibility_t *pCustomVisibility = NULL);
 
 #ifdef PORTAL 
 	// Intended for use in the middle of another ViewDrawScene call, this allows stencils to be drawn after opaques but before translucents are drawn in the main view.
-	void			ViewDrawScene_PortalStencil( const CViewSetup &view, ViewCustomVisibility_t *pCustomVisibility );
-	void			Draw3dSkyboxworld_Portal( const CViewSetup &view, int &nClearFlags, bool &bDrew3dSkybox, SkyboxVisibility_t &nSkyboxVisible, ITexture *pRenderTarget = NULL );
+	void			ViewDrawScene_PortalStencil(const CViewSetup &view, ViewCustomVisibility_t *pCustomVisibility);
+	void			Draw3dSkyboxworld_Portal(const CViewSetup &view, int &nClearFlags, bool &bDrew3dSkybox, SkyboxVisibility_t &nSkyboxVisible, ITexture *pRenderTarget = NULL);
 #endif // PORTAL
 
 	// Determines what kind of water we're going to use
-	void			DetermineWaterRenderInfo( const VisibleFogVolumeInfo_t &fogVolumeInfo, WaterRenderInfo_t &info );
+	void			DetermineWaterRenderInfo(const VisibleFogVolumeInfo_t &fogVolumeInfo, WaterRenderInfo_t &info);
 
-	bool			UpdateRefractIfNeededByList( CUtlVector< IClientRenderable * > &list );
-	void			DrawRenderablesInList( CUtlVector< IClientRenderable * > &list, int flags = 0 );
+	bool			UpdateRefractIfNeededByList(CUtlVector< IClientRenderable * > &list);
+	void			DrawRenderablesInList(CUtlVector< IClientRenderable * > &list, int flags = 0);
 
 	// Sets up, cleans up the main 3D view
-	void			SetupMain3DView( const CViewSetup &view, int &nClearFlags );
-	void			CleanupMain3DView( const CViewSetup &view );
+	void			SetupMain3DView(const CViewSetup &view, int &nClearFlags);
+	void			CleanupMain3DView(const CViewSetup &view);
 
+	void			UpdateCascadedShadow(const CViewSetup &view);
 
 	// This stores the current view
- 	CViewSetup		m_CurrentView;
+	CViewSetup		m_CurrentView;
 
 	// VIS Overrides
 	// Set to true to turn off client side vis ( !!!! rendering will be slow since everything will draw )
-	bool			m_bForceNoVis;	
+	bool			m_bForceNoVis;
 
 	// Some cvars needed by this system
 	const ConVar	*m_pDrawEntities;
@@ -517,7 +546,7 @@ private:
 	CBase3dView *m_pActiveRenderer;
 	CSimpleRenderExecutor m_SimpleExecutor;
 
-	bool			m_rbTakeFreezeFrame[ STEREO_EYE_MAX ];
+	bool			m_rbTakeFreezeFrame[STEREO_EYE_MAX];
 	float			m_flFreezeFrameUntil;
 
 #if defined( REPLAY_ENABLED )

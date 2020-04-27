@@ -35,6 +35,8 @@ struct LightDesc_t;
 struct LightState_t
 {
 	int  m_nNumLights;
+	bool m_bStaticLightVertex;
+	bool m_bStaticLightTexel;
 	bool m_bAmbientLight;
 	bool m_bStaticLight;
 	inline int HasDynamicLight() { return (m_bAmbientLight || (m_nNumLights > 0)) ? 1 : 0; }
@@ -105,6 +107,8 @@ enum StandardTextureId_t
 
 	// A snapshot of the frame buffer's depth. Currently only valid on the 360
 	TEXTURE_IDENTITY_LIGHTWARP,
+
+	TEXTURE_DEBUG_LUXELS,
 
 	TEXTURE_MAX_STD_TEXTURES = 32
 };

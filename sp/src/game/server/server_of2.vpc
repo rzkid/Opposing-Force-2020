@@ -196,7 +196,9 @@ $Project "Server (OF2)"
 			$File	"hl2\npc_strider.h"
 			$File	"hl2\npc_zombie.cpp"
 			$File	"hl2\antlion_maker.cpp"
-			$File	"hl2\antlion_maker.h"
+			$File	"hl2\antlion_maker.h"			
+			$File	"episodic\npc_hunter.cpp"
+			$File	"episodic\npc_hunter.h"
 			
 			$Folder	"Unused"
 			{

@@ -2611,10 +2611,10 @@ inline void CBaseEntity::DecrementTransmitStateOwnedCounter()
 //-----------------------------------------------------------------------------
 // Bullet firing (legacy)...
 //-----------------------------------------------------------------------------
-inline void CBaseEntity::FireBullets( int cShots, const Vector &vecSrc, 
-	const Vector &vecDirShooting, const Vector &vecSpread, float flDistance, 
+inline void CBaseEntity::FireBullets(int cShots, const Vector &vecSrc,
+	const Vector &vecDirShooting, const Vector &vecSpread, float flDistance,
 	int iAmmoType, int iTracerFreq, int firingEntID, int attachmentID,
-	int iDamage, CBaseEntity *pAttacker, bool bFirstShotAccurate, bool bPrimaryAttack )
+	int iDamage, CBaseEntity *pAttacker, bool bFirstShotAccurate, bool bPrimaryAttack)
 {
 	FireBulletsInfo_t info;
 	info.m_iShots = cShots;
@@ -2629,7 +2629,7 @@ inline void CBaseEntity::FireBullets( int cShots, const Vector &vecSrc,
 	info.m_nFlags = bFirstShotAccurate ? FIRE_BULLETS_FIRST_SHOT_ACCURATE : 0;
 	info.m_bPrimaryAttack = bPrimaryAttack;
 
-	FireBullets( info );
+	FireBullets(info);
 }
 
 // Ugly technique to override base member functions

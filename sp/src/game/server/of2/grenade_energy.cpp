@@ -9,7 +9,7 @@
 #include "grenade_energy.h"
 #include "soundent.h"
 #include "player.h"
-#include "hl2_shareddefs.h"
+#include "of2_shareddefs.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -26,8 +26,8 @@ BEGIN_DATADESC( CGrenadeEnergy )
 	DEFINE_FIELD( m_flLaunchTime, FIELD_TIME ),		
 
 	// Function pointers
-	DEFINE_FUNCTION( Animate ),
-	DEFINE_FUNCTION( GrenadeEnergyTouch ),
+	//DEFINE_FUNCTION( Animate ),
+	//DEFINE_FUNCTION( GrenadeEnergyTouch ),
 
 END_DATADESC()
 
@@ -41,11 +41,11 @@ void CGrenadeEnergy::Spawn( void )
 
 	SetModel( "Models/weapons/w_energy_grenade.mdl" );
 
-	SetUse( DetonateUse );
-	SetTouch( GrenadeEnergyTouch );
+	&CBaseGrenade::DetonateUse;
+	&CGrenadeEnergy::GrenadeEnergyTouch;
 	SetNextThink( gpGlobals->curtime + 0.1f );
 
-	m_flDamage			= sk_dmg_energy_grenade.GetFloat();
+	m_flDamage		= sk_dmg_energy_grenade.GetFloat();
 	m_DmgRadius		= sk_energy_grenade_radius.GetFloat();
 	m_takedamage	= DAMAGE_YES;
 	m_iHealth		= 1;
@@ -75,7 +75,7 @@ void CGrenadeEnergy::Shoot( CBaseEntity* pOwner, const Vector &vStart, Vector vV
 	pEnergy->SetAbsVelocity( vVelocity );
 	pEnergy->SetOwnerEntity( pOwner );
 
-	pEnergy->SetThink ( Animate );
+	&CGrenadeEnergy::Animate;
 	pEnergy->SetNextThink( gpGlobals->curtime + 0.1f );
 
 	pEnergy->m_nRenderMode = kRenderTransAdd;

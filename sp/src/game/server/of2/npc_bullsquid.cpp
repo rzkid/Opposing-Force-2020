@@ -277,7 +277,7 @@ void CNPC_Bullsquid::HandleAnimEvent( animevent_t *pEvent )
 				pGrenade->Spawn( );
 				pGrenade->SetThrower( this );
 				pGrenade->SetOwnerEntity( this );
-				pGrenade->SetSpitSize( 2 );
+				//pGrenade->SetSpitSize( 2 );
 				pGrenade->SetAbsVelocity( vToss );
 
 				// Tumble through the air

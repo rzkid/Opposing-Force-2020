@@ -12,7 +12,7 @@
 #include "soundent.h"
 #include "decals.h"
 #include "smoke_trail.h"
-#include "hl2_shareddefs.h"
+#include "of2_shareddefs.h"
 #include "vstdlib/random.h"
 #include "engine/IEngineSound.h"
 #include "particle_parse.h"

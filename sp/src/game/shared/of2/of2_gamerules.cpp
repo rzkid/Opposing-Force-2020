@@ -95,8 +95,8 @@ ConVar	sk_ammo_qty_scale1			( "sk_ammo_qty_scale1",			"1.20", FCVAR_REPLICATED )
 ConVar	sk_ammo_qty_scale2			( "sk_ammo_qty_scale2",			"1.00", FCVAR_REPLICATED );
 ConVar	sk_ammo_qty_scale3			( "sk_ammo_qty_scale3",			"0.60", FCVAR_REPLICATED );
 
-ConVar	sk_plr_health_drop_time		( "sk_plr_health_drop_time",	"30", FCVAR_REPLICATED );
-ConVar	sk_plr_grenade_drop_time	( "sk_plr_grenade_drop_time",	"30", FCVAR_REPLICATED );
+ConVar	sk_plr_health_drop_time		( "sk_plr_health_drop_time",    "30",   FCVAR_REPLICATED );
+ConVar	sk_plr_grenade_drop_time	( "sk_plr_grenade_drop_time",	"30",   FCVAR_REPLICATED );
 
 
 ConVar	sk_max_9mm					( "sk_max_9mm",					"150", FCVAR_REPLICATED );
@@ -105,9 +105,11 @@ ConVar	sk_max_m16_round			( "sk_max_m16_round",			"360", FCVAR_REPLICATED );
 ConVar	sk_max_shotgun				( "sk_max_shotgun",				"125", FCVAR_REPLICATED );
 ConVar	sk_max_combine_round		( "sk_max_combine_round",		"225", FCVAR_REPLICATED );
 ConVar	sk_max_rpg_round			( "sk_max_rpg_round",			"400", FCVAR_REPLICATED );
-ConVar	sk_max_m16_grenade			( "sk_max_m16_grenade",		"400", FCVAR_REPLICATED );
+ConVar	sk_max_m16_grenade			( "sk_max_m16_grenade",			"400", FCVAR_REPLICATED );
 ConVar	sk_max_grenade				( "sk_max_grenade",				"400", FCVAR_REPLICATED );
 ConVar	sk_max_combinegrenade		( "sk_max_combinegrenade",		"400", FCVAR_REPLICATED );
+
+ConVar sk_max_snark					("sk_max_snark",				"10",   FCVAR_REPLICATED);
 
 ConVar	sk_dmg_sniper_penetrate_plr("sk_dmg_sniper_penetrate_plr", "0", FCVAR_REPLICATED);
 ConVar	sk_dmg_sniper_penetrate_npc("sk_dmg_sniper_penetrate_npc", "0", FCVAR_REPLICATED);
@@ -119,7 +121,7 @@ ConVar	sk_max_50cal                ("sk_max_50cal", "28", FCVAR_REPLICATED);
 ConVar  sk_m16_grenade_radius		( "sk_m16_grenade_radius",		"25", FCVAR_REPLICATED);
 
 ConVar  sk_plr_dmg_9mm              ("sk_plr_dmg_9mm", "5", FCVAR_REPLICATED);
-ConVar  sk_plr_dmg_50cal             ("sk_plr_dmg_50cal", "60", FCVAR_REPLICATED);
+ConVar  sk_plr_dmg_50cal            ("sk_plr_dmg_50cal", "60", FCVAR_REPLICATED);
 ConVar  sk_plr_dmg_sniper_round     ("sk_plr_dmg_sniper_round", "120", FCVAR_REPLICATED);
 ConVar	sk_plr_dmg_m16_round        ("sk_plr_dmg_m16_round", "8", FCVAR_REPLICATED);
 ConVar	sk_plr_dmg_shotgun          ("sk_plr_dmg_shotgun", "8", FCVAR_REPLICATED);
@@ -1015,6 +1017,38 @@ ConVar  alyx_darkness_force( "alyx_darkness_force", "0", FCVAR_CHEAT | FCVAR_REP
 		CBaseCombatCharacter::SetDefaultRelationship(CLASS_PLAYER_ALLY_VITAL,	CLASS_HACKED_ROLLERMINE,D_LI, 0);
 
 		// ------------------------------------------------------------
+		//	> CLASS_ALIEN_BIOWEAPON
+		// ------------------------------------------------------------
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_NONE, D_NU, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_PLAYER, D_HT, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_ANTLION, D_HT, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_BARNACLE, D_HT, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_BULLSEYE, D_NU, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_BULLSQUID, D_HT, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_CITIZEN_PASSIVE, D_NU, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_CITIZEN_REBEL, D_NU, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_COMBINE, D_HT, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_COMBINE_GUNSHIP, D_NU, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_COMBINE_HUNTER, D_HT, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_CONSCRIPT, D_NU, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_FLARE, D_NU, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_HEADCRAB, D_HT, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_HOUNDEYE, D_HT, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_MANHACK, D_HT, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_METROPOLICE, D_HT, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_MILITARY, D_HT, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_MISSILE, D_NU, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_SCANNER, D_HT, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_STALKER, D_HT, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_VORTIGAUNT, D_LI, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_ZOMBIE, D_HT, 1);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_PROTOSNIPER, D_HT, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_EARTH_FAUNA, D_NU, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_PLAYER_ALLY, D_LI, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_PLAYER_ALLY_VITAL, D_LI, 0);
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ALIEN_BIOWEAPON, CLASS_HACKED_ROLLERMINE, D_LI, 0);
+
+		// ------------------------------------------------------------
 		//	> CLASS_SCANNER
 		// ------------------------------------------------------------	
 		CBaseCombatCharacter::SetDefaultRelationship(CLASS_SCANNER,			CLASS_NONE,				D_NU, 0);			
@@ -1777,7 +1811,7 @@ CAmmoDef *GetAmmoDef()
 		
 		def.AddAmmoType("Grenade",          DMG_BURN,   TRACER_NONE,          "sk_plr_dmg_grenade",      "sk_npc_dmg_grenade",      "sk_max_grenade", 0, 0);
 		def.AddAmmoType("CombineGrenade",   DMG_BLAST, TRACER_NONE,           "sk_plr_dmg_combinegrenade", "sk_npc_dmg_combinegrenade", "sk_max_combinegrenade", 0, 0);
-		
+		def.AddAmmoType("Snark",			DMG_SLASH, TRACER_NONE,			  "sk_snark_dmg_bite",        NULL,						 "sk_max_snark", 0, 0);
 
 	}
 

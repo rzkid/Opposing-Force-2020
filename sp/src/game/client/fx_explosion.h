@@ -38,7 +38,7 @@ protected:
 
 	virtual void	PlaySound( void );
 
-	virtual void	CreateCore( void );
+	void C_BaseExplosionEffect::CreateCore(const Vector &origin, const Vector &normal, float scale);
 	virtual void	CreateDebris( void );
 	virtual void	CreateMisc( void );
 	virtual void	CreateDynamicLight( void );

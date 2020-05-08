@@ -28,6 +28,8 @@
 #include "vstdlib/random.h"
 #include "engine/IEngineSound.h"
 #include "movevars_shared.h"
+#include "particle_parse.h"
+
 
 
 // memdbgon must be the last include file in a .cpp file!!!
@@ -459,6 +461,7 @@ void CNPC_Houndeye::Precache()
 	PrecacheScriptSound("NPC_Houndeye.GroupAttack");
 	PrecacheScriptSound("NPC_Houndeye.GroupFollow");
 
+	PrecacheParticleSystem("houndeye_shockwave");
 
 	UTIL_PrecacheOther("grenade_energy");
 	BaseClass::Precache();
@@ -537,67 +540,19 @@ void CNPC_Houndeye::PainSound(const CTakeDamageInfo &info)
 	EmitSound("NPC_Houndeye.Pain");
 }
 
-//=========================================================
-// WriteBeamColor - writes a color vector to the network 
-// based on the size of the group. 
-//=========================================================
-Vector CNPC_Houndeye::WriteBeamColor(void)
-{
-	BYTE	bRed, bGreen, bBlue;
-
-	if (m_pSquad)
-	{
-		switch (m_pSquad->NumMembers())
-		{
-		case 2:
-			// no case for 0 or 1, cause those are impossible for monsters in Squads.
-			bRed = 101;
-			bGreen = 133;
-			bBlue = 221;
-			break;
-		case 3:
-			bRed = 67;
-			bGreen = 85;
-			bBlue = 255;
-			break;
-		case 4:
-			bRed = 62;
-			bGreen = 33;
-			bBlue = 211;
-			break;
-		default:
-			Msg("Unsupported Houndeye SquadSize!\n");
-			bRed = 188;
-			bGreen = 220;
-			bBlue = 255;
-			break;
-		}
-	}
-	else
-	{
-		// solo houndeye - weakest beam
-		bRed = 188;
-		bGreen = 220;
-		bBlue = 255;
-	}
-
-
-	return Vector(bRed, bGreen, bBlue);
-}
-
 //-----------------------------------------------------------------------------
 // Purpose: Plays the engine sound.
 //-----------------------------------------------------------------------------
 void CNPC_Houndeye::NPCThink(void)
 {
-	if (m_pEnergyWave)
-	{
-		if (gpGlobals->curtime > m_flEndEnergyWaveTime)
-		{
-			UTIL_Remove(m_pEnergyWave);
-			m_pEnergyWave = NULL;
-		}
-	}
+	//if (m_pEnergyWave)
+	//{
+	//	if (gpGlobals->curtime > m_flEndEnergyWaveTime)
+	//	{
+	//		UTIL_Remove(m_pEnergyWave);
+	//		m_pEnergyWave = NULL;
+	//	}
+	//}
 
 	// -----------------------------------------------------
 	//  Update collision group
@@ -686,47 +641,8 @@ void CNPC_Houndeye::SonicAttack(void)
 	CPASAttenuationFilter filter(this);
 	EmitSound(filter, entindex(), "NPC_HoundEye.SonicAttack");
 
-	CBroadcastRecipientFilter filter2;
-	te->BeamRingPoint(filter2, 0.0,
-		GetAbsOrigin(),							//origin
-		16,										//start radius
-		HOUNDEYE_MAX_ATTACK_RADIUS,//end radius
-		m_iSpriteTexture,						//texture
-		0,										//halo index
-		0,										//start frame
-		0,										//framerate
-		0.2,									//life
-		24,									//width
-		16,										//spread
-		0,										//amplitude
-		WriteBeamColor().x,						//r
-		WriteBeamColor().y,						//g
-		WriteBeamColor().z,						//b
-		192,									//a
-		0										//speed
-		);
-
-	CBroadcastRecipientFilter filter3;
-	te->BeamRingPoint(filter3, 0.0,
-		GetAbsOrigin(),									//origin
-		16,												//start radius
-		HOUNDEYE_MAX_ATTACK_RADIUS / 2,											//end radius
-		m_iSpriteTexture,								//texture
-		0,												//halo index
-		0,												//start frame
-		0,												//framerate
-		0.2,											//life
-		24,											//width
-		16,												//spread
-		0,												//amplitude
-		WriteBeamColor().x,								//r
-		WriteBeamColor().y,								//g
-		WriteBeamColor().z,								//b
-		192,											//a
-		0												//speed
-		);
-
 	CBaseEntity *pEntity = NULL;
+	DispatchParticleEffect("houndeye_shockwave", PATTACH_ROOTBONE_FOLLOW);
 	// iterate on all entities in the vicinity.
 	while ((pEntity = gEntList.FindEntityInSphere(pEntity, GetAbsOrigin(), HOUNDEYE_MAX_ATTACK_RADIUS)) != NULL)
 	{
@@ -808,6 +724,53 @@ void CNPC_Houndeye::SonicAttack(void)
 }
 
 //=========================================================
+// WriteBeamColor - writes a color vector to the network 
+// based on the size of the group. 
+//=========================================================
+Vector CNPC_Houndeye::WriteBeamColor(void)
+{
+	BYTE	bRed, bGreen, bBlue;
+
+	if (m_pSquad)
+	{
+		switch (m_pSquad->NumMembers())
+		{
+		case 2:
+			// no case for 0 or 1, cause those are impossible for monsters in Squads.
+			bRed = 101;
+			bGreen = 133;
+			bBlue = 221;
+			break;
+		case 3:
+			bRed = 67;
+			bGreen = 85;
+			bBlue = 255;
+			break;
+		case 4:
+			bRed = 62;
+			bGreen = 33;
+			bBlue = 211;
+			break;
+		default:
+			Msg("Unsupported Houndeye SquadSize!\n");
+			bRed = 188;
+			bGreen = 220;
+			bBlue = 255;
+			break;
+		}
+	}
+	else
+	{
+		// solo houndeye - weakest beam
+		bRed = 188;
+		bGreen = 220;
+		bBlue = 255;
+	}
+
+
+	return Vector(bRed, bGreen, bBlue);
+}
+//=========================================================
 // start task
 //=========================================================
 void CNPC_Houndeye::StartTask(const Task_t *pTask)
@@ -825,11 +788,11 @@ void CNPC_Houndeye::StartTask(const Task_t *pTask)
 			Vector vTargetPos = GetEnemyLKP();
 			vTargetPos.z = GetFloorZ(vTargetPos);
 
-			if (&CAI_Navigator::SetRadialGoal)
-			{
-				TaskComplete();
-				return;
-			}
+			//if (&CAI_Navigator::SetRadialGoal)
+			//{
+			//	TaskComplete();
+			//	return;
+			//}
 			TaskFail(FAIL_NO_ROUTE);
 		}
 		break;

@@ -235,11 +235,6 @@ void CWeaponM16::PrimaryAttack( void )
 	Vector vecSrc		= pPlayer->Weapon_ShootPosition();
 	Vector vecAiming	= pPlayer->GetAutoaimVector( AUTOAIM_SCALE_DEFAULT );	
 
-	
-
-	
-	
-
 	pPlayer->FireBullets( 1, vecSrc, vecAiming, /*GetBulletSpread()*/GetM16BulletSpread(), MAX_TRACE_LENGTH, m_iPrimaryAmmoType, 0 );
 
 	pPlayer->SetMuzzleFlashTime( gpGlobals->curtime + 0.5 );
@@ -255,7 +250,7 @@ void CWeaponM16::PrimaryAttack( void )
 
 	//pPlayer->SnapEyeAngles( angles );
 
-	pPlayer->ViewPunch( QAngle( -.5, random->RandomFloat( 0, -.25 ), 0 ) );
+	pPlayer->ViewPunch( QAngle( -2.5, random->RandomFloat( 0, -.25 ), 0 ) );
 	//pPlayer->ViewPunch( QAngle( -8, random->RandomFloat( -2, 2 ), 0 ) );
 
 	CSoundEnt::InsertSound( SOUND_COMBAT, GetAbsOrigin(), 600, 0.2, GetOwner() );
@@ -296,7 +291,7 @@ void CWeaponM16::SecondaryAttack( void )
 	
 	
 	// modified smg1 grenade
-	Msg("in CWeaponM16::SecondaryAttack\n");
+//	Msg("in CWeaponM16::SecondaryAttack\n");
 	// Only the player fires this way so we can cast
 	CBasePlayer *pPlayer = ToBasePlayer( GetOwner() );
 	

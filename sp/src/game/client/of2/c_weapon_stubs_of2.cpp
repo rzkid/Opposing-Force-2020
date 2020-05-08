@@ -23,3 +23,4 @@ STUB_WEAPON_CLASS(weapon_rpg, WeaponRPG, C_BaseHLCombatWeapon);
 STUB_WEAPON_CLASS(weapon_shotgun, WeaponShotgun, C_BaseHLCombatWeapon);
 STUB_WEAPON_CLASS(weapon_smg1, WeaponSMG1, C_HLSelectFireMachineGun);
 STUB_WEAPON_CLASS(weapon_wrench, WeaponWrench, C_BaseHLBludgeonWeapon);
+STUB_WEAPON_CLASS(weapon_snark, WeaponSnark, C_BaseHLCombatWeapon);

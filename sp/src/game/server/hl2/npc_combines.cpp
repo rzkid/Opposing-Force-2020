@@ -28,8 +28,8 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
-ConVar	sk_combine_s_health( "sk_combine_s_health","0");
-ConVar	sk_combine_s_kick( "sk_combine_s_kick","0");
+ConVar	sk_synth_soldier_health( "sk_synth_soldier_health","0");
+ConVar	sk_synth_soldier_kick( "sk_synth_soldier_kick","0");
 
 ConVar sk_combine_guard_health( "sk_combine_guard_health", "0");
 ConVar sk_combine_guard_kick( "sk_combine_guard_kick", "0");
@@ -43,7 +43,7 @@ extern ConVar sk_plr_num_shotgun_pellets;
 //Whether or not the combine should spawn health on death
 ConVar	combine_spawn_health( "combine_spawn_health", "1" );
 
-LINK_ENTITY_TO_CLASS( npc_combine_s, CNPC_CombineS );
+LINK_ENTITY_TO_CLASS( npc_synthsolider, CNPC_CombineS );
 
 
 #define AE_SOLDIER_BLOCK_PHYSICS		20 // trying to block an incoming physics object
@@ -68,9 +68,9 @@ void CNPC_CombineS::Spawn( void )
 	}
 	else
 	{
-		SetHealth( sk_combine_s_health.GetFloat() );
-		SetMaxHealth( sk_combine_s_health.GetFloat() );
-		SetKickDamage( sk_combine_s_kick.GetFloat() );
+		SetHealth( sk_synth_soldier_health.GetFloat() );
+		SetMaxHealth( sk_synth_soldier_health.GetFloat() );
+		SetKickDamage( sk_synth_soldier_kick.GetFloat() );
 	}
 
 	CapabilitiesAdd( bits_CAP_ANIMATEDFACE );

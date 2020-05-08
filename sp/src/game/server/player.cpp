@@ -5923,25 +5923,7 @@ void CBasePlayer::ImpulseCommands( )
 			m_flNextDecalTime = gpGlobals->curtime + decalfrequency.GetFloat();
 			CSprayCan *pCan = CREATE_UNSAVED_ENTITY( CSprayCan, "spraycan" );
 			pCan->Spawn( this );
-
-#ifdef CSTRIKE_DLL
-			//=============================================================================
-			// HPE_BEGIN:
-			// [pfreese] Fire off a game event - the Counter-Strike stats manager listens
-			// to these achievements for one of the CS achievements.
-			//=============================================================================
-			
-			IGameEvent * event = gameeventmanager->CreateEvent( "player_decal" );
-			if ( event )
-			{
-				event->SetInt("userid", GetUserID() );
-				gameeventmanager->FireEvent( event );
-			}
-
-			//=============================================================================
-			// HPE_END
-			//=============================================================================
-#endif			
+		
 		}
 
 		break;
@@ -5969,46 +5951,6 @@ void CBasePlayer::ImpulseCommands( )
 	
 	m_nImpulse = 0;
 }
-
-#ifdef HL2_EPISODIC
-
-//-----------------------------------------------------------------------------
-// Purpose: 
-//-----------------------------------------------------------------------------
-static void CreateJalopy( CBasePlayer *pPlayer )
-{
-	// Cheat to create a jeep in front of the player
-	Vector vecForward;
-	AngleVectors( pPlayer->EyeAngles(), &vecForward );
-	CBaseEntity *pJeep = (CBaseEntity *)CreateEntityByName( "prop_vehicle_jeep" );
-	if ( pJeep )
-	{
-		Vector vecOrigin = pPlayer->GetAbsOrigin() + vecForward * 256 + Vector(0,0,64);
-		QAngle vecAngles( 0, pPlayer->GetAbsAngles().y - 90, 0 );
-		pJeep->SetAbsOrigin( vecOrigin );
-		pJeep->SetAbsAngles( vecAngles );
-		pJeep->KeyValue( "model", "models/vehicle.mdl" );
-		pJeep->KeyValue( "solid", "6" );
-		pJeep->KeyValue( "targetname", "jeep" );
-		pJeep->KeyValue( "vehiclescript", "scripts/vehicles/jalopy.txt" );
-		DispatchSpawn( pJeep );
-		pJeep->Activate();
-		pJeep->Teleport( &vecOrigin, &vecAngles, NULL );
-	}
-}
-
-void CC_CH_CreateJalopy( void )
-{
-	CBasePlayer *pPlayer = UTIL_GetCommandClient();
-	if ( !pPlayer )
-		return;
-	CreateJalopy( pPlayer );
-}
-
-static ConCommand ch_createjalopy("ch_createjalopy", CC_CH_CreateJalopy, "Spawn jalopy in front of the player.", FCVAR_CHEAT);
-
-#endif // HL2_EPISODIC
-
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
@@ -6147,6 +6089,8 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveAmmo(400, "M16_Grenade");
 		GiveAmmo(400, "Grenade");
 		GiveAmmo(400, "CombineGrenade");
+		GiveAmmo(400, "Snark");
+		GiveAmmo(400, "50cal");
 #else
 		// Give the player everything!
 		GiveAmmo( 255,	"Pistol");
@@ -6159,10 +6103,7 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveAmmo( 5,	"grenade");
 		GiveAmmo( 32,	"357" );
 		GiveAmmo( 16,	"XBowBolt" );
-#endif
-#ifdef HL2_EPISODIC
-		GiveAmmo( 5,	"Hopwire" );
-#endif		
+#endif	
 #ifdef OF2_DLL
 		GiveNamedItem( "weapon_cfrag" );
 		GiveNamedItem( "weapon_csmg1" );
@@ -6174,7 +6115,8 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveNamedItem( "weapon_shotgun" );
 		GiveNamedItem( "weapon_smg1" );
 		GiveNamedItem( "weapon_wrench" );
-		GiveNamedItem( "weapon_physcannon" );
+		GiveNamedItem( "weapon_snark");
+		GiveNamedItem( "weapon_deagle");
 #else
 		GiveNamedItem( "weapon_smg1" );
 		GiveNamedItem( "weapon_frag" );

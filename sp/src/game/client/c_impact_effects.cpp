@@ -1248,78 +1248,6 @@ void FX_GaussExplosion( const Vector &pos, const Vector &dir, int type )
 
 	int i;
 
-#if defined(_XBOX) || defined(_X360)
-
-	//
-	// XBox version
-	//
-	CSmartPtr<CTrailParticles> pSparkEmitter = CTrailParticles::Create( "FX_GaussExplosion" );
-	if ( pSparkEmitter == NULL )
-	{
-		Assert(0);
-		return;
-	}
-
-	if ( g_Material_Spark == NULL )
-	{
-		g_Material_Spark = pSparkEmitter->GetPMaterial( "effects/spark" );
-	}
-
-	pSparkEmitter->SetSortOrigin( pos );
-	pSparkEmitter->m_ParticleCollision.SetGravity( 800.0f );
-	pSparkEmitter->SetFlag( bitsPARTICLE_TRAIL_VELOCITY_DAMPEN );
-	pSparkEmitter->GetBinding().SetBBox( pos - Vector( 32, 32, 32 ), pos + Vector( 32, 32, 32 ) );
-
-	int numSparks = random->RandomInt( 8, 16 );
-	TrailParticle	*pParticle;
-	
-	// Dump out sparks
-	for ( i = 0; i < numSparks; i++ )
-	{
-		pParticle = (TrailParticle *) pSparkEmitter->AddParticle( sizeof(TrailParticle), g_Material_Spark, pos );
-
-		if ( pParticle == NULL )
-			return;
-
-		pParticle->m_flLifetime	= 0.0f;
-
-		vDir.Random( -0.6f, 0.6f );
-		vDir += dir;
-		VectorNormalize( vDir );
-		
-		pParticle->m_flWidth		= random->RandomFloat( 1.0f, 4.0f );
-		pParticle->m_flLength		= random->RandomFloat( 0.01f, 0.1f );
-		pParticle->m_flDieTime		= random->RandomFloat( 0.25f, 0.5f );
-		
-		pParticle->m_vecVelocity	= vDir * random->RandomFloat( 128, 512 );
-
-		Color32Init( pParticle->m_color, 255, 255, 255, 255 );
-	}
-
-	// End cap
-	SimpleParticle particle;
-
-	particle.m_Pos = pos;
-	particle.m_flLifetime = 0.0f;
-	particle.m_flDieTime = 0.1f;
-	particle.m_vecVelocity.Init();
-	particle.m_flRoll = random->RandomInt( 0, 360 );
-	particle.m_flRollDelta = 0.0f;
-	particle.m_uchColor[0] = 255;
-	particle.m_uchColor[1] = 255;
-	particle.m_uchColor[2] = 255;
-	particle.m_uchStartAlpha = 255;
-	particle.m_uchEndAlpha = 255;
-	particle.m_uchStartSize = random->RandomInt( 24, 32 );
-	particle.m_uchEndSize = 0;
-
-	AddSimpleParticle( &particle, ParticleMgr()->GetPMaterial( "effects/yellowflare" ) );
-
-#else
-	
-	//
-	// PC version
-	//
 	CSmartPtr<CTrailParticles> pSparkEmitter = CTrailParticles::Create( "FX_ElectricSpark" );
 
 	if ( !pSparkEmitter )
@@ -1366,7 +1294,6 @@ void FX_GaussExplosion( const Vector &pos, const Vector &dir, int type )
 
 
 	FX_ElectricSpark( pos, 1, 1, &vDir );
-#endif
 }
 
 class C_TEGaussExplosion : public C_TEParticleSystem

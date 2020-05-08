@@ -24,17 +24,18 @@
 
 #define	__EXPLOSION_DEBUG	0
 
-CLIENTEFFECT_REGISTER_BEGIN( PrecacheEffectExplosion )
-CLIENTEFFECT_MATERIAL( "effects/fire_cloud1" )
-CLIENTEFFECT_MATERIAL( "effects/fire_cloud2" )
-CLIENTEFFECT_MATERIAL( "effects/fire_embers1" )
-CLIENTEFFECT_MATERIAL( "effects/fire_embers2" )
-CLIENTEFFECT_MATERIAL( "effects/fire_embers3" )
-CLIENTEFFECT_MATERIAL( "particle/particle_smokegrenade" )
-CLIENTEFFECT_MATERIAL( "particle/particle_smokegrenade1" )
-CLIENTEFFECT_MATERIAL( "effects/splash3" )
-CLIENTEFFECT_MATERIAL( "effects/splashwake1" )
+CLIENTEFFECT_REGISTER_BEGIN(PrecacheEffectExplosion)
+CLIENTEFFECT_MATERIAL("effects/fire_cloud1")
+CLIENTEFFECT_MATERIAL("effects/fire_cloud2")
+CLIENTEFFECT_MATERIAL("effects/fire_embers1")
+CLIENTEFFECT_MATERIAL("effects/fire_embers2")
+CLIENTEFFECT_MATERIAL("effects/fire_embers3")
+CLIENTEFFECT_MATERIAL("particle/particle_smokegrenade")
+CLIENTEFFECT_MATERIAL("particle/particle_smokegrenade1")
+CLIENTEFFECT_MATERIAL("effects/splash3")
+CLIENTEFFECT_MATERIAL("effects/splashwake1")
 CLIENTEFFECT_REGISTER_END()
+
 
 //
 // CExplosionParticle
@@ -51,7 +52,6 @@ public:
 	{
 		return new CExplosionParticle( pDebugName );
 	}
-
 	//Roll
 	virtual	float UpdateRoll( SimpleParticle *pParticle, float timeDelta )
 	{
@@ -160,6 +160,11 @@ float C_BaseExplosionEffect::ScaleForceByDeviation( Vector &deviant, Vector &sou
 	}
 
 	return dot;
+}
+
+void C_BaseExplosionEffect::Precache(void)
+{
+	PrecacheParticleSystem("grenade_explosion");
 }
 
 //-----------------------------------------------------------------------------

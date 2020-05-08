@@ -45,6 +45,7 @@ protected:
 
 	float			ScaleForceByDeviation( Vector &deviant, Vector &source, float spread, float *force = NULL );
 
+	void			Precache( void );
 	float			Probe( const Vector &origin, Vector *direction, float strength );
 	void			GetForceDirection( const Vector &origin, float magnitude, Vector *resultDirection, float *resultForce );
 

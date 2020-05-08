@@ -593,13 +593,13 @@ LINK_ENTITY_TO_CLASS( item_ammo_ar2_altfire, CItem_AR2AltFireRound );
 // Ammo types
 enum
 {
-	AMMOCRATE_SMALL_ROUNDS,
-	AMMOCRATE_MEDIUM_ROUNDS,
-	AMMOCRATE_LARGE_ROUNDS,
+	AMMOCRATE_9MM,
+	AMMOCRATE_M16_ROUNDS,
+	AMMOCRATE_COMBINE_ROUNDS,
 	AMMOCRATE_RPG_ROUNDS,
 	AMMOCRATE_BUCKSHOT,
 	AMMOCRATE_GRENADES,
-	AMMOCRATE_357,
+	AMMOCRATE_50CAL,
 	AMMOCRATE_CROSSBOW,
 	AMMOCRATE_AR2_ALTFIRE,
 	AMMOCRATE_SMG_ALTFIRE,
@@ -695,16 +695,16 @@ const char *CItem_AmmoCrate::m_lpzModelNames[NUM_AMMO_CRATE_TYPES] =
 // Ammo type names
 const char *CItem_AmmoCrate::m_lpzAmmoNames[NUM_AMMO_CRATE_TYPES] =
 {
-	"Pistol",		
-	"SMG1",			
-	"AR2",			
+	"9MM",		
+	"9MM",			
+	"Combine_Round",			
 	"RPG_Round",	
 	"Buckshot",		
 	"Grenade",
-	"357",
+	"50cal",
 	"XBowBolt",
 	"AR2AltFire",
-	"SMG1_Grenade",
+	"M16_Grenade",
 };
 
 // Ammo amount given per +use
@@ -871,7 +871,7 @@ int CItem_AmmoCrate::OnTakeDamage( const CTakeDamageInfo &info )
 	{
 		CBaseCombatWeapon *weapon = player->GetActiveWeapon();
 
-		if (weapon && !stricmp(weapon->GetName(), "weapon_crowbar"))
+		if (weapon && !stricmp(weapon->GetName(), "weapon_wrench"))
 		{
 			// play the normal use sound
 			player->EmitSound( "HL2Player.Use" );

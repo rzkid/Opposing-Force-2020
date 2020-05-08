@@ -137,7 +137,7 @@ void CBaseHLBludgeonWeapon::Hit( trace_t &traceHit, Activity nHitActivity, bool 
 	CBasePlayer *pPlayer = ToBasePlayer( GetOwner() );
 	
 	//Do view kick
-	AddViewKick();
+//	AddViewKick();
 
 	//Make sound for the AI
 	CSoundEnt::InsertSound( SOUND_BULLET_IMPACT, traceHit.endpos, 400, 0.2f, pPlayer );
@@ -303,6 +303,8 @@ void CBaseHLBludgeonWeapon::Swing( int bIsSecondary )
 	Vector swingStart = pOwner->Weapon_ShootPosition( );
 	Vector forward;
 
+
+
 	forward = pOwner->GetAutoaimVector( AUTOAIM_SCALE_DEFAULT, GetRange() );
 
 	Vector swingEnd = swingStart + forward * GetRange();
@@ -378,6 +380,9 @@ void CBaseHLBludgeonWeapon::Swing( int bIsSecondary )
 	//Setup our next attack times
 	m_flNextPrimaryAttack = gpGlobals->curtime + GetFireRate();
 	m_flNextSecondaryAttack = gpGlobals->curtime + SequenceDuration();
+
+	//Shake the cam
+	AddViewKick();
 
 	//Play swing sound
 	WeaponSound( SINGLE );

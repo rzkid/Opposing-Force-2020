@@ -18,8 +18,8 @@ bool Hunter_IsHunter(CBaseEntity *pEnt);
 
 // call throughs for member functions
 
-//void Hunter_StriderBusterAttached( CBaseEntity *pHunter, CBaseEntity *pAttached );
-//void Hunter_StriderBusterDetached( CBaseEntity *pHunter, CBaseEntity *pAttached );
-//void Hunter_StriderBusterLaunched( CBaseEntity *pBuster );
+void Hunter_StriderBusterAttached(CBaseEntity *pHunter, CBaseEntity *pAttached);
+void Hunter_StriderBusterDetached(CBaseEntity *pHunter, CBaseEntity *pAttached);
+void Hunter_StriderBusterLaunched(CBaseEntity *pBuster);
 
 #endif

@@ -91,6 +91,10 @@ $Project "Server (OF2)"
 			$File	"of2\grenade_spit.h"
 //			$File	"of2\grenade_energy.cpp"
 //			$File	"of2\grenade_energy.h"
+			$File	"episodic\npc_hunter.cpp"
+			$File	"episodic\npc_hunter.h"
+			$File	"weapon_striderbuster.cpp"
+			$File	"weapon_striderbuster.h"
 		}
 
 		$Folder	"HL2 DLL"
@@ -209,8 +213,6 @@ $Project "Server (OF2)"
 			$File	"hl2\npc_zombie.cpp"
 			$File	"hl2\antlion_maker.cpp"
 			$File	"hl2\antlion_maker.h"			
-			$File	"episodic\npc_hunter.cpp"
-			$File	"episodic\npc_hunter.h"
 			
 			$Folder	"Unused"
 			{

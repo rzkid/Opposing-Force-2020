@@ -93,8 +93,10 @@ $Project "Server (OF2)"
 //			$File	"of2\grenade_energy.h"
 			$File	"episodic\npc_hunter.cpp"
 			$File	"episodic\npc_hunter.h"
-			$File	"weapon_striderbuster.cpp"
-			$File	"weapon_striderbuster.h"
+			$File	"episodic\weapon_striderbuster.cpp"
+			$File	"episodic\weapon_striderbuster.h"
+			$File	"of2\npc_mortarsynth.cpp"
+			$File	"of2\npc_mortarsynth.h"
 		}
 
 		$Folder	"HL2 DLL"

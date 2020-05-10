@@ -96,6 +96,8 @@ $Project "Server (OF2)"
 			$File	"episodic\weapon_striderbuster.cpp"
 			$File	"episodic\weapon_striderbuster.h"
 			$File	"of2\npc_mortarsynth.cpp"
+			$File	"of2\grenade_energy.cpp"
+			$File	"of2\grenade_energy.h"
 			$File	"of2\npc_mortarsynth.h"
 		}
 

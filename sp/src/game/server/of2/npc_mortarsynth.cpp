@@ -88,15 +88,15 @@ enum MSynth_Conds
 
 BEGIN_DATADESC( CNPC_MSynth )
 
-	DEFINE_FIELD( CNPC_MSynth,	m_lastHurtTime,				FIELD_FLOAT ),
+//	DEFINE_FIELD( CNPC_MSynth,	m_lastHurtTime,				FIELD_FLOAT ),
 
-	DEFINE_FIELD( CNPC_MSynth,	m_pEnergyBeam,				FIELD_CLASSPTR ),
-	DEFINE_ARRAY( CNPC_MSynth,	m_pEnergyGlow,				FIELD_CLASSPTR,		MSYNTH_NUM_GLOWS ),
+//	DEFINE_FIELD( CNPC_MSynth,	m_pEnergyBeam,				FIELD_CLASSPTR ),
+//	DEFINE_ARRAY( CNPC_MSynth,	m_pEnergyGlow,				FIELD_CLASSPTR,		MSYNTH_NUM_GLOWS ),
 
-	DEFINE_FIELD( CNPC_MSynth,	m_fNextEnergyAttackTime,	FIELD_TIME),
-	DEFINE_FIELD( CNPC_MSynth,	m_fNextFlySoundTime,		FIELD_TIME),
+//	DEFINE_FIELD( CNPC_MSynth,	m_fNextEnergyAttackTime,	FIELD_TIME),
+//	DEFINE_FIELD( CNPC_MSynth,	m_fNextFlySoundTime,		FIELD_TIME),
 
-	DEFINE_FIELD( CNPC_MSynth,	m_vCoverPosition,			FIELD_POSITION_VECTOR),
+//	DEFINE_FIELD( CNPC_MSynth,	m_vCoverPosition,			FIELD_POSITION_VECTOR),
 
 END_DATADESC()
 
@@ -899,7 +899,7 @@ void CNPC_MSynth::StartTask( const Task_t *pTask )
 		{
 			if (!m_pHintNode )
 			{
-				m_pHintNode = CAI_Hint::FindHint( this, HINT_NONE, pTask->flTaskData, 5000 );
+				m_pHintNode = CAI_HintManager::FindHint(this, HINT_NONE, pTask->flTaskData, 5000);
 			}
 			if ( m_pHintNode)
 			{

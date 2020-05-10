@@ -1856,10 +1856,11 @@ public:
 	Vector				m_vSavePosition;			// position stored by code that called this schedules
 	Vector				m_vInterruptSavePosition;	// position stored by a task that was interrupted
 
-private:
-	CHandle<CAI_Hint>	m_pHintNode;				// this is the hint that the npc is moving towards or performing active idle on.
+//private:
+					// this is the hint that the npc is moving towards or performing active idle on.
 
 public:
+    CHandle<CAI_Hint>	m_pHintNode;
 	int					m_cAmmoLoaded;				// how much ammo is in the weapon (used to trigger reload anim sequences)
 	float				m_flDistTooFar;				// if enemy farther away than this, bits_COND_ENEMY_TOOFAR set in GatherEnemyConditions
 	string_t			m_spawnEquipment;

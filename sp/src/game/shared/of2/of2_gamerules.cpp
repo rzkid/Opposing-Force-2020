@@ -1840,10 +1840,10 @@ CAmmoDef *GetAmmoDef()
 
 		def.AddAmmoType("9mm",              DMG_BULLET, TRACER_LINE_AND_WHIZ, "sk_plr_dmg_9mm",          "sk_npc_dmg_9mm",          "sk_max_9mm",          BULLET_IMPULSE(147, 1000), 0);
 		def.AddAmmoType("7_62mm",           DMG_BULLET, TRACER_NONE,          "sk_plr_dmg_sniper_round", "sk_npc_dmg_sniper_round", "sk_max_sniper_round", BULLET_IMPULSE(650, 6000), 0);
-		def.AddAmmoType("5_56mm",           DMG_BULLET, TRACER_NONE,          "sk_plr_dmg_sniper_round", "sk_npc_dmg_sniper_round", "sk_max_m16_round",	   BULLET_IMPULSE(650, 6000), 0);
+		def.AddAmmoType("5_56mm",           DMG_BULLET, TRACER_NONE,          "sk_plr_dmg_m16_round",	 "sk_npc_dmg_m16_round",	"sk_max_m16_round",	   BULLET_IMPULSE(650, 2000), 0);
 		def.AddAmmoType("Slug_Round",       DMG_BULLET, TRACER_LINE,          "sk_plr_dmg_shotgun",      "sk_npc_dmg_shotgun",      "sk_max_shotgun",      BULLET_IMPULSE(546, 1476), 0);
 
-		def.AddAmmoType("50cal", DMG_BULLET, TRACER_NONE, "sk_plr_dmg_50cal", "sk_npc_dmg_50cal", "sk_max_50cal", BULLET_IMPULSE(650, 6000), 0);
+		def.AddAmmoType("50cal",			DMG_BULLET, TRACER_NONE,		  "sk_plr_dmg_50cal",		 "sk_npc_dmg_50cal",		"sk_max_50cal",		   BULLET_IMPULSE(650, 6000), 0);
 
 		def.AddAmmoType("Combine_Round",	DMG_BULLET, TRACER_LINE_AND_WHIZ, "sk_plr_dmg_combine_round",      "sk_npc_dmg_combine_round",     "sk_max_combine_round", BULLET_IMPULSE(147, 1000), 0);
 

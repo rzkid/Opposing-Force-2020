@@ -493,7 +493,7 @@ void CBaseViewModel::CalcViewModelLag( Vector& origin, QAngle& angles, QAngle& o
 		VectorMA( m_vecLastFacing, flSpeed * gpGlobals->frametime, vDifference, m_vecLastFacing );
 		// Make sure it doesn't grow out of control!!!
 		VectorNormalize( m_vecLastFacing );
-		VectorMA( origin, 5.0f, vDifference * -1.0f, origin );
+		VectorMA( origin, 2.5f, vDifference * -1.0f, origin );
 
 		Assert( m_vecLastFacing.IsValid() );
 	}
@@ -514,9 +514,9 @@ void CBaseViewModel::CalcViewModelLag( Vector& origin, QAngle& angles, QAngle& o
 	}
 
 	//FIXME: These are the old settings that caused too many exposed polys on some models
-	VectorMA( origin, -pitch * 0.035f,	forward,	origin );
-	VectorMA( origin, -pitch * 0.03f,		right,	origin );
-	VectorMA( origin, -pitch * 0.02f,		up,		origin);
+	VectorMA( origin, -pitch * 0.0175f,	forward,	origin );
+	VectorMA( origin, -pitch * 0.015f,		right,	origin );
+	VectorMA( origin, -pitch * 0.01f,		up,		origin);
 }
 
 //-----------------------------------------------------------------------------

@@ -463,6 +463,8 @@ void CNPC_Houndeye::Precache()
 
 	PrecacheParticleSystem("houndeye_shockwave");
 
+	m_iSpriteTexture = PrecacheModel("sprites/shockwave.vmt");
+
 	UTIL_PrecacheOther("grenade_energy");
 	BaseClass::Precache();
 }
@@ -641,8 +643,50 @@ void CNPC_Houndeye::SonicAttack(void)
 	CPASAttenuationFilter filter(this);
 	EmitSound(filter, entindex(), "NPC_HoundEye.SonicAttack");
 
+
+	CBroadcastRecipientFilter filter2;
+	te->BeamRingPoint(filter2, 0.0,
+		GetAbsOrigin(),							//origin
+		16,										//start radius
+		HOUNDEYE_MAX_ATTACK_RADIUS,//end radius
+		m_iSpriteTexture,						//texture
+		0,										//halo index
+		0,										//start frame
+		0,										//framerate
+		0.2,									//life
+		24,									//width
+		16,										//spread
+		0,										//amplitude
+		WriteBeamColor().x,						//r
+		WriteBeamColor().y,						//g
+		WriteBeamColor().z,						//b
+		192,									//a
+		0										//speed
+		);
+
+	CBroadcastRecipientFilter filter3;
+	te->BeamRingPoint(filter3, 0.0,
+		GetAbsOrigin(),									//origin
+		16,												//start radius
+		HOUNDEYE_MAX_ATTACK_RADIUS / 2,											//end radius
+		m_iSpriteTexture,								//texture
+		0,												//halo index
+		0,												//start frame
+		0,												//framerate
+		0.2,											//life
+		24,											//width
+		16,												//spread
+		0,												//amplitude
+		WriteBeamColor().x,								//r
+		WriteBeamColor().y,								//g
+		WriteBeamColor().z,								//b
+		192,											//a
+		0												//speed
+		);
+
+
 	CBaseEntity *pEntity = NULL;
-	DispatchParticleEffect("houndeye_shockwave", PATTACH_ROOTBONE_FOLLOW);
+	DispatchParticleEffect("houndeye_shockwave", PATTACH_ABSORIGIN);
 	// iterate on all entities in the vicinity.
 	while ((pEntity = gEntList.FindEntityInSphere(pEntity, GetAbsOrigin(), HOUNDEYE_MAX_ATTACK_RADIUS)) != NULL)
 	{

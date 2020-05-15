@@ -3057,8 +3057,8 @@ int CNPC_Strider::OnTakeDamage_Alive(const CTakeDamageInfo &info)
 		return 0;
 
 	// special interaction with combine balls
-//	if (UTIL_IsCombineBall(info.GetInflictor()))
-//		return TakeDamageFromCombineBall(info);
+	if (UTIL_IsCombineBall(info.GetInflictor()))
+		return TakeDamageFromCombineBall(info);
 
 	if (info.GetDamageType() == DMG_GENERIC)
 		return BaseClass::OnTakeDamage_Alive(info);
@@ -3187,15 +3187,15 @@ int CNPC_Strider::TakeDamageFromCombineBall(const CTakeDamageInfo &info)
 	float damage = info.GetDamage();
 
 	// If it's only an AR2 alt-fire, we don't take much damage
-/*	if (UTIL_IsAR2CombineBall(info.GetInflictor()))
+	if (UTIL_IsAR2CombineBall(info.GetInflictor()))
 	{
 		damage = strider_ar2_altfire_dmg.GetFloat();
-	}*/
-	//else
-//	{
+	}
+	else
+	{
 		// Always start smoking when we're struck by a normal combine ball
 		StartSmoking();
-//	}
+	}
 
 	if (info.GetAttacker() && info.GetAttacker()->IsPlayer())
 	{
@@ -3204,9 +3204,9 @@ int CNPC_Strider::TakeDamageFromCombineBall(const CTakeDamageInfo &info)
 	}
 
 	AddFacingTarget(info.GetInflictor(), info.GetInflictor()->GetAbsOrigin(), 0.5, 2.0);
-//	if (!UTIL_IsAR2CombineBall(info.GetInflictor()))
-//		RestartGesture(ACT_GESTURE_BIG_FLINCH);
-//	else
+	if (!UTIL_IsAR2CombineBall(info.GetInflictor()))
+		RestartGesture(ACT_GESTURE_BIG_FLINCH);
+	else
 		RestartGesture(ACT_GESTURE_SMALL_FLINCH);
 
 	PainSound(info);
@@ -3221,7 +3221,7 @@ int CNPC_Strider::TakeDamageFromCombineBall(const CTakeDamageInfo &info)
 void CNPC_Strider::Event_Killed(const CTakeDamageInfo &info)
 {
 	// Do a special death if we're killed by a combine ball in the Citadel
-/*	if (info.GetInflictor() && UTIL_IsCombineBall(info.GetInflictor()))
+	if (info.GetInflictor() && UTIL_IsCombineBall(info.GetInflictor()))
 	{
 		if (m_lifeState == LIFE_DYING)
 			return;
@@ -3236,13 +3236,13 @@ void CNPC_Strider::Event_Killed(const CTakeDamageInfo &info)
 		// Stop our mini-cannon
 		m_pMinigun->StopShootingForSeconds(this, m_pMinigun->GetTarget(), 100.0f);
 	}
-	else*/
-//	{
+	else
+	{
 		StopSmoking();
 
 		m_BoneFollowerManager.DestroyBoneFollowers();
 
-//	}
+	}
 
 	if (IsUsingAggressiveBehavior())
 	{
@@ -3322,8 +3322,8 @@ bool CNPC_Strider::ShouldExplodeFromDamage(const CTakeDamageInfo &info)
 		return false;
 
 	// Combine balls make us explode
-//	if (UTIL_IsCombineBall(info.GetInflictor()))
-//		return true;
+	if (UTIL_IsCombineBall(info.GetInflictor()))
+		return true;
 
 	// Stickybombs make us explode
 	CBaseEntity *pAttacker = info.GetAttacker();

@@ -99,6 +99,8 @@ $Project "Server (OF2)"
 			$File	"of2\grenade_energy.cpp"
 			$File	"of2\grenade_energy.h"
 			$File	"of2\npc_mortarsynth.h"
+			$File	"hl2\prop_combine_ball.h"
+			$File	"hl2\prop_combine_ball.cpp"
 		}
 
 		$Folder	"HL2 DLL"

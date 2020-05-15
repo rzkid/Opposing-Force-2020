@@ -194,15 +194,14 @@ bool C_BaseViewModel::Interpolate( float currentTime )
 
 inline bool C_BaseViewModel::ShouldFlipViewModel()
 {
-#ifdef CSTRIKE_DLL
+
 	// If cl_righthand is set, then we want them all right-handed.
 	CBaseCombatWeapon *pWeapon = m_hWeapon.Get();
 	if ( pWeapon )
 	{
 		const FileWeaponInfo_t *pInfo = &pWeapon->GetWpnData();
-		return pInfo->m_bAllowFlipping && pInfo->m_bBuiltRightHanded != cl_righthand.GetBool();
+		return pInfo->m_bAllowFlipping && pInfo->m_bBuiltRightHanded;
 	}
-#endif
 
 #ifdef TF_CLIENT_DLL
 	CBaseCombatWeapon *pWeapon = m_hWeapon.Get();

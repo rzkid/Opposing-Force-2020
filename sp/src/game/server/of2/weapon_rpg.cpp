@@ -28,14 +28,6 @@
 #include "rumble_shared.h"
 #include "gamestats.h"
 
-#ifdef PORTAL
-	#include "portal_util_shared.h"
-#endif
-
-#ifdef HL2_DLL
-	extern int g_interactionPlayerLaunchedRPG;
-#endif
-
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 

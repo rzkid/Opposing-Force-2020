@@ -22,6 +22,7 @@
 
 // Ammo counts given by ammo items
 #define SIZE_AMMO_PISTOL			20
+#define SIZE_AMMO_SAW_BOX			100
 #define SIZE_AMMO_9MM_PIST          17
 #define SIZE_AMMO_PISTOL_LARGE		100
 #define SIZE_AMMO_SMG1				45

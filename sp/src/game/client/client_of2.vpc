@@ -114,6 +114,7 @@ $Project "Client (OF2)"
 			$File	"of2\hud_scope.cpp"
 			$File	"hl2\c_prop_combine_ball.cpp"
 			$File	"hl2\c_prop_combine_ball.h"
+			$File	"hl2\c_func_tankmortar.cpp"
 		}
 	}
 }

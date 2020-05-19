@@ -6091,6 +6091,7 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveAmmo(400, "CombineGrenade");
 		GiveAmmo(400, "Snark");
 		GiveAmmo(400, "50cal");
+		GiveAmmo(400, "saw_ammo");
 #else
 		// Give the player everything!
 		GiveAmmo( 255,	"Pistol");
@@ -6117,6 +6118,7 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 		GiveNamedItem( "weapon_wrench" );
 		GiveNamedItem( "weapon_snark");
 		GiveNamedItem( "weapon_deagle");
+		GiveNamedItem( "weapon_saw");
 #else
 		GiveNamedItem( "weapon_smg1" );
 		GiveNamedItem( "weapon_frag" );

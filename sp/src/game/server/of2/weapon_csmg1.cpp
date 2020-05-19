@@ -378,16 +378,6 @@ void CWeaponCSMG1::FireCombineBalls( void )
 	Vector vecAiming	= pPlayer->GetAutoaimVector( AUTOAIM_SCALE_DEFAULT );	
 	Vector vecVelocity = vecAiming * dev_weapon_csmg1_alt_fire_vel.GetFloat();
 
-#ifdef HL2_DLL
-	CreateCombineBall2(	vecSrc, 
-						vecVelocity,
-						dev_weapon_csmg1_alt_fire_radius.GetFloat(),
-						dev_weapon_csmg1_alt_fire_mass.GetFloat(),
-						dev_weapon_csmg1_alt_fire_duration.GetFloat(),
-						pPlayer, 
-						1 );
-#endif
-
 	pPlayer->SetMuzzleFlashTime( gpGlobals->curtime + 0.5 );
 
 	CSoundEnt::InsertSound( SOUND_COMBAT, GetAbsOrigin(), 600, 0.2, GetOwner() );
@@ -485,10 +475,6 @@ void CWeaponCSMG1::PrimaryAttack( void )
 //-----------------------------------------------------------------------------
 void CWeaponCSMG1::SecondaryAttack( void )
 {
-	if (dev_csmg1_altfire.GetInt() == 1)
-	{
-		FireCombineBalls();
-	}
 }
 
 

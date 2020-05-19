@@ -364,7 +364,7 @@ void CFuncTank::InputFindNPCToManTank( inputdata_t &inputdata )
 			if ( pNPC->GetBehavior( &pBehavior ) )
 			{
 				m_hController = pNPC;
-				pBehavior->SetFuncTank( this );
+				//pBehavior->SetFuncTank( this );
 				NPC_SetInRoute( true );
 				return;
 			}
@@ -417,7 +417,7 @@ void CFuncTank::InputForceNPCOff( inputdata_t &inputdata )
 	CAI_FuncTankBehavior *pBehavior;
 	if ( pNPC->GetBehavior( &pBehavior ) )
 	{
-		pBehavior->Dismount();
+	//	pBehavior->Dismount();
 	}
 
 	m_hController = NULL;
@@ -518,7 +518,7 @@ void CFuncTank::NPC_FindController( void )
 	if ( pClosestNPC )
 	{
 		m_hController = pClosestNPC;
-		pClosestBehavior->SetFuncTank( this );
+		//pClosestBehavior->SetFuncTank( this );
 		NPC_SetInRoute( true );
 	}
 }
@@ -1368,7 +1368,7 @@ void CFuncTank::NPC_InterruptRoute( void )
 	CAI_FuncTankBehavior *pBehavior;
 	if ( pNPC->GetBehavior( &pBehavior ) )
 	{
-		pBehavior->SetFuncTank( NULL );
+		//pBehavior->SetFuncTank( NULL );
 	}
 
 	// Reset the npc controller.
@@ -1404,7 +1404,7 @@ bool CFuncTank::NPC_InterruptController( void )
 	CAI_FuncTankBehavior *pBehavior;
 	if ( pNPC->GetBehavior( &pBehavior ) )
 	{
-		pBehavior->Dismount();
+		//pBehavior->Dismount();
 	}
 
 	m_hController = NULL;

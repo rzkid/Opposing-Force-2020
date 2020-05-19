@@ -2763,6 +2763,7 @@ void CAI_ChangeHintGroup::InputActivate( inputdata_t &inputdata )
 #define SF_CAMERA_PLAYER_SNAP_TO		16
 #define SF_CAMERA_PLAYER_NOT_SOLID		32
 #define SF_CAMERA_PLAYER_INTERRUPT		64
+#define SF_CAMERA_PLAYER_SETFOV			128
 
 
 //-----------------------------------------------------------------------------
@@ -2771,24 +2772,39 @@ void CAI_ChangeHintGroup::InputActivate( inputdata_t &inputdata )
 class CTriggerCamera : public CBaseEntity
 {
 public:
-	DECLARE_CLASS( CTriggerCamera, CBaseEntity );
+	DECLARE_CLASS(CTriggerCamera, CBaseEntity);
+	// script description
+	//DECLARE_ENT_SCRIPTDESC();
 
-	void Spawn( void );
-	bool KeyValue( const char *szKeyName, const char *szValue );
-	void Enable( void );
-	void Disable( void );
-	void Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value );
-	void FollowTarget( void );
+
+	CTriggerCamera();
+	void Spawn(void);
+	bool KeyValue(const char *szKeyName, const char *szValue);
+	void Enable(void);
+	void Disable(void);
+	void SetPlayer(CBaseEntity *pPlayer);
+	void Use(CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value);
+	void FollowTarget(void);
 	void Move(void);
+	void StartCameraShot(const char *pszShotType, CBaseEntity *pSceneEntity, CBaseEntity *pActor1, CBaseEntity *pActor2, float duration);
+//	int ScriptGetFov(void);
+//	void ScriptSetFov(int iFOV, float rate);
 
 	// Always transmit to clients so they know where to move the view to
 	virtual int UpdateTransmitState();
-	
+
 	DECLARE_DATADESC();
 
 	// Input handlers
-	void InputEnable( inputdata_t &inputdata );
-	void InputDisable( inputdata_t &inputdata );
+	void InputEnable(inputdata_t &inputdata);
+	void InputDisable(inputdata_t &inputdata);
+	void InputSetTarget(inputdata_t &inputdata);
+	void InputSetTargetAttachment(inputdata_t &inputdata);
+	void InputReturnToEyes(inputdata_t &inputdata);
+	void InputTeleportToView(inputdata_t &inputdata);
+	void InputSetTrackSpeed(inputdata_t &inputdata);
+	void InputSetPath(inputdata_t &inputdata);
+
 
 private:
 	EHANDLE m_hPlayer;
@@ -2808,12 +2824,13 @@ private:
 	int	  m_state;
 	Vector m_vecMoveDir;
 
+	float m_fov;
+	float m_fovSpeed;
 
 	string_t m_iszTargetAttachment;
 	int	  m_iAttachmentIndex;
 	bool  m_bSnapToGoal;
 
-#if HL2_EPISODIC
 	bool  m_bInterpolatePosition;
 
 	// these are interpolation vars used for interpolating the camera over time
@@ -2821,7 +2838,6 @@ private:
 	float m_flInterpStartTime;
 
 	const static float kflPosInterpTime; // seconds
-#endif
 
 	int   m_nPlayerButtons;
 	int m_nOldTakeDamage;
@@ -2830,50 +2846,64 @@ private:
 	COutputEvent m_OnEndFollow;
 };
 
-#if HL2_EPISODIC
 const float CTriggerCamera::kflPosInterpTime = 2.0f;
-#endif
+
 
 LINK_ENTITY_TO_CLASS( point_viewcontrol, CTriggerCamera );
 
-BEGIN_DATADESC( CTriggerCamera )
+BEGIN_DATADESC(CTriggerCamera)
 
-	DEFINE_FIELD( m_hPlayer, FIELD_EHANDLE ),
-	DEFINE_FIELD( m_hTarget, FIELD_EHANDLE ),
-	DEFINE_FIELD( m_pPath, FIELD_CLASSPTR ),
-	DEFINE_FIELD( m_sPath, FIELD_STRING ),
-	DEFINE_FIELD( m_flWait, FIELD_FLOAT ),
-	DEFINE_FIELD( m_flReturnTime, FIELD_TIME ),
-	DEFINE_FIELD( m_flStopTime, FIELD_TIME ),
-	DEFINE_FIELD( m_moveDistance, FIELD_FLOAT ),
-	DEFINE_FIELD( m_targetSpeed, FIELD_FLOAT ),
-	DEFINE_FIELD( m_initialSpeed, FIELD_FLOAT ),
-	DEFINE_FIELD( m_acceleration, FIELD_FLOAT ),
-	DEFINE_FIELD( m_deceleration, FIELD_FLOAT ),
-	DEFINE_FIELD( m_state, FIELD_INTEGER ),
-	DEFINE_FIELD( m_vecMoveDir, FIELD_VECTOR ),
-	DEFINE_KEYFIELD( m_iszTargetAttachment, FIELD_STRING, "targetattachment" ),
-	DEFINE_FIELD( m_iAttachmentIndex, FIELD_INTEGER ),
-	DEFINE_FIELD( m_bSnapToGoal, FIELD_BOOLEAN ),
-#if HL2_EPISODIC
-	DEFINE_KEYFIELD( m_bInterpolatePosition, FIELD_BOOLEAN, "interpolatepositiontoplayer" ),
-	DEFINE_FIELD( m_vStartPos, FIELD_VECTOR ),
-	DEFINE_FIELD( m_vEndPos, FIELD_VECTOR ),
-	DEFINE_FIELD( m_flInterpStartTime, FIELD_TIME ),
-#endif
-	DEFINE_FIELD( m_nPlayerButtons, FIELD_INTEGER ),
-	DEFINE_FIELD( m_nOldTakeDamage, FIELD_INTEGER ),
+DEFINE_FIELD(m_hPlayer, FIELD_EHANDLE),
+DEFINE_FIELD(m_hTarget, FIELD_EHANDLE),
+DEFINE_FIELD(m_pPath, FIELD_CLASSPTR),
+DEFINE_FIELD(m_sPath, FIELD_STRING),
+DEFINE_FIELD(m_flWait, FIELD_FLOAT),
+DEFINE_FIELD(m_flReturnTime, FIELD_TIME),
+DEFINE_FIELD(m_flStopTime, FIELD_TIME),
+DEFINE_FIELD(m_moveDistance, FIELD_FLOAT),
+DEFINE_FIELD(m_targetSpeed, FIELD_FLOAT),
+DEFINE_FIELD(m_initialSpeed, FIELD_FLOAT),
+DEFINE_FIELD(m_acceleration, FIELD_FLOAT),
+DEFINE_FIELD(m_deceleration, FIELD_FLOAT),
+DEFINE_FIELD(m_state, FIELD_INTEGER),
+DEFINE_FIELD(m_vecMoveDir, FIELD_VECTOR),
+DEFINE_KEYFIELD(m_iszTargetAttachment, FIELD_STRING, "targetattachment"),
+DEFINE_FIELD(m_iAttachmentIndex, FIELD_INTEGER),
+DEFINE_FIELD(m_bSnapToGoal, FIELD_BOOLEAN),
+//#if HL2_EPISODIC
+DEFINE_KEYFIELD(m_bInterpolatePosition, FIELD_BOOLEAN, "interpolatepositiontoplayer"),
+DEFINE_FIELD(m_vStartPos, FIELD_VECTOR),
+DEFINE_FIELD(m_vEndPos, FIELD_VECTOR),
+DEFINE_FIELD(m_flInterpStartTime, FIELD_TIME),
+//#endif
+DEFINE_FIELD(m_nPlayerButtons, FIELD_INTEGER),
+DEFINE_FIELD(m_nOldTakeDamage, FIELD_INTEGER),
 
-	// Inputs
-	DEFINE_INPUTFUNC( FIELD_VOID, "Enable", InputEnable ),
-	DEFINE_INPUTFUNC( FIELD_VOID, "Disable", InputDisable ),
+DEFINE_KEYFIELD(m_fov, FIELD_FLOAT, "fov"),
+DEFINE_KEYFIELD(m_fovSpeed, FIELD_FLOAT, "fov_rate"),
 
-	// Function Pointers
-	DEFINE_FUNCTION( FollowTarget ),
-	DEFINE_OUTPUT( m_OnEndFollow, "OnEndFollow" ),
+// Inputs
+DEFINE_INPUTFUNC(FIELD_VOID, "Enable", InputEnable),
+DEFINE_INPUTFUNC(FIELD_VOID, "Disable", InputDisable),
+//DEFINE_INPUTFUNC(FIELD_STRING, "SetTarget", InputSetTarget),
+//DEFINE_INPUTFUNC(FIELD_STRING, "SetTargetAttachment", InputSetTargetAttachment),
+//DEFINE_INPUTFUNC(FIELD_VOID, "ReturnToEyes", InputReturnToEyes),
+//DEFINE_INPUTFUNC(FIELD_VOID, "TeleportToView", InputTeleportToView),
+//DEFINE_INPUTFUNC(FIELD_FLOAT, "SetTrackSpeed", InputSetTrackSpeed),
+//DEFINE_INPUTFUNC(FIELD_STRING, "SetPath", InputSetPath),
+
+// Function Pointers
+DEFINE_FUNCTION(FollowTarget),
+DEFINE_OUTPUT(m_OnEndFollow, "OnEndFollow"),
 
 END_DATADESC()
 
+
+CTriggerCamera::CTriggerCamera()
+{
+	m_fov = 90;
+	m_fovSpeed = 1;
+}
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
@@ -2961,25 +2991,25 @@ void CTriggerCamera::InputDisable( inputdata_t &inputdata )
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-void CTriggerCamera::Enable( void )
+void CTriggerCamera::Enable(void)
 {
 	m_state = USE_ON;
 
-	if ( !m_hPlayer || !m_hPlayer->IsPlayer() )
+	if (!m_hPlayer || !m_hPlayer->IsPlayer())
 	{
 		m_hPlayer = UTIL_GetLocalPlayer();
 	}
 
-	if ( !m_hPlayer )
+	if (!m_hPlayer)
 	{
 		DispatchUpdateTransmitState();
 		return;
 	}
 
-	Assert( m_hPlayer->IsPlayer() );
+	Assert(m_hPlayer->IsPlayer());
 	CBasePlayer *pPlayer = NULL;
 
-	if ( m_hPlayer->IsPlayer() )
+	if (m_hPlayer->IsPlayer())
 	{
 		pPlayer = ((CBasePlayer*)m_hPlayer.Get());
 	}
@@ -2995,9 +3025,9 @@ void CTriggerCamera::Enable( void )
 		if (pPrevViewControl && pPrevViewControl != pPlayer)
 		{
 			CTriggerCamera *pOtherCamera = dynamic_cast<CTriggerCamera *>(pPrevViewControl);
-			if ( pOtherCamera )
+			if (pOtherCamera)
 			{
-				if ( pOtherCamera == this )
+				if (pOtherCamera == this)
 				{
 					// what the hell do you think you are doing?
 					Warning("Viewcontrol %s was enabled twice in a row!\n", GetDebugName());
@@ -3014,27 +3044,39 @@ void CTriggerCamera::Enable( void )
 
 	m_nPlayerButtons = pPlayer->m_nButtons;
 
-	
+
 	// Make the player invulnerable while under control of the camera.  This will prevent situations where the player dies while under camera control but cannot restart their game due to disabled player inputs.
 	m_nOldTakeDamage = m_hPlayer->m_takedamage;
 	m_hPlayer->m_takedamage = DAMAGE_NO;
-	
-	if ( HasSpawnFlags( SF_CAMERA_PLAYER_NOT_SOLID ) )
+
+	if (HasSpawnFlags(SF_CAMERA_PLAYER_NOT_SOLID))
 	{
-		m_hPlayer->AddSolidFlags( FSOLID_NOT_SOLID );
+		m_hPlayer->AddSolidFlags(FSOLID_NOT_SOLID);
 	}
-	
+
 	m_flReturnTime = gpGlobals->curtime + m_flWait;
 	m_flSpeed = m_initialSpeed;
 	m_targetSpeed = m_initialSpeed;
 
 	// this pertains to view angles, not translation.
-	if ( HasSpawnFlags( SF_CAMERA_PLAYER_SNAP_TO ) )
+	if (HasSpawnFlags(SF_CAMERA_PLAYER_SNAP_TO))
 	{
 		m_bSnapToGoal = true;
 	}
 
-	if ( HasSpawnFlags(SF_CAMERA_PLAYER_TARGET ) )
+	if (HasSpawnFlags(SF_CAMERA_PLAYER_SETFOV))
+	{
+		if (pPlayer)
+		{
+			if (pPlayer->GetFOVOwner() && (FClassnameIs(pPlayer->GetFOVOwner(), "point_viewcontrol_multiplayer") || FClassnameIs(pPlayer->GetFOVOwner(), "point_viewcontrol")))
+			{
+				pPlayer->ClearZoomOwner();
+			}
+			pPlayer->SetFOV(this, m_fov, m_fovSpeed);
+		}
+	}
+
+	if (HasSpawnFlags(SF_CAMERA_PLAYER_TARGET))
 	{
 		m_hTarget = m_hPlayer;
 	}
@@ -3044,34 +3086,34 @@ void CTriggerCamera::Enable( void )
 	}
 
 	// If we don't have a target, ignore the attachment / etc
-	if ( m_hTarget )
+	if (m_hTarget)
 	{
 		m_iAttachmentIndex = 0;
-		if ( m_iszTargetAttachment != NULL_STRING )
+		if (m_iszTargetAttachment != NULL_STRING)
 		{
-			if ( !m_hTarget->GetBaseAnimating() )
+			if (!m_hTarget->GetBaseAnimating())
 			{
-				Warning("%s tried to target an attachment (%s) on target %s, which has no model.\n", GetClassname(), STRING(m_iszTargetAttachment), STRING(m_hTarget->GetEntityName()) );
+				Warning("%s tried to target an attachment (%s) on target %s, which has no model.\n", GetClassname(), STRING(m_iszTargetAttachment), STRING(m_hTarget->GetEntityName()));
 			}
 			else
 			{
-				m_iAttachmentIndex = m_hTarget->GetBaseAnimating()->LookupAttachment( STRING(m_iszTargetAttachment) );
-				if ( m_iAttachmentIndex <= 0 )
+				m_iAttachmentIndex = m_hTarget->GetBaseAnimating()->LookupAttachment(STRING(m_iszTargetAttachment));
+				if (!m_iAttachmentIndex)
 				{
-					Warning("%s could not find attachment %s on target %s.\n", GetClassname(), STRING(m_iszTargetAttachment), STRING(m_hTarget->GetEntityName()) );
+					Warning("%s could not find attachment %s on target %s.\n", GetClassname(), STRING(m_iszTargetAttachment), STRING(m_hTarget->GetEntityName()));
 				}
 			}
 		}
 	}
 
-	if (HasSpawnFlags(SF_CAMERA_PLAYER_TAKECONTROL ) )
+	if (HasSpawnFlags(SF_CAMERA_PLAYER_TAKECONTROL))
 	{
 		((CBasePlayer*)m_hPlayer.Get())->EnableControl(FALSE);
 	}
 
-	if ( m_sPath != NULL_STRING )
+	if (m_sPath != NULL_STRING)
 	{
-		m_pPath = gEntList.FindEntityByName( NULL, m_sPath, NULL, m_hPlayer );
+		m_pPath = gEntList.FindEntityByName(NULL, m_sPath, NULL, m_hPlayer);
 	}
 	else
 	{
@@ -3083,53 +3125,48 @@ void CTriggerCamera::Enable( void )
 	{
 		if ( m_pPath->m_flSpeed != 0 )
 			m_targetSpeed = m_pPath->m_flSpeed;
-		
+
 		m_flStopTime += m_pPath->GetDelay();
 	}
 
-
-	// copy over player information. If we're interpolating from
-	// the player position, do something more elaborate.
-#if HL2_EPISODIC
 	if (m_bInterpolatePosition)
 	{
-		// initialize the values we'll spline between
 		m_vStartPos = m_hPlayer->EyePosition();
 		m_vEndPos = GetAbsOrigin();
 		m_flInterpStartTime = gpGlobals->curtime;
-		UTIL_SetOrigin( this, m_hPlayer->EyePosition() );
-		SetLocalAngles( QAngle( m_hPlayer->GetLocalAngles().x, m_hPlayer->GetLocalAngles().y, 0 ) );
+		UTIL_SetOrigin(this, m_hPlayer->EyePosition());
+		SetLocalAngles(QAngle(m_hPlayer->GetLocalAngles().x, m_hPlayer->GetLocalAngles().y, 0));
 
-		SetAbsVelocity( vec3_origin );
+		SetAbsVelocity(vec3_origin);
 	}
 	else
-#endif
-	if (HasSpawnFlags(SF_CAMERA_PLAYER_POSITION ) )
-	{
-		UTIL_SetOrigin( this, m_hPlayer->EyePosition() );
-		SetLocalAngles( QAngle( m_hPlayer->GetLocalAngles().x, m_hPlayer->GetLocalAngles().y, 0 ) );
-		SetAbsVelocity( m_hPlayer->GetAbsVelocity() );
-	}
-	else
-	{
-		SetAbsVelocity( vec3_origin );
-	}
+
+		if (HasSpawnFlags(SF_CAMERA_PLAYER_POSITION))
+		{
+			UTIL_SetOrigin(this, m_hPlayer->EyePosition());
+			SetLocalAngles(QAngle(m_hPlayer->GetLocalAngles().x, m_hPlayer->GetLocalAngles().y, 0));
+			SetAbsVelocity(m_hPlayer->GetAbsVelocity());
+		}
+		else
+		{
+			SetAbsVelocity(vec3_origin);
+		}
 
 
-	pPlayer->SetViewEntity( this );
+	pPlayer->SetViewEntity(this);
 
 	// Hide the player's viewmodel
-	if ( pPlayer->GetActiveWeapon() )
+	if (pPlayer->GetActiveWeapon())
 	{
-		pPlayer->GetActiveWeapon()->AddEffects( EF_NODRAW );
+		pPlayer->GetActiveWeapon()->AddEffects(EF_NODRAW);
 	}
 
 	// Only track if we have a target
-	if ( m_hTarget )
+	if (m_hTarget)
 	{
 		// follow the player down
-		SetThink( &CTriggerCamera::FollowTarget );
-		SetNextThink( gpGlobals->curtime );
+		SetThink(&CTriggerCamera::FollowTarget);
+		SetNextThink(gpGlobals->curtime);
 	}
 
 	m_moveDistance = 0;
@@ -3141,33 +3178,39 @@ void CTriggerCamera::Enable( void )
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-void CTriggerCamera::Disable( void )
+void CTriggerCamera::Disable(void)
 {
-	if ( m_hPlayer && m_hPlayer->IsAlive() )
+	if (m_hPlayer)
 	{
-		if ( HasSpawnFlags( SF_CAMERA_PLAYER_NOT_SOLID ) )
+		CBasePlayer *pBasePlayer = (CBasePlayer*)m_hPlayer.Get();
+
+		if (pBasePlayer->IsAlive())
 		{
-			m_hPlayer->RemoveSolidFlags( FSOLID_NOT_SOLID );
+			if (HasSpawnFlags(SF_CAMERA_PLAYER_NOT_SOLID))
+			{
+				pBasePlayer->RemoveSolidFlags(FSOLID_NOT_SOLID);
+			}
+
+			pBasePlayer->SetViewEntity(NULL);
+			pBasePlayer->EnableControl(TRUE);
+			pBasePlayer->m_Local.m_bDrawViewmodel = true;
 		}
 
-		((CBasePlayer*)m_hPlayer.Get())->SetViewEntity( m_hPlayer );
-		((CBasePlayer*)m_hPlayer.Get())->EnableControl(TRUE);
-
-		// Restore the player's viewmodel
-		if ( ((CBasePlayer*)m_hPlayer.Get())->GetActiveWeapon() )
+		if (HasSpawnFlags(SF_CAMERA_PLAYER_SETFOV))
 		{
-			((CBasePlayer*)m_hPlayer.Get())->GetActiveWeapon()->RemoveEffects( EF_NODRAW );
+			pBasePlayer->SetFOV(this, 0, m_fovSpeed);
 		}
+
 		//return the player to previous takedamage state
 		m_hPlayer->m_takedamage = m_nOldTakeDamage;
 	}
 
 	m_state = USE_OFF;
 	m_flReturnTime = gpGlobals->curtime;
-	SetThink( NULL );
+	SetThink(NULL);
 
 	m_OnEndFollow.FireOutput(this, this); // dvsents2: what is the best name for this output?
-	SetLocalAngularVelocity( vec3_angle );
+	SetLocalAngularVelocity(vec3_angle);
 
 	DispatchUpdateTransmitState();
 }
@@ -3305,16 +3348,7 @@ void CTriggerCamera::Move()
 			}
 		}
 	}
-
-	// In vanilla HL2, the camera is either on a path, or doesn't move. In episodic
-	// we add the capacity for interpolation to the start point. 
-#if HL2_EPISODIC
 	if (m_pPath)
-#else
-	// Not moving on a path, return
-	if (!m_pPath)
-		return;
-#endif
 	{
 		// Subtract movement from the previous frame
 		m_moveDistance -= m_flSpeed * gpGlobals->frametime;
@@ -3351,7 +3385,6 @@ void CTriggerCamera::Move()
 		float fraction = 2 * gpGlobals->frametime;
 		SetAbsVelocity( ((m_vecMoveDir * m_flSpeed) * fraction) + (GetAbsVelocity() * (1-fraction)) );
 	}
-#if HL2_EPISODIC
 	else if (m_bInterpolatePosition)
 	{
 		// get the interpolation parameter [0..1]
@@ -3374,7 +3407,6 @@ void CTriggerCamera::Move()
 			SetAbsVelocity( desiredVel );
 		}
 	}
-#endif
 }
 
 

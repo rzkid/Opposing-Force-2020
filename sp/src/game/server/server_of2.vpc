@@ -101,6 +101,7 @@ $Project "Server (OF2)"
 			$File	"of2\npc_mortarsynth.h"
 			$File	"hl2\prop_combine_ball.h"
 			$File	"hl2\prop_combine_ball.cpp"
+			$File	"of2\weapon_saw.cpp"
 		}
 
 		$Folder	"HL2 DLL"
@@ -219,6 +220,8 @@ $Project "Server (OF2)"
 			$File	"hl2\npc_zombie.cpp"
 			$File	"hl2\antlion_maker.cpp"
 			$File	"hl2\antlion_maker.h"			
+			$File	"hl2\func_tank.cpp"			
+			$File	"hl2\func_tank.h"			
 			
 			$Folder	"Unused"
 			{

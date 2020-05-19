@@ -100,6 +100,7 @@ ConVar	sk_plr_grenade_drop_time	( "sk_plr_grenade_drop_time",	"30",   FCVAR_REPL
 
 
 ConVar	sk_max_9mm					( "sk_max_9mm",					"150", FCVAR_REPLICATED );
+ConVar	sk_max_saw					("sk_max_saw",					"200", FCVAR_REPLICATED);
 ConVar	sk_max_sniper_round			( "sk_max_sniper_round",		"400", FCVAR_REPLICATED );
 ConVar	sk_max_m16_round			( "sk_max_m16_round",			"360", FCVAR_REPLICATED );
 ConVar	sk_max_shotgun				( "sk_max_shotgun",				"125", FCVAR_REPLICATED );
@@ -121,6 +122,7 @@ ConVar	sk_max_50cal                ("sk_max_50cal", "28", FCVAR_REPLICATED);
 ConVar  sk_m16_grenade_radius		( "sk_m16_grenade_radius",		"25", FCVAR_REPLICATED);
 
 ConVar  sk_plr_dmg_9mm              ("sk_plr_dmg_9mm", "5", FCVAR_REPLICATED);
+ConVar  sk_plr_dmg_saw				("sk_plr_dmg_saw", "15", FCVAR_REPLICATED);
 ConVar  sk_plr_dmg_50cal            ("sk_plr_dmg_50cal", "60", FCVAR_REPLICATED);
 ConVar  sk_plr_dmg_sniper_round     ("sk_plr_dmg_sniper_round", "120", FCVAR_REPLICATED);
 ConVar	sk_plr_dmg_m16_round        ("sk_plr_dmg_m16_round", "8", FCVAR_REPLICATED);
@@ -133,6 +135,7 @@ ConVar	sk_plr_dmg_combinegrenade   ("sk_plr_dmg_combinegrenade", "125", FCVAR_RE
 
 
 ConVar  sk_npc_dmg_9mm              ("sk_npc_dmg_9mm", "3", FCVAR_REPLICATED);
+ConVar  sk_npc_dmg_saw				("sk_npc_dmg_saw", "0", FCVAR_REPLICATED);
 ConVar  sk_npc_dmg_50cal            ("sk_npc_dmg_50cal", "25", FCVAR_REPLICATED);
 ConVar  sk_npc_dmg_sniper_round     ("sk_npc_dmg_sniper_round", "100", FCVAR_REPLICATED);
 ConVar	sk_npc_dmg_m16_round        ("sk_npc_dmg_m16_round", "3", FCVAR_REPLICATED);
@@ -1842,6 +1845,7 @@ CAmmoDef *GetAmmoDef()
 		def.AddAmmoType("7_62mm",           DMG_BULLET, TRACER_NONE,          "sk_plr_dmg_sniper_round", "sk_npc_dmg_sniper_round", "sk_max_sniper_round", BULLET_IMPULSE(650, 6000), 0);
 		def.AddAmmoType("5_56mm",           DMG_BULLET, TRACER_NONE,          "sk_plr_dmg_m16_round",	 "sk_npc_dmg_m16_round",	"sk_max_m16_round",	   BULLET_IMPULSE(650, 2000), 0);
 		def.AddAmmoType("Slug_Round",       DMG_BULLET, TRACER_LINE,          "sk_plr_dmg_shotgun",      "sk_npc_dmg_shotgun",      "sk_max_shotgun",      BULLET_IMPULSE(546, 1476), 0);
+		def.AddAmmoType("Saw_Ammo",			DMG_BULLET, TRACER_LINE,		  "sk_plr_dmg_saw",			 "sk_npc_dmg_saw",		    "sk_max_saw",		   BULLET_IMPULSE(500, 1600), 0);
 
 		def.AddAmmoType("50cal",			DMG_BULLET, TRACER_NONE,		  "sk_plr_dmg_50cal",		 "sk_npc_dmg_50cal",		"sk_max_50cal",		   BULLET_IMPULSE(650, 6000), 0);
 

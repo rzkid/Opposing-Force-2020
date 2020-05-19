@@ -69,6 +69,37 @@ public:
 };
 LINK_ENTITY_TO_CLASS(item_ammo_pistol, CItem_9MM_PIST);
 
+class CItem_SAW_BOX : public CItem
+{
+public:
+	DECLARE_CLASS(CItem_SAW_BOX, CItem);
+
+	void Spawn(void)
+	{
+		Precache();
+		SetModel("models/items/boxsrounds.mdl");
+		BaseClass::Spawn();
+	}
+	void Precache(void)
+	{
+		PrecacheModel("models/items/boxsrounds.mdl");
+	}
+	bool MyTouch(CBasePlayer *pPlayer)
+	{
+		if (ITEM_GiveAmmo(pPlayer, SIZE_AMMO_SAW_BOX, "Saw_Ammo"))
+		{
+			if (g_pGameRules->ItemShouldRespawn(this) == GR_ITEM_RESPAWN_NO)
+			{
+				UTIL_Remove(this);
+			}
+
+			return true;
+		}
+		return false;
+	}
+};
+LINK_ENTITY_TO_CLASS(item_ammo_saw_box, CItem_SAW_BOX);
+
 // ========================================================================
 //	>> BoxMRounds
 // ========================================================================

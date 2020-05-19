@@ -156,42 +156,7 @@ CWeaponM16::CWeaponM16( void )
 }
 
 
-////-----------------------------------------------------------------------------
-//// Purpose:
-////-----------------------------------------------------------------------------
-//void CWeaponM16::PrimaryAttack( void )
-//{
-//	DevMsg("primary attack!\n");
-//	if (m_bFireOnEmpty)
-//	{
-//		return;
-//	}
-//
-//	m_iBurstNum = GetBurstFireSize();
-//		
-//	// Call the think function directly so that the first round gets fired immediately.
-//	BurstFireThink();
-//	SetThink( &CWeaponM16::BurstFireThink );
-//	m_flNextPrimaryAttack = gpGlobals->curtime + GetBurstFireCycleRate();
-//	//m_flNextSecondaryAttack = gpGlobals->curtime + GetBurstFireCycleRate();
-//
-//	// Pick up the rest of the burst through the think function.
-//	SetNextThink( gpGlobals->curtime );
-//
-//
-//	
-//	CBasePlayer *pOwner = ToBasePlayer( GetOwner() );
-//	if ( pOwner )
-//	{
-//		m_iPrimaryAttacks++;
-//		gamestats->Event_WeaponFired( pOwner, true, GetClassname() );
-//	}
-//}
 
-//-----------------------------------------------------------------------------
-// Purpose:
-//-----------------------------------------------------------------------------
-//void CWeaponM16::FirePrimaryAttackBullet( void )
 void CWeaponM16::PrimaryAttack( void )
 {
 	//DevMsg("bullet\n");
@@ -375,7 +340,7 @@ float	CWeaponM16::GetFireRate( void )
 
 Vector CWeaponM16::GetM16BulletSpread( void )
 {
-	float spread = sin( DEG2RAD( dev_m16_vector_cone.GetFloat() /2.0f ));
+	float spread = sin( DEG2RAD( 1.0f ));
 	return Vector(spread,spread,spread);
 }
 

@@ -767,7 +767,7 @@ static void SetClearColorToFogColor()
 // Precache of necessary materials
 //-----------------------------------------------------------------------------
 
-#ifdef HL2_CLIENT_DLL
+#ifdef CLIENT_DLL
 CLIENTEFFECT_REGISTER_BEGIN( PrecacheViewRender )
 	CLIENTEFFECT_MATERIAL( "scripted/intro_screenspaceeffect" )
 CLIENTEFFECT_REGISTER_END()

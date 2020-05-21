@@ -208,7 +208,7 @@ void CWeaponSAW::PrimaryAttack(void)
 
 	angles.x += random->RandomInt( -1, 1 );
 	angles.y += random->RandomInt( -1, 1 );
-	angles.z = 0;
+	angles.z = random->RandomFloat(-0.25, 0.25);
 
 	pPlayer->SnapEyeAngles( angles );
 
@@ -234,7 +234,7 @@ void CWeaponSAW::SecondaryAttack(void)
 
 float CWeaponSAW::GetFireRate(void)
 {
-	return 60.0 / 900;
+	return 60.0 / 800;
 }
 
 Vector CWeaponSAW::GetSAWBulletSpread(void)

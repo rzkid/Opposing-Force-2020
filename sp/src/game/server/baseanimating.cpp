@@ -1151,7 +1151,6 @@ void CBaseAnimating::HandleAnimEvent( animevent_t *pEvent )
 			BecomeRagdollOnClient( vec3_origin );
 			return;
 		}
-#ifdef HL2_EPISODIC
 		else if ( pEvent->event == AE_SV_DUSTTRAIL )
 		{
 			char szAttachment[128];
@@ -1187,7 +1186,6 @@ void CBaseAnimating::HandleAnimEvent( animevent_t *pEvent )
 
 			return;
 		}
-#endif
 	}
 
 	// Failed to find a handler

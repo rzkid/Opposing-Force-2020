@@ -29,7 +29,7 @@
 //ConVar	sk_plr_dmg_m16_grenade("sk_plr_dmg_m16_grenade", "85");
 
 
-ConVar dev_m16_rpm("dev_m16_rpm", "650", FCVAR_CHEAT);//825
+//ConVar dev_m16_rpm("dev_m16_rpm", "650", FCVAR_CHEAT);//825
 //ConVar dev_m16_bfcr("dev_m16_bfcr","0.5");
 ConVar dev_m16_vector_cone("dev_m16_vector_cone", "0", FCVAR_CHEAT);
 ConVar dev_m16_grenade_velocity("dev_m16_grenade_velocity", "1100", FCVAR_CHEAT);
@@ -335,7 +335,7 @@ void CWeaponM16::SecondaryAttack( void )
 
 float	CWeaponM16::GetFireRate( void )
 {
-	return 60.0/dev_m16_rpm.GetFloat();
+	return 60.0/650.0;
 }
 
 Vector CWeaponM16::GetM16BulletSpread( void )

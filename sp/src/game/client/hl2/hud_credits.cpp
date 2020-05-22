@@ -247,8 +247,8 @@ void CHudCredits::ReadParams( KeyValues *pKeyValue )
 
 	m_cColor = pKeyValue->GetColor( "color" );
 
-	Q_strncpy( m_szLogo, pKeyValue->GetString( "logo", "HALF-LIFE'" ), sizeof( m_szLogo ) );
-	Q_strncpy( m_szLogo2, pKeyValue->GetString( "logo2", "" ), sizeof( m_szLogo2 ) );
+	Q_strncpy( m_szLogo, pKeyValue->GetString( "logo", "H ' L F -L I F E" ), sizeof( m_szLogo ) );
+	Q_strncpy( m_szLogo2, pKeyValue->GetString( "logo2", "== opposing force2 ==" ), sizeof( m_szLogo2 ) );
 }
 
 int CHudCredits::GetStringPixelWidth( wchar_t *pString, vgui::HFont hFont )
@@ -420,7 +420,7 @@ void CHudCredits::DrawLogo( void )
 
 	if ( IsXbox() )
 	{
-		Q_snprintf( szLogoFont, sizeof( szLogoFont ), "WeaponIcons_Small" );
+		Q_snprintf( szLogoFont, sizeof( szLogoFont ), "ClientTitleFont" );
 	}
 	else if ( hl2_episodic.GetBool() )
 	{
@@ -428,7 +428,7 @@ void CHudCredits::DrawLogo( void )
 	}
 	else
 	{
-		Q_snprintf( szLogoFont, sizeof( szLogoFont ), "WeaponIcons" );
+		Q_snprintf( szLogoFont, sizeof( szLogoFont ), "ClientTitleFont" );
 	}
 
 	vgui::HScheme scheme = vgui::scheme()->GetScheme( "ClientScheme" );

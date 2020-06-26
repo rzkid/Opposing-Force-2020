@@ -21,6 +21,7 @@
 #include "gamestats.h"
 #include "rumble_shared.h"
 #include "grenade_m16.h"
+#include "particle_parse.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -60,6 +61,8 @@ public:
 
 	void	AddViewKick( void );
 
+	void	Precache(void);
+
 	float	GetFireRate( void );
 	Vector GetM16BulletSpread( void );
 
@@ -74,6 +77,9 @@ public:
 	void Operator_HandleAnimEvent( animevent_t *pEvent, CBaseCombatCharacter *pOperator );
 
 	//int m_iBurstNum;
+
+private:
+	int		m_nNumShotsFired;
 
 	DECLARE_SERVERCLASS();
 	DECLARE_DATADESC();
@@ -155,7 +161,12 @@ CWeaponM16::CWeaponM16( void )
 	m_bFiresUnderwater	= false;
 }
 
-
+void CWeaponM16::Precache(void)
+{
+	PrecacheParticleSystem("weapon_muzzle_flash_assaultrifle");
+	PrecacheParticleSystem("weapon_muzzle_smoke");
+	BaseClass::Precache();
+}
 
 void CWeaponM16::PrimaryAttack( void )
 {
@@ -187,7 +198,7 @@ void CWeaponM16::PrimaryAttack( void )
 	gamestats->Event_WeaponFired( pPlayer, true, GetClassname() );
 
 	WeaponSound( SINGLE );
-	pPlayer->DoMuzzleFlash();
+//	pPlayer->DoMuzzleFlash();
 
 	SendWeaponAnim( ACT_VM_PRIMARYATTACK );
 	pPlayer->SetAnimation( PLAYER_ATTACK1 );
@@ -224,6 +235,11 @@ void CWeaponM16::PrimaryAttack( void )
 	{
 		// HEV suit - indicate out of ammo condition
 		pPlayer->SetSuitUpdate( "!HEV_AMO0", FALSE, 0 ); 
+	}
+
+	DispatchParticleEffect("weapon_muzzle_flash_assaultrifle", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
+	if (m_nNumShotsFired >= 1){
+		DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
 	}
 }
 

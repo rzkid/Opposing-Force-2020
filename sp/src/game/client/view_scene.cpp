@@ -27,20 +27,6 @@ ConVar r_depthoverlay( "r_depthoverlay", "0", FCVAR_CHEAT, "Replaces opaque obje
 int g_viewscene_refractUpdateFrame = 0;
 bool g_bAllowMultipleRefractUpdatesPerScenePerFrame = false;
 
-#if defined( _X360 )
-class CAllowMultipleRefractsLogic : public CAutoGameSystem
-{
-public:
-	void LevelInitPreEntity()
-	{
-		// EP1 core room needs many refract updates per frame to avoid looking broken (ep1_citadel_03)
-		// Same with Kleiner's lab (d1_trainstation_05)
-		g_bAllowMultipleRefractUpdatesPerScenePerFrame = FStrEq( MapName(), "ep1_citadel_03" ) || FStrEq( MapName(), "d1_trainstation_05" );
-	}
-};
-static CAllowMultipleRefractsLogic s_AllowMultipleRefractsLogic;
-#endif
-
 void ViewTransform( const Vector &worldSpace, Vector &viewSpace )
 {
 	const VMatrix &viewMatrix = engine->WorldToViewMatrix();
@@ -153,3 +139,45 @@ void UpdateFullScreenDepthTexture( void )
 		pMaterial->DecrementReferenceCount();
 	}
 }
+
+//nightfall - amckern - amckern@yahoo.com
+//NightVision
+static void ScreenOver_f(void)
+{
+	IMaterial *pMaterial = materials->FindMaterial("HUDoverlays/nightvision", TEXTURE_GROUP_OTHER, true);
+	//This is the texture we are going to use for the 'effect' - never use an ext on material files
+
+	{
+		static bool bDisplayed = false;
+
+		if (bDisplayed)
+		{
+			// turn it off
+			view->SetScreenOverlayMaterial(NULL);
+			// Deactivate the 'light'
+			cvar->FindVar("mat_fullbright")->SetValue(0);
+			CLocalPlayerFilter filter;
+			C_BaseEntity::EmitSound(filter, 0, "OF2.NightVisOFF");
+			//play the off sound
+		}
+		else
+		{
+			// turn it on
+			view->SetScreenOverlayMaterial(pMaterial);
+			//this is the HUDoverlays/nightvision texture we made a pointer to above
+			// Activate the 'light'
+			cvar->FindVar("mat_fullbright")->SetValue(1);
+			CLocalPlayerFilter filter;
+			C_BaseEntity::EmitSound(filter, 0, "OF2.NightVisOn");
+			//On we go - play a sound to let the player know that the NV is on
+		}
+
+		bDisplayed = !bDisplayed;
+
+		//check if fullbright has been disabled, or enabled
+		if (cvar->FindVar("mat_fullbright")->GetInt() == 1)//is it on?
+			cvar->FindVar("mat_fullbright")->SetValue(0);//well turn it off.
+	}
+}
+
+static ConCommand r_screenover("r_screenover", ScreenOver_f);

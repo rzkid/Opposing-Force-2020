@@ -93,12 +93,12 @@ void C_BaseCombatCharacter::DoMuzzleFlash()
 	C_BaseCombatWeapon *pWeapon = GetActiveWeapon();
 	if ( pWeapon )
 	{
-		pWeapon->DoMuzzleFlash();
+		//pWeapon->DoMuzzleFlash();
 		//NOTENOTE: We do not chain to the base here
 	}
 	else
 	{
-		BaseClass::DoMuzzleFlash();
+		//BaseClass::DoMuzzleFlash();
 	}
 }
 

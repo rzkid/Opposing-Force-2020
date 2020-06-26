@@ -157,6 +157,7 @@ void CEffectsClient::Dust( const Vector &pos, const Vector &dir, float size, flo
 	}
 }
 
+
 void CEffectsClient::MuzzleFlash( const Vector &vecOrigin, const QAngle &vecAngles, float flScale, int iType )
 {
 	CPVSFilter filter( vecOrigin );

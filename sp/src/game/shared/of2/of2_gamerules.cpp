@@ -1851,12 +1851,19 @@ CAmmoDef *GetAmmoDef()
 
 		def.AddAmmoType("Combine_Round",	DMG_BULLET, TRACER_LINE_AND_WHIZ, "sk_plr_dmg_combine_round",      "sk_npc_dmg_combine_round",     "sk_max_combine_round", BULLET_IMPULSE(147, 1000), 0);
 
+		def.AddAmmoType("SniperRound", DMG_BULLET | DMG_SNIPER, TRACER_NONE, "sk_plr_dmg_sniper_round", "sk_npc_dmg_sniper_round", "sk_max_sniper_round", BULLET_IMPULSE(650, 6000), 0);
+		def.AddAmmoType("SniperPenetratedRound", DMG_BULLET | DMG_SNIPER, TRACER_NONE, "sk_dmg_sniper_penetrate_plr", "sk_dmg_sniper_penetrate_npc", "sk_max_sniper_round", BULLET_IMPULSE(150, 6000), 0);
+
 		def.AddAmmoType("RPG_Round",		DMG_BURN,	TRACER_NONE,		  "sk_plr_dmg_rpg_round",	 "sk_npc_dmg_rpg_round",	"sk_max_rpg_round",	   0, 0 );
 		def.AddAmmoType("M16_Grenade",      DMG_BURN,   TRACER_NONE,          "sk_plr_dmg_m16_grenade", "sk_npc_dmg_m16_grenade", "sk_max_m16_grenade", 0, 0);
 		
 		def.AddAmmoType("Grenade",          DMG_BURN,   TRACER_NONE,          "sk_plr_dmg_grenade",      "sk_npc_dmg_grenade",      "sk_max_grenade", 0, 0);
 		def.AddAmmoType("CombineGrenade",   DMG_BLAST, TRACER_NONE,           "sk_plr_dmg_combinegrenade", "sk_npc_dmg_combinegrenade", "sk_max_combinegrenade", 0, 0);
 		def.AddAmmoType("Snark",			DMG_SLASH, TRACER_NONE,			  "sk_snark_dmg_bite",        NULL,						 "sk_max_snark", 0, 0);
+
+		def.AddAmmoType("StriderMinigun", DMG_BULLET, TRACER_LINE, 5, 15, 15, 1.0 * 750 * 12, AMMO_FORCE_DROP_IF_CARRIED); // hit like a 1.0kg weight at 750 ft/s
+		def.AddAmmoType("StriderMinigunDirect", DMG_BULLET, TRACER_LINE, 2, 2, 15, 1.0 * 750 * 12, AMMO_FORCE_DROP_IF_CARRIED); // hit like a 1.0kg weight at 750 ft/s
+		def.AddAmmoType("HelicopterGun", DMG_BULLET, TRACER_LINE_AND_WHIZ, "sk_npc_dmg_helicopter_to_plr", "sk_npc_dmg_helicopter", "sk_max_smg1", BULLET_IMPULSE(400, 1225), AMMO_FORCE_DROP_IF_CARRIED | AMMO_INTERPRET_PLRDAMAGE_AS_DAMAGE_TO_PLAYER);
 
 	}
 

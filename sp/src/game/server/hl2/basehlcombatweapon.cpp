@@ -60,8 +60,6 @@ void CHLMachineGun::PrimaryAttack( void )
 
 	m_nShotsFired++;
 
-	pPlayer->DoMuzzleFlash();
-
 	// To make the firing framerate independent, we may have to fire more than one bullet here on low-framerate systems, 
 	// especially if the weapon we're firing has a really fast rate of fire.
 	int iBulletsToFire = 0;

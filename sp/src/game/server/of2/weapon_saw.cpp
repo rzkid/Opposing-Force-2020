@@ -20,6 +20,7 @@
 #include "te_effect_dispatch.h"
 #include "gamestats.h"
 #include "rumble_shared.h"
+#include "particle_parse.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -51,6 +52,7 @@ public:
 	//void	FirePrimaryAttackBullet( void );
 	void	SecondaryAttack(void);
 
+	void	Precache(void);
 	//void	BurstFireThink( void );
 
 	float	WeaponAutoAimScale()	{ return 0.6f; }
@@ -72,11 +74,16 @@ public:
 	void FireNPCPrimaryAttack(CBaseCombatCharacter *pOperator, Vector &vecShootOrigin, Vector &vecShootDir);
 	void Operator_HandleAnimEvent(animevent_t *pEvent, CBaseCombatCharacter *pOperator);
 
+	
+
 	//int m_iBurstNum;
 
 	DECLARE_SERVERCLASS();
 	DECLARE_DATADESC();
 	DECLARE_ACTTABLE();
+
+private:
+	int		m_nNumShotsFired;
 };
 
 LINK_ENTITY_TO_CLASS(weapon_saw, CWeaponSAW);
@@ -154,6 +161,13 @@ CWeaponSAW::CWeaponSAW(void)
 	m_bFiresUnderwater = false;
 }
 
+void CWeaponSAW::Precache(void)
+{
+	PrecacheParticleSystem("weapon_muzzle_flash_awp");
+	PrecacheParticleSystem("weapon_muzzle_smoke");
+	BaseClass::Precache();
+}
+
 void CWeaponSAW::PrimaryAttack(void)
 {
 	//DevMsg("bullet\n");
@@ -184,7 +198,7 @@ void CWeaponSAW::PrimaryAttack(void)
 	gamestats->Event_WeaponFired(pPlayer, true, GetClassname());
 
 	WeaponSound(SINGLE);
-	pPlayer->DoMuzzleFlash();
+	//pPlayer->DoMuzzleFlash();
 
 	SendWeaponAnim(ACT_VM_PRIMARYATTACK);
 	pPlayer->SetAnimation(PLAYER_ATTACK1);
@@ -217,8 +231,13 @@ void CWeaponSAW::PrimaryAttack(void)
 
 	CSoundEnt::InsertSound(SOUND_COMBAT, GetAbsOrigin(), 600, 0.2, GetOwner());
 
-	Vector vecThrow = vecAiming * -50;
-	pPlayer->SetAbsVelocity( vecThrow );
+	DispatchParticleEffect("weapon_muzzle_flash_awp", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
+	if(m_nNumShotsFired >= 3){
+		DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
+	}
+
+//	Vector vecThrow = vecAiming * -50;
+//	pPlayer->SetAbsVelocity( vecThrow );
 
 	//if (!m_iClip1 && pPlayer->GetAmmoCount(m_iPrimaryAmmoType) <= 0)
 	//{

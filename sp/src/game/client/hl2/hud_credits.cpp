@@ -360,104 +360,93 @@ void CHudCredits::DrawOutroCreditsName( void )
 	}
 }
 
-void CHudCredits::DrawLogo( void )
+void CHudCredits::DrawLogo(void)
 {
-	if( m_iLogoState == LOGO_FADEOFF )
+	if (m_iLogoState == LOGO_FADEOFF)
 	{
-		SetActive( false );
+		SetActive(false);
 		return;
 	}
 
-	switch( m_iLogoState )
+	switch (m_iLogoState)
 	{
-		case LOGO_FADEIN:
+	case LOGO_FADEIN:
+	{
+		float flDeltaTime = (m_flFadeTime - gpGlobals->curtime);
+
+		m_Alpha = MAX(0, RemapValClamped(flDeltaTime, 5.0f, 0, -128, 255));
+
+		if (flDeltaTime <= 0.0f)
 		{
-			float flDeltaTime = ( m_flFadeTime - gpGlobals->curtime );
-
-			m_Alpha = MAX( 0, RemapValClamped( flDeltaTime, 5.0f, 0, -128, 255 ) );
-
-			if ( flDeltaTime <= 0.0f )
-			{
-				m_iLogoState = LOGO_FADEHOLD;
-				m_flFadeTime = gpGlobals->curtime + m_flLogoDesiredLength;
-			}
-
-			break;
+			m_iLogoState = LOGO_FADEHOLD;
+			m_flFadeTime = gpGlobals->curtime + m_flLogoDesiredLength;
 		}
 
-		case LOGO_FADEHOLD:
+		break;
+	}
+
+	case LOGO_FADEHOLD:
+	{
+		if (m_flFadeTime <= gpGlobals->curtime)
 		{
-			if ( m_flFadeTime <= gpGlobals->curtime )
-			{
-				m_iLogoState = LOGO_FADEOUT;
-				m_flFadeTime = gpGlobals->curtime + 2.0f;
-			}
-			break;
+			m_iLogoState = LOGO_FADEOUT;
+			m_flFadeTime = gpGlobals->curtime + 2.0f;
+		}
+		break;
+	}
+
+	case LOGO_FADEOUT:
+	{
+		float flDeltaTime = (m_flFadeTime - gpGlobals->curtime);
+
+		m_Alpha = RemapValClamped(flDeltaTime, 0.0f, 2.0f, 0, 255);
+
+		if (flDeltaTime <= 0.0f)
+		{
+			m_iLogoState = LOGO_FADEOFF;
+			SetActive(false);
 		}
 
-		case LOGO_FADEOUT:
-		{
-			float flDeltaTime = ( m_flFadeTime - gpGlobals->curtime );
-
-			m_Alpha = RemapValClamped( flDeltaTime, 0.0f, 2.0f, 0, 255 );
-
-			if ( flDeltaTime <= 0.0f )
-			{
-				m_iLogoState = LOGO_FADEOFF;
-				SetActive( false );
-			}
-
-			break;
-		}
+		break;
+	}
 	}
 
 	// fill the screen
 	int iWidth, iTall;
 	GetHudSize(iWidth, iTall);
-	SetSize( iWidth, iTall );
+	SetSize(iWidth, iTall);
 
 	char szLogoFont[64];
 
-	if ( IsXbox() )
-	{
-		Q_snprintf( szLogoFont, sizeof( szLogoFont ), "ClientTitleFont" );
-	}
-	else if ( hl2_episodic.GetBool() )
-	{
-		Q_snprintf( szLogoFont, sizeof( szLogoFont ), "ClientTitleFont" );
-	}
-	else
-	{
-		Q_snprintf( szLogoFont, sizeof( szLogoFont ), "ClientTitleFont" );
-	}
+	Q_snprintf(szLogoFont, sizeof(szLogoFont), "ClientTitleFont");
 
-	vgui::HScheme scheme = vgui::scheme()->GetScheme( "ClientScheme" );
-	vgui::HFont m_hTFont = vgui::scheme()->GetIScheme(scheme)->GetFont( szLogoFont );
+	vgui::HScheme scheme = vgui::scheme()->GetScheme("ClientScheme");
+	vgui::HFont m_hTFont = vgui::scheme()->GetIScheme(scheme)->GetFont(szLogoFont);
 
-	int iFontTall = surface()->GetFontTall ( m_hTFont );
+	int iFontTall = surface()->GetFontTall(m_hTFont);
 
 	Color cColor = m_TextColor;
 	cColor[3] = m_Alpha;
-				
-	surface()->DrawSetTextFont( m_hTFont );
-	surface()->DrawSetTextColor( cColor[0], cColor[1], cColor[2], cColor[3]  );
-	
+
+	surface()->DrawSetTextFont(m_hTFont);
+	surface()->DrawSetTextColor(cColor[0], cColor[1], cColor[2], cColor[3]);
+
 	wchar_t unicode[256];
-	g_pVGuiLocalize->ConvertANSIToUnicode( m_szLogo, unicode, sizeof( unicode ) );
+	g_pVGuiLocalize->ConvertANSIToUnicode(m_szLogo, unicode, sizeof(unicode));
 
-	int iStringWidth = GetStringPixelWidth( unicode, m_hTFont ); 
+	int iStringWidth = GetStringPixelWidth(unicode, m_hTFont);
 
-	surface()->DrawSetTextPos( ( iWidth / 2 ) - ( iStringWidth / 2 ), ( iTall / 2 ) - ( iFontTall / 2 ) );
-	surface()->DrawUnicodeString( unicode );
+	surface()->DrawSetTextPos((iWidth / 2) - (iStringWidth / 2), (iTall / 2) - (iFontTall / 2));
+	surface()->DrawUnicodeString(unicode);
 
-	if ( Q_strlen( m_szLogo2 ) > 0 )
+	if (Q_strlen(m_szLogo2) > 0)
 	{
-		g_pVGuiLocalize->ConvertANSIToUnicode( m_szLogo2, unicode, sizeof( unicode ) );
+		g_pVGuiLocalize->ConvertANSIToUnicode(m_szLogo2, unicode, sizeof(unicode));
 
-		iStringWidth = GetStringPixelWidth( unicode, m_hTFont ); 
+		iStringWidth = GetStringPixelWidth(unicode, m_hTFont);
 
-		surface()->DrawSetTextPos( ( iWidth / 2 ) - ( iStringWidth / 2 ), ( iTall / 2 ) + ( iFontTall / 2 ));
-		surface()->DrawUnicodeString( unicode );
+		surface()->DrawSetTextPos((iWidth / 2) - (iStringWidth / 2), (iTall / 2) + (iFontTall / 2));
+		surface()->DrawUnicodeString(unicode);
 	}
 }
 

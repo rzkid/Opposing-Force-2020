@@ -19,6 +19,7 @@
 #include "engine/IEngineSound.h"
 #include "te_effect_dispatch.h"
 #include "gamestats.h"
+#include "particle_parse.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -35,9 +36,13 @@ public:
 	CWeaponDeagle(void);
 
 	void	PrimaryAttack(void);
+	void	Precache(void);
 	void	Operator_HandleAnimEvent(animevent_t *pEvent, CBaseCombatCharacter *pOperator);
 
 	float	WeaponAutoAimScale()	{ return 0.6f; }
+
+private:
+	int		m_nNumShotsFired;
 
 	DECLARE_SERVERCLASS();
 	DECLARE_DATADESC();
@@ -60,6 +65,13 @@ CWeaponDeagle::CWeaponDeagle(void)
 {
 	m_bReloadsSingly = false;
 	m_bFiresUnderwater = false;
+}
+
+void CWeaponDeagle::Precache(void)
+{
+	PrecacheParticleSystem("weapon_muzzle_flash_huntingrifle");
+	PrecacheParticleSystem("weapon_muzzle_smoke");
+	BaseClass::Precache();
 }
 
 //-----------------------------------------------------------------------------
@@ -122,8 +134,12 @@ void CWeaponDeagle::PrimaryAttack(void)
 	gamestats->Event_WeaponFired(pPlayer, true, GetClassname());
 
 	WeaponSound(SINGLE);
-	pPlayer->DoMuzzleFlash();
+//	pPlayer->DoMuzzleFlash();
+	DispatchParticleEffect("weapon_muzzle_flash_huntingrifle", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "1", true);
 
+		if (m_nNumShotsFired >= 2){
+			DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "1", true);
+		}
 	SendWeaponAnim(ACT_VM_PRIMARYATTACK);
 	pPlayer->SetAnimation(PLAYER_ATTACK1);
 
@@ -151,6 +167,9 @@ void CWeaponDeagle::PrimaryAttack(void)
 	pPlayer->ViewPunch(QAngle(-8, random->RandomFloat(-2, 2), 0));
 
 	CSoundEnt::InsertSound(SOUND_COMBAT, GetAbsOrigin(), 600, 0.2, GetOwner());
+
+	
+
 
 	if (!m_iClip1 && pPlayer->GetAmmoCount(m_iPrimaryAmmoType) <= 0)
 	{

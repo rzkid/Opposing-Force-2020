@@ -1776,10 +1776,10 @@ void CBasePlayer::DoMuzzleFlash()
 		if ( !vm )
 			continue;
 
-		vm->DoMuzzleFlash();
+	//	vm->DoMuzzleFlash();
 	}
 
-	BaseClass::DoMuzzleFlash();
+	//BaseClass::DoMuzzleFlash();
 }
 
 

@@ -304,8 +304,10 @@ public:
 	// colors
 	virtual void SetBgColor(Color color);
 	virtual void SetFgColor(Color color);
+//	virtual void SetDgColor(Color color);
 	virtual Color GetBgColor();
 	virtual Color GetFgColor();
+//	virtual Color GetDgColor();
 
 	virtual void SetCursor(HCursor cursor);
 	virtual HCursor GetCursor();
@@ -840,6 +842,7 @@ private:
 
 	Color			_fgColor;		// foreground color
 	Color			_bgColor;		// background color
+//	Color			_dgColor;		// digit color
 
 	HBuildGroup		_buildGroup;
 

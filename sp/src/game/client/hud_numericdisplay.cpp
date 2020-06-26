@@ -147,10 +147,10 @@ void CHudNumericDisplay::PaintLabel( void )
 	surface()->DrawSetTextColor(GetFgColor());
 	surface()->DrawSetTextPos(text_xpos, text_ypos);
 	surface()->DrawUnicodeString( m_LabelText );
-//	surface()->DrawSetTextFont(m_hText2Font);
-//	surface()->DrawSetTextColor(GetFgColor());
-//	surface()->DrawSetTextPos(text2_xpos, text2_ypos);
-//	surface()->DrawUnicodeString(m_LabelText2);
+	surface()->DrawSetTextFont(m_hTextGlowFont);
+	surface()->DrawSetTextColor(GetFgColor());
+	surface()->DrawSetTextPos(text_xpos, text_ypos);
+	surface()->DrawUnicodeString(m_LabelText);
 }
 
 //-----------------------------------------------------------------------------
@@ -172,10 +172,10 @@ void CHudNumericDisplay::Paint()
 //	if (m_bDisplaySecondaryValue)
 //	{
 		surface()->DrawSetTextColor(GetFgColor());
-		PaintNumbers(m_hSmallNumberFont, digit2_xpos, digit2_ypos, m_iSecondaryValue);
+		PaintNumbers(m_hNumberFont, digit2_xpos, digit2_ypos, m_iSecondaryValue);
 		col[3] *= 1.0f;
 		surface()->DrawSetTextColor(col);
-		PaintNumbers(m_hSmallNumberGlowFont, digit2_xpos, digit2_ypos, m_iSecondaryValue);
+		PaintNumbers(m_hNumberGlowFont, digit2_xpos, digit2_ypos, m_iSecondaryValue);
 //	}
 
 	PaintLabel();

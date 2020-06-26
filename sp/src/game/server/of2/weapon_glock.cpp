@@ -17,6 +17,7 @@
 #include "game.h"
 #include "vstdlib/random.h"
 #include "gamestats.h"
+#include "particle_parse.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -173,6 +174,8 @@ CWeaponGlock::CWeaponGlock( void )
 //-----------------------------------------------------------------------------
 void CWeaponGlock::Precache( void )
 {
+	PrecacheParticleSystem("weapon_muzzle_flash_pistol");
+	PrecacheParticleSystem("weapon_muzzle_smoke");
 	BaseClass::Precache();
 }
 
@@ -199,7 +202,12 @@ void CWeaponGlock::Operator_HandleAnimEvent( animevent_t *pEvent, CBaseCombatCha
 
 			WeaponSound( SINGLE_NPC );
 			pOperator->FireBullets( 1, vecShootOrigin, vecShootDir, VECTOR_CONE_PRECALCULATED, MAX_TRACE_LENGTH, m_iPrimaryAmmoType, 2 );
-			pOperator->DoMuzzleFlash();
+			Vector vecShootOrigin2; //The origin of the shot 
+			QAngle	angShootDir2;    //The angle of the shot
+			//We need to figure out where to place the particle effect, so lookup where the muzzle is
+			GetAttachment(LookupAttachment("muzzle"), vecShootOrigin2, angShootDir2);
+			DispatchParticleEffect("weapon_muzzle_flash_pistol", vecShootOrigin2, angShootDir2);
+			//pOperator->DoMuzzleFlash();
 			m_iClip1 = m_iClip1 - 1;
 		}
 		break;
@@ -241,13 +249,21 @@ void CWeaponGlock::PrimaryAttack( void )
 
 	CBasePlayer *pOwner = ToBasePlayer( GetOwner() );
 
+	CBasePlayer *pPlayer = ToBasePlayer(GetOwner());
+	if (!pPlayer)
+	{
+		return;
+	}
+
 	if( pOwner )
 	{
-		// Each time the player fires the pistol, reset the view punch. This prevents
-		// the aim from 'drifting off' when the player fires very quickly. This may
-		// not be the ideal way to achieve this, but it's cheap and it works, which is
-		// great for a feature we're evaluating. (sjb)
 		pOwner->ViewPunchReset();
+	}
+
+	DispatchParticleEffect("weapon_muzzle_flash_pistol", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
+
+	if (m_nNumShotsFired >= 2){
+		DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
 	}
 
 	BaseClass::PrimaryAttack();

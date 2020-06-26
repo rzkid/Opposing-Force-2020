@@ -19,6 +19,7 @@
 #include "engine/IEngineSound.h"
 #include "te_effect_dispatch.h"
 #include "gamestats.h"
+#include "particle_parse.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -43,6 +44,7 @@ public:
 
 	void	ItemBusyFrame();
 	void	ItemPostFrame();
+	void	Precache();
 
 	void	StopEffects();
 	void	ToggleZoom();
@@ -56,6 +58,8 @@ public:
 
 	bool				m_bInZoom;
 	bool	m_bMustReload;
+private:
+	int		m_nNumShotsFired;
 	DECLARE_SERVERCLASS();
 	DECLARE_DATADESC();
 };
@@ -79,6 +83,12 @@ CWeaponM40::CWeaponM40( void )
 	m_bFiresUnderwater	= false;
 }
 
+void CWeaponM40::Precache(void)
+{
+	PrecacheParticleSystem("weapon_muzzle_flash_awp");
+	PrecacheParticleSystem("weapon_muzzle_smoke");
+	BaseClass::Precache();
+}
 
 //-----------------------------------------------------------------------------
 // Purpose:
@@ -112,8 +122,11 @@ void CWeaponM40::PrimaryAttack( void )
 	gamestats->Event_WeaponFired( pPlayer, true, GetClassname() );
 
 	WeaponSound( SINGLE );
-	pPlayer->DoMuzzleFlash();
-
+//	pPlayer->DoMuzzleFlash();
+	DispatchParticleEffect("weapon_muzzle_flash_awp", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
+	if (m_nNumShotsFired >= 2){
+		DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
+	}
 	SendWeaponAnim( ACT_VM_PRIMARYATTACK );
 	pPlayer->SetAnimation( PLAYER_ATTACK1 );
 
@@ -128,6 +141,8 @@ void CWeaponM40::PrimaryAttack( void )
 	pPlayer->FireBullets( 1, vecSrc, vecAiming, GetM40BulletSpread(), MAX_TRACE_LENGTH, m_iPrimaryAmmoType, 0 );
 
 	pPlayer->SetMuzzleFlashTime( gpGlobals->curtime + 0.5 );
+
+
 
 	//Disorient the player
 	QAngle angles = pPlayer->GetLocalAngles();

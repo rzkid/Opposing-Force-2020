@@ -61,8 +61,9 @@ protected:
 	CPanelAnimationVar( vgui::HFont, m_hNumberGlowFont, "NumberGlowFont", "HudNumbersGlow" );
 	CPanelAnimationVar( vgui::HFont, m_hSmallNumberFont, "SmallNumberFont", "HudNumbersSmall" );
 	CPanelAnimationVar(vgui::HFont, m_hSmallNumberGlowFont, "SmallNumberGlowFont", "HudNumbersSmallGlow");
-	CPanelAnimationVar( vgui::HFont, m_hTextFont, "TextFont", "Default" );
+	CPanelAnimationVar( vgui::HFont, m_hTextFont, "TextFont", "OF2HudIcons" );
 	CPanelAnimationVar(vgui::HFont, m_hText2Font, "Text2Font", "Default");
+	CPanelAnimationVar(vgui::HFont, m_hTextGlowFont, "TextGlowFont", "HudIconsGlow");
 
 	CPanelAnimationVarAliasType( float, text_xpos, "text_xpos", "8", "proportional_float" );
 	CPanelAnimationVarAliasType( float, text_ypos, "text_ypos", "20", "proportional_float" );

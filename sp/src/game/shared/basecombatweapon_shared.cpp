@@ -2254,7 +2254,7 @@ void CBaseCombatWeapon::PrimaryAttack( void )
 		return;
 	}
 
-	pPlayer->DoMuzzleFlash();
+//	pPlayer->DoMuzzleFlash();
 
 	SendWeaponAnim( GetPrimaryAttackActivity() );
 

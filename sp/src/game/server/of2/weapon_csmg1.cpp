@@ -17,6 +17,7 @@
 #include "soundent.h"
 #include "rumble_shared.h"
 #include "gamestats.h"
+#include "particle_parse.h"
 
 #include "prop_combine_ball.h"
 
@@ -90,6 +91,9 @@ protected:
 
 	Vector	m_vecTossVelocity;
 	float	m_flNextGrenadeCheck;
+
+private:
+	int		m_nNumShotsFired;
 };
 
 IMPLEMENT_SERVERCLASS_ST(CWeaponCSMG1, DT_WeaponCSMG1)
@@ -175,6 +179,8 @@ void CWeaponCSMG1::Precache( void )
 {
 	//PrecacheModel("models/effects/combineball.mdl");
 	UTIL_PrecacheOther( "prop_combine_ball" );
+	PrecacheParticleSystem("weapon_muzzle_flash_assaultrifle_parent_silenced");
+	PrecacheParticleSystem("weapon_muzzle_smoke");
 	BaseClass::Precache();
 }
 
@@ -221,8 +227,13 @@ void CWeaponCSMG1::FireNPCPrimaryAttack( CBaseCombatCharacter *pOperator, Vector
 
 	pOperator->FireBullets( info );
 
+	Vector vecShootOrigin2; //The origin of the shot 
+	QAngle	angShootDir2;    //The angle of the shot
+	//We need to figure out where to place the particle effect, so lookup where the muzzle is
+	GetAttachment(LookupAttachment("muzzle"), vecShootOrigin2, angShootDir2);
+	DispatchParticleEffect("weapon_muzzle_flash_assaultrifle_parent_silenced", vecShootOrigin2, angShootDir2);
 
-	pOperator->DoMuzzleFlash();
+	//pOperator->DoMuzzleFlash();
 	m_iClip1 = m_iClip1 - 1;
 }
 
@@ -366,7 +377,7 @@ void CWeaponCSMG1::FireCombineBalls( void )
 	gamestats->Event_WeaponFired( pPlayer, false, GetClassname() );
 
 	WeaponSound( SINGLE );
-	pPlayer->DoMuzzleFlash();
+//	pPlayer->DoMuzzleFlash();
 
 	SendWeaponAnim( ACT_VM_PRIMARYATTACK );
 	pPlayer->SetAnimation( PLAYER_ATTACK1 );
@@ -407,7 +418,13 @@ void CWeaponCSMG1::PrimaryAttack( void )
 
 	m_nShotsFired++;
 
-	pPlayer->DoMuzzleFlash();
+//	pPlayer->DoMuzzleFlash();
+
+	DispatchParticleEffect("weapon_muzzle_flash_assaultrifle_parent_silenced", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
+
+	if (m_nNumShotsFired >= 5){
+		DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
+	}
 
 	// To make the firing framerate independent, we may have to fire more than one bullet here on low-framerate systems, 
 	// especially if the weapon we're firing has a really fast rate of fire.

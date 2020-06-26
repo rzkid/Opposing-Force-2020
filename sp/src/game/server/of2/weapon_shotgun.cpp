@@ -18,6 +18,7 @@
 #include "soundent.h"
 #include "vstdlib/random.h"
 #include "gamestats.h"
+#include "particle_parse.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -37,6 +38,7 @@ private:
 	bool	m_bNeedPump;		// When emptied completely
 	bool	m_bDelayedFire1;	// Fire primary when finished reloading
 	bool	m_bDelayedFire2;	// Fire secondary when finished reloading
+	int		m_nNumShotsFired;
 
 public:
 	void	Precache(void);
@@ -155,7 +157,9 @@ IMPLEMENT_ACTTABLE(CWeaponShotgun);
 
 void CWeaponShotgun::Precache(void)
 {
-	CBaseCombatWeapon::Precache();
+	PrecacheParticleSystem("weapon_muzzle_flash_autoshotgun");
+	PrecacheParticleSystem("weapon_muzzle_smoke");
+	BaseClass::Precache();
 }
 
 //-----------------------------------------------------------------------------
@@ -165,23 +169,17 @@ void CWeaponShotgun::Precache(void)
 void CWeaponShotgun::FireNPCPrimaryAttack(CBaseCombatCharacter *pOperator, bool bUseWeaponAngles)
 {
 	Vector vecShootOrigin, vecShootDir;
-	CAI_BaseNPC *npc = pOperator->MyNPCPointer();
+//	CAI_BaseNPC *npc = pOperator->MyNPCPointer();
 	ASSERT(npc != NULL);
 	WeaponSound(SINGLE_NPC);
-	pOperator->DoMuzzleFlash();
+	//pOperator->DoMuzzleFlash();
 	m_iClip1 = m_iClip1 - 1;
 
-	if (bUseWeaponAngles)
-	{
-		QAngle	angShootDir;
-		GetAttachment(LookupAttachment("muzzle"), vecShootOrigin, angShootDir);
-		AngleVectors(angShootDir, &vecShootDir);
-	}
-	else
-	{
-		vecShootOrigin = pOperator->Weapon_ShootPosition();
-		vecShootDir = npc->GetActualShootTrajectory(vecShootOrigin);
-	}
+	Vector vecShootOrigin2; //The origin of the shot 
+	QAngle	angShootDir2;    //The angle of the shot
+	//We need to figure out where to place the particle effect, so lookup where the muzzle is
+	GetAttachment(LookupAttachment("muzzle"), vecShootOrigin2, angShootDir2);
+	DispatchParticleEffect("weapon_muzzle_flash_autoshotgun", vecShootOrigin2, angShootDir2);
 
 	pOperator->FireBullets(8, vecShootOrigin, vecShootDir, GetBulletSpread(), MAX_TRACE_LENGTH, m_iPrimaryAmmoType, 0);
 }
@@ -453,7 +451,12 @@ void CWeaponShotgun::PrimaryAttack(void)
 	// MUST call sound before removing a round from the clip of a CMachineGun
 	WeaponSound(SINGLE);
 
-	pPlayer->DoMuzzleFlash();
+//	pPlayer->DoMuzzleFlash();
+
+	DispatchParticleEffect("weapon_muzzle_flash_autoshotgun", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
+	if (m_nNumShotsFired >= 1){
+		DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
+	}
 
 	SendWeaponAnim(ACT_VM_PRIMARYATTACK);
 
@@ -511,7 +514,12 @@ void CWeaponShotgun::SecondaryAttack(void)
 	// MUST call sound before removing a round from the clip of a CMachineGun
 	WeaponSound(WPN_DOUBLE);
 
-	pPlayer->DoMuzzleFlash();
+//	pPlayer->DoMuzzleFlash();
+
+	DispatchParticleEffect("weapon_muzzle_flash_autoshotgun", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
+	if (m_nNumShotsFired >= 1){
+		DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
+	}
 
 	SendWeaponAnim(ACT_VM_SECONDARYATTACK);
 

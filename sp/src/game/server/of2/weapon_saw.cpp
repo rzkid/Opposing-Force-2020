@@ -84,6 +84,7 @@ public:
 
 private:
 	int		m_nNumShotsFired;
+	float	m_flLastAttackTime;
 };
 
 LINK_ENTITY_TO_CLASS(weapon_saw, CWeaponSAW);
@@ -96,6 +97,8 @@ END_SEND_TABLE()
 BEGIN_DATADESC(CWeaponSAW)
 //DEFINE_FIELD( m_iBurstNum,		FIELD_INTEGER ),
 //DEFINE_FUNCTION( BurstFireThink ),
+DEFINE_FIELD(m_nNumShotsFired, FIELD_INTEGER),
+DEFINE_FIELD(m_flLastAttackTime, FIELD_TIME),
 END_DATADESC()
 
 acttable_t	CWeaponSAW::m_acttable[] =
@@ -170,6 +173,17 @@ void CWeaponSAW::Precache(void)
 
 void CWeaponSAW::PrimaryAttack(void)
 {
+	if ((gpGlobals->curtime - m_flLastAttackTime) > GetFireRate())
+	{
+		m_nNumShotsFired = 0;
+	}
+	else
+	{
+		m_nNumShotsFired++;
+	}
+
+	m_flLastAttackTime = gpGlobals->curtime;
+	
 	//DevMsg("bullet\n");
 	// Only the player fires this way so we can cast
 	CBasePlayer *pPlayer = ToBasePlayer(GetOwner());
@@ -196,6 +210,8 @@ void CWeaponSAW::PrimaryAttack(void)
 
 	m_iPrimaryAttacks++;
 	gamestats->Event_WeaponFired(pPlayer, true, GetClassname());
+
+	
 
 	WeaponSound(SINGLE);
 	//pPlayer->DoMuzzleFlash();

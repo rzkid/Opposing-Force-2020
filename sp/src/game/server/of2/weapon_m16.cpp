@@ -80,6 +80,7 @@ public:
 
 private:
 	int		m_nNumShotsFired;
+	float	m_flLastAttackTime;
 
 	DECLARE_SERVERCLASS();
 	DECLARE_DATADESC();
@@ -96,6 +97,8 @@ END_SEND_TABLE()
 BEGIN_DATADESC( CWeaponM16 )
 //DEFINE_FIELD( m_iBurstNum,		FIELD_INTEGER ),
 //DEFINE_FUNCTION( BurstFireThink ),
+DEFINE_FIELD(m_nNumShotsFired, FIELD_INTEGER),
+DEFINE_FIELD(m_flLastAttackTime, FIELD_TIME),
 END_DATADESC()
 
 acttable_t	CWeaponM16::m_acttable[] = 
@@ -170,6 +173,15 @@ void CWeaponM16::Precache(void)
 
 void CWeaponM16::PrimaryAttack( void )
 {
+	if ((gpGlobals->curtime - m_flLastAttackTime) > GetFireRate())
+	{
+		m_nNumShotsFired = 0;
+	}
+	else
+	{
+		m_nNumShotsFired++;
+	}
+	
 	//DevMsg("bullet\n");
 	// Only the player fires this way so we can cast
 	CBasePlayer *pPlayer = ToBasePlayer( GetOwner() );
@@ -196,6 +208,10 @@ void CWeaponM16::PrimaryAttack( void )
 
 	m_iPrimaryAttacks++;
 	gamestats->Event_WeaponFired( pPlayer, true, GetClassname() );
+
+	
+
+	m_flLastAttackTime = gpGlobals->curtime;
 
 	WeaponSound( SINGLE );
 //	pPlayer->DoMuzzleFlash();
@@ -238,7 +254,7 @@ void CWeaponM16::PrimaryAttack( void )
 	}
 
 	DispatchParticleEffect("weapon_muzzle_flash_assaultrifle", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
-	if (m_nNumShotsFired >= 1){
+	if (m_nNumShotsFired >= 3){
 		DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
 	}
 }
@@ -533,7 +549,7 @@ void CWeaponM16::AddViewKick( void )
 {
 	//DevMsg("view kick\n");
 	#define	EASY_DAMPEN			0.5f
-	#define	MAX_VERTICAL_KICK	2.0f	//Degrees
+	#define	MAX_VERTICAL_KICK	12.0f	//Degrees
 	#define	SLIDE_LIMIT			0.35f	//Seconds
 	
 	//Get the view kick

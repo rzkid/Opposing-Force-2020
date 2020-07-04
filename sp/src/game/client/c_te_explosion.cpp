@@ -256,7 +256,7 @@ void C_TEExplosion::PostDataUpdate( DataUpdateType_t updateType )
 	// Filter out a water explosion
 	if ( UTIL_PointContents( m_vecOrigin ) & CONTENTS_WATER )
 	{
-		WaterExplosionEffect().Create( m_vecOrigin, m_nMagnitude, m_fScale, m_nFlags );
+		WaterExplosionEffect().Create( m_vecOrigin, m_nMagnitude, m_fScale, m_nFlags, m_vecNormal );
 		return;
 	}
 
@@ -277,7 +277,7 @@ void C_TEExplosion::PostDataUpdate( DataUpdateType_t updateType )
 		}
 	}
 
-	BaseExplosionEffect().Create( m_vecOrigin, m_nMagnitude, m_fScale, m_nFlags );
+	BaseExplosionEffect().Create(m_vecOrigin, m_nMagnitude, m_fScale, m_nFlags, m_vecNormal);
 }
 
 void C_TEExplosion::RenderParticles( CParticleRenderIterator *pIterator )

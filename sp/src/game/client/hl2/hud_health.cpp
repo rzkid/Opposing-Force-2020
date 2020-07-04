@@ -89,16 +89,16 @@ void CHudHealth::Reset()
 
 //	wchar_t *LabelText2 = g_pVGuiLocalize->Find("#Valve_Hud_HEALTH2");
 
-	wchar_t *tempString = g_pVGuiLocalize->Find("#Valve_Hud_HEALTH");
+//	wchar_t *tempString = g_pVGuiLocalize->Find("#Valve_Hud_HEALTH");
 
-	if (tempString)
-	{
-		SetLabelText(tempString);
-	}
-	else
-	{
-		SetLabelText(L"HEALTH");
-	}
+//	if (tempString)
+//	{
+//		SetLabelText(tempString);
+//	}
+//	else
+//	{
+		SetLabelText(L"b");
+//	}
 	SetDisplayValue(m_iHealth);
 }
 

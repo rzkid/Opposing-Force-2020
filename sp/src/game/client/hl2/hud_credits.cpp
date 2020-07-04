@@ -57,53 +57,53 @@ int g_iCreditsPixelHeight = 0;
 //-----------------------------------------------------------------------------
 class CHudCredits : public CHudElement, public vgui::Panel
 {
-	DECLARE_CLASS_SIMPLE( CHudCredits, vgui::Panel );
+	DECLARE_CLASS_SIMPLE(CHudCredits, vgui::Panel);
 
 public:
-	CHudCredits( const char *pElementName );
-	virtual void Init( void );
-	virtual void LevelShutdown( void );
+	CHudCredits(const char *pElementName);
+	virtual void Init(void);
+	virtual void LevelShutdown(void);
 
-	int GetStringPixelWidth ( wchar_t *pString, vgui::HFont hFont );
+	int GetStringPixelWidth(wchar_t *pString, vgui::HFont hFont);
 
-	void MsgFunc_CreditsMsg( bf_read &msg );
-	void MsgFunc_LogoTimeMsg( bf_read &msg );
+	void MsgFunc_CreditsMsg(bf_read &msg);
+	void MsgFunc_LogoTimeMsg(bf_read &msg);
 
-	virtual bool	ShouldDraw( void ) 
-	{ 
+	virtual bool	ShouldDraw(void)
+	{
 		g_bRollingCredits = IsActive();
 
-		if ( g_bRollingCredits && m_iCreditsType == CREDITS_INTRO )
-			 g_bRollingCredits = false;
+		if (g_bRollingCredits && m_iCreditsType == CREDITS_INTRO)
+			g_bRollingCredits = false;
 
-		return IsActive(); 
+		return IsActive();
 	}
 
 protected:
 	virtual void Paint();
-	virtual void ApplySchemeSettings( vgui::IScheme *pScheme );
+	virtual void ApplySchemeSettings(vgui::IScheme *pScheme);
 
 private:
 
 	void	Clear();
 
-	void ReadNames( KeyValues *pKeyValue );
-	void ReadParams( KeyValues *pKeyValue );
-	void PrepareCredits( const char *pKeyName );
-	void DrawOutroCreditsName( void );
-	void DrawIntroCreditsName( void );
-	void DrawLogo( void );
+	void ReadNames(KeyValues *pKeyValue);
+	void ReadParams(KeyValues *pKeyValue);
+	void PrepareCredits(const char *pKeyName);
+	void DrawOutroCreditsName(void);
+	void DrawIntroCreditsName(void);
+	void DrawLogo(void);
 
-	void PrepareLogo( float flTime );
-	void PrepareOutroCredits( void );
-	void PrepareIntroCredits( void );
+	void PrepareLogo(float flTime);
+	void PrepareOutroCredits(void);
+	void PrepareIntroCredits(void);
 
-	float FadeBlend( float fadein, float fadeout, float hold, float localTime );
+	float FadeBlend(float fadein, float fadeout, float hold, float localTime);
 
-	void PrepareLine( vgui::HFont hFont, char const *pchLine );
+	void PrepareLine(vgui::HFont hFont, char const *pchLine);
 
-	CPanelAnimationVar( vgui::HFont, m_hTextFont, "TextFont", "Default" );
-	CPanelAnimationVar( Color, m_TextColor, "TextColor", "FgColor" );
+	CPanelAnimationVar(vgui::HFont, m_hTextFont, "TextFont", "Default");
+	CPanelAnimationVar(Color, m_TextColor, "TextColor", "BrightFg");
 
 	CUtlVector<creditname_t> m_CreditsList;
 
@@ -133,48 +133,48 @@ private:
 	char m_szLogo2[256];
 
 	Color m_cColor;
-};	
+};
 
 
-void CHudCredits::PrepareCredits( const char *pKeyName )
+void CHudCredits::PrepareCredits(const char *pKeyName)
 {
 	Clear();
 
-	KeyValues *pKV= new KeyValues( "CreditsFile" );
-	if ( !pKV->LoadFromFile( filesystem, CREDITS_FILE, "MOD" ) )
+	KeyValues *pKV = new KeyValues("CreditsFile");
+	if (!pKV->LoadFromFile(filesystem, CREDITS_FILE, "MOD"))
 	{
 		pKV->deleteThis();
 
-		Assert( !"env_credits couldn't be initialized!" );
+		Assert(!"env_credits couldn't be initialized!");
 		return;
 	}
 
 	KeyValues *pKVSubkey;
-	if ( pKeyName )
+	if (pKeyName)
 	{
-		pKVSubkey = pKV->FindKey( pKeyName );
-		ReadNames( pKVSubkey );
+		pKVSubkey = pKV->FindKey(pKeyName);
+		ReadNames(pKVSubkey);
 	}
 
-	pKVSubkey = pKV->FindKey( "CreditsParams" );
-	ReadParams( pKVSubkey );
+	pKVSubkey = pKV->FindKey("CreditsParams");
+	ReadParams(pKVSubkey);
 
 	pKV->deleteThis();
 }
 
 using namespace vgui;
 
-DECLARE_HUDELEMENT( CHudCredits );
-DECLARE_HUD_MESSAGE( CHudCredits, CreditsMsg );
-DECLARE_HUD_MESSAGE( CHudCredits, LogoTimeMsg );
+DECLARE_HUDELEMENT(CHudCredits);
+DECLARE_HUD_MESSAGE(CHudCredits, CreditsMsg);
+DECLARE_HUD_MESSAGE(CHudCredits, LogoTimeMsg);
 
 //-----------------------------------------------------------------------------
 // Purpose: Constructor
 //-----------------------------------------------------------------------------
-CHudCredits::CHudCredits( const char *pElementName ) : CHudElement( pElementName ), BaseClass( NULL, "HudCredits" )
+CHudCredits::CHudCredits(const char *pElementName) : CHudElement(pElementName), BaseClass(NULL, "HudCredits")
 {
 	vgui::Panel *pParent = g_pClientMode->GetViewport();
-	SetParent( pParent );
+	SetParent(pParent);
 }
 
 void CHudCredits::LevelShutdown()
@@ -182,9 +182,9 @@ void CHudCredits::LevelShutdown()
 	Clear();
 }
 
-void CHudCredits::Clear( void )
+void CHudCredits::Clear(void)
 {
-	SetActive( false );
+	SetActive(false);
 	m_CreditsList.RemoveAll();
 	m_bLastOneInPlace = false;
 	m_Alpha = m_TextColor[3];
@@ -196,96 +196,96 @@ void CHudCredits::Clear( void )
 //-----------------------------------------------------------------------------
 void CHudCredits::Init()
 {
-	HOOK_HUD_MESSAGE( CHudCredits, CreditsMsg );
-	HOOK_HUD_MESSAGE( CHudCredits, LogoTimeMsg );
-	SetActive( false );
+	HOOK_HUD_MESSAGE(CHudCredits, CreditsMsg);
+	HOOK_HUD_MESSAGE(CHudCredits, LogoTimeMsg);
+	SetActive(false);
 }
 
-void CHudCredits::ReadNames( KeyValues *pKeyValue )
+void CHudCredits::ReadNames(KeyValues *pKeyValue)
 {
-	if ( pKeyValue == NULL )
+	if (pKeyValue == NULL)
 	{
-		Assert( !"CHudCredits couldn't be initialized!" );
+		Assert(!"CHudCredits couldn't be initialized!");
 		return;
 	}
 
 	// Now try and parse out each act busy anim
 	KeyValues *pKVNames = pKeyValue->GetFirstSubKey();
-	
-	while ( pKVNames )
+
+	while (pKVNames)
 	{
 		creditname_t Credits;
-		Q_strcpy( Credits.szCreditName, pKVNames->GetName());
-		Q_strcpy( Credits.szFontName, pKeyValue->GetString( Credits.szCreditName, "Default" ) );
+		Q_strcpy(Credits.szCreditName, pKVNames->GetName());
+		Q_strcpy(Credits.szFontName, pKeyValue->GetString(Credits.szCreditName, "Default"));
 
-		m_CreditsList.AddToTail( Credits );
+		m_CreditsList.AddToTail(Credits);
 		pKVNames = pKVNames->GetNextKey();
 	}
 }
 
-void CHudCredits::ReadParams( KeyValues *pKeyValue )
+void CHudCredits::ReadParams(KeyValues *pKeyValue)
 {
-	if ( pKeyValue == NULL )
+	if (pKeyValue == NULL)
 	{
-		Assert( !"CHudCredits couldn't be initialized!" );
+		Assert(!"CHudCredits couldn't be initialized!");
 		return;
 	}
 
-	m_flScrollTime = pKeyValue->GetFloat( "scrolltime", 57 );
-	m_flSeparation = pKeyValue->GetFloat( "separation", 5 );
+	m_flScrollTime = pKeyValue->GetFloat("scrolltime", 57);
+	m_flSeparation = pKeyValue->GetFloat("separation", 5);
 
-	m_flFadeInTime = pKeyValue->GetFloat( "fadeintime", 1 );
-	m_flFadeHoldTime = pKeyValue->GetFloat( "fadeholdtime", 3 );
-	m_flFadeOutTime = pKeyValue->GetFloat( "fadeouttime", 2 );
-	m_flNextStartTime = pKeyValue->GetFloat( "nextfadetime", 2 );
-	m_flPauseBetweenWaves = pKeyValue->GetFloat( "pausebetweenwaves", 2 );
+	m_flFadeInTime = pKeyValue->GetFloat("fadeintime", 1);
+	m_flFadeHoldTime = pKeyValue->GetFloat("fadeholdtime", 3);
+	m_flFadeOutTime = pKeyValue->GetFloat("fadeouttime", 2);
+	m_flNextStartTime = pKeyValue->GetFloat("nextfadetime", 2);
+	m_flPauseBetweenWaves = pKeyValue->GetFloat("pausebetweenwaves", 2);
 
-	m_flLogoTimeMod = pKeyValue->GetFloat( "logotime", 2 );
+	m_flLogoTimeMod = pKeyValue->GetFloat("logotime", 2);
 
-	m_flX = pKeyValue->GetFloat( "posx", 2 );
-	m_flY = pKeyValue->GetFloat( "posy", 2 );
+	m_flX = pKeyValue->GetFloat("posx", 2);
+	m_flY = pKeyValue->GetFloat("posy", 2);
 
-	m_cColor = pKeyValue->GetColor( "color" );
+	m_cColor = pKeyValue->GetColor("color");
 
-	Q_strncpy( m_szLogo, pKeyValue->GetString( "logo", "H ' L F -L I F E" ), sizeof( m_szLogo ) );
-	Q_strncpy( m_szLogo2, pKeyValue->GetString( "logo2", "== opposing force2 ==" ), sizeof( m_szLogo2 ) );
+	Q_strncpy(m_szLogo, pKeyValue->GetString("logo", "H ' L F -L I F E"), sizeof(m_szLogo));
+	Q_strncpy(m_szLogo2, pKeyValue->GetString("logo2", "== opposing force @  =="), sizeof(m_szLogo2));
 }
 
-int CHudCredits::GetStringPixelWidth( wchar_t *pString, vgui::HFont hFont )
+int CHudCredits::GetStringPixelWidth(wchar_t *pString, vgui::HFont hFont)
 {
 	int iLength = 0;
 
-	for ( wchar_t *wch = pString; *wch != 0; wch++ )
+	for (wchar_t *wch = pString; *wch != 0; wch++)
 	{
-		iLength += surface()->GetCharacterWidth( hFont, *wch );
+		iLength += surface()->GetCharacterWidth(hFont, *wch);
 	}
 
 	return iLength;
 }
 
-void CHudCredits::DrawOutroCreditsName( void )
+void CHudCredits::DrawOutroCreditsName(void)
 {
-	if ( m_CreditsList.Count() == 0 )
-		 return;
+	if (m_CreditsList.Count() == 0)
+		return;
 
 	// fill the screen
 	int iWidth, iTall;
 	GetHudSize(iWidth, iTall);
-	SetSize( iWidth, iTall );
+	SetSize(iWidth, iTall);
 
-	for ( int i = 0; i < m_CreditsList.Count(); i++ )
+	for (int i = 0; i < m_CreditsList.Count(); i++)
 	{
 		creditname_t *pCredit = &m_CreditsList[i];
 
-		if ( pCredit == NULL )
-			 continue;
+		if (pCredit == NULL)
+			continue;
 
-		vgui::HScheme scheme = vgui::scheme()->GetScheme( "ClientScheme" );
-		vgui::HFont m_hTFont = vgui::scheme()->GetIScheme(scheme)->GetFont( pCredit->szFontName, true );
+		vgui::HScheme scheme = vgui::scheme()->GetScheme("ClientScheme");
+		vgui::HFont m_hTFont = vgui::scheme()->GetIScheme(scheme)->GetFont(pCredit->szFontName, true);
 
-		int iFontTall = surface()->GetFontTall ( m_hTFont );
+		int iFontTall = surface()->GetFontTall(m_hTFont);
 
-		if ( pCredit->flYPos < -iFontTall ||  pCredit->flYPos > iTall )
+		if (pCredit->flYPos < -iFontTall || pCredit->flYPos > iTall)
 		{
 			pCredit->bActive = false;
 		}
@@ -298,65 +298,65 @@ void CHudCredits::DrawOutroCreditsName( void )
 
 		//HACKHACK
 		//Last one stays on screen and fades out
-		if ( i == m_CreditsList.Count()-1 )
+		if (i == m_CreditsList.Count() - 1)
 		{
-			if ( m_bLastOneInPlace == false )
+			if (m_bLastOneInPlace == false)
 			{
-				pCredit->flYPos -= gpGlobals->frametime * ( (float)g_iCreditsPixelHeight / m_flScrollTime );
-		
-				if ( (int)pCredit->flYPos + ( iFontTall / 2 ) <= iTall / 2 )
+				pCredit->flYPos -= gpGlobals->frametime * ((float)g_iCreditsPixelHeight / m_flScrollTime);
+
+				if ((int)pCredit->flYPos + (iFontTall / 2) <= iTall / 2)
 				{
 					m_bLastOneInPlace = true;
-					
+
 					// 360 certification requires that we not hold a static image too long.
-					m_flFadeTime = gpGlobals->curtime + ( IsConsole() ? 2.0f : 10.0f );
+					m_flFadeTime = gpGlobals->curtime + (IsConsole() ? 2.0f : 10.0f);
 				}
 			}
 			else
 			{
-				if ( m_flFadeTime <= gpGlobals->curtime )
+				if (m_flFadeTime <= gpGlobals->curtime)
 				{
-					if ( m_Alpha > 0 )
+					if (m_Alpha > 0)
 					{
-						m_Alpha -= gpGlobals->frametime * ( m_flScrollTime * 2 );
+						m_Alpha -= gpGlobals->frametime * (m_flScrollTime * 2);
 
-						if ( m_Alpha <= 0 )
+						if (m_Alpha <= 0)
 						{
 							pCredit->bActive = false;
-							engine->ClientCmd( "creditsdone" );
+							engine->ClientCmd("creditsdone");
 						}
 					}
 				}
 
-				cColor[3] = MAX( 0, m_Alpha );
+				cColor[3] = MAX(0, m_Alpha);
 			}
 		}
 		else
 		{
-			pCredit->flYPos -= gpGlobals->frametime * ( (float)g_iCreditsPixelHeight / m_flScrollTime );
+			pCredit->flYPos -= gpGlobals->frametime * ((float)g_iCreditsPixelHeight / m_flScrollTime);
 		}
-		
-		if ( pCredit->bActive == false )
-			 continue;
-			
-		surface()->DrawSetTextFont( m_hTFont );
-		surface()->DrawSetTextColor( cColor[0], cColor[1], cColor[2], cColor[3]  );
-		
+
+		if (pCredit->bActive == false)
+			continue;
+
+		surface()->DrawSetTextFont(m_hTFont);
+		surface()->DrawSetTextColor(cColor[0], cColor[1], cColor[2], cColor[3]);
+
 		wchar_t unicode[256];
-		
-		if ( pCredit->szCreditName[0] == '#' )
+
+		if (pCredit->szCreditName[0] == '#')
 		{
-			g_pVGuiLocalize->ConstructString( unicode, sizeof(unicode), g_pVGuiLocalize->Find(pCredit->szCreditName), 0 );
+			g_pVGuiLocalize->ConstructString(unicode, sizeof(unicode), g_pVGuiLocalize->Find(pCredit->szCreditName), 0);
 		}
 		else
 		{
-			g_pVGuiLocalize->ConvertANSIToUnicode( pCredit->szCreditName, unicode, sizeof( unicode ) );
+			g_pVGuiLocalize->ConvertANSIToUnicode(pCredit->szCreditName, unicode, sizeof(unicode));
 		}
 
-		int iStringWidth = GetStringPixelWidth( unicode, m_hTFont ); 
+		int iStringWidth = GetStringPixelWidth(unicode, m_hTFont);
 
-		surface()->DrawSetTextPos( ( iWidth / 2 ) - ( iStringWidth / 2 ), pCredit->flYPos );
-		surface()->DrawUnicodeString( unicode );
+		surface()->DrawSetTextPos((iWidth / 2) - (iStringWidth / 2), pCredit->flYPos);
+		surface()->DrawUnicodeString(unicode);
 	}
 }
 
@@ -418,7 +418,18 @@ void CHudCredits::DrawLogo(void)
 
 	char szLogoFont[64];
 
-	Q_snprintf(szLogoFont, sizeof(szLogoFont), "ClientTitleFont");
+	if (IsXbox())
+	{
+		Q_snprintf(szLogoFont, sizeof(szLogoFont), "ClientTitleFont");
+	}
+	else if (hl2_episodic.GetBool())
+	{
+		Q_snprintf(szLogoFont, sizeof(szLogoFont), "ClientTitleFont");
+	}
+	else
+	{
+		Q_snprintf(szLogoFont, sizeof(szLogoFont), "ClientTitleFont");
+	}
 
 	vgui::HScheme scheme = vgui::scheme()->GetScheme("ClientScheme");
 	vgui::HFont m_hTFont = vgui::scheme()->GetIScheme(scheme)->GetFont(szLogoFont);
@@ -453,21 +464,21 @@ void CHudCredits::DrawLogo(void)
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-float CHudCredits::FadeBlend( float fadein, float fadeout, float hold, float localTime )
+float CHudCredits::FadeBlend(float fadein, float fadeout, float hold, float localTime)
 {
 	float fadeTime = fadein + hold;
 	float fadeBlend;
 
-	if ( localTime < 0 )
+	if (localTime < 0)
 		return 0;
 
-	if ( localTime < fadein )
+	if (localTime < fadein)
 	{
 		fadeBlend = 1 - ((fadein - localTime) / fadein);
 	}
-	else if ( localTime > fadeTime )
+	else if (localTime > fadeTime)
 	{
-		if ( fadeout > 0 )
+		if (fadeout > 0)
 			fadeBlend = 1 - ((localTime - fadeTime) / fadeout);
 		else
 			fadeBlend = 0;
@@ -475,62 +486,64 @@ float CHudCredits::FadeBlend( float fadein, float fadeout, float hold, float loc
 	else
 		fadeBlend = 1;
 
-	if ( fadeBlend < 0 )
-		 fadeBlend = 0;
+	if (fadeBlend < 0)
+		fadeBlend = 0;
 
 	return fadeBlend;
 }
 
-void CHudCredits::DrawIntroCreditsName( void )
+void CHudCredits::DrawIntroCreditsName(void)
 {
-	if ( m_CreditsList.Count() == 0 )
-		 return;
-	
+	if (m_CreditsList.Count() == 0)
+		return;
+
 	// fill the screen
 	int iWidth, iTall;
 	GetHudSize(iWidth, iTall);
-	SetSize( iWidth, iTall );
+	SetSize(iWidth, iTall);
 
-	for ( int i = 0; i < m_CreditsList.Count(); i++ )
+	Color cColor = m_TextColor;
+
+	for (int i = 0; i < m_CreditsList.Count(); i++)
 	{
 		creditname_t *pCredit = &m_CreditsList[i];
 
-		if ( pCredit == NULL )
-			 continue;
+		if (pCredit == NULL)
+			continue;
 
-		if ( pCredit->bActive == false )
-			 continue;
-				
-		vgui::HScheme scheme = vgui::scheme()->GetScheme( "ClientScheme" );
-		vgui::HFont m_hTFont = vgui::scheme()->GetIScheme(scheme)->GetFont( pCredit->szFontName );
+		if (pCredit->bActive == false)
+			continue;
+
+		vgui::HScheme scheme = vgui::scheme()->GetScheme("ClientScheme");
+		vgui::HFont m_hTFont = vgui::scheme()->GetIScheme(scheme)->GetFont(pCredit->szFontName);
 
 		float localTime = gpGlobals->curtime - pCredit->flTimeStart;
 
-		surface()->DrawSetTextFont( m_hTFont );
-		surface()->DrawSetTextColor( m_cColor[0], m_cColor[1], m_cColor[2], FadeBlend( m_flFadeInTime, m_flFadeOutTime, m_flFadeHoldTime + pCredit->flTimeAdd, localTime ) * m_cColor[3] );
-		
-		wchar_t unicode[256];
-		g_pVGuiLocalize->ConvertANSIToUnicode( pCredit->szCreditName, unicode, sizeof( unicode ) );
+		surface()->DrawSetTextFont(m_hTFont);
+		surface()->DrawSetTextColor(m_cColor[0], m_cColor[1], m_cColor[2], FadeBlend(m_flFadeInTime, m_flFadeOutTime, m_flFadeHoldTime + pCredit->flTimeAdd, localTime) * m_cColor[3]);
 
-		surface()->DrawSetTextPos( XRES( pCredit->flXPos ), YRES( pCredit->flYPos ) );
-		surface()->DrawUnicodeString( unicode );
-		
-		if ( m_flLogoTime > gpGlobals->curtime )
-			 continue;
-		
-		if ( pCredit->flTime - m_flNextStartTime <= gpGlobals->curtime )
+		wchar_t unicode[256];
+		g_pVGuiLocalize->ConvertANSIToUnicode(pCredit->szCreditName, unicode, sizeof(unicode));
+
+		surface()->DrawSetTextPos(XRES(pCredit->flXPos), YRES(pCredit->flYPos));
+		surface()->DrawUnicodeString(unicode);
+
+		if (m_flLogoTime > gpGlobals->curtime)
+			continue;
+
+		if (pCredit->flTime - m_flNextStartTime <= gpGlobals->curtime)
 		{
-			if ( m_CreditsList.IsValidIndex( i + 3 ) )
+			if (m_CreditsList.IsValidIndex(i + 3))
 			{
 				creditname_t *pNextCredits = &m_CreditsList[i + 3];
 
-				if ( pNextCredits && pNextCredits->flTime == 0.0f )
+				if (pNextCredits && pNextCredits->flTime == 0.0f)
 				{
 					pNextCredits->bActive = true;
 
-					if ( i < 3 )
+					if (i < 3)
 					{
-						pNextCredits->flTimeAdd = ( i + 1.0f );
+						pNextCredits->flTimeAdd = (i + 1.0f);
 						pNextCredits->flTime = gpGlobals->curtime + m_flFadeInTime + m_flFadeOutTime + m_flFadeHoldTime + pNextCredits->flTimeAdd;
 					}
 					else
@@ -546,11 +559,11 @@ void CHudCredits::DrawIntroCreditsName( void )
 			}
 		}
 
-		if ( pCredit->flTime <= gpGlobals->curtime )
+		if (pCredit->flTime <= gpGlobals->curtime)
 		{
 			pCredit->bActive = false;
 
-			if ( i == m_CreditsList.Count()-1 )
+			if (i == m_CreditsList.Count() - 1)
 			{
 				Clear();
 			}
@@ -558,118 +571,118 @@ void CHudCredits::DrawIntroCreditsName( void )
 	}
 }
 
-void CHudCredits::ApplySchemeSettings( IScheme *pScheme )
+void CHudCredits::ApplySchemeSettings(IScheme *pScheme)
 {
-	BaseClass::ApplySchemeSettings( pScheme );
+	BaseClass::ApplySchemeSettings(pScheme);
 
-	SetVisible( ShouldDraw() );
+	SetVisible(ShouldDraw());
 
-	SetBgColor( Color(0, 0, 0, 0) );
+	SetBgColor(Color(0, 0, 0, 0));
 }
 
 void CHudCredits::Paint()
 {
-	if ( m_iCreditsType == CREDITS_LOGO )
+	if (m_iCreditsType == CREDITS_LOGO)
 	{
 		DrawLogo();
 	}
-	else if ( m_iCreditsType == CREDITS_INTRO )
+	else if (m_iCreditsType == CREDITS_INTRO)
 	{
 		DrawIntroCreditsName();
 	}
-	else if ( m_iCreditsType == CREDITS_OUTRO )
+	else if (m_iCreditsType == CREDITS_OUTRO)
 	{
 		DrawOutroCreditsName();
 	}
 }
 
-void CHudCredits::PrepareLogo( float flTime )
+void CHudCredits::PrepareLogo(float flTime)
 {
 	// Only showing the logo. Just load the CreditsParams section.
-	PrepareCredits( NULL );
+	PrepareCredits(NULL);
 
 	m_Alpha = 0;
 	m_flLogoDesiredLength = flTime;
 	m_flFadeTime = gpGlobals->curtime + 5.0f;
 	m_iLogoState = LOGO_FADEIN;
-	SetActive( true );
+	SetActive(true);
 }
 
-void CHudCredits::PrepareLine( vgui::HFont hFont, char const *pchLine )
+void CHudCredits::PrepareLine(vgui::HFont hFont, char const *pchLine)
 {
-	Assert( pchLine );
+	Assert(pchLine);
 
 	wchar_t unicode[256];
 
-	if ( pchLine[0] == '#' )
+	if (pchLine[0] == '#')
 	{
-		g_pVGuiLocalize->ConstructString( unicode, sizeof(unicode), g_pVGuiLocalize->Find(pchLine), 0 );
+		g_pVGuiLocalize->ConstructString(unicode, sizeof(unicode), g_pVGuiLocalize->Find(pchLine), 0);
 	}
 	else
 	{
-		g_pVGuiLocalize->ConvertANSIToUnicode( pchLine, unicode, sizeof( unicode ) );
+		g_pVGuiLocalize->ConvertANSIToUnicode(pchLine, unicode, sizeof(unicode));
 	}
 
-	surface()->PrecacheFontCharacters( hFont, unicode );
+	surface()->PrecacheFontCharacters(hFont, unicode);
 }
 
-void CHudCredits::PrepareOutroCredits( void )
+void CHudCredits::PrepareOutroCredits(void)
 {
-	PrepareCredits( "OutroCreditsNames" );
-	
-	if ( m_CreditsList.Count() == 0 )
-		 return;
+	PrepareCredits("OutroCreditsNames");
+
+	if (m_CreditsList.Count() == 0)
+		return;
 
 	// fill the screen
 	int iWidth, iTall;
 	GetHudSize(iWidth, iTall);
-	SetSize( iWidth, iTall );
+	SetSize(iWidth, iTall);
 
 	int iHeight = iTall;
 
-	for ( int i = 0; i < m_CreditsList.Count(); i++ )
+	for (int i = 0; i < m_CreditsList.Count(); i++)
 	{
 		creditname_t *pCredit = &m_CreditsList[i];
 
-		if ( pCredit == NULL )
-			 continue;
+		if (pCredit == NULL)
+			continue;
 
-		vgui::HScheme scheme = vgui::scheme()->GetScheme( "ClientScheme" );
-		vgui::HFont m_hTFont = vgui::scheme()->GetIScheme(scheme)->GetFont( pCredit->szFontName, true );
+		vgui::HScheme scheme = vgui::scheme()->GetScheme("ClientScheme");
+		vgui::HFont m_hTFont = vgui::scheme()->GetIScheme(scheme)->GetFont(pCredit->szFontName, true);
 
 		pCredit->flYPos = iHeight;
 		pCredit->bActive = false;
 
-		iHeight += surface()->GetFontTall ( m_hTFont ) + m_flSeparation;
+		iHeight += surface()->GetFontTall(m_hTFont) + m_flSeparation;
 
-		PrepareLine( m_hTFont, pCredit->szCreditName );
+		PrepareLine(m_hTFont, pCredit->szCreditName);
 	}
 
-	SetActive( true );
+	SetActive(true);
 
 	g_iCreditsPixelHeight = iHeight;
 }
 
-void CHudCredits::PrepareIntroCredits( void )
+void CHudCredits::PrepareIntroCredits(void)
 {
-	PrepareCredits( "IntroCreditsNames" );
+	PrepareCredits("IntroCreditsNames");
 
 	int iSlot = 0;
 
-	for ( int i = 0; i < m_CreditsList.Count(); i++ )
+	for (int i = 0; i < m_CreditsList.Count(); i++)
 	{
 		creditname_t *pCredit = &m_CreditsList[i];
 
-		if ( pCredit == NULL )
-			 continue;
+		if (pCredit == NULL)
+			continue;
 
-		vgui::HScheme scheme = vgui::scheme()->GetScheme( "ClientScheme" );
-		vgui::HFont m_hTFont = vgui::scheme()->GetIScheme(scheme)->GetFont( pCredit->szFontName );
+		vgui::HScheme scheme = vgui::scheme()->GetScheme("ClientScheme");
+		vgui::HFont m_hTFont = vgui::scheme()->GetIScheme(scheme)->GetFont(pCredit->szFontName);
 
-		pCredit->flYPos = m_flY + ( iSlot * surface()->GetFontTall ( m_hTFont ) );
+		pCredit->flYPos = m_flY + (iSlot * surface()->GetFontTall(m_hTFont));
 		pCredit->flXPos = m_flX;
-				
-		if ( i < 3 )
+
+		if (i < 3)
 		{
 			pCredit->bActive = true;
 			pCredit->iSlot = iSlot;
@@ -683,42 +696,41 @@ void CHudCredits::PrepareIntroCredits( void )
 			pCredit->flTime = 0.0f;
 		}
 
-		iSlot = ( iSlot + 1 ) % 3;
+		iSlot = (iSlot + 1) % 3;
 
-		PrepareLine( m_hTFont, pCredit->szCreditName );
+		PrepareLine(m_hTFont, pCredit->szCreditName);
 	}
 
-	SetActive( true );
+	SetActive(true);
 }
 
-void CHudCredits::MsgFunc_CreditsMsg( bf_read &msg )
+void CHudCredits::MsgFunc_CreditsMsg(bf_read &msg)
 {
 	m_iCreditsType = msg.ReadByte();
 
-	switch ( m_iCreditsType )
+	switch (m_iCreditsType)
 	{
-		case CREDITS_LOGO:
-		{
-			PrepareLogo( 5.0f );
-			break;
-		}
-		case CREDITS_INTRO:
-		{
-			PrepareIntroCredits();
-			break;
-		}
-		case CREDITS_OUTRO:
-		{
-			PrepareOutroCredits();
-			break;
-		}
+	case CREDITS_LOGO:
+	{
+		PrepareLogo(5.0f);
+		break;
+	}
+	case CREDITS_INTRO:
+	{
+		PrepareIntroCredits();
+		break;
+	}
+	case CREDITS_OUTRO:
+	{
+		PrepareOutroCredits();
+		break;
+	}
 	}
 }
 
-void CHudCredits::MsgFunc_LogoTimeMsg( bf_read &msg )
+void CHudCredits::MsgFunc_LogoTimeMsg(bf_read &msg)
 {
 	m_iCreditsType = CREDITS_LOGO;
-	PrepareLogo( msg.ReadFloat() );
+	PrepareLogo(msg.ReadFloat());
 }
-
 

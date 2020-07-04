@@ -90,6 +90,7 @@ protected:
 
 private:
 	int		m_nNumShotsFired;
+	float	m_flLastAttackTime;
 };
 
 IMPLEMENT_SERVERCLASS_ST(CWeaponSMG1, DT_WeaponSMG1)
@@ -102,6 +103,8 @@ BEGIN_DATADESC( CWeaponSMG1 )
 
 	DEFINE_FIELD( m_vecTossVelocity, FIELD_VECTOR ),
 	DEFINE_FIELD( m_flNextGrenadeCheck, FIELD_TIME ),
+	DEFINE_FIELD(m_nNumShotsFired, FIELD_INTEGER),
+	DEFINE_FIELD(m_flLastAttackTime, FIELD_TIME),
 
 END_DATADESC()
 
@@ -352,6 +355,17 @@ void CWeaponSMG1::AddViewKick( void )
 
 void CWeaponSMG1::PrimaryAttack( void )
 {
+	if ((gpGlobals->curtime - m_flLastAttackTime) > GetFireRate())
+	{
+		m_nNumShotsFired = 0;
+	}
+	else
+	{
+		m_nNumShotsFired++;
+	}
+
+	m_flLastAttackTime = gpGlobals->curtime;
+	
 	BaseClass::PrimaryAttack();
 
 	if (m_bFireOnEmpty)

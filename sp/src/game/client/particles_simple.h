@@ -189,6 +189,8 @@ protected:
 	virtual	void	UpdateVelocity( SimpleParticle *pParticle, float timeDelta );
 	virtual Vector	UpdateColor( const SimpleParticle *pParticle );
 
+	void			Precache(void);
+
 	float			m_flNearClipMin;
 	float			m_flNearClipMax;
 

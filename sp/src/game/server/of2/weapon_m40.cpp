@@ -60,6 +60,7 @@ public:
 	bool	m_bMustReload;
 private:
 	int		m_nNumShotsFired;
+	float	m_flLastAttackTime;
 	DECLARE_SERVERCLASS();
 	DECLARE_DATADESC();
 };
@@ -72,6 +73,8 @@ IMPLEMENT_SERVERCLASS_ST( CWeaponM40, DT_WeaponM40 )
 END_SEND_TABLE()
 
 BEGIN_DATADESC( CWeaponM40 )
+DEFINE_FIELD(m_nNumShotsFired, FIELD_INTEGER),
+DEFINE_FIELD(m_flLastAttackTime, FIELD_TIME),
 END_DATADESC()
 
 //-----------------------------------------------------------------------------
@@ -95,6 +98,17 @@ void CWeaponM40::Precache(void)
 //-----------------------------------------------------------------------------
 void CWeaponM40::PrimaryAttack( void )
 {
+	if ((gpGlobals->curtime - m_flLastAttackTime) > GetFireRate())
+	{
+		m_nNumShotsFired = 0;
+	}
+	else
+	{
+		m_nNumShotsFired++;
+	}
+
+	m_flLastAttackTime = gpGlobals->curtime;
+	
 	// Only the player fires this way so we can cast
 	CBasePlayer *pPlayer = ToBasePlayer( GetOwner() );
 
@@ -118,13 +132,15 @@ void CWeaponM40::PrimaryAttack( void )
 		return;
 	}
 
+	
+
 	m_iPrimaryAttacks++;
 	gamestats->Event_WeaponFired( pPlayer, true, GetClassname() );
 
 	WeaponSound( SINGLE );
 //	pPlayer->DoMuzzleFlash();
 	DispatchParticleEffect("weapon_muzzle_flash_awp", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
-	if (m_nNumShotsFired >= 2){
+	if (m_nNumShotsFired >= 1){
 		DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
 	}
 	SendWeaponAnim( ACT_VM_PRIMARYATTACK );
@@ -178,19 +194,14 @@ Vector CWeaponM40::GetM40BulletSpread( void )
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-void CWeaponM40::CheckZoomToggle( void )
+void CWeaponM40::CheckZoomToggle(void)
 {
-	CBasePlayer *pPlayer = ToBasePlayer( GetOwner() );
-	
-	if ( pPlayer->m_afButtonPressed & IN_ATTACK2 )
+	CBasePlayer *pPlayer = ToBasePlayer(GetOwner());
+
+	if (pPlayer->m_afButtonPressed & IN_ATTACK2)
 	{
-			ToggleZoom();
+		ToggleZoom();
 	}
-	
-	//if ( pPlayer->m_afButtonReleased & IN_ATTACK2 )
-	//{
-	//	ToggleZoom();
-	//}
 }
 
 void CWeaponM40::ItemBusyFrame( void )
@@ -209,6 +220,15 @@ void CWeaponM40::ItemPostFrame( void )
 	if ( m_bMustReload && HasWeaponIdleTimeElapsed() )
 	{
 		Reload();
+	}
+
+	if (m_bInZoom)
+	{
+		m_bDrawViewmodel = true;
+	}
+	else
+	{
+		m_bDrawViewmodel = false;
 	}
 
 	BaseClass::ItemPostFrame();
@@ -244,7 +264,6 @@ void CWeaponM40::ToggleZoom( void )
 		if (pPlayer->SetFOV(this, 0, 0.2f))
 		{
 			m_bInZoom = false;
-			m_bDrawViewmodel = true;
 			// Send a message to hide the scope
 			CSingleUserRecipientFilter filter(pPlayer);
 			UserMessageBegin(filter, "ShowScope");
@@ -257,7 +276,6 @@ void CWeaponM40::ToggleZoom( void )
 		if (pPlayer->SetFOV(this, 20, 0.1f))
 		{
 			m_bInZoom = true;
-			m_bDrawViewmodel = false;
 			// Send a message to Show the scope
 			CSingleUserRecipientFilter filter(pPlayer);
 			UserMessageBegin(filter, "ShowScope");

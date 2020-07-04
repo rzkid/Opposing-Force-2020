@@ -1134,6 +1134,8 @@ void CHL2_Player::Spawn(void)
 
 	BaseClass::Spawn();
 
+	
+
 	//
 	// Our player movement speed is set once here. This will override the cl_xxxx
 	// cvars unless they are set to be lower than this.
@@ -2676,6 +2678,14 @@ void CHL2_Player::Weapon_Equip( CBaseCombatWeapon *pWeapon )
 	if( GetActiveWeapon() == NULL )
 	{
 		m_HL2Local.m_bWeaponLowered = false;
+	}
+
+	IGameEvent *pEvent = gameeventmanager->CreateEvent("instructor_primaryattack");
+
+	if (pEvent)
+	{
+		pEvent->SetInt("userid", GetUserID());
+		gameeventmanager->FireEvent(pEvent);
 	}
 
 	BaseClass::Weapon_Equip( pWeapon );

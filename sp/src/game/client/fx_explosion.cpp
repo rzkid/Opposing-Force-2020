@@ -18,6 +18,7 @@
 #include "fx_quad.h"
 #include "fx_line.h"
 #include "fx_water.h"
+#include "particle_parse.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -173,7 +174,7 @@ void C_BaseExplosionEffect::Precache(void)
 //			force - 
 // Output : virtual void
 //-----------------------------------------------------------------------------
-void C_BaseExplosionEffect::Create( const Vector &position, float force, float scale, int flags )
+void C_BaseExplosionEffect::Create( const Vector &position, float force, float scale, int flags, const Vector &normal )
 {
 	m_vecOrigin = position;
 	m_fFlags	= flags;
@@ -182,26 +183,24 @@ void C_BaseExplosionEffect::Create( const Vector &position, float force, float s
 	GetForceDirection( m_vecOrigin, force, &m_vecDirection, &m_flForce );
 
 	PlaySound();
-
-	if ( scale != 0 )
-	{
-		// UNDONE: Make core size parametric to scale or remove scale?
-		&C_BaseExplosionEffect::CreateCore;
-	}
-	//CreateDebris();
+	
+	QAngle vecAngles;
+	VectorAngles(normal, vecAngles);
+	DispatchParticleEffect("grenade_explosion", m_vecOrigin, vecAngles);
 	CreateDynamicLight();
 	CreateMisc();
+	//CreateCore();
+	//CreateDebris();
+	
 }
 
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
 
-void C_BaseExplosionEffect::CreateCore(const Vector &origin, const Vector &normal, float scale)
+void C_BaseExplosionEffect::CreateCore(void)
 {
-	QAngle vecAngles;
-	VectorAngles(normal, vecAngles);
-	DispatchParticleEffect("grenade_explosion", origin, vecAngles);
+	
 }
 
 //-----------------------------------------------------------------------------
@@ -447,7 +446,7 @@ void C_BaseExplosionEffect::GetForceDirection( const Vector &origin, float magni
 //-----------------------------------------------------------------------------
 void ExplosionCallback( const CEffectData &data )
 {
-	BaseExplosionEffect().Create( data.m_vOrigin, data.m_flMagnitude, data.m_flScale, data.m_fFlags );
+	BaseExplosionEffect().Create( data.m_vOrigin, data.m_flMagnitude, data.m_flScale, data.m_fFlags, data.m_vNormal);
 }
 
 DECLARE_CLIENT_EFFECT( "Explosion", ExplosionCallback );
@@ -547,7 +546,7 @@ C_WaterExplosionEffect &WaterExplosionEffect( void )
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-void C_WaterExplosionEffect::Create( const Vector &position, float force, float scale, int flags )
+void C_WaterExplosionEffect::Create( const Vector &position, float force, float scale, int flags, const Vector &normal )
 {
 	m_vecOrigin = position;
 
@@ -593,7 +592,7 @@ void C_WaterExplosionEffect::Create( const Vector &position, float force, float 
 	// Get our lighting information
 	FX_GetSplashLighting( m_vecOrigin + Vector( 0, 0, 32 ), &m_vecColor, &m_flLuminosity );
 
-	BaseClass::Create( position, force, scale, flags );
+	BaseClass::Create( position, force, scale, flags, normal );
 }
 
 
@@ -957,7 +956,7 @@ void C_WaterExplosionEffect::PlaySound( void )
 //-----------------------------------------------------------------------------
 void WaterSurfaceExplosionCallback( const CEffectData &data )
 {
-	WaterExplosionEffect().Create( data.m_vOrigin, data.m_flMagnitude, data.m_flScale, data.m_fFlags );
+	WaterExplosionEffect().Create( data.m_vOrigin, data.m_flMagnitude, data.m_flScale, data.m_fFlags, data.m_vNormal );
 }
 
 DECLARE_CLIENT_EFFECT( "WaterSurfaceExplosion", WaterSurfaceExplosionCallback );
@@ -1061,7 +1060,7 @@ void C_MegaBombExplosionEffect::CreateCore( void )
 //-----------------------------------------------------------------------------
 void HelicopterMegaBombCallback( const CEffectData &data )
 {
-	C_MegaBombExplosionEffect().Create( data.m_vOrigin, 1.0f, 1.0f, 0 );
+	C_MegaBombExplosionEffect().Create( data.m_vOrigin, 1.0f, 1.0f, 0 , data.m_vNormal);
 }
 
 DECLARE_CLIENT_EFFECT( "HelicopterMegaBomb", HelicopterMegaBombCallback );

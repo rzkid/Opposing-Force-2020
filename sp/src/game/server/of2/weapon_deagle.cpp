@@ -43,6 +43,7 @@ public:
 
 private:
 	int		m_nNumShotsFired;
+	float	m_flLastAttackTime;
 
 	DECLARE_SERVERCLASS();
 	DECLARE_DATADESC();
@@ -56,6 +57,8 @@ IMPLEMENT_SERVERCLASS_ST(CWeaponDeagle, DT_WeaponDeagle)
 END_SEND_TABLE()
 
 BEGIN_DATADESC(CWeaponDeagle)
+DEFINE_FIELD(m_nNumShotsFired, FIELD_INTEGER),
+DEFINE_FIELD(m_flLastAttackTime, FIELD_TIME),
 END_DATADESC()
 
 //-----------------------------------------------------------------------------
@@ -107,6 +110,10 @@ void CWeaponDeagle::Operator_HandleAnimEvent(animevent_t *pEvent, CBaseCombatCha
 //-----------------------------------------------------------------------------
 void CWeaponDeagle::PrimaryAttack(void)
 {
+	m_nNumShotsFired++;
+
+	m_flLastAttackTime = gpGlobals->curtime;
+
 	// Only the player fires this way so we can cast
 	CBasePlayer *pPlayer = ToBasePlayer(GetOwner());
 
@@ -130,16 +137,17 @@ void CWeaponDeagle::PrimaryAttack(void)
 		return;
 	}
 
+	
+//	pPlayer->DoMuzzleFlash();
+	DispatchParticleEffect("weapon_muzzle_flash_huntingrifle", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "1", true);
+
+	
+
+
 	m_iPrimaryAttacks++;
 	gamestats->Event_WeaponFired(pPlayer, true, GetClassname());
 
 	WeaponSound(SINGLE);
-//	pPlayer->DoMuzzleFlash();
-	DispatchParticleEffect("weapon_muzzle_flash_huntingrifle", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "1", true);
-
-		if (m_nNumShotsFired >= 2){
-			DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "1", true);
-		}
 	SendWeaponAnim(ACT_VM_PRIMARYATTACK);
 	pPlayer->SetAnimation(PLAYER_ATTACK1);
 
@@ -176,4 +184,6 @@ void CWeaponDeagle::PrimaryAttack(void)
 		// HEV suit - indicate out of ammo condition
 		pPlayer->SetSuitUpdate("!HEV_AMO0", FALSE, 0);
 	}
+
+//	DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "1", true);
 }

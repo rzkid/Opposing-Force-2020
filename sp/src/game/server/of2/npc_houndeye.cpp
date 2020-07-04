@@ -642,8 +642,8 @@ void CNPC_Houndeye::SonicAttack(void)
 
 	CPASAttenuationFilter filter(this);
 	EmitSound(filter, entindex(), "NPC_HoundEye.SonicAttack");
-
-
+	DispatchParticleEffect("houndeye_shockwave", PATTACH_POINT_FOLLOW, this, "root", true);
+	/*
 	CBroadcastRecipientFilter filter2;
 	te->BeamRingPoint(filter2, 0.0,
 		GetAbsOrigin(),							//origin
@@ -684,9 +684,9 @@ void CNPC_Houndeye::SonicAttack(void)
 		0												//speed
 		);
 
-
+*/
 	CBaseEntity *pEntity = NULL;
-	DispatchParticleEffect("houndeye_shockwave", PATTACH_ABSORIGIN);
+	
 	// iterate on all entities in the vicinity.
 	while ((pEntity = gEntList.FindEntityInSphere(pEntity, GetAbsOrigin(), HOUNDEYE_MAX_ATTACK_RADIUS)) != NULL)
 	{

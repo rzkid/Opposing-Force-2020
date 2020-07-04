@@ -39,6 +39,7 @@ private:
 	bool	m_bDelayedFire1;	// Fire primary when finished reloading
 	bool	m_bDelayedFire2;	// Fire secondary when finished reloading
 	int		m_nNumShotsFired;
+	float	m_flLastAttackTime;
 
 public:
 	void	Precache(void);
@@ -101,6 +102,8 @@ BEGIN_DATADESC(CWeaponShotgun)
 DEFINE_FIELD(m_bNeedPump, FIELD_BOOLEAN),
 DEFINE_FIELD(m_bDelayedFire1, FIELD_BOOLEAN),
 DEFINE_FIELD(m_bDelayedFire2, FIELD_BOOLEAN),
+DEFINE_FIELD(m_nNumShotsFired, FIELD_INTEGER),
+DEFINE_FIELD(m_flLastAttackTime, FIELD_TIME),
 
 END_DATADESC()
 
@@ -440,6 +443,17 @@ void CWeaponShotgun::DryFire(void)
 //-----------------------------------------------------------------------------
 void CWeaponShotgun::PrimaryAttack(void)
 {
+	if ((gpGlobals->curtime - m_flLastAttackTime) > GetFireRate())
+	{
+		m_nNumShotsFired = 0;
+	}
+	else
+	{
+		m_nNumShotsFired++;
+	}
+
+	m_flLastAttackTime = gpGlobals->curtime;
+	
 	// Only the player fires this way so we can cast
 	CBasePlayer *pPlayer = ToBasePlayer(GetOwner());
 
@@ -448,13 +462,15 @@ void CWeaponShotgun::PrimaryAttack(void)
 		return;
 	}
 
+	
+
 	// MUST call sound before removing a round from the clip of a CMachineGun
 	WeaponSound(SINGLE);
 
 //	pPlayer->DoMuzzleFlash();
 
 	DispatchParticleEffect("weapon_muzzle_flash_autoshotgun", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
-	if (m_nNumShotsFired >= 1){
+	if (m_nNumShotsFired >= 2){
 		DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
 	}
 

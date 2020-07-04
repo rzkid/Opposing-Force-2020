@@ -31,14 +31,14 @@ public:
 
 	static	C_BaseExplosionEffect &Instance( void )	{	return m_instance;	}
 
-	virtual void	Create( const Vector &position, float force, float scale, int flags );
+	virtual void	Create(const Vector &position, float force, float scale, int flags, const Vector &normal);
 
 protected:
 					C_BaseExplosionEffect( void );
 
 	virtual void	PlaySound( void );
 
-	void C_BaseExplosionEffect::CreateCore(const Vector &origin, const Vector &normal, float scale);
+	virtual void    CreateCore(void);
 	virtual void	CreateDebris( void );
 	virtual void	CreateMisc( void );
 	virtual void	CreateDynamicLight( void );
@@ -91,7 +91,7 @@ class C_WaterExplosionEffect : public C_BaseExplosionEffect
 public:
 	static	C_WaterExplosionEffect &Instance( void )	{	return m_waterinstance;	}
 
-	virtual void	Create( const Vector &position, float force, float scale, int flags );
+	virtual void	Create( const Vector &position, float force, float scale, int flags, const Vector &normal );
 
 protected:
 	virtual void	CreateCore( void );

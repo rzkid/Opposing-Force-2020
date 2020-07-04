@@ -94,6 +94,7 @@ protected:
 
 private:
 	int		m_nNumShotsFired;
+	float	m_flLastAttackTime;
 };
 
 IMPLEMENT_SERVERCLASS_ST(CWeaponCSMG1, DT_WeaponCSMG1)
@@ -106,6 +107,8 @@ BEGIN_DATADESC( CWeaponCSMG1 )
 
 	DEFINE_FIELD( m_vecTossVelocity, FIELD_VECTOR ),
 	DEFINE_FIELD( m_flNextGrenadeCheck, FIELD_TIME ),
+	DEFINE_FIELD(m_nNumShotsFired, FIELD_INTEGER),
+	DEFINE_FIELD(m_flLastAttackTime, FIELD_TIME),
 
 END_DATADESC()
 
@@ -402,6 +405,18 @@ void CWeaponCSMG1::FireCombineBalls( void )
 
 void CWeaponCSMG1::PrimaryAttack( void )
 {
+
+	if ((gpGlobals->curtime - m_flLastAttackTime) > GetFireRate())
+	{
+		m_nNumShotsFired = 0;
+	}
+	else
+	{
+		m_nNumShotsFired++;
+	}
+
+	m_flLastAttackTime = gpGlobals->curtime;
+
 	if (m_bFireOnEmpty)
 	{
 		return;
@@ -416,13 +431,13 @@ void CWeaponCSMG1::PrimaryAttack( void )
 	if ( (UsesClipsForAmmo1() && m_iClip1 == 0) || ( !UsesClipsForAmmo1() && !pPlayer->GetAmmoCount(m_iPrimaryAmmoType) ) )
 		return;
 
-	m_nShotsFired++;
+	
 
 //	pPlayer->DoMuzzleFlash();
 
 	DispatchParticleEffect("weapon_muzzle_flash_assaultrifle_parent_silenced", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
 
-	if (m_nNumShotsFired >= 5){
+	if (m_nNumShotsFired >= 3){
 		DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
 	}
 

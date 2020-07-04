@@ -262,7 +262,7 @@ void CWeaponGlock::PrimaryAttack( void )
 
 	DispatchParticleEffect("weapon_muzzle_flash_pistol", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
 
-	if (m_nNumShotsFired >= 2){
+	if (m_nNumShotsFired >= 3){
 		DispatchParticleEffect("weapon_muzzle_smoke", PATTACH_POINT_FOLLOW, pPlayer->GetViewModel(), "muzzle", true);
 	}
 

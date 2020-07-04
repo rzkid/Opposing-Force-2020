@@ -87,6 +87,7 @@ int	g_interactionBullsquidThrow		= 0;
 #define		BSQUID_AE_HOP		( 5 )
 #define		BSQUID_AE_THROW		( 6 )
 #define		BSQUID_AE_WHIP_SND	( 7 )
+#define		BSQUID_AE_TAILWHIP	( 8 )
 
 LINK_ENTITY_TO_CLASS( npc_bullsquid, CNPC_Bullsquid );
 
@@ -150,7 +151,6 @@ void CNPC_Bullsquid::Spawn()
 void CNPC_Bullsquid::Precache()
 {
 	PrecacheModel( "models/bullsquid.mdl" );
-	m_nSquidSpitSprite = PrecacheModel("sprites/greenspit1.vmt");// client side spittle.
 
 	UTIL_PrecacheOther( "grenade_spit" );
 
@@ -318,7 +318,7 @@ void CNPC_Bullsquid::HandleAnimEvent( animevent_t *pEvent )
 			break;
 		}
 
-/*
+
 		case BSQUID_AE_TAILWHIP:
 		{
 			CBaseEntity *pHurt = CheckTraceHullAttack( 70, Vector(-16,-16,-16), Vector(16,16,16), sk_bullsquid_dmg_whip.GetFloat(), DMG_SLASH | DMG_ALWAYSGIB );
@@ -334,7 +334,7 @@ void CNPC_Bullsquid::HandleAnimEvent( animevent_t *pEvent )
 			}
 		}
 		break;
-*/
+
 
 		case BSQUID_AE_BLINK:
 		{

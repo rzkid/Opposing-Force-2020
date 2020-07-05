@@ -102,6 +102,7 @@ $Project "Server (OF2)"
 			$File	"hl2\prop_combine_ball.h"
 			$File	"hl2\prop_combine_ball.cpp"
 			$File	"of2\weapon_saw.cpp"
+			$File	"$SRCDIR\game\server\env_instructor_hint.cpp"
 		}
 
 		$Folder	"HL2 DLL"

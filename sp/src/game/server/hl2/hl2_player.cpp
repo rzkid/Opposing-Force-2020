@@ -1161,6 +1161,14 @@ void CHL2_Player::Spawn(void)
 	GetPlayerProxy();
 
 	SetFlashlightPowerDrainScale( 1.0f );
+
+	IGameEvent *pEvent = gameeventmanager->CreateEvent("instructor_primaryattack");
+
+	if (pEvent)
+	{
+		pEvent->SetInt("userid", GetUserID());
+		gameeventmanager->FireEvent(pEvent);
+	}
 }
 
 //-----------------------------------------------------------------------------
@@ -2678,14 +2686,6 @@ void CHL2_Player::Weapon_Equip( CBaseCombatWeapon *pWeapon )
 	if( GetActiveWeapon() == NULL )
 	{
 		m_HL2Local.m_bWeaponLowered = false;
-	}
-
-	IGameEvent *pEvent = gameeventmanager->CreateEvent("instructor_primaryattack");
-
-	if (pEvent)
-	{
-		pEvent->SetInt("userid", GetUserID());
-		gameeventmanager->FireEvent(pEvent);
 	}
 
 	BaseClass::Weapon_Equip( pWeapon );

@@ -140,44 +140,34 @@ void UpdateFullScreenDepthTexture( void )
 	}
 }
 
-//nightfall - amckern - amckern@yahoo.com
-//NightVision
-static void ScreenOver_f(void)
+//-----------------------------------------------------------------------------
+// NightVision
+//-----------------------------------------------------------------------------
+static void NightVision_f(void)
 {
-	IMaterial *pMaterial = materials->FindMaterial("HUDoverlays/nightvision", TEXTURE_GROUP_OTHER, true);
-	//This is the texture we are going to use for the 'effect' - never use an ext on material files
+	C_BasePlayer *pPlayer = C_BasePlayer::GetLocalPlayer(); //get the local player 
 
+	const Vector *vOrigin = &pPlayer->GetAbsOrigin(); //get the local players origin
+
+	static bool bDisplayed; //static bool
+
+	if (bDisplayed)
 	{
-		static bool bDisplayed = false;
-
-		if (bDisplayed)
-		{
-			// turn it off
-			view->SetScreenOverlayMaterial(NULL);
-			// Deactivate the 'light'
-			cvar->FindVar("mat_fullbright")->SetValue(0);
-			CLocalPlayerFilter filter;
-			C_BaseEntity::EmitSound(filter, 0, "OF2.NightVisOFF");
-			//play the off sound
-		}
-		else
-		{
-			// turn it on
-			view->SetScreenOverlayMaterial(pMaterial);
-			//this is the HUDoverlays/nightvision texture we made a pointer to above
-			// Activate the 'light'
-			cvar->FindVar("mat_fullbright")->SetValue(1);
-			CLocalPlayerFilter filter;
-			C_BaseEntity::EmitSound(filter, 0, "OF2.NightVisOn");
-			//On we go - play a sound to let the player know that the NV is on
-		}
-
-		bDisplayed = !bDisplayed;
-
-		//check if fullbright has been disabled, or enabled
-		if (cvar->FindVar("mat_fullbright")->GetInt() == 1)//is it on?
-			cvar->FindVar("mat_fullbright")->SetValue(0);//well turn it off.
+		view->SetScreenOverlayMaterial(null); //set screenoverlay to nothing
+		CLocalPlayerFilter filter;
+		pPlayer->EmitSound(filter, 0, "OF2.NightVisOff", vOrigin); //and play sound
 	}
+	else
+	{
+		IMaterial *pMaterial = materials->FindMaterial("NightVision", TEXTURE_GROUP_OTHER, true); //set pMaterial to our texture
+		view->SetScreenOverlayMaterial(pMaterial); //and overlay it on the screen
+		CLocalPlayerFilter filter;
+		pPlayer->EmitSound(filter, 0, "OF2.NightVisOn", vOrigin); //and play a sound
+	}
+
+	bDisplayed = !bDisplayed; // flip flop the bool
+
 }
 
-static ConCommand r_screenover("r_screenover", ScreenOver_f);
+//night vision console command
+static ConCommand r_nightvision("r_nightvision", NightVision_f); // console command to trigger the function, bind it by typing bind n r_nightvision.

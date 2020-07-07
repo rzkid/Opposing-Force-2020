@@ -1,7 +1,7 @@
 #include "BaseVSShader.h"
 
-#include "PassThrough_vs30.inc"
-#include "post_nightvision_ps30.inc"
+#include "include\PassThrough_vs30.inc"
+#include "include\post_nightvision_ps30.inc"
 
 ConVar mat_grain_scale_override( "mat_grain_scale_override", "2.0" );//was 4.2
 

@@ -1,7 +1,7 @@
 #include "BaseVSShader.h"
 
-#include "PassThrough_vs30.inc"
-#include "post_cubic_ps30.inc"
+#include "include\PassThrough_vs30.inc"
+#include "include\post_cubic_ps30.inc"
 
 ConVar mat_cubic_k("mat_cubic_k","-1.0");
 ConVar mat_cubic_kcube("mat_cubic_kcube","0.5");

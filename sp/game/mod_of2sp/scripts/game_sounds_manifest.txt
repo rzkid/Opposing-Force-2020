@@ -39,12 +39,14 @@ game_sounds_manifest
 	"precache_file"		"scripts/level_sounds_canals2.txt"
 	//Music Tracks
 	"precache_file"		"scripts/level_sounds_music.txt"
+	"precache_file"		"scripts/game_sounds_test.txt"
 
 
 	// NPC Sounds
 	"precache_file"		"scripts/npc_sounds_mortarsynth.txt"
 	"precache_file"		"scripts/npc_sounds_charger.txt"
 	"precache_file"		"scripts/npc_sounds_pitdrone.txt"
+	"precache_file"		"scripts/npc_sounds_snark.txt"
 	"precache_file"		"scripts/npc_sounds_houndeye.txt"
 	"precache_file"		"scripts/npc_sounds_hunter.txt"
 	"precache_file"		"scripts/npc_sounds_eli.txt"

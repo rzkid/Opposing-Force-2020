@@ -79,22 +79,22 @@ $fadeout 1.5
 
 GAMEOVER_ALLY
 {
-#HL2_GameOver_Ally
+#OF2_GameOver_Ally
 }
 
 GAMEOVER_OBJECT
 {
-#HL2_GameOver_Object
+#OF2_GameOver_Object
 }
 
 GAMEOVER_TIMER
 {
-#HL2_GameOver_Timer
+#OF2_GameOver_Timer
 }
 
 GAMEOVER_STUCK
 {
-#HL2_GameOver_Stuck
+#OF2_GameOver_Stuck
 }
 
 
@@ -110,73 +110,73 @@ $position -1 0.58
 
 CHAPTER1_TITLE
 {
-#HL2_Chapter1_Title
+#OF2_Chapter1_Title
 }
 
 CHAPTER2_TITLE
 {
-#HL2_Chapter2_Title
+#OF2_Chapter2_Title
 }
 
 CHAPTER3_TITLE
 {
-#HL2_Chapter3_Title
+#OF2_Chapter3_Title
 }
 
 CHAPTER4_TITLE
 {
-#HL2_Chapter4_Title
+#OF2_Chapter4_Title
 }
 
 CHAPTER5_TITLE
 {
-#HL2_Chapter5_Title
+#OF2_Chapter5_Title
 }
 
 CHAPTER6_TITLE
 {
-#HL2_Chapter6_Title
+#OF2_Chapter6_Title
 }
 
 CHAPTER7_TITLE
 {
-#HL2_Chapter7_Title
+#OF2_Chapter7_Title
 }
 
 CHAPTER8_TITLE
 {
-#HL2_Chapter8_Title
+#OF2_Chapter8_Title
 }
 
 CHAPTER9_TITLE
 {
-#HL2_Chapter9_Title
+#OF2_Chapter9_Title
 }
 
 CHAPTER9A_TITLE
 {
-#HL2_Chapter9a_Title
+#OF2_Chapter9a_Title
 }
 
 
 CHAPTER10_TITLE
 {
-#HL2_Chapter10_Title
+#OF2_Chapter10_Title
 }
 
 CHAPTER11_TITLE
 {
-#HL2_Chapter11_Title
+#OF2_Chapter11_Title
 }
 
 CHAPTER12_TITLE
 {
-#HL2_Chapter12_Title
+#OF2_Chapter12_Title
 }
 
 CHAPTER13_TITLE
 {
-#HL2_Chapter13_Title
+#OF2_Chapter13_Title
 }
 
 
@@ -198,7 +198,7 @@ $fadeout 0.5
 
 GAMESAVED
 {
-#HL2_Saved
+#OF2_Saved
 }
 
 // Game title
@@ -219,7 +219,8 @@ $fadeout 1.5
 
 GAMETITLE
 {
-Half-Life
+H ' L F -L I F E
+== opposing force2 ==
 }
 
 //HAZARD COURSE TEXT

@@ -23,16 +23,17 @@ Scheme
 	// controls use these to determine their settings
 	BaseSettings
 	{
-		"FgColor"			"201 255 0 100"
-		"BgColor"			"0 0 0 76"
+		"FgColor"			"201 255 0 128"
+		"BgColor"			"0 0 0 0" //76
+		"DgColor"			"0 199 0 128"
 
-		"Panel.FgColor"			"255 220 0 100"
-		"Panel.BgColor"			"0 0 0 76"
+		"Panel.FgColor"			"201 255 0 128"
+		"Panel.BgColor"			"0 0 0 0" //76
 		
 		"BrightFg"		"201 255 0 255"
 
-		"DamagedBg"			"180 0 0 200"
-		"DamagedFg"			"180 0 0 230"
+		"DamagedBg"			"0 0 0 0"
+		"DamagedFg"			"180 0 0 255"
 		"BrightDamagedFg"		"255 0 0 255"
 
 		// weapon selection colors
@@ -45,29 +46,26 @@ Scheme
 		"ZoomReticleColor"	"255 220 0 255"
 
 		// HL1-style HUD colors
-		"Yellowish"			"255 160 0 255"
+		"Yellowish"			"201 255 0 128"
 		"Normal"			"201 255 0 255"
 		"Caution"			"255 48 0 255"
 
 		// Top-left corner of the "Half-Life 2" on the main screen
-		"Main.Title1.X"				"76"
-		"Main.Title1.Y"				"145"
-		"Main.Title1.Y_hidef"		"130"
-		"Main.Title1.Color"	"255 255 255 255"
-
-		// Top-left corner of secondary title e.g. "DEMO" on the main screen
-		"Main.Title2.X"				"76"
-		"Main.Title2.Y"				"190"
-		"Main.Title2.Y_hidef"		"174"
-		"Main.Title2.Color"	"255 255 255 200"
+		"Main.Title1.X"		"16" // 32
+		"Main.Title1.Y"		"316" // 316
+		"Main.Title1.Color"	"255 255 255 255" // 255 255 255 255
+		
+		// Top-left corner of the "DEATHMATCH" on the main screen
+		"Main.Title2.X"		"16" //32
+		"Main.Title2.Y"		"348" //348
+		"Main.Title2.Color"	"255 255 255 180" // 255 255 255 180
 
 		// Top-left corner of the menu on the main screen
-		"Main.Menu.X"			"53"
-		"Main.Menu.X_hidef"		"76"
-		"Main.Menu.Y"			"240"
+		"Main.Menu.X"		"16" // 32
+		"Main.Menu.Y"		"396" // 396
 
 		// Blank space to leave beneath the menu on the main screen
-		"Main.BottomBorder"	"32"
+		"Main.BottomBorder"	"14" // 14
 	}
 
 	//////////////////////// BITMAP FONT FILES /////////////////////////////
@@ -112,53 +110,51 @@ Scheme
 		// if a font fails to load then the subsequent fonts will replace
 		Default
 		{
-			"1"	[$X360]
-			{
-				"name"		"Verdana"
-				"tall"		"12"
-				"weight"	"700"
-				"antialias" "1"
-			}
 			"1"	[$WIN32]
 			{
-				"name"		"Verdana"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"9"
 				"weight"	"700"
 				"antialias" "1"
 				"yres"	"1 599"
+				"scanlines" "1"
 			}
 			"2"
 			{
-				"name"		"Verdana"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"12"
 				"weight"	"700"
 				"antialias" "1"
 				"yres"	"600 767"
+				"scanlines" "1"
 			}
 			"3"
 			{
-				"name"		"Verdana"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"14"
 				"weight"	"900"
 				"antialias" "1"
 				"yres"	"768 1023"
+				"scanlines" "1"
 			}
 			"4"
 			{
-				"name"		"Verdana"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"20"
 				"weight"	"900"
 				"antialias" "1"
 				"yres"	"1024 1199"
+				"scanlines" "1"
 			}
 			"5"
 			{
-				"name"		"Verdana"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"24"
 				"weight"	"900"
 				"antialias" "1"
 				"yres"	"1200 10000"
 				"additive"	"1"
+				"scanlines" "1"
 			}
 		}
 		"DefaultSmall"
@@ -208,7 +204,7 @@ Scheme
 			}
 			"6"
 			{
-				"name"		"Arial"
+				"name"		"Arial Narrow"
 				"tall"		"12"
 				"range" 		"0x0000 0x00FF"
 				"weight"		"0"
@@ -318,11 +314,12 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"HalfLife2"
-				"tall"		"40"
+				"name"		"crosshairs"
+				"tall"		"60"
 				"weight"	"0"
-				"antialias" "0"
+				"antialias" "1"
 				"additive"	"1"
+				"scanlines" "1"
 				"custom"	"1"
 				"yres"		"1 10000"
 			}
@@ -352,7 +349,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Eurostile"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"24"	[$WIN32]
 				"weight"	"0"
 				"antialias" "1"
@@ -364,7 +361,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Eurostile"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"24"	[$WIN32]
 				"weight"	"0"
 				"blur"		"5"
@@ -377,7 +374,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Eurostile"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"10"	[$WIN32]
 				"weight"	"200"
 				"antialias" "1"
@@ -385,12 +382,12 @@ Scheme
 				"custom"	"1"
 			}
 		}
-		OF2HudNumbersSmallGlow
+		HudNumbersSmallGlow
 		{
 			"1"
 			{
 				"name"		"Eurostile"
-				"tall"		"10"	[$WIN32]
+				"tall"		"14"
 				"weight"	"0"
 				"blur"		"5"
 				"antialias" "1"
@@ -402,7 +399,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Gautami"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"12"	[$WIN32]
 				"weight"	"0"
 				"antialias" "1"
@@ -417,8 +414,9 @@ Scheme
 				"name"		"Counter-Strike"
 				"tall"		"41"	[$WIN32]
 				"weight"	"0"
-				"antialias" "1"
 				"additive"	"1"
+				"antialias" "1"
+				"scanlines" "1"
 				"custom"	"1"
 			}
 		}
@@ -439,16 +437,16 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"HalfLife2"
+				"name"		"Eurostile"
 				"tall"		"32"	[$WIN32]
-				"tall"		"38"	[$X360]
 				"weight"	"0"
+				"scanlines" "1"
 				"antialias" "1"
 				"additive"	"1"
 				"custom"	"1"
 			}
 		}
-		SquadIcon	[$X360]
+		SquadIcon
 		{
 			"1"
 			{
@@ -464,12 +462,23 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"HalfLife2"
-				"tall"		"32"	[$WIN32]
-				"tall"		"38"	[$X360]
+				"name"		"Eurostile"
+				"tall"		"32"	
 				"weight"	"0"
-				"blur"		"4"
-				"scanlines" "2"
+				"blur"		"5"
+			  //"scanlines" "2"
+				"antialias" "1"
+				"additive"	"1"
+				"custom"	"1"
+			}
+		}
+		HudIconsGlow
+		{
+			"1"
+			{
+				"name"		"Counter-Strike"
+				"tall"		"41"	
+				"blur"		"5"
 				"antialias" "1"
 				"additive"	"1"
 				"custom"	"1"
@@ -479,11 +488,11 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"HalfLife2"
-				"tall"		"16"	[$WIN32]
-				"tall"		"22"	[$X360]
+				"name"		"Eurostile"
+				"tall"		"12"	[$WIN32]
 				"weight"	"1000"
 				"additive"	"1"
+				//"scanlines" "1"
 				"antialias" "1"
 				"custom"	"1"
 			}
@@ -492,7 +501,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Verdana"
+				"name"		"Eurostile"
 				"tall"		"11"
 				"weight"	"700"
 				"antialias" "1"
@@ -510,7 +519,7 @@ Scheme
 			}
 			"1"	[$WIN32]
 			{
-				"name"		"Verdana"
+				"name"		"Eurostile"
 				"tall"		"14"
 				"weight"	"1000"
 				"antialias" "1"
@@ -521,7 +530,7 @@ Scheme
 		{
 			"1"	[$WIN32]
 			{
-				"name"		"Verdana"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"11"
 				"weight"	"0"
 				"antialias" "1"
@@ -540,7 +549,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Verdana"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"8"
 				"weight"	"700"
 				"antialias" "1"
@@ -548,7 +557,7 @@ Scheme
 			}
 			"2"
 			{
-				"name"		"Verdana"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"10"
 				"weight"	"700"
 				"antialias" "1"
@@ -556,7 +565,7 @@ Scheme
 			}
 			"3"
 			{
-				"name"		"Verdana"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"12"
 				"weight"	"900"
 				"antialias" "1"
@@ -564,7 +573,7 @@ Scheme
 			}
 			"4"
 			{
-				"name"		"Verdana"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"16"
 				"weight"	"900"
 				"antialias" "1"
@@ -572,7 +581,7 @@ Scheme
 			}
 			"5"
 			{
-				"name"		"Verdana"
+				"name"		"OCR A Becker RUS-LAT"
 				"tall"		"17"
 				"weight"	"1000"
 				"antialias" "1"
@@ -622,49 +631,65 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Tahoma"
-				"tall"		"26"
+				"name"		"Arial Narrow"
+				"tall"		"32"
 				"weight"	"500"
+				"antialias" "1"
+				"russian"
+				{
+					"range" "0x0000 0xFFFF"
+				}
+				"english"
+				{
+					"range" "0x0000 0xFFFF"
+				}
 			}
 		}
 		"CloseCaption_Italic"
 		{
 			"1"
 			{
-				"name"		"Tahoma"
-				"tall"		"26"
+				"name"		"Arial Narrow"
+				"tall"		"32"
 				"weight"	"500"
 				"italic"	"1"
+				"antialias" "1"
+				"range"		"0x0000 0xFFFF"
 			}
 		}
 		"CloseCaption_Bold"
 		{
 			"1"
 			{
-				"name"		"Tahoma"
-				"tall"		"26"
+				"name"		"Arial Narrow"
+				"tall"		"32"
 				"weight"	"900"
+				"antialias" "1"
+				"range"		"0x0000 0xFFFF"
 			}
 		}
 		"CloseCaption_BoldItalic"
 		{
 			"1"
 			{
-				"name"		"Tahoma"
-				"tall"		"26"
+				"name"		"Arial Narrow"
+				"tall"		"32"
 				"weight"	"900"
 				"italic"	"1"
+				"antialias" "1"
+				"range"		"0x0000 0xFFFF"
 			}
 		}
 		"CloseCaption_Small"
 		{
 			"1"
 			{
-				"name"		"Tahoma"
+				"name"		"Arial Narrow"
 				"tall"		"16"
-				"tall_hidef"	"24"
+				"tall_hidef"	"16"
 				"weight"	"900"
-				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
+				"antialias" "1"
+				"range"		"0x0000 0xFFFF" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
 			}
 		}
 		// this is the symbol font
@@ -703,9 +728,9 @@ Scheme
 		{
 			"1"
 			{
-				"name"  "Trebuchet MS"
-				"tall"			"34"
-				"tall_hidef"	"48"
+				"name"  "K12HL2"
+				"tall"			"28"
+				"tall_hidef"	"34"
 				"weight" "0"
 				"additive" "0"
 				"antialias" "1"
@@ -715,7 +740,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"HalfLife2"
+				"name"		"K12HL2"
 				"tall"		"128"
 				"weight"	"0"
 				"antialias" "1"
@@ -727,8 +752,8 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Trebuchet MS"
-				"tall"		"20"
+				"name"		"Arial Narrow"
+				"tall"		"32"
 				"weight"	"900"
 				"antialias" "1"
 				"additive"	"1"
@@ -738,7 +763,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"HalfLife2"
+				"name"		"K12HL2"
 				"tall"		"48"
 				"weight"	"0"
 				"antialias" "1"
@@ -750,8 +775,8 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Verdana"
-				"tall"		"9"
+				"name"		"Arial Narrow"
+				"tall"		"12"
 				"weight"	"900"
 				"antialias" "1"
 			}
@@ -845,12 +870,60 @@ Scheme
 			}
 			"7"
 			{
-				"name"		"Arial"
+				"name"		"Arial Narrow"
 				"tall"		"12"
 				"range" 		"0x0000 0x00FF"
 				"weight"		"800"
 			}
 			
+		}
+		
+		 "InstructorTitle"
+		{
+			"1"
+			{
+				"name"			"Arial Narrow"
+				"tall"			"20"
+				"weight"		"400"
+				"antialias"		"1"
+				"dropshadow"	"1"
+			}
+		}
+
+		"InstructorKeyBindings"
+		{
+			"1"
+			{
+				"name"			"Arial Narrow"
+				"tall"			"18"
+				"weight"		"600"
+				"antialias"		"1"
+				"dropshadow"	"0"
+			}
+		}
+
+		"InstructorButtons"
+		{
+			"1"
+			{
+				"name"			"Arial Narrow"
+				"tall"			"15"
+				"weight"		"600"
+				"antialias"		"1"
+				"dropshadow"	"1"
+			}
+		}
+
+		"InstructorTitleGlow"
+		{
+			"1"
+			{
+				"name"			"Arial Narrow"
+				"tall"			"20"
+				"weight"		"400"
+				"antialias"		"1"
+				"dropshadow"	"1"
+			}
 		}
 	}
 
@@ -860,12 +933,32 @@ Scheme
 	// specifies all the custom (non-system) font files that need to be loaded to service the above described fonts
 	CustomFontFiles
 	{
-		"1"		"resource/HALFLIFE2.ttf"
+		"1"		"resource/fonts/HALFLIFE2.ttf"
 		"2"		"resource/HL2crosshairs.ttf"
-		"3"	    "resource/HL2EP2.ttf"		
-		"4"		"resource/Cstrike.ttf"
-		"5"		"resource/gautami.ttf"
-		"6"	    "resource/Eurosti.ttf"	
+		"3"	    "resource/fonts/HL2EP2.ttf"		
+		"4"		"resource/fonts/Cstrike.ttf"
+		"5"		"resource/fonts/gautami.ttf"
+		"6"	    "resource/fonts/Eurosti.ttf"	
+		"7"	    "resource/fonts/K12HL2.ttf"	
+		"8"	    "resource/fonts/12619.otf"
+		"9"	    "resource/fonts/OCRAEXT.ttf"
+		"10"    "resource/fonts/crosshairs.ttf"
+		"11"    
+		{
+		  "font" "resource/fonts/arial-narrow.ttf"
+		  "name" "Arial Narrow"
+		  "russian"
+		  {
+		     "range" "0x0000 0xFFFF"
+		  }
+		  "english"
+		  {
+		    "range" "0x0000 0xFFFF"
+		  }
+		}
+		"12"    "resource/fonts/arial-narrow-bold.ttf"
+		"13"    "resource/fonts/arial-narrow-bold-italic.ttf"
+		"14"    "resource/fonts/arial-narrow-italic.ttf"
 	}
 
 }

@@ -1,336 +1,119 @@
 // Choreo version 1
-actor "GMAN"
+event section "pause"
 {
-  channel "WAV"
+  time 2.698807 -1.000000
+  param "noaction"
+}
+actor "G-Dude"
+{
+  channel "vo"
   {
-    event speak "1"
+    event speak "g.test"
     {
-      time 0.300000 3.439410
-      param "\vo\gman\gman_intro_1.wav"
+      time 3.827369 5.077369
+      param "g.intro1"
       fixedlength
       cctype "cc_master"
       cctoken ""
     }
   }
-  channel "Gesture"
+  channel "look"
   {
-    event gesture "a"
+    event lookat "camlook"
     {
-      time 0.055758 3.755280
-      param "HG_forwardright"
-      absolutetags playback_time
-      {
-        "apex" 0.187411
-        "extreme" 0.319546
-        "loop" 0.435501
-        "end" 0.532279
-      }
-      absolutetags shifted_time
-      {
-        "apex" 0.264706
-        "extreme" 0.367647
-        "loop" 0.441176
-        "end" 0.735294
-      }
-      sequenceduration 2.300000
-    }
-    event lookat "look"
-    {
-      time -0.546667 -0.046667
-      param "!player"
-    }
-    event lookat "1"
-    {
-      time 0.006666 14.275238
-      param "!player"
-    }
-    event gesture "2"
-    {
-      time 0.305600 6.573218
-      param "Revive_sit_idle_gesture"
-      absolutetags playback_time
-      {
-        "apex" 0.123173
-        "accent" 0.396748
-        "loop" 0.426531
-        "end" 0.516943
-      }
-      absolutetags shifted_time
-      {
-        "apex" 0.061224
-        "accent" 0.306122
-        "loop" 0.459184
-        "end" 0.663265
-      }
-      sequenceduration 3.300000
-    }
-    event speak "gman_intro_2"
-    {
-      time 4.578572 14.304173
-      param "vo\gman\gman_intro_2.wav"
-      fixedlength
-      cctype "cc_master"
-      cctoken ""
+      time 0.060000 6.513334
+      param "!target1"
     }
   }
-  channel "FLEX"
+  channel "face"
   {
-    event flexanimation "Face"
+    event flexanimation "smile"
     {
-      time 0.011905 14.299207
+      time 2.720000 6.726667
       param ""
       flexanimations samples_use_time defaultcurvetype=curve_catmullrom_normalize_x_to_curve_catmullrom_normalize_x
       {
-        "lid_raiser" combo 
-        {
-        }
-        {
-        }
-        "lid_tightener" combo 
-        {
-          9.9250 0.4800
-          10.9688 0.4900
-          11.9000 0.9700
-          12.9375 0.0600
-        }
-        {
-        }
         "lid_droop" combo 
         {
-          2.9500 0.0900
-          3.5313 0.6100
-          4.8438 0.0100
+          0.6005 0.5100
         }
         {
-        }
-        "lid_closer" combo 
-        {
-          11.4000 0.0200
-          11.9250 0.2900
-          12.3438 0.2500
-          12.6312 0.0600
-        }
-        {
-        }
-        "blink" 
-        {
-          0.1746 0.4800
-          0.4127 0.3000
-          0.6508 0.1600
-          1.2800 0.2700
-          1.4480 1.0000
-          1.4880 0.6900
-          1.5880 0.1000
-          4.6600 0.0200
-          4.8167 0.7054
-          4.9712 0.0543
-          6.3167 0.0000
-          8.0349 0.0155
-          8.2985 0.7597
-          8.3440 0.5116
-          8.7349 0.0388
-        }
-        "inner_raiser" combo 
-        {
-          12.1938 0.4700
-          12.9563 0.8900
-        }
-        {
-        }
-        "outer_raiser" combo 
-        {
-          3.4250 0.0200
-          3.8937 0.2000
-          3.9750 0.1900
-          4.2750 0.0600
-          6.2312 0.0300
-          6.7562 0.6200
-          7.9625 0.0300
-          10.7500 0.3600
-          11.4688 0.0100
-          13.4563 0.0600
-          13.9500 0.4000
-        }
-        {
+          2.1074 1.0000
+          2.7330 1.0000
         }
         "lowerer" combo 
         {
-          3.2563 0.0300
-          4.1687 0.2800
-          5.0938 0.0100
-          5.8375 0.0400
-          6.1937 0.6700
-          6.6188 0.0300
-          11.2250 0.0300
-          11.7750 0.1900
-          12.6687 0.4300
+          1.5563 0.8800
+          3.7260 0.3400
         }
         {
         }
         "cheek_raiser" combo 
         {
-          3.1688 0.0500
-          3.9000 0.4800
-          5.3063 0.5000
-          6.8250 0.4800
-          8.0563 0.3122
-          9.4688 0.0000
-          9.7188 0.2300
-          10.1063 0.0200
-          10.9688 0.0100
-          11.5500 0.5600
-          11.9500 0.7700
-          12.3125 0.4400
-          13.3938 0.0200
+          0.8028 0.4800
+          2.4633 0.5700
+          3.7080 0.3500
         }
         {
-        }
-        "wrinkler" 
-        {
-          11.0125 0.0000
-          11.8500 1.0000
-          12.4750 0.0200
-        }
-        "upper_raiser" combo 
-        {
-          0.2540 0.7600
-        }
-        {
-          0.0180 0.4600
-          0.2820 0.4500
-          0.6100 0.4900
-        }
-        "chin_raiser" 
-        {
-          3.8625 0.0200
-          4.1062 0.3200
-          4.8000 0.0900
-        }
-        "part" combo 
-        {
-          3.5688 0.0100
-          4.3000 0.9100
-          4.9688 0.0400
-        }
-        {
-        }
-        "puckerer" combo 
-        {
-        }
-        {
-        }
-        "stretcher" combo 
-        {
-          1.5438 0.3400
-          3.4313 0.3700
-          4.5563 0.0700
-          4.6875 0.0200
-          6.2125 0.0300
-          12.9875 0.0100
-          13.6000 0.5800
-          14.1563 0.0100
-        }
-        {
-        }
-        "presser" disabled 
-        {
-          2.6636 1.0000
         }
         "smile" 
         {
-          3.1875 0.0200
-          3.5125 0.5200
-          4.8500 0.0200
-        }
-        "lower_lip" 
-        {
-          10.2125 0.0100
-          10.5375 0.8100
-          10.6750 0.0100
-          11.2125 0.0400
-          12.2313 0.9100
-          13.3125 0.0300
-        }
-        "head_rightleft" range 30.0 -30.0 
-        {
-          5.1200 0.4800
-          8.5800 0.5400
-          10.0200 0.6100
+          0.4333 0.4600
+          0.9289 0.6700
+          2.7567 0.6500
+          3.6567 0.4900
+          3.8389 0.5500
+          4.0056 0.0400
         }
         "head_updown" range 15.0 -15.0 
         {
-          10.8063 0.4700
-          11.2875 0.4800
-          11.5063 0.7200
-          11.6438 0.7400
-          12.3500 0.4700
-        }
-        "head_tilt" range 15.0 -15.0 
-        {
-          0.8807 0.3300
-          2.2126 0.5000
-          6.0200 0.4500
-          6.6800 0.4700
-          8.8600 0.4800
-          11.8000 0.5600
-          12.1800 0.6500
-          14.2200 0.4800
-        }
-        "eyes_updown" range 30.0 -30.0 
-        {
-          7.0063 0.4400
-          8.7500 0.4400
-          9.0437 0.3500
-          9.3562 0.5000
-          9.7250 0.4900
-          11.2813 0.5600
-          11.8125 0.4400
-          12.1938 0.2900
-          12.4375 0.5000
-          12.8813 0.5300
-        }
-        "chest_rightleft" range 30.0 -30.0 
-        {
-          8.1688 0.5400
-          11.8250 0.4700
-          13.0438 0.4200
-        }
-        "head_forwardback" range 0.2 -0.2 
-        {
-          0.0000 0.5200
-          0.6625 0.5200
-          1.3125 0.5100
-          2.3813 0.4800
-          3.4625 0.7300
-          4.1313 0.5300
-          4.8313 0.5600
-          11.4750 0.4900
-          12.4375 0.0900
-          13.2937 0.4800
-        }
-        "gesture_rightleft" range -1.0 1.0 
-        {
-          1.5313 0.4900
-          2.5625 0.0000
-          3.7938 0.4900
-          3.9188 0.4800
-          6.7125 0.4600
-          7.8688 0.4300
-          8.8000 0.8600
-          10.1000 0.4400
+          2.2352 0.3000
+          3.7324 0.3800
+          3.8695 0.3800
+          3.9591 0.3400
         }
       }
+    }
+  }
+  channel "walkt and trigtransit"
+  {
+    event firetrigger "Transit trig"
+    {
+      time 6.500000 -1.000000
+      param "1"
+    }
+    event moveto "walk"
+    {
+      time 0.070899 2.696079
+      param "!target2"
+      param2 "Walk"
+      resumecondition
+    }
+  }
+}
+
+actor "!player"
+{
+  channel "woosh"
+  {
+    event speak "g.test2"
+    {
+      time 3.962081 11.259474
+      param "g.test2"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
     }
   }
 }
 
 scalesettings
 {
-  "ExpressionTool" "32"
+  "CChoreoView" "60"
+  "ExpressionTool" "88"
   "GestureTool" "100"
-  "SceneRampTool" "100"
   "RampTool" "100"
-  "CChoreoView" "36"
+  "SceneRampTool" "100"
 }
 fps 60
 snap off

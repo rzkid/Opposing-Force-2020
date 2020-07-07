@@ -1,0 +1,13 @@
+//this is like, 2009-ish?
+
+"of2_Chapter1_Title"		"PROLOGUE"
+"of2_Chapter2_Title"		"URBAN CHAOS"
+"of2_Chapter3_Title"		"DARK PASSAGE
+"of2_Chapter4_Title"		"OUTLANDS" // judging by
+"of2_Chapter5_Title"		"UNDERGROUND COMPLEX"// those three,
+"of2_Chapter6_Title"		"BROKEN COMMUNICATION" // it is indeed 2009
+"of2_Chapter7_Title"		"FORESTAL AMBUSH" // Deadlocked Conflict??????????
+"of2_Chapter8_Title"		"COLD ADAPTATION"
+"of2_Chapter9_Title"		"THE PHOENIX HIDEOUT"
+"of2_Chapter10_Title"		"CHANNELED ASSIMILATION"
+"of2_Chapter11_Title"		"CREDITS"

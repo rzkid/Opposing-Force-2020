@@ -2,6 +2,45 @@
 {
 	TextureData
 	{
+	"scope1640"
+        {
+	        "file"	"HUDoverlays/Scope_4-3_AspectRatio"
+	        "x"		"0"
+	        "y"		"0"
+	        "width"	"1024"
+	        "height"	"1024"
+        }
+
+    "scope11280"
+        {
+	        "file"	"HUDoverlays/Scope_16-9_AspectRatio"
+	        "x"		"0"
+	        "y"		"0"
+	        "width"	"1024"
+	        "height"	"1024"
+        }
+    "scope1720"
+        {
+	        "file"	"HUDoverlays/Scope_16-10_AspectRatio"
+	        "x"		"0"
+	        "y"		"0"
+	        "width"	"1024"
+	        "height" "1024"
+        }
+	"health_label"
+		{
+				"font"		"Counter-Strike"
+				"character"	"b"
+				"x"			"160"
+				"y"			"28"
+		}
+		"battery_label"
+		{
+				"font"		"Counter-Strike"
+				"character"	"a"
+				"x"			"220"
+				"y"			"28"
+		}
 		"arrow"				[$WIN32]
 		{
 				"file"		"sprites/arrow"

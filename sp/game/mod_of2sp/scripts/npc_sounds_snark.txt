@@ -1,0 +1,86 @@
+"Snark.Die"
+{
+	"channel"	"CHAN_ITEM"
+	"volume"	"0.5"
+	"soundlevel"	"SNDLVL_NORM"
+	"pitch"		"PITCH_NORM"
+	"rndwave"
+	{
+		"wave"		"squeek/sqk_blast1.wav"
+	}
+}
+
+"Snark.Gibbed"
+{
+	"channel"	"CHAN_VOICE"
+	"volume"	"0.75"
+	"soundlevel"	"SNDLVL_NORM"
+	"pitch"		"200"
+	"rndwave"
+	{
+		"wave"		"common/bodysplat.wav"
+	}
+}
+
+"Snark.Squeak"
+{
+	"channel"	"CHAN_VOICE"
+	"volume"	"VOL_NORM"
+	"soundlevel"	"SNDLVL_NORM"
+	"pitch"		"100,63"
+	"rndwave"
+	{
+		"wave"		"squeek/sqk_die1.wav"
+	}
+}
+
+"Snark.Deploy"
+{
+	"channel"	"CHAN_WEAPON"
+	"volume"	"VOL_NORM"
+	"soundlevel"	"SNDLVL_NORM"
+	"rndwave"
+	{
+		"wave"		"squeek/sqk_deploy1.wav"
+	}
+}
+
+"Snark.Bounce"
+{
+	"channel"	"CHAN_VOICE"
+	"volume"	"VOL_NORM"
+	"soundlevel"	"SNDLVL_NORM"
+	"rndwave"
+	{
+		"wave"		"squeek/sqk_hunt1.wav"
+		"wave"		"squeek/sqk_hunt2.wav"
+		"wave"		"squeek/sqk_hunt3.wav"
+	}
+}
+
+"WpnSnark.PrimaryAttack"
+{
+	"channel"	"CHAN_VOICE"
+	"volume"	"VOL_NORM"
+	"soundlevel"	"SNDLVL_NORM"
+	"pitch"		"105"
+	"rndwave"
+	{
+		"wave"		"squeek/sqk_hunt2.wav"
+		"wave"		"squeek/sqk_hunt3.wav"
+	}
+}
+
+
+"WpnSnark.Deploy"
+{
+	"channel"	"CHAN_VOICE"
+	"volume"	"VOL_NORM"
+	"soundlevel"	"SNDLVL_NORM"
+	"pitch"		"PITCH_NORM"
+	"rndwave"
+	{
+		"wave"		"squeek/sqk_hunt2.wav"
+		"wave"		"squeek/sqk_hunt3.wav"
+	}
+}

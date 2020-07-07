@@ -22,7 +22,7 @@ ipch
 *.sln
 [Dd]ebug*/
 [Rr]elease*/
-
+sp/src/.vs/*
 # OSX/Linux build products
 *.DS_Store
 *.mak
@@ -95,3 +95,5 @@ sp/game/mod_of2sp/materials/*
 sp/game/mod_of2sp/models/*
 sp/game/mod_of2sp/sound/*
 sp/game/mod_of2sp/particles/*
+sp/game/mod_of2sp/screenshots/*
+sp/game/mod_of2sp/*.vpk

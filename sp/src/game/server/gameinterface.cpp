@@ -652,7 +652,11 @@ bool CServerGameDLL::DLLInit( CreateInterfaceFn appSystemFactory,
 	FactoryList_Store( factories );
 
 	// load used game events  
-	gameeventmanager->LoadEventsFromFile("resource/gameevents.res");
+	if (gameeventmanager->LoadEventsFromFile("resource/gameevents.res") <= 0)
+	{
+		Warning("\n*\n* gameevents.res MISSING \n*\n\n");
+		return false;
+	}
 
 	// init the cvar list first in case inits want to reference them
 	InitializeCvars();
@@ -701,7 +705,11 @@ bool CServerGameDLL::DLLInit( CreateInterfaceFn appSystemFactory,
 	IGameSystem::Add( SoundEmitterSystem() );
 
 	// load Mod specific game events ( MUST be before InitAllSystems() so it can pickup the mod specific events)
-	gameeventmanager->LoadEventsFromFile("resource/ModEvents.res");
+	if (gameeventmanager->LoadEventsFromFile("resource/ModEvents.res") <= 0)
+	{
+		Warning( "\n*\n* modevents.res MISSING \n*\n\n" );
+		return false;
+	}
 
 #ifdef CSTRIKE_DLL // BOTPORT: TODO: move these ifdefs out
 	InstallBotControl();

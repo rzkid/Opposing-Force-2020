@@ -1,0 +1,179 @@
+"g.intro1"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro01.wav"
+}
+
+"g.test2"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_NONE"
+
+	"wave"	"gman/gman_seg_00_21_05.wav"
+}
+
+"g.intro2"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro02.wav"
+}
+
+"g.intro3a"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro03a.wav"
+}
+
+"g.intro3b"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro03b.wav"
+}
+
+"g.intro3c"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro03c.wav"
+}
+
+"g.intro4"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro04.wav"
+}
+
+"g.intro5"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro05.wav"
+}
+
+"g.intro6"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro06.wav"
+}
+
+"g.intro7"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro07.wav"
+}
+
+"g.intro8"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro08.wav"
+}
+
+"g.intro9"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro09.wav"
+}
+
+"g.intro10"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro10.wav"
+}
+
+"g.intro11"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro11.wav"
+}
+
+"g.intro12"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro12.wav"
+}
+
+"g.intro13"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro13.wav"
+}
+
+"g.intro14"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro14.wav"
+}
+
+"g.intro15"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro15.wav"
+}
+
+"g.intro16"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro16.wav"
+}
+
+"g.intro17"
+{
+	"channel"		"CHAN_VOICE"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_TALKING"
+
+	"wave"	"gman/gman_intro17.wav"
+}

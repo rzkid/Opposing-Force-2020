@@ -408,7 +408,7 @@ void CWeaponWrench::PrimaryAttack( void )
 
 	//Setup our next attack times
 	m_flNextPrimaryAttack = gpGlobals->curtime + .55f;//+ SequenceDuration();//GetFireRate();
-	DevMsg("primary attack\n");
+	//DevMsg("primary attack\n");
 	//m_flNextSecondaryAttack = gpGlobals->curtime + SequenceDuration();
 
 	//Play swing sound

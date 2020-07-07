@@ -1,0 +1,166 @@
+// Choreo version 1
+actor "G2"
+{
+  channel "voice"
+  {
+    event speak "g.intro2"
+    {
+      time 0.160909 3.851521
+      param "g.intro2"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro3"
+    {
+      time 4.352425 6.266098
+      param "g.intro3a"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro4"
+    {
+      time 9.565757 13.565757
+      param "g.intro4"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro5"
+    {
+      time 13.850000 15.350000
+      param "g.intro5"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro6"
+    {
+      time 15.553330 17.361788
+      param "g.intro6"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro7"
+    {
+      time 17.603184 18.149963
+      param "g.intro7"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro8"
+    {
+      time 18.691668 19.691668
+      param "g.intro8"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro9"
+    {
+      time 20.066668 23.347212
+      param "g.intro9"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro10"
+    {
+      time 23.691668 26.191668
+      param "g.intro10"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro11"
+    {
+      time 26.416666 29.666666
+      param "g.intro11"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro12"
+    {
+      time 30.125000 30.750011
+      param "g.intro12"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro13"
+    {
+      time 31.241667 32.241669
+      param "g.intro13"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro14"
+    {
+      time 32.470833 33.290970
+      param "g.intro14"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro15"
+    {
+      time 33.841667 34.841667
+      param "g.intro15"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro3b"
+    {
+      time 6.689394 7.509530
+      param "g.intro3b"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event speak "g.intro3c"
+    {
+      time 7.924244 9.291138
+      param "g.intro3c"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "movings"
+  {
+  }
+  channel "look"
+  {
+    event lookat "lookcam"
+    {
+      time 0.054167 35.000000
+      param "!target1"
+    }
+  }
+  channel "trig"
+  {
+    event firetrigger "endtrig"
+    {
+      time 35.000000 -1.000000
+      param "1"
+    }
+  }
+}
+
+scalesettings
+{
+  "CChoreoView" "88"
+  "RampTool" "100"
+  "ExpressionTool" "100"
+  "GestureTool" "100"
+  "SceneRampTool" "100"
+}
+fps 240
+snap on
+ignorePhonemes off

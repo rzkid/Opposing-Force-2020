@@ -43,6 +43,75 @@ extern CUtlMemoryPool g_EntityListPool;
 
 #define SF_DECAL_NOTINDEATHMATCH		2048
 
+#define SF_GAME_EVENT_PROXY_AUTO_VISIBILITY		1
+//=========================================================
+// Allows level designers to generate certain game events 
+// from entity i/o.
+//=========================================================
+class CInfoGameEventProxy : public CPointEntity
+{
+private:
+	string_t	m_iszEventName;
+	
+
+public:
+	DECLARE_CLASS(CInfoGameEventProxy, CPointEntity);
+
+	void Spawn();
+	int UpdateTransmitState();
+	void InputGenerateGameEvent(inputdata_t& inputdata);
+
+	
+
+	DECLARE_DATADESC();
+};
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+void CInfoGameEventProxy::Spawn()
+{
+	BaseClass::Spawn();
+
+	
+
+}
+
+//-----------------------------------------------------------------------------
+// Purpose: Always transmitted to clients
+//-----------------------------------------------------------------------------
+int CInfoGameEventProxy::UpdateTransmitState()
+{
+	return SetTransmitState(FL_EDICT_ALWAYS);
+}
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+void CInfoGameEventProxy::InputGenerateGameEvent(inputdata_t& inputdata)
+{
+	CBasePlayer* pActivator = ToBasePlayer(inputdata.pActivator);
+
+	IGameEvent* event = gameeventmanager->CreateEvent(m_iszEventName.ToCStr());
+	if (event)
+	{
+		if (pActivator)
+		{
+			event->SetInt("userid", pActivator->GetUserID());
+		}
+		event->SetInt("subject", entindex());
+		gameeventmanager->FireEvent(event);
+	}
+}
+
+
+
+
+LINK_ENTITY_TO_CLASS(info_game_event_proxy, CInfoGameEventProxy);
+
+BEGIN_DATADESC(CInfoGameEventProxy)
+DEFINE_KEYFIELD(m_iszEventName, FIELD_STRING, "event_name"),
+DEFINE_INPUTFUNC(FIELD_STRING, "GenerateGameEvent", InputGenerateGameEvent),
+END_DATADESC()
+
 class CDecal : public CPointEntity
 {
 public:

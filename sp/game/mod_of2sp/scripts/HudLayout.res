@@ -12,130 +12,74 @@
 
 		"PaintBackgroundType"	"2"
 		
-		"text_xpos" "32"
-		"text_ypos" "23"
-		"text2_xpos" "57"
-		"text2_ypos" "23"
+		"TextFont" "OF2HudIcons"
+		
+		"text_xpos" "5"
+		"text_ypos" "-6"
+		"text2_xpos" "5"
+		"text2_ypos" "-8"
 		"icon_xpos" "5"
 		"icon_ypos" "-6"
 		"digit_xpos" "30"
-		"digit_ypos" "2"
+		"digit_ypos" "3"
 	}
-	HudHealth [$X360]
-	{
-		"fieldName"		"HudHealth"
-		"xpos"	"48"
-		"ypos"	"416"
-		"wide"	"115"
-		"tall"  "36"
-		"visible" "1"
-		"enabled" "1"
-
-		"PaintBackgroundType"	"2"
-		
-		"text_xpos" "8"
-		"text_ypos" "18"
-		"digit_xpos" "60"
-		"digit_ypos" "-1"
-	}
-	CSHudCrosshair
-	{
-		"fieldName" "HudCrosshair"
-		"visible" "1"
-		"enabled" "1"
-		"wide"	 "640"
-		"tall"	 "480"
-	}
+	
 	HudSuit [$WIN32]
 	{
 		"fieldName"		"HudSuit"
-		"xpos"	"140"
+		"xpos"	"100"
 		"ypos"	"442"
 		"wide"	"90"
 		"tall"  "36"
 		"visible" "1"
 		"enabled" "1"
+		
+		"TextFont" "OF2HudIcons"
 
 		"PaintBackgroundType"	"2"
 		
-		"text_xpos" "32"
-		"text_ypos" "23"
+		"text_xpos" "5" //32
+		"text_ypos" "-6" //23
 		"text2_xpos" "57"
 		"text2_ypos" "23"
 		"icon_xpos" "5"
 		"icon_ypos" "-6"
 		"digit_xpos" "30"
-		"digit_ypos" "2"
-	}
-	HudSuit [$X360]
-	{
-		"fieldName"		"HudSuit"
-		"xpos"	"176"
-		"ypos"	"416"
-		"wide"	"117"
-		"tall"  "36"
-		"visible" "1"
-		"enabled" "1"
-
-		"PaintBackgroundType"	"2"
-
-		"text_xpos" "8"
-		"text_ypos" "18"
-		"digit_xpos" "50"
-		"digit_ypos" "-1"
+		"digit_ypos" "3"
 	}
 
-	HudAmmo	[$WIN32]
+	HudAmmo
 	{
 		"fieldName" "HudAmmo"
-		"xpos"	"r100"
+		"xpos"	"r146"
 		"ypos"	"442"
-		"wide"	"100"
+		"wide"	"140"
 		"tall"  "36"
 		"visible" "1"
 		"enabled" "1"
 
 		"PaintBackgroundType"	"2"
 
-		"text_xpos" "67"
-		"text_ypos" "5"
-		"text2_xpos" "72"
-		"text2_ypos" "23"
-		"text3_xpos" "36"
-		"text3_ypos" "2"
+		"text_xpos" "54" //67
+		"text_ypos" "-3" //20
+		"text2_xpos" "0" //72
+		"text2_ypos" "0" //23
+//		"text3_xpos" "36"
+//		"text3_ypos" "5"
 		"icon_xpos" "8"
 		"icon_ypos" "20"
 		"digit_xpos" "5"
 		"digit_ypos" "2"
-		"digit2_xpos" "45"
-		"digit2_ypos" "5"
-	}
-	HudAmmo	[$X360]
-	{
-		"fieldName" "HudAmmo"
-		"xpos"	"r208"
-		"ypos"	"416"
-		"wide"	"160"
-		"tall"  "36"
-		"visible" "1"
-		"enabled" "1"
-
-		"PaintBackgroundType"	"2"
-
-		"text_xpos" "8"
-		"text_ypos" "18"
-		"digit_xpos" "60"
-		"digit_ypos" "-1"
-		"digit2_xpos" "120"
-		"digit2_ypos" "14"
+		"digit2_xpos" "74"
+		"digit2_ypos" "2"
 	}
 
 	HudAmmoSecondary	[$WIN32]
 	{
 		"fieldName" "HudAmmoSecondary"
-		"xpos"	"r100"
-		"ypos"	"450"
-		"wide"	"100"
+		"xpos"	"r48"
+		"ypos"	"406"
+		"wide"	"42"
 		"tall"  "36"
 		"visible" "1"
 		"enabled" "1"
@@ -146,33 +90,15 @@
 		"text_ypos" "6"
 		"text2_xpos" "72"
 		"text2_ypos" "23"
-		"text3_xpos" "36"
-		"text3_ypos" "-5"
-		"icon_xpos" "8"
-		"icon_ypos" "20"
-		"digit_xpos" "5"
-		"digit_ypos" "-5"
-		"digit2_xpos" "45"
-		"digit2_ypos" "5"
+//		"text3_xpos" "36"
+//		"text3_ypos" "-5"
+		"icon_xpos" "10"
+		"icon_ypos" "30"
+		"digit_xpos" "12"
+		"digit_ypos" "2"
+		"digit2_xpos" "-50"
+//		"digit2_ypos" "5"
 	}
-	HudAmmoSecondary	[$X360]
-	{
-		"fieldName" "HudAmmoSecondary"
-		"xpos"	"r113"
-		"ypos"	"416"
-		"wide"	"65"
-		"tall"  "36"
-		"visible" "1"
-		"enabled" "1"
-
-		"PaintBackgroundType"	"2"
-
-		"text_xpos" "8"
-		"text_ypos" "22"
-		"digit_xpos" "36"
-		"digit_ypos" "-1"
-	}
-
 	HudPosture	[$WIN32]
 	{
 		"fieldName" 		"HudPosture"
@@ -205,8 +131,8 @@
 		"fieldName" "HudSuitPower"
 		"visible" "1"
 		"enabled" "1"
-		"xpos"	"16"
-		"ypos"	"396"
+		"xpos"	"5"
+		"ypos"	"390"
 		"wide"	"102"
 		"tall"	"26"
 		
@@ -424,15 +350,14 @@
 	HudCloseCaption
 	{
 		"fieldName" "HudCloseCaption"
-		"visible"	"0"
+		"visible"	"1"
 		"enabled"	"1"
 		"xpos"		"c-250"
-		"ypos"		"276"	[$WIN32]
-		"ypos_hidef"	"236"	[$X360]
-		"ypos_lodef"	"206"	[$X360]			//236
+		"ypos"		"276"
 		"wide"		"500"
-		"tall"		"136"	[$WIN32]
-		"tall"		"176"	[$X360]
+		"tall"		"136"
+		
+		"textAlignment"		"center"
 
 		"BgAlpha"	"128"
 
@@ -441,7 +366,6 @@
 		"ItemFadeInTime"	"0.15"	// Once ItemHiddenTime is finished, takes this much longer to fade in
 		"ItemFadeOutTime"	"0.3"
 		"topoffset"		"0"		[$WIN32]
-		"topoffset"		"40"	[$X360]
 	}
 
 	HudChat
@@ -470,21 +394,6 @@
 		"text_inset"	"36"
 		"NumberFont"	"HudNumbersSmall"
 	}
-	HudHistoryResource	[$X360]
-	{
-		"fieldName" "HudHistoryResource"
-		"visible" "1"
-		"enabled" "1"
-		"xpos"	"r300"
-		"ypos"	"40" 
-		"wide"	 "248"
-		"tall"	 "240"
-
-		"history_gap"	"56"
-		"icon_inset"	"38"
-		"text_inset"	"36"
-		"NumberFont"	"HudNumbersSmall"
-	}
 
 	HudGeiger
 	{
@@ -498,10 +407,19 @@
 	HUDQuickInfo
 	{
 		"fieldName" "HUDQuickInfo"
+		"visible" "0"
+		"enabled" "0"
+		"wide"	 "0"
+		"tall"	 "0"
+	}
+	
+	HudScope
+	{
+		"fieldName" "HudScope"
 		"visible" "1"
 		"enabled" "1"
-		"wide"	 "640"
-		"tall"	 "480"
+		"wide"	 "1280"
+		"tall"	 "720"
 	}
 
 	HudWeapon
@@ -572,7 +490,7 @@
 	}
 
 
-	HudSquadStatus	[$WIN32]
+	HudSquadStatus
 	{
 		"fieldName"	"HudSquadStatus"
 		"visible"	"1"
@@ -583,29 +501,10 @@
 		"tall"	"46"
 		"text_xpos"	"8"
 		"text_ypos"	"34"
-		"SquadIconColor"	"255 220 0 160"
 		"IconInsetX"	"8"
 		"IconInsetY"	"0"
 		"IconGap"		"24"
-
-		"PaintBackgroundType"	"2"
-	}
-	HudSquadStatus	[$X360]
-	{
-		"fieldName"	"HudSquadStatus"
-		"visible"	"1"
-		"enabled" "1"
-		"xpos"	"r182"
-		"ypos"	"348"
-		"wide"	"134"
-		"tall"	"62"
-		"text_xpos"	"8"
-		"text_ypos"	"44"
-		"SquadIconColor"	"255 220 0 160"
-		"IconInsetX"	"8"
-		"IconInsetY"	"-4"
-		"IconGap"		"24"
-		"IconFont"		"SquadIcon"
+		"font"	"SquadIcon"
 
 		"PaintBackgroundType"	"2"
 	}
@@ -625,33 +524,16 @@
 		"TextColor"	"255 170 0 220"
 		"PaintBackgroundType"	"2"
 	}
-	HudPoisonDamageIndicator	[$X360]
-	{
-		"fieldName"	"HudPoisonDamageIndicator"
-		"visible"	"0"
-		"enabled" "1"
-		"xpos"	"48"
-		"ypos"	"264"
-		"wide"	"192"
-		"tall"	"46"
-		"text_xpos"	"8"
-		"text_ypos"	"6"
-		"text_ygap" "16"
-		"TextColor"	"255 170 0 220"
-		"PaintBackgroundType"	"2"
-	}
 
 	HudCredits
 	{
 		"fieldName"	"HudCredits"
-		"TextFont"	"Default"
 		"visible"	"1"
 		"xpos"	"0"
 		"ypos"	"0"
 		"wide"	"640"
 		"tall"	"480"
-		"TextColor"	"255 255 255 192"
-
+		"fgcolor_override"	"201 255 0 255"
 	}
 	
 	HUDAutoAim
@@ -659,10 +541,8 @@
 		"fieldName" "HUDAutoAim"
 		"visible" "1"
 		"enabled" "1"
-		"wide"	 "640"	[$WIN32]
-		"tall"	 "480"	[$WIN32]
-		"wide"	 "960"	[$X360]
-		"tall"	 "720"	[$X360]
+		"wide"	 "640"	
+		"tall"	 "480"
 	}
 
 	HudCommentary

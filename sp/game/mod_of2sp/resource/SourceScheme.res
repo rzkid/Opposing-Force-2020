@@ -18,7 +18,12 @@ Scheme
 		// base colors
 		"White"				"255 255 255 255"
 		"OffWhite"			"216 216 216 255"
+		"GoldSrcGreen"      "76 88 68 255"
+		"DullGoldSrcGreen"  "62 70 55 255"
+		"EvenDullerGoldSrcGreen" "160 170 149 255"
 		"DullWhite"			"142 142 142 255"
+		"Yellow"            "149 136 49 255"
+		"BrightYellow"      "196 181 80 255"
 		"Orange"			"255 155 0 255"
 		"TransparentBlack"	"0 0 0 128"
 		"Black"				"0 0 0 255"
@@ -29,6 +34,14 @@ Scheme
 		"AchievementsLightGrey"		"79 79 79 255"
 		"AchievementsDarkGrey"		"55 55 55 255"
 		"AchievementsInactiveFG"	"130 130 130 255"
+
+		//3037 OF theme
+
+		"GreenB"				"0 255 0 255"
+		"GreenD"			"0 125 0 255"
+		"GreyBG"      "125 125 125 35"
+		"DarkBG"      "55 55 55 75"
+
 	}
 
 	///////////////////// BASE SETTINGS ////////////////////////
@@ -38,45 +51,41 @@ Scheme
 	BaseSettings
 	{
 		// vgui_controls color specifications
-		Border.Bright					"200 200 200 196"	// the lit side of a control
-		Border.Dark						"40 40 40 196"		// the dark/unlit side of a control
+		Border.Bright					"GoldSrcGreen"	// the lit side of a control
+		Border.Dark						"DullGoldSrcGreen"		// the dark/unlit side of a control
 		Border.Selection				"0 0 0 196"			// the additional border color for displaying the default/selected button
 
 		Button.TextColor				"White"
 		Button.BgColor					"Blank"
 		Button.ArmedTextColor			"White"
-		Button.ArmedBgColor				"Blank"				[$WIN32]
-		Button.ArmedBgColor				"190 115 0 255"		[$X360]
-		Button.DepressedTextColor		"White"
+		Button.ArmedBgColor				"Blank"	
+		Button.DepressedTextColor		"EvenDullerGoldSrcGreen"
 		Button.DepressedBgColor			"Blank"
 		Button.FocusBorderColor			"Black"
 
 		CheckButton.TextColor			"White"
-		CheckButton.SelectedTextColor		"White"
-		CheckButton.BgColor			"TransparentBlack"
+		CheckButton.SelectedTextColor		"Yellow"
+		CheckButton.BgColor			"GreyBG"
 		CheckButton.Border1  			"Border.Dark" 		// the left checkbutton border
 		CheckButton.Border2  			"Border.Bright"		// the right checkbutton border
-		CheckButton.Check			"White"	// color of the check itself
-		CheckButton.HighlightFgColor		"OffWhite"
+		CheckButton.Check			"BrightYellow"	// color of the check itself
+		CheckButton.HighlightFgColor		"GreyBG"
 		CheckButton.ArmedBgColor		"Blank"
 		CheckButton.DepressedBgColor		"Blank"
 		CheckButton.DisabledBgColor	   	"TransparentBlack"
 				
-		ComboBoxButton.ArrowColor		"DullWhite"
-		ComboBoxButton.ArmedArrowColor	"White"
+		ComboBoxButton.ArrowColor		"Yellow"
+		ComboBoxButton.ArmedArrowColor	"BrightYellow"
 		ComboBoxButton.BgColor			"Blank"
 		ComboBoxButton.DisabledBgColor	"Blank"
 
 		Frame.TitleTextInsetX			16
 		Frame.ClientInsetX				8
 		Frame.ClientInsetY				6
-		Frame.BgColor					"160 160 160 128"	[$WIN32]
-		Frame.BgColor					"80 80 80 192"		[$X360]
-		Frame.OutOfFocusBgColor			"160 160 160 32"	[$WIN32]
-		Frame.OutOfFocusBgColor			"80 80 80 192"		[$X360]
+		Frame.BgColor					"GreyBG"	[$WIN32]
+		Frame.OutOfFocusBgColor			"DarkBG"	[$WIN32]
 		Frame.FocusTransitionEffectTime	"0.3"							// time it takes for a window to fade in/out on focus/out of focus
 		Frame.TransitionEffectTime		"0.3"				[$WIN32]	// time it takes for a window to fade in/out on open/close
-		Frame.TransitionEffectTime		"0.2"				[$X360]		// time it takes for a window to fade in/out on open/close
 		Frame.AutoSnapRange				"0"
 		FrameGrip.Color1				"200 200 200 196"
 		FrameGrip.Color2				"0 0 0 196"
@@ -100,8 +109,8 @@ Scheme
 
 		Label.TextDullColor				"DullWhite"
 		Label.TextColor					"OffWhite"
-		Label.TextBrightColor			"White"
-		Label.SelectedTextColor			"White"
+		Label.TextBrightColor			"BrightYellow"
+		Label.SelectedTextColor			"BrightYellow"
 		Label.BgColor					"Blank"
 		Label.DisabledFgColor1			"117 117 117 255"
 		Label.DisabledFgColor2			"30 30 30 255"
@@ -109,25 +118,25 @@ Scheme
 		ListPanel.TextColor					"OffWhite"
 		ListPanel.TextBgColor				"Blank"
 		ListPanel.BgColor					"TransparentBlack"
-		ListPanel.SelectedTextColor			"Black"
-		ListPanel.SelectedBgColor			"Orange"
+		ListPanel.SelectedTextColor			"BrightYellow"
+		ListPanel.SelectedBgColor			"Yellow"
 		ListPanel.SelectedOutOfFocusBgColor	"255 155 0 128"
 		ListPanel.EmptyListInfoTextColor	"OffWhite"
 
 		Menu.TextColor					"White"
-		Menu.BgColor					"160 160 160 64"
-		Menu.ArmedTextColor				"Black"
-		Menu.ArmedBgColor				"Orange"
+		Menu.BgColor					"DarkBG"
+		Menu.ArmedTextColor				"White"
+		Menu.ArmedBgColor				"GoldSrcGreen"
 		Menu.TextInset					"6"
 
 		Panel.FgColor					"DullWhite"
 		Panel.BgColor					"Blank"
 
-		ProgressBar.FgColor				"White"
+		ProgressBar.FgColor				"GoldSrcGreenf"
 		ProgressBar.BgColor				"TransparentBlack"
 
 		PropertySheet.TextColor			"OffWhite"
-		PropertySheet.SelectedTextColor	"White"
+		PropertySheet.SelectedTextColor	"BrightYellow"
 		PropertySheet.TransitionEffectTime	"0.25"	// time to change from one tab to another
 
 		RadioButton.TextColor			"DullWhite"
@@ -135,20 +144,20 @@ Scheme
 
 		RichText.TextColor				"OffWhite"
 		RichText.BgColor				"TransparentBlack"
-		RichText.SelectedTextColor		"Black"
-		RichText.SelectedBgColor		"Orange"
+		RichText.SelectedTextColor		"White"
+		RichText.SelectedBgColor		"Yellow"
 
 		ScrollBar.Wide					17
 
-		ScrollBarButton.FgColor				"White"
+		ScrollBarButton.FgColor				"GoldSrcGreen"
 		ScrollBarButton.BgColor				"Blank"
-		ScrollBarButton.ArmedFgColor		"White"
+		ScrollBarButton.ArmedFgColor		"BrightYellow"
 		ScrollBarButton.ArmedBgColor		"Blank"
-		ScrollBarButton.DepressedFgColor	"White"
+		ScrollBarButton.DepressedFgColor	"Yellow"
 		ScrollBarButton.DepressedBgColor	"Blank"
 
 		ScrollBarSlider.FgColor				"Blank"			// nob color
-		ScrollBarSlider.BgColor				"255 255 255 64"	// slider background color
+		ScrollBarSlider.BgColor				"GoldSrcGreen"	// slider background color
 
 		SectionedListPanel.HeaderTextColor	"White"
 		SectionedListPanel.HeaderBgColor	"Blank"
@@ -156,14 +165,14 @@ Scheme
 		SectionedListPanel.TextColor		"DullWhite"
 		SectionedListPanel.BrightTextColor	"White"
 		SectionedListPanel.BgColor			"TransparentBlack"
-		SectionedListPanel.SelectedTextColor			"Black"
-		SectionedListPanel.SelectedBgColor				"Orange"
+		SectionedListPanel.SelectedTextColor			"White"
+		SectionedListPanel.SelectedBgColor				"Yellow"
 		SectionedListPanel.OutOfFocusSelectedTextColor	"Black"
 		SectionedListPanel.OutOfFocusSelectedBgColor	"255 155 0 128"
 
-		Slider.NobColor				"108 108 108 255"
+		Slider.NobColor				"GoldSrcGreen"
 		Slider.TextColor			"180 180 180 255"
-		Slider.TrackColor			"31 31 31 255"
+		Slider.TrackColor			"DullGoldSrcGreen"
 		Slider.DisabledTextColor1	"117 117 117 255"
 		Slider.DisabledTextColor2	"30 30 30 255"
 
@@ -172,29 +181,25 @@ Scheme
 		TextEntry.CursorColor		"OffWhite"
 		TextEntry.DisabledTextColor	"DullWhite"
 		TextEntry.DisabledBgColor	"Blank"
-		TextEntry.SelectedTextColor	"Black"
-		TextEntry.SelectedBgColor	"Orange"
+		TextEntry.SelectedTextColor	"White"
+		TextEntry.SelectedBgColor	"Yellow"
 		TextEntry.OutOfFocusSelectedBgColor	"255 155 0 128"
 		TextEntry.FocusEdgeColor	"0 0 0 196"
 
-		ToggleButton.SelectedTextColor	"White"
+		ToggleButton.SelectedTextColor	"BrightYellow"
 
 		Tooltip.TextColor			"0 0 0 196"
-		Tooltip.BgColor				"Orange"
+		Tooltip.BgColor				"Yellow"
 
 		TreeView.BgColor			"TransparentBlack"
 
 		WizardSubPanel.BgColor		"Blank"
 
 		// scheme-specific colors
-		MainMenu.TextColor			"White"				[$WIN32]
-		MainMenu.TextColor			"200 200 200 255"	[$X360]
-		MainMenu.ArmedTextColor		"200 200 200 255"	[$WIN32]
-		MainMenu.ArmedTextColor		"White"				[$X360]
+		MainMenu.TextColor			"White"				
+		MainMenu.ArmedTextColor		"BrightYellow"	
 		MainMenu.DepressedTextColor	"192 186 80 255"
-		MainMenu.MenuItemHeight		"30"				[$WIN32]
-		MainMenu.MenuItemHeight			"22"				[$X360]
-		MainMenu.MenuItemHeight_hidef	"32"				[$X360]
+		MainMenu.MenuItemHeight		"30"			
 		MainMenu.Inset				"32"
 		MainMenu.Backdrop			"0 0 0 156"
 
@@ -203,8 +208,7 @@ Scheme
 
 		NewGame.TextColor			"White"
 		NewGame.FillColor			"0 0 0 255"
-		NewGame.SelectionColor		"Orange"			[$WIN32]
-		NewGame.SelectionColor		"0 0 0 255"			[$X360]
+		NewGame.SelectionColor		"BrightYellow"			[$WIN32]
 		NewGame.DisabledColor		"128 128 128 196"
 
 		MessageDialog.MatchmakingBG			"46 43 42 255"	[$X360]
@@ -239,7 +243,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Courier New"
+				"name"		"Arial"
 				"tall"		"10"
 				"weight"	"500"
 				"antialias" "1"
@@ -250,7 +254,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Courier New"
+				"name"		"Arial"
 				"tall"		"7"
 				"weight"	"500"
 				"antialias" "1"
@@ -260,11 +264,12 @@ Scheme
 		{
 			"1"
 			{
-				"name"		 "Lucida Console"
+				"name"		 "Arial"
 				"tall"		 "10"
 				"tall_lodef" "15"
 				"tall_hidef" "20"
 				"weight"	 "0"
+				"antialias" "1"
 				"outline"	 "1"
 			}
 		}
@@ -272,8 +277,9 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Tahoma"
+				"name"		"Arial"
 				"tall"		"16"
+				"antialias" "1"
 				"weight"	"500"
 			}
 		}
@@ -281,8 +287,9 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Tahoma"
+				"name"		"Arial"
 				"tall"		"16"
+				"antialias" "1"
 				"weight"	"1000"
 			}
 		}
@@ -290,9 +297,10 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Tahoma"
+				"name"		"Arial"
 				"tall"		"16"
 				"weight"	"500"
+				"antialias" "1"
 				"underline" "1"
 			}
 		}
@@ -300,8 +308,9 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Tahoma"
+				"name"		"Arial"
 				"tall"		"12"
+				"antialias" "1"
 				"weight"	"0"
 			}
 		}
@@ -309,9 +318,10 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Tahoma"
+				"name"		"Arial"
 				"tall"		"13"
 				"weight"	"0"
+				"antialias" "1"
 				"dropshadow" "1"
 			}
 		}
@@ -319,8 +329,9 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Tahoma"
+				"name"		"Arial"
 				"tall"		"12"
+				"antialias" "1"
 				"weight"	"0"
 			}
 		}
@@ -329,68 +340,32 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Tahoma"
+				"name"		"Arial"
 				"tall"		"18"
+				"antialias" "1"
 				"weight"	"0"
 			}
 		}
 		"UiBold"
 		{
-			"1"	[$WIN32]
+			"1"
 			{
-				"name"		"Tahoma"
+				"name"		"Arial"
 				"tall"		"12"
+				"antialias" "1"
 				"weight"	"1000"
-			}
-			"1"	[$X360]
-			{
-				"name"		"Tahoma"
-				"tall"		"24"
-				"weight"	"2000"
-				"outline"	"1"
-			}
-		}
-		"ChapterTitle"	[$X360]
-		{
-			"1"
-			{
-				"name"			"Tahoma"
-				"tall"			"20"
-				"tall_hidef"	"28"
-				"weight"		"2000"
-				"outline"		"1"
-			}
-		}
-		"ChapterTitleBlur"	[$X360]
-		{
-			"1"
-			{
-				"name"			"Tahoma"
-				"tall"			"20"
-				"tall_hidef"	"28"
-				"weight"		"2000"
-				"blur"			"3"
-				"blur_hidef"	"5"
 			}
 		}
 		"MenuLarge"
 		{
-			"1"	[$WIN32]
+			"1"
 			{
-				"name"		"Verdana"
-				"tall"		"16"
+				"name"		"Eurostile"
+				"tall"		"36"
 				"weight"	"600"
 				"antialias" "1"
 			}
-			"1"	[$X360]
-			{
-				"name"		"Verdana"
-				"tall"			"14"
-				"tall_hidef"	"20"
-				"weight"	"1200"
-				"antialias" "1"
-				"outline" "1"
-			}
+
 		}
 		"AchievementTitleFont"
 		{
@@ -457,8 +432,9 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Lucida Console"
-				"tall"		"10"
+				"name"		"Arial"
+				"tall"		"12"
+				"antialias" "1"
 				"weight"	"500"
 			}
 		}
@@ -479,8 +455,9 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Trebuchet MS"
+				"name"		"Eurostile"
 				"tall"		"24"
+				"antialias" "1"
 				"weight"	"900"
 			}
 		}
@@ -489,8 +466,9 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Trebuchet MS"
+				"name"		"Eurostile"
 				"tall"		"20"
+				"antialias" "1"
 				"weight"	"900"
 			}
 		}
@@ -499,8 +477,9 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Trebuchet MS"
+				"name"		"Eurostile"
 				"tall"		"18"
+				"antialias" "1"
 				"weight"	"900"
 			}
 		}
@@ -569,12 +548,6 @@ Scheme
 				"tall"		"10"
 				"weight"	"0"
 			}
-//			"1"
-//			{
-//				"name"		"FixedSys"
-//				"tall"		"20"
-//				"weight"	"0"
-//			}
 		}
 
 		"DefaultFixedDropShadow"
@@ -584,6 +557,7 @@ Scheme
 				"name"		"Lucida Console"
 				"tall"		"10"
 				"weight"	"0"
+				"antialias" "1"
 				"dropshadow" "1"
 			}
 //			"1"
@@ -1203,7 +1177,9 @@ Scheme
 	// specifies all the custom (non-system) font files that need to be loaded to service the above described fonts
 	CustomFontFiles
 	{
-		"1"		"resource/HALFLIFE2.ttf"
-		"2"		"resource/HL2EP2.ttf"		
+		"1"		"resource/fonts/HALFLIFE2.ttf"
+		"2"		"resource/fonts/HL2EP2.ttf"	
+		"3"		"resource/fonts/11602.ttf"	
+        "4"		"resource/fonts/eurosti.ttf" 
 	}
 }

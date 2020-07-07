@@ -1,0 +1,69 @@
+// Choreo version 1
+actor "Froner"
+{
+  channel "Sound"
+  {
+    event speak "One Of Those"
+    {
+      time -0.193333 4.778980
+      param "npc\froner\oneofthose.wav"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+    event flexanimation "Upset Face"
+    {
+      time 0.020000 4.746666
+      param ""
+      flexanimations samples_use_time defaultcurvetype=curve_catmullrom_normalize_x_to_curve_catmullrom_normalize_x
+      {
+        "lid_tightener" combo 
+        {
+          0.4333 0.5100
+        }
+        {
+        }
+        "inner_raiser" combo 
+        {
+          0.4451 0.4900
+          3.4196 0.7100
+          3.5490 0.9100
+          4.2588 0.9400
+          4.4098 0.7100
+          4.4941 0.4200
+        }
+        {
+        }
+        "lowerer" combo 
+        {
+          0.4549 0.3300
+        }
+        {
+        }
+        "jaw_drop" range 0.0 2.0 
+        {
+          0.4588 0.5100
+        }
+        "dimpler" combo 
+        {
+          0.4412 0.9700
+          3.4118 1.0000
+        }
+        {
+        }
+      }
+    }
+  }
+}
+
+scalesettings
+{
+  "SceneRampTool" "100"
+  "GestureTool" "100"
+  "ExpressionTool" "102"
+  "RampTool" "100"
+  "CChoreoView" "124"
+}
+fps 60
+snap off
+ignorePhonemes off

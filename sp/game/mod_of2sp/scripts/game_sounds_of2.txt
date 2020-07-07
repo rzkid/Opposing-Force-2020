@@ -1,4 +1,4 @@
-"OpFor2.NightVisOn"
+"OF2.NightVisOn"
 {
 	"channel"		"CHAN_STATIC"
 	"volume"		"1.0"
@@ -9,7 +9,7 @@
 	"wave"	"items/nv_on.wav"
 	}	
 }
-"OpFor2.NightVisOff"
+"OF2.NightVisOff"
 {
 	"channel"		"CHAN_STATIC"
 	"volume"		"1.0"
@@ -19,4 +19,58 @@
 	{
 	"wave"	"items/nv_off.wav"
 	}
+}
+"Instructor.LessonStart"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel" 		"SNDLVL_NORM"
+	"pitch"			"PITCH_NORM"
+	"volume"		"0.75"
+
+	"wave"			"#UI/BeepClear.wav"
+}
+
+"Instructor.ImportantLessonStart"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel" 		"SNDLVL_NORM"
+	"pitch"			"PITCH_NORM"
+	"volume"		"0.75"
+
+	"wave"			"#UI/beep22.wav"
+}
+
+"Hint.Helpful"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel" 	"SNDLVL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"wave"		"#UI/helpful_event_1.wav"
+} 
+
+"Hint.Critical"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel" 	"SNDLVL_NORM"
+	"pitch"			"PITCH_NORM"
+
+	"wave"		"UI/critical_event_1.wav"
+}
+
+"Hint.BigReward"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel"	"SNDLVL_NONE"
+	"wave"		"UI/BigReward.wav"
+	"volume"		"0.9"
+}
+"Hint.LittleReward"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel"	"SNDLVL_NONE"
+	"wave"		    "UI/LittleReward.wav"
+	// "volume"		"0.35"
+	// "wave"			"UI/TheLittleHeroWithin.wav"
+
 }

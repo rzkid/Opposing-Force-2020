@@ -172,7 +172,7 @@ void CWeaponShotgun::Precache(void)
 void CWeaponShotgun::FireNPCPrimaryAttack(CBaseCombatCharacter *pOperator, bool bUseWeaponAngles)
 {
 	Vector vecShootOrigin, vecShootDir;
-//	CAI_BaseNPC *npc = pOperator->MyNPCPointer();
+	CAI_BaseNPC *npc = pOperator->MyNPCPointer();
 	ASSERT(npc != NULL);
 	WeaponSound(SINGLE_NPC);
 	//pOperator->DoMuzzleFlash();

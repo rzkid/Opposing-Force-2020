@@ -5,8 +5,8 @@ WeaponData
 	"viewmodel"				"models/weapons/v_grenade.mdl"
 	"playermodel"			"models/items/grenadeAmmo.mdl"
 	"anim_prefix"			"Grenade"
-	"bucket"				"3"
-	"bucket_position"		"1"
+	"bucket"				"4"
+	"bucket_position"		"0"
 
 	"clip_size"				"-1"
 	"clip2_size"			"-1"
@@ -54,11 +54,8 @@ WeaponData
 		}
 		"autoaim"
 		{
-				"file"		"sprites/crosshairs"
-				"x"			"48"
-				"y"			"72"
-				"width"		"24"
-				"height"	"24"
+				"font"		"Crosshairs"
+				"character"	"Q"
 		}
 	}
 }

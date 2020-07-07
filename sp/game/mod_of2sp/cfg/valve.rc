@@ -5,7 +5,7 @@ exec joystick.cfg
 
 // run a user script file if present
 exec autoexec.cfg
-viewmodel_fov 65
+viewmodel_fov 54
 
 //
 // stuff command line statements

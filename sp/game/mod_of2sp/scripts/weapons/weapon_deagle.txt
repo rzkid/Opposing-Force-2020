@@ -1,0 +1,60 @@
+// 357
+
+WeaponData
+{
+	// Weapon data is loaded by both the Game and Client DLLs.
+	"printname"			"#of2_deagle"
+	"viewmodel"			"models/weapons/v_deagle.mdl"
+	"playermodel"		"models/weapons/w_deagle.mdl"
+	"anim_prefix"		"python"
+	"bucket"			"1"
+	"bucket_position"	"1"
+
+	"clip_size"			"7"
+	"default_clip"		"7"
+	"primary_ammo"		"50cal"
+	"secondary_ammo"	"None"
+
+	"weight"		"7"
+	"item_flags"		"0"
+
+	"BuiltRightHanded" "1" 
+	"AllowFlipping" "1" 
+
+	// Sounds for the weapon. There is a max of 16 sounds per category (i.e. max 16 "single_shot" sounds)
+	SoundData
+	{
+		"empty"		"Weapon_Pistol.Empty"
+		"single_shot"	"Weapon_357.Single"
+	}
+
+	// Weapon Sprite data is loaded by the Client DLL.
+	TextureData
+	{
+		"weapon"
+		{
+				"font"		"WeaponIcons"
+				"character"	"e"
+		}
+		"weapon_s"
+		{	
+				"font"		"WeaponIconsSelected"
+				"character"	"e"
+		}
+		"ammo"
+		{
+				"font"		"WeaponIcons"
+				"character"	"q"
+		}
+		"crosshair"
+		{
+				"font"		"Crosshairs"
+				"character"	"V"
+		}
+		"autoaim"
+		{
+				"font"		"Crosshairs"
+				"character"	"V"
+		}
+	}
+}

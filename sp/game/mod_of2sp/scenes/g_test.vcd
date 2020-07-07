@@ -1,0 +1,120 @@
+// Choreo version 1
+event section "pause"
+{
+  time 2.698807 -1.000000
+  param "noaction"
+}
+actor "G-Dude"
+{
+  channel "vo"
+  {
+    event speak "g.test"
+    {
+      time 2.713334 6.506894
+      param "g.test"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+  channel "look"
+  {
+    event lookat "camlook"
+    {
+      time 0.060000 6.513334
+      param "!target1"
+    }
+  }
+  channel "face"
+  {
+    event flexanimation "smile"
+    {
+      time 2.720000 6.726667
+      param ""
+      flexanimations samples_use_time defaultcurvetype=curve_catmullrom_normalize_x_to_curve_catmullrom_normalize_x
+      {
+        "lid_droop" combo 
+        {
+          0.6005 0.5100
+        }
+        {
+          2.1074 1.0000
+          2.7330 1.0000
+        }
+        "lowerer" combo 
+        {
+          1.5563 0.8800
+          3.7260 0.3400
+        }
+        {
+        }
+        "cheek_raiser" combo 
+        {
+          0.8028 0.4800
+          2.4633 0.5700
+          3.7080 0.3500
+        }
+        {
+        }
+        "smile" 
+        {
+          0.4333 0.4600
+          0.9289 0.6700
+          2.7567 0.6500
+          3.6567 0.4900
+          3.8389 0.5500
+          4.0056 0.0400
+        }
+        "head_updown" range 15.0 -15.0 
+        {
+          2.2352 0.3000
+          3.7324 0.3800
+          3.8695 0.3800
+          3.9591 0.3400
+        }
+      }
+    }
+  }
+  channel "walkt and trigtransit"
+  {
+    event firetrigger "Transit trig"
+    {
+      time 6.500000 -1.000000
+      param "1"
+    }
+    event moveto "walk"
+    {
+      time 0.070899 2.696079
+      param "!target2"
+      param2 "Walk"
+      resumecondition
+    }
+  }
+}
+
+actor "!player"
+{
+  channel "woosh"
+  {
+    event speak "g.test2"
+    {
+      time 3.962081 11.259474
+      param "g.test2"
+      fixedlength
+      cctype "cc_master"
+      cctoken ""
+    }
+  }
+}
+
+scalesettings
+{
+  "SceneRampTool" "100"
+  "RampTool" "100"
+  "GestureTool" "100"
+  "ExpressionTool" "88"
+  "CChoreoView" "84"
+}
+fps 60
+snap off
+ignorePhonemes off

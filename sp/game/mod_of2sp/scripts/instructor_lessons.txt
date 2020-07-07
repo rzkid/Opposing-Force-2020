@@ -180,7 +180,7 @@
 
 	      	"onscreen_icon"    "use_binding"
       		"offscreen_icon"   "icon_info"
-      		"binding"          "+attack"
+      		"binding"          "invnext;invprev"
 
       		"success_limit"    "2"
       		"timeout"          "8"
@@ -202,6 +202,7 @@
        	          		"void close"        "void"
             		}
       		}
+	
 	}
 }
 

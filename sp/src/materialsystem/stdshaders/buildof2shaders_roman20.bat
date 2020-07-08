@@ -23,10 +23,10 @@ rem set dynamic_shaders=1
 rem == Setup path to nmake.exe, from vc 2013 common tools directory ==
 call "%VS120COMNTOOLS%vsvars32.bat"
 
-set BUILD_SHADER=call buildshaders.bat
+set BUILD_SHADER=call buildshaders20.bat
 set ARG_EXTRA=
 
-%BUILD_SHADER% of2shader_dx9_20	-game %GAMEDIR% -source %SOURCEDIR%
+%BUILD_SHADER% of2shader_dx9_20		-game %GAMEDIR% -source %SOURCEDIR%
 
 rem echo.
 if not "%dynamic_shaders%" == "1" (

@@ -151,22 +151,24 @@ static void NightVision_f(void)
 
 	static bool bDisplayed; //static bool
 
-	if (bDisplayed)
+	if (pPlayer->IsSuitEquipped())
 	{
-		view->SetScreenOverlayMaterial(null); //set screenoverlay to nothing
-		CLocalPlayerFilter filter;
-		pPlayer->EmitSound(filter, 0, "OF2.NightVisOff", vOrigin); //and play sound
-	}
-	else
-	{
-		IMaterial *pMaterial = materials->FindMaterial("NightVision", TEXTURE_GROUP_OTHER, true); //set pMaterial to our texture
-		view->SetScreenOverlayMaterial(pMaterial); //and overlay it on the screen
-		CLocalPlayerFilter filter;
-		pPlayer->EmitSound(filter, 0, "OF2.NightVisOn", vOrigin); //and play a sound
-	}
+		if (bDisplayed)
+		{
+			view->SetScreenOverlayMaterial(null); //set screenoverlay to nothing
+			CLocalPlayerFilter filter;
+			pPlayer->EmitSound(filter, 0, "OF2.NightVisOff", vOrigin); //and play sound
+		}
+		else
+		{
+			IMaterial *pMaterial = materials->FindMaterial("hudoverlays/NightVision", TEXTURE_GROUP_OTHER, true); //set pMaterial to our texture
+			view->SetScreenOverlayMaterial(pMaterial); //and overlay it on the screen
+			CLocalPlayerFilter filter;
+			pPlayer->EmitSound(filter, 0, "OF2.NightVisOn", vOrigin); //and play a sound
+		}
 
-	bDisplayed = !bDisplayed; // flip flop the bool
-
+		bDisplayed = !bDisplayed; // flip flop the bool
+	}
 }
 
 //night vision console command

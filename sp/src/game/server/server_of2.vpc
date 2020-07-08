@@ -103,6 +103,9 @@ $Project "Server (OF2)"
 			$File	"hl2\prop_combine_ball.cpp"
 			$File	"of2\weapon_saw.cpp"
 			$File	"$SRCDIR\game\server\env_instructor_hint.cpp"
+			$File   "$SRCDIR\game\server\cvisibilitymonitor.cpp"
+			$File   "$SRCDIR\game\server\cvisibilitymonitor.h"
+			
 		}
 
 		$Folder	"HL2 DLL"

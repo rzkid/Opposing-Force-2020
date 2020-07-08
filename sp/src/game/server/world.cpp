@@ -31,6 +31,7 @@
 #include "engine/IStaticPropMgr.h"
 #include "particle_parse.h"
 #include "globalstate.h"
+#include "cvisibilitymonitor.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -52,7 +53,7 @@ class CInfoGameEventProxy : public CPointEntity
 {
 private:
 	string_t	m_iszEventName;
-	
+	float		m_flRange;
 
 public:
 	DECLARE_CLASS(CInfoGameEventProxy, CPointEntity);
@@ -61,7 +62,7 @@ public:
 	int UpdateTransmitState();
 	void InputGenerateGameEvent(inputdata_t& inputdata);
 
-	
+	static bool GameEventProxyCallback(CBaseEntity* pProxy, CBasePlayer* pViewingPlayer);
 
 	DECLARE_DATADESC();
 };
@@ -72,7 +73,12 @@ void CInfoGameEventProxy::Spawn()
 {
 	BaseClass::Spawn();
 
-	
+	m_flRange *= 12.0f; // Convert feet to inches
+
+	if (GetSpawnFlags() & SF_GAME_EVENT_PROXY_AUTO_VISIBILITY)
+	{
+		VisibilityMonitor_AddEntity(this, m_flRange, &CInfoGameEventProxy::GameEventProxyCallback, NULL);
+	}
 
 }
 
@@ -102,13 +108,33 @@ void CInfoGameEventProxy::InputGenerateGameEvent(inputdata_t& inputdata)
 	}
 }
 
+//---------------------------------------------------------
+// Callback for the visibility monitor.
+//---------------------------------------------------------
+bool CInfoGameEventProxy::GameEventProxyCallback(CBaseEntity* pProxy, CBasePlayer* pViewingPlayer)
+{
+	CInfoGameEventProxy* pProxyPtr = dynamic_cast <CInfoGameEventProxy*>(pProxy);
 
+	if (!pProxyPtr)
+		return true;
+
+	IGameEvent* event = gameeventmanager->CreateEvent(pProxyPtr->m_iszEventName.ToCStr());
+	if (event)
+	{
+		event->SetInt("userid", pViewingPlayer->GetUserID());
+		event->SetInt("subject", pProxyPtr->entindex());
+		gameeventmanager->FireEvent(event);
+	}
+
+	return false;
+}
 
 
 LINK_ENTITY_TO_CLASS(info_game_event_proxy, CInfoGameEventProxy);
 
 BEGIN_DATADESC(CInfoGameEventProxy)
 DEFINE_KEYFIELD(m_iszEventName, FIELD_STRING, "event_name"),
+DEFINE_KEYFIELD(m_flRange, FIELD_FLOAT, "range"),
 DEFINE_INPUTFUNC(FIELD_STRING, "GenerateGameEvent", InputGenerateGameEvent),
 END_DATADESC()
 

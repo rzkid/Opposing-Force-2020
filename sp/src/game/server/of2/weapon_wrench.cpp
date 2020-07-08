@@ -385,6 +385,14 @@ void CWeaponWrench::PrimaryAttack( void )
 
 	gamestats->Event_WeaponFired( pOwner, true, GetClassname() );
 
+	IGameEvent* event = gameeventmanager->CreateEvent("use_primaryattack");
+
+	if (event)
+	{
+		event->SetInt("userid", pOwner->GetUserID());
+		gameeventmanager->FireEvent(event);
+	}
+
 	// -------------------------
 	//	Miss
 	// -------------------------

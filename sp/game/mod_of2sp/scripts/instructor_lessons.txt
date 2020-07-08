@@ -176,7 +176,7 @@
 	{	
       		"priority"  "0"
       		"instance_type"    "2"
-      		"caption"          "#Instructor_Primary_Attack"
+      		"caption"          "#Instructor_Wrench_pAttack"
 
 	      	"onscreen_icon"    "use_binding"
       		"offscreen_icon"   "icon_info"
@@ -202,7 +202,6 @@
        	          		"void close"        "void"
             		}
       		}
-	
 	}
 }
 

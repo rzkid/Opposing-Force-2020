@@ -298,6 +298,8 @@ public:
 	virtual void			Jump( void );
 	virtual void			Duck( void );
 
+	virtual	CBaseCombatCharacter* ActivePlayerCombatCharacter(void) { return this; }
+
 	const char				*GetTracerType( void );
 	void					MakeTracer( const Vector &vecTracerSrc, const trace_t &tr, int iTracerType );
 	void					DoImpactEffect( trace_t &tr, int nDamageType );

@@ -183,7 +183,7 @@
       		"binding"          "+attack"
 
       		"success_limit"    "2"
-      		"timeout"          "8"
+      		//"timeout"          "8"
 
       		"open"
       		{

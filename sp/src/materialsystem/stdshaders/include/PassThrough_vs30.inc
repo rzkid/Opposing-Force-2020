@@ -1,17 +1,17 @@
 // ALL SKIP STATEMENTS THAT AFFECT THIS SHADER!!!
 // defined $LIGHTING_PREVIEW && defined $FASTPATH && $LIGHTING_PREVIEW && $FASTPATH
 
-#ifndef PASSTHROUGH_VS20_H
-#define PASSTHROUGH_VS20_H
+#ifndef PASSTHROUGH_VS30_H
+#define PASSTHROUGH_VS30_H
 
 #include "shaderapi/ishaderapi.h"
 #include "shaderapi/ishadershadow.h"
 #include "materialsystem/imaterialvar.h"
 
-class PassThrough_vs20_Static_Index
+class PassThrough_vs30_Static_Index
 {
 public:
-	PassThrough_vs20_Static_Index( IShaderShadow* pShaderShadow, IMaterialVar** params )
+	PassThrough_vs30_Static_Index( IShaderShadow* pShaderShadow, IMaterialVar** params )
 	{
 	}
 
@@ -21,13 +21,13 @@ public:
 	}
 };
 
-#define shaderStaticTest_PassThrough_vs20 1
+#define shaderStaticTest_PassThrough_vs30 1
 
 
-class PassThrough_vs20_Dynamic_Index
+class PassThrough_vs30_Dynamic_Index
 {
 public:
-	PassThrough_vs20_Dynamic_Index( IShaderDynamicAPI* pShaderAPI )
+	PassThrough_vs30_Dynamic_Index( IShaderDynamicAPI* pShaderAPI )
 	{
 	}
 
@@ -37,7 +37,7 @@ public:
 	}
 };
 
-#define shaderDynamicTest_PassThrough_vs20 1
+#define shaderDynamicTest_PassThrough_vs30 1
 
 
-#endif	// PASSTHROUGH_VS20_H
+#endif	// PASSTHROUGH_VS30_H

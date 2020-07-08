@@ -31,10 +31,10 @@ if "%1" == "" goto usage
 set inputbase=%1
 
 REM ignore -dx9_30
-if /i "%6" == "-dx9_30" shift /6
+if /i "%4" == "-dx9_30" shift /6
 
-if /i "%6" == "-force30" goto set_force30_arg
-goto set_force_end
+if /i "%4" == "-force30" goto set_force30_arg
+REM goto set_force_end
 :set_force30_arg
 			set IS30=1
 			goto set_force_end

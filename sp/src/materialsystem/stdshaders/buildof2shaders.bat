@@ -26,7 +26,7 @@ call "%VS120COMNTOOLS%vsvars32.bat"
 set BUILD_SHADER=call buildshaders.bat
 set ARG_EXTRA=
 
-%BUILD_SHADER% of2shader_dx9_30		-game %GAMEDIR% -source %SOURCEDIR%
+%BUILD_SHADER% of2shader_dx9_30 -game %GAMEDIR% -source %SOURCEDIR% -force30
 
 rem echo.
 if not "%dynamic_shaders%" == "1" (

@@ -1,14 +1,14 @@
-#ifndef POST_CUBIC_PS20B_H
-#define POST_CUBIC_PS20B_H
+#ifndef POST_CUBIC_PS30_H
+#define POST_CUBIC_PS30_H
 
 #include "shaderapi/ishaderapi.h"
 #include "shaderapi/ishadershadow.h"
 #include "materialsystem/imaterialvar.h"
 
-class post_cubic_ps20b_Static_Index
+class post_cubic_ps30_Static_Index
 {
 public:
-	post_cubic_ps20b_Static_Index( IShaderShadow* pShaderShadow, IMaterialVar** params )
+	post_cubic_ps30_Static_Index( IShaderShadow* pShaderShadow, IMaterialVar** params )
 	{
 	}
 
@@ -18,13 +18,13 @@ public:
 	}
 };
 
-#define shaderStaticTest_post_cubic_ps20b 1
+#define shaderStaticTest_post_cubic_ps30 1
 
 
-class post_cubic_ps20b_Dynamic_Index
+class post_cubic_ps30_Dynamic_Index
 {
 public:
-	post_cubic_ps20b_Dynamic_Index( IShaderDynamicAPI* pShaderAPI )
+	post_cubic_ps30_Dynamic_Index( IShaderDynamicAPI* pShaderAPI )
 	{
 	}
 
@@ -34,7 +34,7 @@ public:
 	}
 };
 
-#define shaderDynamicTest_post_cubic_ps20b 1
+#define shaderDynamicTest_post_cubic_ps30 1
 
 
-#endif	// POST_CUBIC_PS20B_H
+#endif	// POST_CUBIC_PS30_H

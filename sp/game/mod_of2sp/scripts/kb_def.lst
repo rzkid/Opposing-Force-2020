@@ -29,7 +29,7 @@
 "ENTER"			"+attack"
 "MOUSE2"		"+attack2"
 "\\"			"+attack2"
-"f"				"impulse 99"
+"f"				"r_nightvision"
 "1"				"slot1"
 "2"				"slot2"
 "3"				"slot3"

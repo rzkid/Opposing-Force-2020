@@ -5873,14 +5873,17 @@ void CBasePlayer::ImpulseCommands( )
 	switch (iImpulse)
 	{
 	case 100:
-        // temporary flashlight for level designers
-        if ( FlashlightIsOn() )
+        // temporary flashlight for level designer
+		if (IsSuitEquipped())
 		{
-			FlashlightTurnOff();
-		}
-        else 
-		{
-			FlashlightTurnOn();
+			if (FlashlightIsOn())
+			{
+				FlashlightTurnOff();
+			}
+			else
+			{
+				FlashlightTurnOn();
+			}
 		}
 		break;
 

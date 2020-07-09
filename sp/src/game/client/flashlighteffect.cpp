@@ -15,48 +15,40 @@
 #include "tier1/KeyValues.h"
 #include "toolframework_client.h"
 
-#ifdef HL2_CLIENT_DLL
-#include "c_basehlplayer.h"
-#endif // HL2_CLIENT_DLL
-
-#if defined( _X360 )
 extern ConVar r_flashlightdepthres;
-#else
-extern ConVar r_flashlightdepthres;
-#endif
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
 extern ConVar r_flashlightdepthtexture;
 
-void r_newflashlightCallback_f( IConVar *pConVar, const char *pOldString, float flOldValue );
+void r_newnightvisionCallback_f( IConVar *pConVar, const char *pOldString, float flOldValue );
 
-static ConVar r_newflashlight( "r_newflashlight", "1", FCVAR_CHEAT, "", r_newflashlightCallback_f );
-static ConVar r_swingflashlight( "r_swingflashlight", "1", FCVAR_CHEAT );
-static ConVar r_flashlightlockposition( "r_flashlightlockposition", "0", FCVAR_CHEAT );
-static ConVar r_flashlightfov( "r_flashlightfov", "45.0", FCVAR_CHEAT );
-static ConVar r_flashlightoffsetx( "r_flashlightoffsetx", "10.0", FCVAR_CHEAT );
-static ConVar r_flashlightoffsety( "r_flashlightoffsety", "-20.0", FCVAR_CHEAT );
-static ConVar r_flashlightoffsetz( "r_flashlightoffsetz", "24.0", FCVAR_CHEAT );
-static ConVar r_flashlightnear( "r_flashlightnear", "4.0", FCVAR_CHEAT );
-static ConVar r_flashlightfar( "r_flashlightfar", "750.0", FCVAR_CHEAT );
-static ConVar r_flashlightconstant( "r_flashlightconstant", "0.0", FCVAR_CHEAT );
-static ConVar r_flashlightlinear( "r_flashlightlinear", "100.0", FCVAR_CHEAT );
-static ConVar r_flashlightquadratic( "r_flashlightquadratic", "0.0", FCVAR_CHEAT );
-static ConVar r_flashlightvisualizetrace( "r_flashlightvisualizetrace", "0", FCVAR_CHEAT );
-static ConVar r_flashlightambient( "r_flashlightambient", "0.0", FCVAR_CHEAT );
-static ConVar r_flashlightshadowatten( "r_flashlightshadowatten", "0.35", FCVAR_CHEAT );
-static ConVar r_flashlightladderdist( "r_flashlightladderdist", "40.0", FCVAR_CHEAT );
+static ConVar r_newnightvision( "r_newnightvision", "1", FCVAR_CHEAT, "", r_newnightvisionCallback_f );
+static ConVar r_swingnightvision( "r_swingnightvision", "1", FCVAR_CHEAT );
+static ConVar r_nightvisionlockposition( "r_nightvisionlockposition", "0", FCVAR_CHEAT );
+//static ConVar r_nightvisionfov( "r_nightvisionfov", "45.0", FCVAR_CHEAT );
+static ConVar r_nightvisionoffsetx( "r_nightvisionoffsetx", "10.0", FCVAR_CHEAT );
+static ConVar r_nightvisionoffsety( "r_nightvisionoffsety", "-20.0", FCVAR_CHEAT );
+static ConVar r_nightvisionoffsetz( "r_nightvisionoffsetz", "24.0", FCVAR_CHEAT );
+static ConVar r_nightvisionnear( "r_nightvisionnear", "4.0", FCVAR_CHEAT );
+static ConVar r_nightvisionfar( "r_nightvisionfar", "750.0", FCVAR_CHEAT );
+static ConVar r_nightvisionconstant( "r_nightvisionconstant", "0.0", FCVAR_CHEAT );
+static ConVar r_nightvisionlinear( "r_nightvisionlinear", "100.0", FCVAR_CHEAT );
+static ConVar r_nightvisionquadratic( "r_nightvisionquadratic", "0.0", FCVAR_CHEAT );
+static ConVar r_nightvisionvisualizetrace( "r_nightvisionvisualizetrace", "0", FCVAR_CHEAT );
+static ConVar r_nightvisionambient( "r_nightvisionambient", "0.0", FCVAR_CHEAT );
+static ConVar r_nightvisionshadowatten( "r_nightvisionshadowatten", "0.35", FCVAR_CHEAT );
+static ConVar r_nightvisionladderdist( "r_nightvisionladderdist", "40.0", FCVAR_CHEAT );
 static ConVar mat_slopescaledepthbias_shadowmap( "mat_slopescaledepthbias_shadowmap", "16", FCVAR_CHEAT );
 static ConVar mat_depthbias_shadowmap(	"mat_depthbias_shadowmap", "0.0005", FCVAR_CHEAT  );
 
 
-void r_newflashlightCallback_f( IConVar *pConVar, const char *pOldString, float flOldValue )
+void r_newnightvisionCallback_f( IConVar *pConVar, const char *pOldString, float flOldValue )
 {
 	if( engine->GetDXSupportLevel() < 70 )
 	{
-		r_newflashlight.SetValue( 0 );
+		r_newnightvision.SetValue( 0 );
 	}	
 }
 
@@ -75,7 +67,7 @@ CFlashlightEffect::CFlashlightEffect(int nEntIndex)
 	m_pPointLight = NULL;
 	if( engine->GetDXSupportLevel() < 70 )
 	{
-		r_newflashlight.SetValue( 0 );
+		r_newnightvision.SetValue( 0 );
 	}	
 
 	if ( g_pMaterialSystemHardwareConfig->SupportsBorderColor() )
@@ -105,6 +97,9 @@ void CFlashlightEffect::TurnOn()
 {
 	m_bIsOn = true;
 	m_flDistMod = 1.0f;
+	IMaterial *pMaterial = materials->FindMaterial("hudoverlays/NightVision", TEXTURE_GROUP_OTHER, true); //set pMaterial to our texture
+	view->SetScreenOverlayMaterial(pMaterial); //and overlay it on the screen
+	CLocalPlayerFilter filter;
 }
 
 
@@ -155,20 +150,20 @@ void CFlashlightEffect::UpdateLightNew(const Vector &vecPos, const Vector &vecFo
 
 	FlashlightState_t state;
 
-	// We will lock some of the flashlight params if player is on a ladder, to prevent oscillations due to the trace-rays
+	// We will lock some of the nightvision params if player is on a ladder, to prevent oscillations due to the trace-rays
 	bool bPlayerOnLadder = ( C_BasePlayer::GetLocalPlayer()->GetMoveType() == MOVETYPE_LADDER );
 
-	const float flEpsilon = 0.1f;			// Offset flashlight position along vecUp
+	const float flEpsilon = 0.1f;			// Offset nightvision position along vecUp
 	const float flDistCutoff = 128.0f;
 	const float flDistDrag = 0.2;
 
 	CTraceFilterSkipPlayerAndViewModel traceFilter;
-	float flOffsetY = r_flashlightoffsety.GetFloat();
+	float flOffsetY = r_nightvisionoffsety.GetFloat();
 
-	if( r_swingflashlight.GetBool() )
+	if( r_swingnightvision.GetBool() )
 	{
 		// This projects the view direction backwards, attempting to raise the vertical
-		// offset of the flashlight, but only when the player is looking down.
+		// offset of the nightvision, but only when the player is looking down.
 		Vector vecSwingLight = vecPos + vecForward * -12.0f;
 		if( vecSwingLight.z > vecPos.z )
 		{
@@ -194,12 +189,12 @@ void CFlashlightEffect::UpdateLightNew(const Vector &vecPos, const Vector &vecFo
 		vOrigin = vecPos;
 	}
 
-	// Now do a trace along the flashlight direction to ensure there is nothing within range to pull back from
+	// Now do a trace along the nightvision direction to ensure there is nothing within range to pull back from
 	int iMask = MASK_OPAQUE_AND_NPCS;
 	iMask &= ~CONTENTS_HITBOX;
 	iMask |= CONTENTS_WINDOW;
 
-	Vector vTarget = vecPos + vecForward * r_flashlightfar.GetFloat();
+	Vector vTarget = vecPos + vecForward * 1024.0f;
 
 	// Work with these local copies of the basis for the rest of the function
 	Vector vDir   = vTarget - vOrigin;
@@ -209,7 +204,7 @@ void CFlashlightEffect::UpdateLightNew(const Vector &vecPos, const Vector &vecFo
 	VectorNormalize( vRight );
 	VectorNormalize( vUp    );
 
-	// Orthonormalize the basis, since the flashlight texture projection will require this later...
+	// Orthonormalize the basis, since the nightvision texture projection will require this later...
 	vUp -= DotProduct( vDir, vUp ) * vDir;
 	VectorNormalize( vUp );
 	vRight -= DotProduct( vDir, vRight ) * vDir;
@@ -224,7 +219,7 @@ void CFlashlightEffect::UpdateLightNew(const Vector &vecPos, const Vector &vecFo
 	trace_t pmDirectionTrace;
 	UTIL_TraceHull( vOrigin, vTarget, Vector( -4, -4, -4 ), Vector( 4, 4, 4 ), iMask, &traceFilter, &pmDirectionTrace );
 
-	if ( r_flashlightvisualizetrace.GetBool() == true )
+	if ( r_nightvisionvisualizetrace.GetBool() == true )
 	{
 		debugoverlay->AddBoxOverlay( pmDirectionTrace.endpos, Vector( -4, -4, -4 ), Vector( 4, 4, 4 ), QAngle( 0, 0, 0 ), 0, 0, 255, 16, 0 );
 		debugoverlay->AddLineOverlay( vOrigin, pmDirectionTrace.endpos, 255, 0, 0, false, 0 );
@@ -235,7 +230,7 @@ void CFlashlightEffect::UpdateLightNew(const Vector &vecPos, const Vector &vecFo
 	{
 		// We have an intersection with our cutoff range
 		// Determine how far to pull back, then trace to see if we are clear
-		float flPullBackDist = bPlayerOnLadder ? r_flashlightladderdist.GetFloat() : flDistCutoff - flDist;	// Fixed pull-back distance if on ladder
+		float flPullBackDist = bPlayerOnLadder ? r_nightvisionladderdist.GetFloat() : flDistCutoff - flDist;	// Fixed pull-back distance if on ladder
 		m_flDistMod = Lerp( flDistDrag, m_flDistMod, flPullBackDist );
 		
 		if ( !bPlayerOnLadder )
@@ -261,79 +256,31 @@ void CFlashlightEffect::UpdateLightNew(const Vector &vecPos, const Vector &vecFo
 
 	BasisToQuaternion( vDir, vRight, vUp, state.m_quatOrientation );
 
-	state.m_fQuadraticAtten = r_flashlightquadratic.GetFloat();
+	state.m_fQuadraticAtten = r_nightvisionquadratic.GetFloat();
 
 	bool bFlicker = false;
 
-#ifdef HL2_EPISODIC
-	C_BaseHLPlayer *pPlayer = (C_BaseHLPlayer *)C_BasePlayer::GetLocalPlayer();
-	if ( pPlayer )
-	{
-		float flBatteryPower = ( pPlayer->m_HL2Local.m_flFlashBattery >= 0.0f ) ? ( pPlayer->m_HL2Local.m_flFlashBattery ) : pPlayer->m_HL2Local.m_flSuitPower;
-		if ( flBatteryPower <= 10.0f )
-		{
-			float flScale;
-			if ( flBatteryPower >= 0.0f )
-			{	
-				flScale = ( flBatteryPower <= 4.5f ) ? SimpleSplineRemapVal( flBatteryPower, 4.5f, 0.0f, 1.0f, 0.0f ) : 1.0f;
-			}
-			else
-			{
-				flScale = SimpleSplineRemapVal( flBatteryPower, 10.0f, 4.8f, 1.0f, 0.0f );
-			}
-			
-			flScale = clamp( flScale, 0.0f, 1.0f );
-
-			if ( flScale < 0.35f )
-			{
-				float flFlicker = cosf( gpGlobals->curtime * 6.0f ) * sinf( gpGlobals->curtime * 15.0f );
-				
-				if ( flFlicker > 0.25f && flFlicker < 0.75f )
-				{
-					// On
-					state.m_fLinearAtten = r_flashlightlinear.GetFloat() * flScale;
-				}
-				else
-				{
-					// Off
-					state.m_fLinearAtten = 0.0f;
-				}
-			}
-			else
-			{
-				float flNoise = cosf( gpGlobals->curtime * 7.0f ) * sinf( gpGlobals->curtime * 25.0f );
-				state.m_fLinearAtten = r_flashlightlinear.GetFloat() * flScale + 1.5f * flNoise;
-			}
-
-			state.m_fHorizontalFOVDegrees = r_flashlightfov.GetFloat() - ( 16.0f * (1.0f-flScale) );
-			state.m_fVerticalFOVDegrees = r_flashlightfov.GetFloat() - ( 16.0f * (1.0f-flScale) );
-			
-			bFlicker = true;
-		}
-	}
-#endif // HL2_EPISODIC
-
 	if ( bFlicker == false )
 	{
-		state.m_fLinearAtten = r_flashlightlinear.GetFloat();
-		state.m_fHorizontalFOVDegrees = r_flashlightfov.GetFloat();
-		state.m_fVerticalFOVDegrees = r_flashlightfov.GetFloat();
+		state.m_fLinearAtten = r_nightvisionlinear.GetFloat();
+		state.m_fHorizontalFOVDegrees = 179.0f;
+		state.m_fVerticalFOVDegrees = 179.0f;
 	}
 
-	state.m_fConstantAtten = r_flashlightconstant.GetFloat();
-	state.m_Color[0] = 1.0f;
+	state.m_fConstantAtten = r_nightvisionconstant.GetFloat();
+	state.m_Color[0] = 0.0f;
 	state.m_Color[1] = 1.0f;
-	state.m_Color[2] = 1.0f;
-	state.m_Color[3] = r_flashlightambient.GetFloat();
-	state.m_NearZ = r_flashlightnear.GetFloat() + m_flDistMod;	// Push near plane out so that we don't clip the world when the flashlight pulls back 
-	state.m_FarZ = r_flashlightfar.GetFloat();
-	state.m_bEnableShadows = r_flashlightdepthtexture.GetBool();
-	state.m_flShadowMapResolution = r_flashlightdepthres.GetInt();
+	state.m_Color[2] = 0.0f;
+	state.m_Color[3] = r_nightvisionambient.GetFloat();
+	state.m_NearZ = r_nightvisionnear.GetFloat() + m_flDistMod;	// Push near plane out so that we don't clip the world when the nightvision pulls back 
+	state.m_FarZ = 1024.f;
+	state.m_bEnableShadows = false;
+	state.m_flShadowMapResolution = 0;
 
 	state.m_pSpotlightTexture = m_FlashlightTexture;
 	state.m_nSpotlightTextureFrame = 0;
 
-	state.m_flShadowAtten = r_flashlightshadowatten.GetFloat();
+	state.m_flShadowAtten = r_nightvisionshadowatten.GetFloat();
 	state.m_flShadowSlopeScaleDepthBias = mat_slopescaledepthbias_shadowmap.GetFloat();
 	state.m_flShadowDepthBias = mat_depthbias_shadowmap.GetFloat();
 
@@ -343,7 +290,7 @@ void CFlashlightEffect::UpdateLightNew(const Vector &vecPos, const Vector &vecFo
 	}
 	else
 	{
-		if( !r_flashlightlockposition.GetBool() )
+		if( !r_nightvisionlockposition.GetBool() )
 		{
 			g_pClientShadowMgr->UpdateFlashlightState( m_FlashlightHandle, state );
 		}
@@ -351,7 +298,7 @@ void CFlashlightEffect::UpdateLightNew(const Vector &vecPos, const Vector &vecFo
 	
 	g_pClientShadowMgr->UpdateProjectedTexture( m_FlashlightHandle, true );
 	
-	// Kill the old flashlight method if we have one.
+	// Kill the old nightvision method if we have one.
 	LightOffOld();
 
 #ifndef NO_TOOLFRAMEWORK
@@ -412,7 +359,7 @@ void CFlashlightEffect::UpdateLightOld(const Vector &vecPos, const Vector &vecDi
 	// Update list of surfaces we influence
 	render->TouchLight( m_pPointLight );
 	
-	// kill the new flashlight if we have one
+	// kill the new nightvision if we have one
 	LightOffNew();
 }
 
@@ -425,7 +372,7 @@ void CFlashlightEffect::UpdateLight(const Vector &vecPos, const Vector &vecDir, 
 	{
 		return;
 	}
-	if( r_newflashlight.GetBool() )
+	if( r_newnightvision.GetBool() )
 	{
 		UpdateLightNew( vecPos, vecDir, vecRight, vecUp );
 	}
@@ -460,6 +407,9 @@ void CFlashlightEffect::LightOffNew()
 		g_pClientShadowMgr->DestroyFlashlight( m_FlashlightHandle );
 		m_FlashlightHandle = CLIENTSHADOW_INVALID_HANDLE;
 	}
+
+	view->SetScreenOverlayMaterial(null); //set screenoverlay to nothing
+	CLocalPlayerFilter filter;
 }
 
 //-----------------------------------------------------------------------------
@@ -513,15 +463,15 @@ void CHeadlightEffect::UpdateLight( const Vector &vecPos, const Vector &vecDir, 
 
 	state.m_fHorizontalFOVDegrees = 45.0f;
 	state.m_fVerticalFOVDegrees = 30.0f;
-	state.m_fQuadraticAtten = r_flashlightquadratic.GetFloat();
-	state.m_fLinearAtten = r_flashlightlinear.GetFloat();
-	state.m_fConstantAtten = r_flashlightconstant.GetFloat();
+	state.m_fQuadraticAtten = r_nightvisionquadratic.GetFloat();
+	state.m_fLinearAtten = r_nightvisionlinear.GetFloat();
+	state.m_fConstantAtten = r_nightvisionconstant.GetFloat();
 	state.m_Color[0] = 1.0f;
 	state.m_Color[1] = 1.0f;
 	state.m_Color[2] = 1.0f;
-	state.m_Color[3] = r_flashlightambient.GetFloat();
-	state.m_NearZ = r_flashlightnear.GetFloat();
-	state.m_FarZ = r_flashlightfar.GetFloat();
+	state.m_Color[3] = r_nightvisionambient.GetFloat();
+	state.m_NearZ = r_nightvisionnear.GetFloat();
+	state.m_FarZ = r_nightvisionfar.GetFloat();
 	state.m_bEnableShadows = true;
 	state.m_pSpotlightTexture = m_FlashlightTexture;
 	state.m_nSpotlightTextureFrame = 0;

@@ -37,6 +37,8 @@ extern int g_viewscene_refractUpdateFrame;
 extern bool g_bAllowMultipleRefractUpdatesPerScenePerFrame;
 bool DrawingShadowDepthView( void );
 bool DrawingMainView();
+extern int index;
+//extern IVEfx *effects = NULL;
 
 inline void UpdateRefractTexture( int x, int y, int w, int h, bool bForceUpdate = false )
 {

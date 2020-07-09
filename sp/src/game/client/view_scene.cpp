@@ -13,6 +13,10 @@
 #include "viewrender.h"
 #include "sourcevr/isourcevirtualreality.h"
 #include "client_virtualreality.h"
+#include "dlight.h"
+#include "c_baseentity.h"
+#include "cdll_client_int.h"
+#include "iefx.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -23,6 +27,7 @@
 ConVar r_updaterefracttexture( "r_updaterefracttexture", "1", FCVAR_CHEAT );
 ConVar r_depthoverlay( "r_depthoverlay", "0", FCVAR_CHEAT, "Replaces opaque objects with their grayscaled depth values. r_showz_power scales the output." );
 
+int index;
 
 int g_viewscene_refractUpdateFrame = 0;
 bool g_bAllowMultipleRefractUpdatesPerScenePerFrame = false;
@@ -139,7 +144,7 @@ void UpdateFullScreenDepthTexture( void )
 		pMaterial->DecrementReferenceCount();
 	}
 }
-
+/*
 //-----------------------------------------------------------------------------
 // NightVision
 //-----------------------------------------------------------------------------
@@ -150,6 +155,7 @@ static void NightVision_f(void)
 	const Vector *vOrigin = &pPlayer->GetAbsOrigin(); //get the local players origin
 
 	static bool bDisplayed; //static bool
+	dlight_t *dl = effects->CL_AllocDlight(index);
 
 	if (pPlayer->IsSuitEquipped())
 	{
@@ -158,12 +164,20 @@ static void NightVision_f(void)
 			view->SetScreenOverlayMaterial(null); //set screenoverlay to nothing
 			CLocalPlayerFilter filter;
 			pPlayer->EmitSound(filter, 0, "OF2.NightVisOff", vOrigin); //and play sound
+			dl->die = gpGlobals->curtime + 0.1f;
 		}
 		else
 		{
 			IMaterial *pMaterial = materials->FindMaterial("hudoverlays/NightVision", TEXTURE_GROUP_OTHER, true); //set pMaterial to our texture
 			view->SetScreenOverlayMaterial(pMaterial); //and overlay it on the screen
 			CLocalPlayerFilter filter;
+
+			dl->origin = *vOrigin;
+			dl->color.r = 0;
+			dl->color.g = 255;
+			dl->color.b = 0;
+			dl->die = gpGlobals->curtime + 100000000.0f;
+			dl->radius = (512.0f);
 			pPlayer->EmitSound(filter, 0, "OF2.NightVisOn", vOrigin); //and play a sound
 		}
 
@@ -173,3 +187,4 @@ static void NightVision_f(void)
 
 //night vision console command
 static ConCommand r_nightvision("r_nightvision", NightVision_f); // console command to trigger the function, bind it by typing bind n r_nightvision.
+*/

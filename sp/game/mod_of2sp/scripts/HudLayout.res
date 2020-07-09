@@ -190,11 +190,8 @@
 		"fieldName" "HudFlashlight"
 		"visible" "1"
 		"PaintBackgroundType"	"2"
-		"xpos"	"270"		[$WIN32]
-		"ypos"	"444"		[$WIN32]
-		"xpos_hidef"	"306"		[$X360]		// aligned to left
-		"xpos_lodef"	"c-18"		[$X360]		// centered in screen
-		"ypos"	"428"		[$X360]				
+		"xpos"	"270"
+		"ypos"	"444"				
 		"tall"  "24"
 		"wide"	"36"
 		"font"	"WeaponIconsSmall"

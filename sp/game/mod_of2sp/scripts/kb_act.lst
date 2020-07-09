@@ -15,7 +15,7 @@
 "+attack2"				"#Valve_Secondary_Attack"
 "+reload"				"#Valve_Reload_Weapon"
 "+use"					"#Valve_Use_Items"
-"r_nightvision"			"#of2_nightvision"
+"impulse 100"			"#of2_nightvision"
 "+zoom"					"#Valve_Suit_Zoom"
 "impulse 50"			"#Valve_Commander_Mode"
 "slot1"					"#Valve_Weapon_Category_1"

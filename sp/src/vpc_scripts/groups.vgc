@@ -33,8 +33,6 @@ $Group "of2projects"
 	"server"
 	"tier1"
 	"vgui_controls"
-	"vmf_tweak"
-	"game_shader_generic_of2"
 }
 
 $Group "shaders"

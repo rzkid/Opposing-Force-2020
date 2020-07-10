@@ -172,7 +172,7 @@ void CWeaponShotgun::Precache(void)
 void CWeaponShotgun::FireNPCPrimaryAttack(CBaseCombatCharacter *pOperator, bool bUseWeaponAngles)
 {
 	Vector vecShootOrigin, vecShootDir;
-//	CAI_BaseNPC *npc = pOperator->MyNPCPointer();//warning C4189: 'npc' : local variable is initialized but not referenced AND I DONT KNOW WHY
+	CAI_BaseNPC *npc = pOperator->MyNPCPointer();//warning C4189: 'npc' : local variable is initialized but not referenced AND I DONT KNOW WHY
 
 	ASSERT(npc != NULL);
 	WeaponSound(SINGLE_NPC);

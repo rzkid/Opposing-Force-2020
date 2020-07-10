@@ -30,6 +30,13 @@ $Project "Client (OF2)"
 
 		$Folder	"OF2"
 		{
+		$Folder	"GameUI"
+		{
+		$File	"$SRCDIR\game\client\of2\OverrideUI_RootPanel.h"
+		$File	"$SRCDIR\game\client\of2\OverrideUI_RootPanel.cpp"
+		$File	"$SRCDIR\game\client\of2\IOverrideInterface.h"
+		$File	"$SRCDIR\game\client\of2\OverrideInterface.cpp"
+		}
 			$File	"of2\c_weapon_stubs_of2.cpp"
 			$File	"$SRCDIR\game\shared\of2\of2_gamerules.cpp"
 			$File	"$SRCDIR\game\shared\of2\of2_gamerules.h"

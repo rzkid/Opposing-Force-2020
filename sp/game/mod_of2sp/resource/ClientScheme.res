@@ -894,7 +894,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"			"Arial Narrow"
+				"name"			"Evropa Normal"
 				"tall"			"20"
 				"weight"		"400"
 				"antialias"		"1"
@@ -906,7 +906,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"			"Arial Narrow"
+				"name"			"Evropa Normal"
 				"tall"			"18"
 				"weight"		"600"
 				"antialias"		"1"
@@ -930,7 +930,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"			"Arial Narrow"
+				"name"			"Evropa Normal"
 				"tall"			"20"
 				"weight"		"400"
 				"antialias"		"1"
@@ -971,6 +971,32 @@ Scheme
 		"12"    "resource/fonts/arial-narrow-bold.ttf"
 		"13"    "resource/fonts/arial-narrow-bold-italic.ttf"
 		"14"    "resource/fonts/arial-narrow-italic.ttf"
+		"15"   
+		{
+		  "font" "resource/fonts/dsarmy.ttf"
+		  "name" "DS Army Cyr"
+		  "russian"
+		  {
+		     "range" "0x0000 0xFFFF"
+		  }
+		  "english"
+		  {
+		    "range" "0x0000 0xFFFF"
+		  }
+		}
+		"16"   
+		{
+		  "font" "resource/fonts/evropa.ttf"
+		  "name" "Evropa Normal"
+		  "russian"
+		  {
+		     "range" "0x0000 0xFFFF"
+		  }
+		  "english"
+		  {
+		    "range" "0x0000 0xFFFF"
+		  }
+		}
 	}
 
 }

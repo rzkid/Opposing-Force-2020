@@ -360,7 +360,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Eurostile"
+				"name"		"Evropa Normal"
 				"tall"		"36"
 				"weight"	"600"
 				"antialias" "1"
@@ -1181,5 +1181,31 @@ Scheme
 		"2"		"resource/fonts/HL2EP2.ttf"	
 		"3"		"resource/fonts/11602.ttf"	
         "4"		"resource/fonts/eurosti.ttf" 
+		"5"   
+		{
+		  "font" "resource/fonts/dsarmy.ttf"
+		  "name" "DS Army Cyr"
+		  "russian"
+		  {
+		     "range" "0x0000 0xFFFF"
+		  }
+		  "english"
+		  {
+		    "range" "0x0000 0xFFFF"
+		  }
+		}
+		"6"   
+		{
+		  "font" "resource/fonts/evropa.ttf"
+		  "name" "Evropa Normal"
+		  "russian"
+		  {
+		     "range" "0x0000 0xFFFF"
+		  }
+		  "english"
+		  {
+		    "range" "0x0000 0xFFFF"
+		  }
+		}
 	}
 }

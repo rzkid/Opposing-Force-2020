@@ -968,9 +968,44 @@ Scheme
 		    "range" "0x0000 0xFFFF"
 		  }
 		}
-		"12"    "resource/fonts/arial-narrow-bold.ttf"
-		"13"    "resource/fonts/arial-narrow-bold-italic.ttf"
-		"14"    "resource/fonts/arial-narrow-italic.ttf"
+		"12"    
+		{
+		  "font" "resource/fonts/arial-narrow-bold.ttf"
+		  "name" "Arial Narrow"
+		  "russian"
+		  {
+		     "range" "0x0000 0xFFFF"
+		  }
+		  "english"
+		  {
+		    "range" "0x0000 0xFFFF"
+		  }
+		}
+		"13"
+		{
+		"font" "resource/fonts/arial-narrow-bold-italic.ttf"
+		  "name" "Arial Narrow"
+		  "russian"
+		  {
+		     "range" "0x0000 0xFFFF"
+		  }
+		  "english"
+		  {
+		    "range" "0x0000 0xFFFF"
+		  }
+		}
+		"14"
+		"font" "resource/fonts/arial-narrow-italic.ttf"
+		  "name" "Arial Narrow"
+		  "russian"
+		  {
+		     "range" "0x0000 0xFFFF"
+		  }
+		  "english"
+		  {
+		    "range" "0x0000 0xFFFF"
+		  }
+		}
 		"15"   
 		{
 		  "font" "resource/fonts/dsarmy.ttf"

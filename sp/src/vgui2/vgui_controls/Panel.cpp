@@ -699,6 +699,7 @@ void Panel::Init( int x, int y, int wide, int tall )
 
 	REGISTER_COLOR_AS_OVERRIDABLE( _fgColor, "fgcolor_override" );
 	REGISTER_COLOR_AS_OVERRIDABLE( _bgColor, "bgcolor_override" );
+	REGISTER_COLOR_AS_OVERRIDABLE( _dgColor, "dgcolor_override");
 
 	m_bIsConsoleStylePanel = false;
 	m_NavUp = NULL;
@@ -3687,6 +3688,11 @@ void Panel::SetFgColor(Color color)
 	_fgColor = color;
 }
 
+void Panel::SetDgColor(Color color)
+{
+	_dgColor = color;
+}
+
 Color Panel::GetBgColor()
 {
 	return _bgColor;
@@ -3695,6 +3701,11 @@ Color Panel::GetBgColor()
 Color Panel::GetFgColor()
 {
 	return _fgColor;
+}
+
+Color Panel::GetDgColor()
+{
+	return _dgColor;
 }
 
 void Panel::InternalPerformLayout()

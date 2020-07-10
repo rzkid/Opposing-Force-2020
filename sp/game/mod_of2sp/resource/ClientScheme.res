@@ -25,7 +25,7 @@ Scheme
 	{
 		"FgColor"			"201 255 0 128"
 		"BgColor"			"0 0 0 0" //76
-		"DgColor"			"0 199 0 128"
+		"DgColor"			"0 255 0 99"
 
 		"Panel.FgColor"			"201 255 0 128"
 		"Panel.BgColor"			"0 0 0 0" //76
@@ -275,8 +275,20 @@ Scheme
 			"1"
 			{
 				"name"		"HalfLife2"
-				"tall"		"64"
+				"tall"		"32"
 				"tall_hidef"	"58"
+				"weight"	"0"
+				"antialias" "1"
+				"additive"	"1"
+				"custom"	"1"
+			}
+		}
+		NightvisionIcon
+		{
+			"1"
+			{
+				"name"		"HalfLife2"
+				"tall"		"48"
 				"weight"	"0"
 				"antialias" "1"
 				"additive"	"1"
@@ -288,7 +300,7 @@ Scheme
 			"1"
 			{
 				"name"		"HalfLife2"
-				"tall"		"64"
+				"tall"		"32"
 				"tall_hidef"	"58"
 				"weight"	"0"
 				"antialias" "1"
@@ -303,7 +315,7 @@ Scheme
 			"1"
 			{
 				"name"		"HalfLife2"
-				"tall"		"32"
+				"tall"		"24"
 				"weight"	"0"
 				"antialias" "1"
 				"additive"	"1"

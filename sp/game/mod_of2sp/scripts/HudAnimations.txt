@@ -155,16 +155,12 @@ event SuitAuxPowerThreeItemsActive
 
 event SuitFlashlightOn
 {
-	Animate HudFlashlight TextColor		"255 220 0 255"	Linear 0.0 0.1
-	Animate HudFlashlight TextColor		"255 220 0 160"	Deaccel 0.1 0.75
-	Animate HudFlashlight BgColor		"BgColor"	Linear 0.0 0.75
+	Animate HudFlashlight FgColor		"FgColor"	Linear 0.0 0.0
 }
 
 event SuitFlashlightOff
 {
-	StopEvent SuitFlashlightOn	0.0
-	Animate HudFlashlight TextColor		"0 0 0 0"	Linear 0.0 0.4
-	Animate HudFlashlight BgColor		"0 0 0 0"	Linear 0.0 0.4
+	Animate HudFlashlight FgColor		"FgColor"	Linear 0.0 0.0
 }
 
 event HudTakeDamageFront

@@ -38,7 +38,7 @@ private:
 	void Reset( void );
 	
 	bool	m_bFlashlightOn;
-	CPanelAnimationVar( vgui::HFont, m_hFont, "Font", "WeaponIconsSmall" );
+	CPanelAnimationVar( vgui::HFont, m_hFont, "Font", "NightvisonIcon" );
 	CPanelAnimationVarAliasType( float, m_IconX, "icon_xpos", "4", "proportional_float" );
 	CPanelAnimationVarAliasType( float, m_IconY, "icon_ypos", "4", "proportional_float" );
 	
@@ -121,8 +121,8 @@ void CHudFlashlight::Paint()
 	int enabledChunks = (int)((float)chunkCount * (pPlayer->m_HL2Local.m_flFlashBattery * 1.0f/100.0f) + 0.5f );
 
 	Color clrFlashlight;
-	clrFlashlight = ( enabledChunks < ( chunkCount / 4 ) ) ? gHUD.m_clrCaution : gHUD.m_clrNormal;
-	clrFlashlight[3] = ( bIsOn ) ? 255: 32;
+//	clrFlashlight = ( enabledChunks < ( chunkCount / 4 ) ) ? gHUD.m_clrCaution : gHUD.m_clrNormal;
+	clrFlashlight[3] = 201 ? ( bIsOn ) : 0;
 
 	// Pick the right character given our current state
 	wchar_t pState = ( bIsOn ) ? WCHAR_FLASHLIGHT_ON : WCHAR_FLASHLIGHT_OFF;

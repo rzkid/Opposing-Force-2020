@@ -2,7 +2,7 @@
 {
 	"LocatorPanel"
 	{
-		"WrapStaticLocators"	"1"		[ ( $X360LODEF || $X360HIDEF ) ]
+		"WrapStaticLocators"	"1"
 	}
 
 	"LocatorBG"

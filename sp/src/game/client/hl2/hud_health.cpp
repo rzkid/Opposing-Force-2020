@@ -144,11 +144,11 @@ void CHudHealth::OnThink()
 	SetDisplayValue(m_iHealth);
 
 	surface()->DrawSetTextColor(GetFgColor());
-	PaintNumbers(m_hNumberFont, text_xpos, text_ypos, m_iHealth);
+	PaintNumbers(m_hNumberGlowFont, text_xpos, text_ypos, m_iHealth);
 	Color col = GetFgColor();
 	col[3] *= 1.0f;
 	surface()->DrawSetTextColor(col);
-	PaintNumbers(m_hNumberGlowFont, text_xpos, text_ypos, m_iHealth);
+	PaintNumbers(m_hNumberFont, text_xpos, text_ypos, m_iHealth);
 }
 
 //-----------------------------------------------------------------------------

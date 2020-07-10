@@ -188,23 +188,17 @@
 	HudFlashlight
 	{
 		"fieldName" "HudFlashlight"
-		"visible" "1"
 		"PaintBackgroundType"	"2"
-		"xpos"	"270"
-		"ypos"	"444"				
+		"xpos"	"r48"
+		"ypos"	"0"				
 		"tall"  "24"
-		"wide"	"36"
-		"font"	"WeaponIconsSmall"
+		"wide"	"48"
+		"font"	"nightvisionicon"
+		"icon_xpos"	"0"
+		"icon_ypos" "-16"
 		
-		"icon_xpos"	"4"
-		"icon_ypos" "-8"
-		
-		"BarInsetX" "4"
-		"BarInsetY" "18"
-		"BarWidth" "28"
-		"BarHeight" "2"
-		"BarChunkWidth" "2"
-		"BarChunkGap" "1"
+		"BarInsetX" "40"
+		"BarInsetY" "40"
 	}
 
 	HudLocator
@@ -252,24 +246,25 @@
 	HudWeaponSelection
 	{
 		"fieldName" "HudWeaponSelection"
-		"ypos" 	"16"	[$WIN32]
-		"ypos" 	"32"	[$X360]
+		"xpos"	"-424"
+//		"xpos_hidef"	"-424"
+		"ypos" 	"4"
 		"visible" "1"
 		"enabled" "1"
-		"SmallBoxSize" "32"
-		"MediumBoxWide"	"95"
-		"MediumBoxWide_hidef"	"78"
-		"MediumBoxTall"	"50"
-		"MediumBoxTall_hidef"	"50"
-		"MediumBoxWide_lodef"	"74"
-		"MediumBoxTall_lodef"	"50"
-		"LargeBoxWide" "112"
-		"LargeBoxTall" "80"
-		"BoxGap" "8"
+		"SmallBoxSize" "16"
+		"MediumBoxWide"	"45"
+		"MediumBoxWide_hidef"	"39"
+		"MediumBoxTall"	"25"
+		"MediumBoxTall_hidef"	"25"
+		"MediumBoxWide_lodef"	"37"
+		"MediumBoxTall_lodef"	"25"
+		"LargeBoxWide" "56"
+		"LargeBoxTall" "40"
+		"BoxGap" "4"
 		"SelectionNumberXPos" "4"
 		"SelectionNumberYPos" "4"
 		"SelectionGrowTime"	"0.4"
-		"TextYPos" "64"
+		"TextYPos" "32"
 	}
 
 	HudCrosshair

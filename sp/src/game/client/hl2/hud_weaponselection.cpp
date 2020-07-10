@@ -24,7 +24,7 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
-ConVar hud_showemptyweaponslots( "hud_showemptyweaponslots", "1", FCVAR_ARCHIVE, "Shows slots for missing weapons when recieving weapons out of order" );
+ConVar hud_showemptyweaponslots( "hud_showemptyweaponslots", "0", FCVAR_ARCHIVE, "Shows slots for missing weapons when recieving weapons out of order" );
 
 #define SELECTION_TIMEOUT_THRESHOLD		0.5f	// Seconds
 #define SELECTION_FADEOUT_TIME			0.75f
@@ -905,62 +905,15 @@ void CHudWeaponSelection::DrawLargeWeaponBox( C_BaseCombatWeapon *pWeapon, bool 
 
 	// draw text
 	col = m_TextColor;
-	const FileWeaponInfo_t &weaponInfo = pWeapon->GetWpnData();
+//	const FileWeaponInfo_t &weaponInfo = pWeapon->GetWpnData();
 
 	if ( bSelected )
 	{
-		wchar_t text[128];
-		wchar_t *tempString = g_pVGuiLocalize->Find(weaponInfo.szPrintName);
-
-		// setup our localized string
-		if ( tempString )
-		{
-#ifdef WIN32
-			_snwprintf(text, sizeof(text)/sizeof(wchar_t) - 1, L"%s", tempString);
-#else
-			_snwprintf(text, sizeof(text)/sizeof(wchar_t) - 1, L"%S", tempString);
-#endif
-			text[sizeof(text)/sizeof(wchar_t) - 1] = 0;
-		}
-		else
-		{
-			// string wasn't found by g_pVGuiLocalize->Find()
-			g_pVGuiLocalize->ConvertANSIToUnicode(weaponInfo.szPrintName, text, sizeof(text));
-		}
-
-		surface()->DrawSetTextColor( col );
-		surface()->DrawSetTextFont( m_hTextFont );
-
 		// count the position
 		int slen = 0, charCount = 0, maxslen = 0;
 		int firstslen = 0;
 		{
-			for (wchar_t *pch = text; *pch != 0; pch++)
-			{
-				if (*pch == '\n') 
-				{
-					// newline character, drop to the next line
-					if (slen > maxslen)
-					{
-						maxslen = slen;
-					}
-					if (!firstslen)
-					{
-						firstslen = slen;
-					}
-
-					slen = 0;
-				}
-				else if (*pch == '\r')
-				{
-					// do nothing
-				}
-				else
-				{
-					slen += surface()->GetCharacterWidth( m_hTextFont, *pch );
-					charCount++;
-				}
-			}
+			
 		}
 		if (slen > maxslen)
 		{
@@ -976,23 +929,6 @@ void CHudWeaponSelection::DrawLargeWeaponBox( C_BaseCombatWeapon *pWeapon, bool 
 		surface()->DrawSetTextPos( tx, ty );
 		// adjust the charCount by the scan amount
 		charCount *= m_flTextScan;
-		for (wchar_t *pch = text; charCount > 0; pch++)
-		{
-			if (*pch == '\n')
-			{
-				// newline character, move to the next line
-				surface()->DrawSetTextPos( xpos + ((boxWide - slen) / 2), ty + (surface()->GetFontTall(m_hTextFont) * 1.1f));
-			}
-			else if (*pch == '\r')
-			{
-				// do nothing
-			}
-			else
-			{
-				surface()->DrawUnicodeChar(*pch);
-				charCount--;
-			}
-		}
 	}
 }
 

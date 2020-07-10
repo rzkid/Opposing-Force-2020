@@ -17,7 +17,6 @@
 		"label" "#GameUI_GameMenu_LoadGame"
 		"command" "OpenLoadGameDialog"
 		"notmulti" "1"
-		"OnlyInGame" "1"
 	}
 	"4"
 	{

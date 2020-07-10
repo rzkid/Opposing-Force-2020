@@ -1,0 +1,166 @@
+"Apartment.bsp"
+{
+	"map"		"2011/apartment"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_apartment"
+}
+"avenue_edit2.bsp"
+{
+	"map"		"2011/avenue_edit2"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_avenue_edit2"
+}
+
+"cliff.bsp"
+{
+	"map"		"2011/cliff"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_cliff"
+}
+
+"creek.bsp"
+{
+	"map"		"2011/creek"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_creek"
+}
+
+"dev_catapult_test.bsp"
+{
+	"map"		"2011/dev_catapult_test"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_dev_catapult_test"
+}
+
+"garvy.bsp"
+{
+	"map"		"2011/garvy"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_garvy"
+}
+
+"hunter.bsp"
+{
+	"map"		"2011/hunter"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_hunter"
+}
+
+"hunter_sewer.bsp"
+{
+	"map"		"2011/hunter_sewer"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_hunter_sewer"
+}
+
+"material_preview.bsp"
+{
+	"map"		"2011/material_preview"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_hunter_material_preview"
+}
+
+"of2_assault.bsp"
+{
+	"map"		"2011/of2_assault"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_assault"
+}
+
+"of2_avenue.bsp"
+{
+	"map"		"2011/of2_avenue"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_avenue"
+}
+
+"of2_c17_01.bsp"
+{
+	"map"		"2011/of2_c17_01"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_c17_01"
+}
+
+"of2_canals_02.bsp"
+{
+	"map"		"2011/of2_canals_02"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_canals_02"
+}
+
+"of2_canals_07.bsp"
+{
+	"map"		"2011/of2_canals_07"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_canals_07"
+}
+
+"of2_city_01.bsp"
+{
+	"map"		"2011/of2_city_01"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_city_01"
+}
+
+"of2_city_02_menter2.bsp"
+{
+	"map"		"2011/of2_city_02_menter2"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_city_02_menter2"
+}
+
+"of2_city_02_optimized_sorta.bsp"
+{
+	"map"		"2011/of2_city_02_optimized_sorta"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_city_02_optimized_sorta"
+}
+
+"of2_creek.bsp"
+{
+	"map"		"2011/of2_creek"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_creek"
+}
+
+"of2_crossfire.bsp"
+{
+	"map"		"2011/of2_crossfire"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_crossfire"
+}
+
+"of2_func_tankmortar_test.bsp"
+{
+	"map"		"2011/of2_func_tankmortar_test"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_func_tankmortar_test"
+}
+
+"of2_grenadier.bsp"
+{
+	"map"		"2011/of2_grenadier"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_grenadier"
+}
+
+"of2_intro.bsp"
+{
+	"map"		"2011/of2_intro"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_intro"
+}
+
+"of2_subway.bsp"
+{
+	"map"		"2011/of2_subway"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_subway"
+}
+
+"of2lc_l1a1_alt.bsp"
+{
+	"map"		"2011/of2lc_l1a1_alt"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2lc_l1a1_alt"
+}

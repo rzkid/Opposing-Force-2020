@@ -1,0 +1,292 @@
+"airlock_trap.bsp"
+{
+	"map"		"2009/airlock_trap"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_airlock_trap"
+}
+"background_promo.bsp"
+{
+	"map"		"2009/background_promo"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_background_promo"
+}
+
+"communicationcenter.bsp"
+{
+	"map"		"2009/communicationcenter"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_communicationcenter"
+}
+
+"d3_forestralassault_d.bsp"
+{
+	"map"		"2009/d3_forestralassault_d"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_d3_forestralassault_d"
+}
+
+"dev_catapult_test.bsp"
+{
+	"map"		"2009/dev_catapult_test"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_dev_catapult_test"
+}
+
+"d3_forestralassault_d2.bsp"
+{
+	"map"		"2009/d3_forestralassault_d2"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_d3_forestralassault_d2"
+}
+
+"data-b2.bsp"
+{
+	"map"		"2009/data-b2"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_data-b2"
+}
+
+"galaxy_intro.bsp"
+{
+	"map"		"2009/galaxy_intro"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_galaxy_intro"
+}
+
+"lab_door.bsp"
+{
+	"map"		"2009/lab_door"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_hunter_lab_door"
+}
+
+"of2_brokenc_01.bsp"
+{
+	"map"		"2009/of2_brokenc_01"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_brokenc_01"
+}
+
+"of2_c14_01.bsp"
+{
+	"map"		"2009/of2_c14_01"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_c14_01"
+}
+
+"of2_c14_02(2).bsp"
+{
+	"map"		"2009/of2_c14_02(2)"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_c14_02(2)"
+}
+
+"of2_c14_02.bsp"
+{
+	"map"		"2009/of2_c14_02"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_c14_02"
+}
+
+"of2_forest_01.bsp"
+{
+	"map"		"2009/of2_forest_01"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_forest_01"
+}
+
+"of2_gasworks.bsp"
+{
+	"map"		"2009/of2_gasworks"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_gasworks"
+}
+
+"of2_labs.bsp"
+{
+	"map"		"2009/of2_labs"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_labs"
+}
+
+"of2_labs_d.bsp"
+{
+	"map"		"2009/of2_labs_d"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_labs_d"
+}
+
+"of2_outlands_01.bsp"
+{
+	"map"		"2009/of2_outlands_01"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_outlands_01"
+}
+
+"of2_crossfire.bsp"
+{
+	"map"		"2009/of2_crossfire"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_crossfire"
+}
+
+"of2_outlands_02.bsp"
+{
+	"map"		"2009/of2_outlands_02"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_outlands_02"
+}
+
+"of2_outlands_05.bsp"
+{
+	"map"		"2009/of2_outlands_05"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_outlands_05"
+}
+
+"of2_prologue_01.bsp"
+{
+	"map"		"2009/of2_prologue_01"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_prologue_01"
+}
+
+"of2_prologue_02.bsp"
+{
+	"map"		"2009/of2_prologue_02"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_prologue_02"
+}
+
+"of2_pulltest.bsp"
+{
+	"map"		"2009/of2_pulltest"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_pulltest"
+}
+
+"of2_sewers_01.bsp"
+{
+	"map"		"2009/of2_sewers_01"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_sewers_01"
+}
+
+"of2_sewers_01b.bsp"
+{
+	"map"		"2009/of2_sewers_01b"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_sewers_01b"
+}
+
+"of2_sewers_02.bsp"
+{
+	"map"		"2009/of2_sewers_02"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_sewers_02"
+}
+
+"of2_sewers_a01.bsp"
+{
+	"map"		"2009/of2_sewers_a01"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_sewers_a01"
+}
+
+"of2_sewers_combine.bsp"
+{
+	"map"		"2009/of2_sewers_combine"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_sewers_combine"
+}
+
+"of2_sewers04.bsp"
+{
+	"map"		"2009/of2_sewers04"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_sewers04"
+}
+
+"of2_snipertest.bsp"
+{
+	"map"		"2009/of2_snipertest"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_snipertest"
+}
+
+"of2_templar-b1.bsp"
+{
+	"map"		"2009/of2_templar-b1"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_testbarnacle"
+}
+
+"of2_testGARG.bsp"
+{
+	"map"		"2009/of2_testGARG"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_testGARG"
+}
+
+"of2_testgargescape.bsp"
+{
+	"map"		"2009/of2_testgargescape"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_testgargescape"
+}
+
+"of2_uc_b1.bsp"
+{
+	"map"		"2009/of2_uc_b1"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_uc_b1"
+}
+
+"of2_uc_office1.bsp"
+{
+	"map"		"2009/of2_uc_office1"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_uc_office1"
+}
+
+"of2_uc_office2.bsp"
+{
+	"map"		"2009/of2_uc_office2"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_uc_office2"
+}
+
+"particlestest.bsp"
+{
+	"map"		"2009/particlestest"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_particlestest"
+}
+
+"ptf_test1.bsp"
+{
+	"map"		"2009/particlestest"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_particlestest"
+}
+
+"temp.bsp"
+{
+	"map"		"2009/temp"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_temp"
+}
+
+"valve_test.bsp"
+{
+	"map"		"2009/valve_test"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_valve_test"
+}
+
+"zombie_climbtest.bsp"
+{
+	"map"		"2009/zombie_climbtest"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_zombie_climbtest"
+}

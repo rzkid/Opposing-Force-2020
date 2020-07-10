@@ -1,0 +1,33 @@
+"cameratest.bsp"
+{
+	"map"		"2020/cameratest"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_cameratest"
+}
+"intro_test.bsp"
+{
+	"map"		"2020/intro_test"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_intro_test"
+}
+
+"OLD_of2_c1_introduction.bsp"
+{
+	"map"		"2020/OLD_of2_c1_introduction"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_OLD_of2_c1_introduction"
+}
+
+"of2_c1_introduction_3july_2020_fewhourslater.bsp"
+{
+	"map"		"2020/of2_c1_introduction_3july_2020_fewhourslater"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_of2_c1_introduction_3july_2020_fewhourslater"
+}
+
+"traintest.bsp"
+{
+	"map"		"2020/traintest"
+	"image"		"bonus_maps/super_test_thumbnail.tga"
+	"comment"	"#bonus_traintest"
+}

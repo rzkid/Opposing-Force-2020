@@ -22,15 +22,14 @@ $Group "game"
 	"server"
 	"tier1"
 	"vgui_controls"
-	"vmf_tweak"
 }
 
 $Group "of2projects"
 {
 	"client"
+	"server"
 	"mathlib"
 	"raytrace"
-	"server"
 	"tier1"
 	"vgui_controls"
 }

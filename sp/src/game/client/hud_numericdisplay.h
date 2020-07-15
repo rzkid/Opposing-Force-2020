@@ -61,14 +61,16 @@ protected:
 	CPanelAnimationVar( vgui::HFont, m_hNumberGlowFont, "NumberGlowFont", "HudNumbersGlow" );
 	CPanelAnimationVar( vgui::HFont, m_hSmallNumberFont, "SmallNumberFont", "HudNumbersSmall" );
 	CPanelAnimationVar(vgui::HFont, m_hSmallNumberGlowFont, "SmallNumberGlowFont", "HudNumbersSmallGlow");
-	CPanelAnimationVar( vgui::HFont, m_hTextFont, "TextFont", "OF2HudIcons" );
+	CPanelAnimationVar( vgui::HFont, m_hTextFont, "TextFont", "OF2HudText" );
 	CPanelAnimationVar(vgui::HFont, m_hText2Font, "Text2Font", "Default");
-	CPanelAnimationVar(vgui::HFont, m_hTextGlowFont, "TextGlowFont", "HudIconsGlow");
+	CPanelAnimationVar(vgui::HFont, m_hTextGlowFont, "TextGlowFont", "OF2HudTextGlow");
 
 	CPanelAnimationVarAliasType( float, text_xpos, "text_xpos", "8", "proportional_float" );
 	CPanelAnimationVarAliasType( float, text_ypos, "text_ypos", "20", "proportional_float" );
-	CPanelAnimationVarAliasType(float, text2_xpos, "text2_xpos", "4", "proportional_float");
-	CPanelAnimationVarAliasType(float, text2_ypos, "text2_ypos", "10", "proportional_float");
+	CPanelAnimationVarAliasType( float, icon_xpos, "icon_xpos", "5", "proportional_float");
+	CPanelAnimationVarAliasType( float, icon_ypos, "icon_ypos", "-6", "proportional_float");
+	CPanelAnimationVarAliasType( float, text2_xpos, "text2_xpos", "4", "proportional_float");
+	CPanelAnimationVarAliasType( float, text2_ypos, "text2_ypos", "10", "proportional_float");
 	CPanelAnimationVarAliasType( float, digit_xpos, "digit_xpos", "50", "proportional_float" );
 	CPanelAnimationVarAliasType( float, digit_ypos, "digit_ypos", "2", "proportional_float" );
 	CPanelAnimationVarAliasType( float, digit2_xpos, "digit2_xpos", "98", "proportional_float" );

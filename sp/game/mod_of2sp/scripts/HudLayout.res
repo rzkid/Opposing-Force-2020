@@ -12,16 +12,16 @@
 
 		"PaintBackgroundType"	"2"
 		
-		"TextFont" "OF2HudIcons"
+		"TextFont" "OF2HudText"
 		
-		"text_xpos" "5"
-		"text_ypos" "-6"
+		"text_xpos" "32"
+		"text_ypos" "23"
 		"text2_xpos" "5"
 		"text2_ypos" "-8"
-		"icon_xpos" "5"
-		"icon_ypos" "-6"
+		"icon_xpos" "0"
+		"icon_ypos" "0"
 		"digit_xpos" "30"
-		"digit_ypos" "3"
+		"digit_ypos" "2"
 	}
 	
 	HudSuit [$WIN32]
@@ -34,7 +34,7 @@
 		"visible" "1"
 		"enabled" "1"
 		
-		"TextFont" "OF2HudIcons"
+		"TextFont" "OF2HudText"
 
 		"PaintBackgroundType"	"2"
 		
@@ -59,6 +59,8 @@
 		"enabled" "1"
 
 		"PaintBackgroundType"	"2"
+		
+		"TextFont" "OF2HudIcons"
 
 		"text_xpos" "54" //67
 		"text_ypos" "-3" //20

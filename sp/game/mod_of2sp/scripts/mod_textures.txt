@@ -277,17 +277,13 @@
         }
 	"health_label"
 		{
-				"font"		"Counter-Strike"
+				"font"		"OF2HudIcons"
 				"character"	"b"
-				"x"			"160"
-				"y"			"28"
 		}
 		"battery_label"
 		{
 				"font"		"Counter-Strike"
 				"character"	"a"
-				"x"			"220"
-				"y"			"28"
 		}
 		"arrow"				[$WIN32]
 		{

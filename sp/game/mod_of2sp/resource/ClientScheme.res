@@ -361,10 +361,11 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"OCR A Becker RUS-LAT"
+				"name"		"Eurostile"
 				"tall"		"24"	[$WIN32]
 				"weight"	"0"
 				"antialias" "1"
+				"scanlines" "1"
 				"additive"	"1"
 				"custom"	"1"
 			}
@@ -373,7 +374,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"OCR A Becker RUS-LAT"
+				"name"		"Eurostile"
 				"tall"		"24"	[$WIN32]
 				"weight"	"0"
 				"blur"		"5"
@@ -386,7 +387,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"OCR A Becker RUS-LAT"
+				"name"		"Eurostile"
 				"tall"		"10"	[$WIN32]
 				"weight"	"200"
 				"antialias" "1"
@@ -411,9 +412,22 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"OCR A Becker RUS-LAT"
-				"tall"		"12"	[$WIN32]
+				"name"		"Eurostile"
+				"tall"		"10"
 				"weight"	"0"
+				"antialias" "1"
+				"additive"	"1"
+				"custom"	"1"
+			}
+		}
+		OF2HudTextGlow
+		{
+			"1"
+			{
+				"name"		"Eurostile"
+				"tall"		"10"
+				"weight"	"0"
+				"blur"		"5"
 				"antialias" "1"
 				"additive"	"1"
 				"custom"	"1"
@@ -450,7 +464,7 @@ Scheme
 			"1"
 			{
 				"name"		"Eurostile"
-				"tall"		"32"	[$WIN32]
+				"tall"		"24"	[$WIN32]
 				"weight"	"0"
 				"scanlines" "1"
 				"antialias" "1"
@@ -475,7 +489,7 @@ Scheme
 			"1"
 			{
 				"name"		"Eurostile"
-				"tall"		"32"	
+				"tall"		"24"	
 				"weight"	"0"
 				"blur"		"5"
 			  //"scanlines" "2"

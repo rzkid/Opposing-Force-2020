@@ -46,6 +46,7 @@ protected:
 protected:
 
 	int m_iValue;
+	int m_iBGValue;
 	int m_iSecondaryValue;
 	wchar_t m_LabelText[32];
 	wchar_t m_LabelText2[32];
@@ -57,12 +58,11 @@ protected:
 	CPanelAnimationVar( Color, m_TextColor, "TextColor", "FgColor" );
 	CPanelAnimationVar( Color, m_Ammo2Color, "Ammo2Color", "FgColor" );
 
-	CPanelAnimationVar( vgui::HFont, m_hNumberFont, "NumberFont", "HudNumbers" );
-	CPanelAnimationVar( vgui::HFont, m_hNumberGlowFont, "NumberGlowFont", "HudNumbersGlow" );
-	CPanelAnimationVar( vgui::HFont, m_hSmallNumberFont, "SmallNumberFont", "HudNumbersSmall" );
-	CPanelAnimationVar(vgui::HFont, m_hSmallNumberGlowFont, "SmallNumberGlowFont", "HudNumbersSmallGlow");
+	CPanelAnimationVar( vgui::HFont, m_hNumberFont, "NumberFont", "OF2HudNumbers" );
+	CPanelAnimationVar( vgui::HFont, m_hNumberGlowFont, "NumberGlowFont", "OF2HudNumbersGlow" );
+	CPanelAnimationVar( vgui::HFont, m_hSmallNumberFont, "SmallNumberFont", "OF2HudNumbersSmall" );
+	CPanelAnimationVar(vgui::HFont, m_hSmallNumberGlowFont, "SmallNumberGlowFont", "OF2HudNumbersSmallGlow");
 	CPanelAnimationVar( vgui::HFont, m_hTextFont, "TextFont", "OF2HudText" );
-	CPanelAnimationVar(vgui::HFont, m_hText2Font, "Text2Font", "Default");
 	CPanelAnimationVar(vgui::HFont, m_hTextGlowFont, "TextGlowFont", "OF2HudTextGlow");
 
 	CPanelAnimationVarAliasType( float, text_xpos, "text_xpos", "8", "proportional_float" );

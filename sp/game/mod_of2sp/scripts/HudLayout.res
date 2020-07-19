@@ -15,11 +15,7 @@
 		"TextFont" "OF2HudText"
 		
 		"text_xpos" "32"
-		"text_ypos" "23"
-		"text2_xpos" "5"
-		"text2_ypos" "-8"
-		"icon_xpos" "0"
-		"icon_ypos" "0"
+		"text_ypos" "24"
 		"digit_xpos" "30"
 		"digit_ypos" "2"
 	}
@@ -38,10 +34,8 @@
 
 		"PaintBackgroundType"	"2"
 		
-		"text_xpos" "5" //32
-		"text_ypos" "-6" //23
-		"text2_xpos" "57"
-		"text2_ypos" "23"
+		"text_xpos" "32" //32
+		"text_ypos" "24" //23
 		"icon_xpos" "5"
 		"icon_ypos" "-6"
 		"digit_xpos" "30"
@@ -51,7 +45,7 @@
 	HudAmmo
 	{
 		"fieldName" "HudAmmo"
-		"xpos"	"r146"
+		"xpos"	"r138" //146
 		"ypos"	"442"
 		"wide"	"140"
 		"tall"  "36"
@@ -60,33 +54,31 @@
 
 		"PaintBackgroundType"	"2"
 		
-		"TextFont" "OF2HudIcons"
+		"TextFont" "OF2HudText"
 
-		"text_xpos" "54" //67
-		"text_ypos" "-3" //20
+		"text_xpos" "98" //67
+		"text_ypos" "4" //20
 		"text2_xpos" "0" //72
 		"text2_ypos" "0" //23
-//		"text3_xpos" "36"
-//		"text3_ypos" "5"
-		"icon_xpos" "8"
-		"icon_ypos" "20"
-		"digit_xpos" "5"
+		"icon_xpos" "54"
+		"icon_ypos" "-5"
+		"digit_xpos" "16"
 		"digit_ypos" "2"
 		"digit2_xpos" "74"
-		"digit2_ypos" "2"
+		"digit2_ypos" "4"
 	}
 
 	HudAmmoSecondary	[$WIN32]
 	{
 		"fieldName" "HudAmmoSecondary"
 		"xpos"	"r48"
-		"ypos"	"406"
+		"ypos"	"416"
 		"wide"	"42"
 		"tall"  "36"
 		"visible" "1"
 		"enabled" "1"
 
-		"PaintBackgroundType"	"2"
+		"PaintBackgroundType"	"0"
 
 		"text_xpos" "67"
 		"text_ypos" "6"
@@ -96,7 +88,7 @@
 //		"text3_ypos" "-5"
 		"icon_xpos" "10"
 		"icon_ypos" "30"
-		"digit_xpos" "12"
+		"digit_xpos" "-12"
 		"digit_ypos" "2"
 		"digit2_xpos" "-50"
 //		"digit2_ypos" "5"

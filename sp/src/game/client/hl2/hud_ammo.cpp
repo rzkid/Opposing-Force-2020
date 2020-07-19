@@ -51,6 +51,7 @@ private:
 	int		m_iAmmo;
 	int		m_iAmmo2;
 	CHudTexture *m_iconPrimaryAmmo;
+	CHudTexture *m_iconAmmo;
 };
 
 DECLARE_HUDELEMENT(CHudAmmo);
@@ -77,16 +78,17 @@ void CHudAmmo::Init(void)
 	m_iAmmo2 = -1;
 
 	m_iconPrimaryAmmo = NULL;
+	m_iconAmmo = NULL;
 
-	//	wchar_t *tempString = g_pVGuiLocalize->Find("#Valve_Hud_AMMO");
-	//	if (tempString)
-	//	{
-	//		SetLabelText(tempString);
-	//	}
-	//	else
-	//	{
-	SetLabelText(L"A");
-	//	}
+		wchar_t *tempString = g_pVGuiLocalize->Find("#Valve_Hud_AMMO");
+		if (tempString)
+		{
+			SetLabelText(tempString);
+		}
+		else
+		{
+			SetLabelText(L"#Valve_Hud_AMMO");
+		}
 }
 
 //-----------------------------------------------------------------------------
@@ -337,18 +339,8 @@ void CHudAmmo::Paint(void)
 {
 	BaseClass::Paint();
 
-	if (m_hCurrentVehicle == NULL && m_iconPrimaryAmmo)
-	{
-		int nLabelHeight;
-		int nLabelWidth;
-		surface()->GetTextSize(m_hTextFont, m_LabelText, nLabelWidth, nLabelHeight);
-
-		// Figure out where we're going to put this
-		//		int x = text_xpos + ( nLabelWidth - m_iconPrimaryAmmo->Width() ) / 2;
-		//		int y = text_ypos - ( nLabelHeight + ( m_iconPrimaryAmmo->Height() / 2 ) );
-
-		//		m_iconPrimaryAmmo->DrawSelf( x, y, GetFgColor() );
-	}
+	m_iconAmmo = gHUD.GetIcon("ammo_label");
+	m_iconAmmo->DrawSelf(icon_xpos, icon_ypos, GetFgColor());
 }
 
 //-----------------------------------------------------------------------------

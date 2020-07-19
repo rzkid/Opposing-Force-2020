@@ -33,12 +33,12 @@ static ConVar r_nightvisionoffsety( "r_nightvisionoffsety", "-20.0", FCVAR_CHEAT
 static ConVar r_nightvisionoffsetz( "r_nightvisionoffsetz", "24.0", FCVAR_CHEAT );
 static ConVar r_nightvisionnear( "r_nightvisionnear", "4.0", FCVAR_CHEAT );
 static ConVar r_nightvisionfar( "r_nightvisionfar", "750.0", FCVAR_CHEAT );
-static ConVar r_nightvisionconstant( "r_nightvisionconstant", "0.0", FCVAR_CHEAT );
+static ConVar r_nightvisionconstant( "r_nightvisionconstant", "100.0", FCVAR_CHEAT );
 static ConVar r_nightvisionlinear( "r_nightvisionlinear", "100.0", FCVAR_CHEAT );
-static ConVar r_nightvisionquadratic( "r_nightvisionquadratic", "0.0", FCVAR_CHEAT );
+static ConVar r_nightvisionquadratic( "r_nightvisionquadratic", "100.0", FCVAR_CHEAT );
 static ConVar r_nightvisionvisualizetrace( "r_nightvisionvisualizetrace", "0", FCVAR_CHEAT );
 static ConVar r_nightvisionambient( "r_nightvisionambient", "0.0", FCVAR_CHEAT );
-static ConVar r_nightvisionshadowatten( "r_nightvisionshadowatten", "0.35", FCVAR_CHEAT );
+static ConVar r_nightvisionshadowatten( "r_nightvisionshadowatten", "0.0", FCVAR_CHEAT );
 static ConVar r_nightvisionladderdist( "r_nightvisionladderdist", "40.0", FCVAR_CHEAT );
 static ConVar mat_slopescaledepthbias_shadowmap( "mat_slopescaledepthbias_shadowmap", "16", FCVAR_CHEAT );
 static ConVar mat_depthbias_shadowmap(	"mat_depthbias_shadowmap", "0.0005", FCVAR_CHEAT  );
@@ -194,7 +194,7 @@ void CFlashlightEffect::UpdateLightNew(const Vector &vecPos, const Vector &vecFo
 	iMask &= ~CONTENTS_HITBOX;
 	iMask |= CONTENTS_WINDOW;
 
-	Vector vTarget = vecPos + vecForward * 1024.0f;
+	Vector vTarget = vecPos + vecForward * 8192.0f;
 
 	// Work with these local copies of the basis for the rest of the function
 	Vector vDir   = vTarget - vOrigin;
@@ -268,12 +268,12 @@ void CFlashlightEffect::UpdateLightNew(const Vector &vecPos, const Vector &vecFo
 	}
 
 	state.m_fConstantAtten = r_nightvisionconstant.GetFloat();
-	state.m_Color[0] = 0.0f;
+	state.m_Color[0] = 1.0f;
 	state.m_Color[1] = 1.0f;
-	state.m_Color[2] = 0.0f;
+	state.m_Color[2] = 1.0f;
 	state.m_Color[3] = r_nightvisionambient.GetFloat();
 	state.m_NearZ = r_nightvisionnear.GetFloat() + m_flDistMod;	// Push near plane out so that we don't clip the world when the nightvision pulls back 
-	state.m_FarZ = 1024.f;
+	state.m_FarZ = 8192.0f;
 	state.m_bEnableShadows = false;
 	state.m_flShadowMapResolution = 0;
 

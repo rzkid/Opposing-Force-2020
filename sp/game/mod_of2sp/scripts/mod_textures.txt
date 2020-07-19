@@ -275,16 +275,6 @@
 	        "width"	"1024"
 	        "height" "1024"
         }
-	"health_label"
-		{
-				"font"		"OF2HudIcons"
-				"character"	"b"
-		}
-		"battery_label"
-		{
-				"font"		"Counter-Strike"
-				"character"	"a"
-		}
 		"arrow"				[$WIN32]
 		{
 				"file"		"sprites/arrow"

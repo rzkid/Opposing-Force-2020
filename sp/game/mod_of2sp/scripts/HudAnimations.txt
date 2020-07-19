@@ -302,7 +302,7 @@ event SuitPowerZero
 	StopEvent	SuitArmorLow 0.0
 	StopEvent	SuitDamageTaken 0.0
 
-	Animate	HudSuit Alpha		"0"			Linear 0.0 0.4
+	Animate	HudSuit Alpha		"255"			Linear 0.0 0.4
 }
 
 event TestMovement

@@ -2,45 +2,6 @@
 {
 	TextureData
 	{
-	"scope1640"
-        {
-	        "file"	"HUDoverlays/Scope_4-3_AspectRatio"
-	        "x"		"0"
-	        "y"		"0"
-	        "width"	"1024"
-	        "height"	"1024"
-        }
-
-    "scope11280"
-        {
-	        "file"	"HUDoverlays/Scope_16-9_AspectRatio"
-	        "x"		"0"
-	        "y"		"0"
-	        "width"	"1024"
-	        "height"	"1024"
-        }
-    "scope1720"
-        {
-	        "file"	"HUDoverlays/Scope_16-10_AspectRatio"
-	        "x"		"0"
-	        "y"		"0"
-	        "width"	"1024"
-	        "height" "1024"
-        }
-	"health_label"
-		{
-				"font"		"Counter-Strike"
-				"character"	"b"
-				"x"			"160"
-				"y"			"28"
-		}
-		"battery_label"
-		{
-				"font"		"Counter-Strike"
-				"character"	"a"
-				"x"			"220"
-				"y"			"28"
-		}
 		"arrow"				[$WIN32]
 		{
 				"file"		"sprites/arrow"
@@ -67,80 +28,30 @@
 				"font"		"WeaponIcons"
 				"character"	"+"
 		}
-		"crosshair"
+		"health_label"
 		{
-				"file"		"sprites/qi_center"
-				"x"			"0"
-				"y"			"0"
-				"width"		"40"
-				"height"	"40"
+				"font"		"OF2HudIcons"
+				"character"	"b"
 		}
-		"crosshair_left"
+		"health_label_glow"
 		{
-				"font"		"QuickInfo"
-				"character"	"("
+				"font"		"OF2HudIconsGlow"
+				"character"	"b"
 		}
-		"crosshair_right"
+		"battery_label"
 		{
-				"font"		"QuickInfo"
-				"character"	")"
+				"font"		"OF2HudIcons"
+				"character"	"a"
 		}
-		"crosshair_left_full"
+		"battery_label_glow"
 		{
-				"font"		"QuickInfo"
-				"character"	"["
+				"font"		"OF2HudIconsGlow"
+				"character"	"a"
 		}
-		"crosshair_right_full"
+		"ammo_label"
 		{
-				"font"		"QuickInfo"
-				"character"	"]"
-		}
-		"crosshair_left_empty"
-		{
-				"font"		"QuickInfo"
-				"character"	"{"
-		}
-		"crosshair_right_empty"
-		{
-				"font"		"QuickInfo"
-				"character"	"}"
-		}
-		"crosshair_default"
-		{
-				"file"		"sprites/crosshairs"
-				"x"			"0"
-				"y"			"48"
-				"width"		"24"
-				"height"	"24"
-		}
-		"crosshair_xbox"
-		{
-				"file"		"vgui/hud/xbox_reticle"
-				"x"		"0"
-				"y"		"0"
-				"width"		"64"
-				"height"	"64"
-		}
-		"viewhair"
-		{
-				"file"		"sprites/hud/v_crosshair2"
-				"x"			"0"
-				"y"			"0"
-				"width"		"32"
-				"height"	"32"
-		}
-		"gunhair"
-		{
-				"file"		"sprites/hud/v_crosshair1"
-				"x"			"0"
-				"y"			"0"
-				"width"		"32"
-				"height"	"32"
-		}
-		"plushair"
-		{
-				"font"		"Crosshairs"
-				"character"	"Q"
+				"font"		"OF2HudIcons"
+				"character"	"A"
 		}
 	}	
 }

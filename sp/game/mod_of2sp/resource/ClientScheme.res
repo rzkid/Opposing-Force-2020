@@ -388,19 +388,20 @@ Scheme
 			"1"
 			{
 				"name"		"Eurostile"
-				"tall"		"10"	[$WIN32]
+				"tall"		"10"
 				"weight"	"200"
 				"antialias" "1"
 				"additive"	"1"
+				"scanlines" "1"
 				"custom"	"1"
 			}
 		}
-		HudNumbersSmallGlow
+		OF2HudNumbersSmallGlow
 		{
 			"1"
 			{
 				"name"		"Eurostile"
-				"tall"		"14"
+				"tall"		"12"
 				"weight"	"0"
 				"blur"		"5"
 				"antialias" "1"
@@ -412,8 +413,8 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Eurostile"
-				"tall"		"10"
+				"name"		"Arial"
+				"tall"		"8"
 				"weight"	"0"
 				"antialias" "1"
 				"additive"	"1"
@@ -424,8 +425,8 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Eurostile"
-				"tall"		"10"
+				"name"		"Arial"
+				"tall"		"12"
 				"weight"	"0"
 				"blur"		"5"
 				"antialias" "1"
@@ -515,10 +516,10 @@ Scheme
 			"1"
 			{
 				"name"		"Eurostile"
-				"tall"		"12"	[$WIN32]
+				"tall"		"14"	
 				"weight"	"1000"
 				"additive"	"1"
-				//"scanlines" "1"
+				"scanlines" "1"
 				"antialias" "1"
 				"custom"	"1"
 			}

@@ -40,10 +40,12 @@ public:
 	void OnThink( void );
 	void MsgFunc_Battery(bf_read &msg );
 	bool ShouldDraw();
+	virtual void Paint( void );
 	
 private:
 	int		m_iBat;	
 	int		m_iNewBat;
+	CHudTexture *m_iconSuit;
 };
 
 DECLARE_HUDELEMENT( CHudBattery );
@@ -66,15 +68,25 @@ void CHudBattery::Init( void )
 	Reset();
 	m_iBat		= INIT_BAT;
 	m_iNewBat   = 0;
+	m_iconSuit = NULL;
 }
 
+void CHudBattery::Paint(void)
+{
+	BaseClass::Paint();
+
+	m_iconSuit = gHUD.GetIcon("battery_label_glow");
+	m_iconSuit->DrawSelf(icon_xpos, icon_ypos, Color(0, 255, 0, 64));
+
+	m_iconSuit = gHUD.GetIcon("battery_label");
+	m_iconSuit->DrawSelf(icon_xpos, icon_ypos, GetFgColor());
+}
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
 void CHudBattery::Reset( void )
 {
-	//SetLabelText(g_pVGuiLocalize->Find("#Valve_Hud_SUIT"));
-	SetLabelText(L"a");
+	SetLabelText(g_pVGuiLocalize->Find("#Valve_Hud_SUIT"));
 	SetDisplayValue(m_iBat);
 }
 

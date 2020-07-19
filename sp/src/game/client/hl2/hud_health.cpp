@@ -50,11 +50,13 @@ public:
 	virtual void Reset( void );
 	virtual void OnThink();
 			void MsgFunc_Damage( bf_read &msg );
+	virtual void Paint(void);
 
 private:
 	// old variables
 	int		m_iHealth;
 	CHudTexture *m_iconHealth;
+	CHudTexture *m_iconHealthGlow;
 	int		m_bitsDamage;
 };	
 
@@ -75,10 +77,21 @@ CHudHealth::CHudHealth( const char *pElementName ) : CHudElement( pElementName )
 void CHudHealth::Init()
 {
 	HOOK_HUD_MESSAGE( CHudHealth, Damage );
-	m_iconHealth = NULL;
 	Reset();
+	m_iconHealth = NULL;
+	m_iconHealthGlow = NULL;
 }
 
+void CHudHealth::Paint()
+{
+	BaseClass::Paint();
+
+	m_iconHealth = gHUD.GetIcon("health_label_glow");
+	m_iconHealth->DrawSelf(icon_xpos, icon_ypos, Color(0, 255, 0, 64));
+
+    m_iconHealth = gHUD.GetIcon( "health_label" );
+	m_iconHealth->DrawSelf(icon_xpos, icon_ypos, GetFgColor());
+}
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
@@ -98,6 +111,8 @@ void CHudHealth::Reset()
 		SetLabelText(L"#Valve_Hud_HEALTH");
 	}
 	SetDisplayValue(m_iHealth);
+
+	
 }
 
 //-----------------------------------------------------------------------------
@@ -128,10 +143,6 @@ void CHudHealth::OnThink()
 	}
 
 	m_iHealth = newHealth;
-
-	m_iconHealth = gHUD.GetIcon("health_label");
-
-	m_iconHealth->DrawSelf(icon_xpos, icon_ypos, GetFgColor());
 
 	if ( m_iHealth >= 20 )
 	{

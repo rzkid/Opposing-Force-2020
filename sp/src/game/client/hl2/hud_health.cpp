@@ -87,7 +87,7 @@ void CHudHealth::Paint()
 	BaseClass::Paint();
 
 	m_iconHealth = gHUD.GetIcon("health_label_glow");
-	m_iconHealth->DrawSelf(icon_xpos, icon_ypos, Color(0, 255, 0, 64));
+	m_iconHealth->DrawSelf(icon_xpos, icon_ypos, Color(0, 255, 0, 48));
 
     m_iconHealth = gHUD.GetIcon( "health_label" );
 	m_iconHealth->DrawSelf(icon_xpos, icon_ypos, GetFgColor());

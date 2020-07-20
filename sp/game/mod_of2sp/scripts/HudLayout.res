@@ -57,23 +57,23 @@
 		"TextFont" "OF2HudText"
 
 		"text_xpos" "98" //67
-		"text_ypos" "4" //20
+		"text_ypos" "7" //20
 		"text2_xpos" "0" //72
 		"text2_ypos" "0" //23
-		"icon_xpos" "54"
+		"icon_xpos" "52"
 		"icon_ypos" "-5"
 		"digit_xpos" "16"
 		"digit_ypos" "2"
 		"digit2_xpos" "74"
-		"digit2_ypos" "4"
+		"digit2_ypos" "6"
 	}
 
 	HudAmmoSecondary	[$WIN32]
 	{
 		"fieldName" "HudAmmoSecondary"
-		"xpos"	"r48"
-		"ypos"	"416"
-		"wide"	"42"
+		"xpos"	"r45"
+		"ypos"	"420"
+		"wide"	"40"
 		"tall"  "36"
 		"visible" "1"
 		"enabled" "1"
@@ -88,7 +88,7 @@
 //		"text3_ypos" "-5"
 		"icon_xpos" "10"
 		"icon_ypos" "30"
-		"digit_xpos" "-12"
+		"digit_xpos" "-14"
 		"digit_ypos" "2"
 		"digit2_xpos" "-50"
 //		"digit2_ypos" "5"
@@ -183,13 +183,13 @@
 	{
 		"fieldName" "HudFlashlight"
 		"PaintBackgroundType"	"2"
-		"xpos"	"r48"
-		"ypos"	"0"				
+		"xpos"	"270"
+		"ypos"	"444"			
 		"tall"  "24"
-		"wide"	"48"
-		"font"	"nightvisionicon"
-		"icon_xpos"	"0"
-		"icon_ypos" "-16"
+		"wide"	"36"
+		"font"	"OF2HudIcons"
+		"icon_xpos"	"4"
+		"icon_ypos" "-8"
 		
 		"BarInsetX" "40"
 		"BarInsetY" "40"

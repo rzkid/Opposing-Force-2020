@@ -76,7 +76,7 @@ void CHudBattery::Paint(void)
 	BaseClass::Paint();
 
 	m_iconSuit = gHUD.GetIcon("battery_label_glow");
-	m_iconSuit->DrawSelf(icon_xpos, icon_ypos, Color(0, 255, 0, 64));
+	m_iconSuit->DrawSelf(icon_xpos, icon_ypos, Color(0, 255, 0, 48));
 
 	m_iconSuit = gHUD.GetIcon("battery_label");
 	m_iconSuit->DrawSelf(icon_xpos, icon_ypos, GetFgColor());

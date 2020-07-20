@@ -38,7 +38,7 @@ private:
 	void Reset( void );
 	
 	bool	m_bFlashlightOn;
-	CPanelAnimationVar( vgui::HFont, m_hFont, "Font", "NightvisonIcon" );
+	CPanelAnimationVar( vgui::HFont, m_hFont, "Font", "NightvisionIcon" );
 	CPanelAnimationVarAliasType( float, m_IconX, "icon_xpos", "4", "proportional_float" );
 	CPanelAnimationVarAliasType( float, m_IconY, "icon_ypos", "4", "proportional_float" );
 	

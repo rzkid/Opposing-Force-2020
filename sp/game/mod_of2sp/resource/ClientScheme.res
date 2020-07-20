@@ -24,11 +24,11 @@ Scheme
 	BaseSettings
 	{
 		"FgColor"			"201 255 0 128"
-		"BgColor"			"0 0 0 0" //76
+		"BgColor"			"0 0 0 76" //76
 		"DgColor"			"0 255 0 99"
 
 		"Panel.FgColor"			"201 255 0 128"
-		"Panel.BgColor"			"0 0 0 0" //76
+		"Panel.BgColor"			"0 0 0 76" //76
 		
 		"BrightFg"		"201 255 0 255"
 
@@ -112,7 +112,7 @@ Scheme
 		{
 			"1"	[$WIN32]
 			{
-				"name"		"OCR A Becker RUS-LAT"
+				"name"		"Arial Narrow"
 				"tall"		"9"
 				"weight"	"700"
 				"antialias" "1"
@@ -121,7 +121,7 @@ Scheme
 			}
 			"2"
 			{
-				"name"		"OCR A Becker RUS-LAT"
+				"name"		"Arial Narrow"
 				"tall"		"12"
 				"weight"	"700"
 				"antialias" "1"
@@ -130,7 +130,7 @@ Scheme
 			}
 			"3"
 			{
-				"name"		"OCR A Becker RUS-LAT"
+				"name"		"Arial Narrow"
 				"tall"		"14"
 				"weight"	"900"
 				"antialias" "1"
@@ -139,7 +139,7 @@ Scheme
 			}
 			"4"
 			{
-				"name"		"OCR A Becker RUS-LAT"
+				"name"		"Arial Narrow"
 				"tall"		"20"
 				"weight"	"900"
 				"antialias" "1"
@@ -148,7 +148,7 @@ Scheme
 			}
 			"5"
 			{
-				"name"		"OCR A Becker RUS-LAT"
+				"name"		"Arial Narrow"
 				"tall"		"24"
 				"weight"	"900"
 				"antialias" "1"
@@ -413,7 +413,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Arial"
+				"name"		"Facile Sans"
 				"tall"		"8"
 				"weight"	"0"
 				"antialias" "1"
@@ -557,7 +557,7 @@ Scheme
 		{
 			"1"	[$WIN32]
 			{
-				"name"		"OCR A Becker RUS-LAT"
+				"name"		"Arial Narrow"
 				"tall"		"11"
 				"weight"	"0"
 				"antialias" "1"
@@ -576,7 +576,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"OCR A Becker RUS-LAT"
+				"name"		"Arial Narrow"
 				"tall"		"8"
 				"weight"	"700"
 				"antialias" "1"
@@ -584,7 +584,7 @@ Scheme
 			}
 			"2"
 			{
-				"name"		"OCR A Becker RUS-LAT"
+				"name"		"Arial Narrow"
 				"tall"		"10"
 				"weight"	"700"
 				"antialias" "1"
@@ -592,7 +592,7 @@ Scheme
 			}
 			"3"
 			{
-				"name"		"OCR A Becker RUS-LAT"
+				"name"		"Arial Narrow"
 				"tall"		"12"
 				"weight"	"900"
 				"antialias" "1"
@@ -600,7 +600,7 @@ Scheme
 			}
 			"4"
 			{
-				"name"		"OCR A Becker RUS-LAT"
+				"name"		"Arial Narrow"
 				"tall"		"16"
 				"weight"	"900"
 				"antialias" "1"
@@ -608,7 +608,7 @@ Scheme
 			}
 			"5"
 			{
-				"name"		"OCR A Becker RUS-LAT"
+				"name"		"Arial Narrow"
 				"tall"		"17"
 				"weight"	"1000"
 				"antialias" "1"
@@ -1038,6 +1038,18 @@ Scheme
 		{
 		  "font" "resource/fonts/evropa.ttf"
 		  "name" "Evropa Normal"
+		  "russian"
+		  {
+		     "range" "0x0000 0xFFFF"
+		  }
+		  "english"
+		  {
+		    "range" "0x0000 0xFFFF"
+		  }
+		"17"   
+		{
+		  "font" "resource/fonts/12260.ttf"
+		  "name" "Facile Sans"
 		  "russian"
 		  {
 		     "range" "0x0000 0xFFFF"

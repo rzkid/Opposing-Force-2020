@@ -247,7 +247,7 @@ event HealthIncreasedAbove20
 	StopEvent	HealthPulse 0.0
 	StopEvent	HealthLow   0.0
 
-	Animate	HudHealth	BgColor	"BgColor"	Linear	0.0	0.0
+	Animate	HudHealth	BgColor	"0 0 0 0"	Linear	0.0	0.0
 	
 	Animate	HudHealth	TextColor "FgColor" Linear 0.0 0.04
 	Animate	HudHealth	FgColor   "FgColor" Linear 0.0 0.03
@@ -271,9 +271,7 @@ event SuitPowerIncreasedAbove20
 	StopEvent	SuitPulse 0.0
 	StopEvent	SuitPowerZero	0.0
 
-	Animate	HudSuit 	Alpha		"255"			Linear 0.0 0.0
-
-	Animate	HudSuit		BgColor		"BgColor"	Linear	0.0	0.0
+	Animate	HudSuit		BgColor		"0 0 0 0"	Linear	0.0	0.0
 	
 	Animate	HudSuit 	TextColor	"FgColor"	Linear 0.0 0.05
 	Animate	HudSuit		FgColor		"FgColor"	Linear 0.0 0.05
@@ -286,10 +284,11 @@ event SuitPowerIncreasedAbove20
 event SuitPowerIncreasedBelow20
 {
 	StopEvent		SuitPowerZero	0.0
-	Animate	HudSuit 	Alpha		"255"			Linear 0.0 0.0
+//	Animate	HudSuit 	Alpha		"255"			Linear 0.0 0.0
 
 	Animate HudSuit		FgColor		"BrightFg"	Linear	0.0		0.25
 	Animate HudSuit		FgColor		"FgColor"	Linear	0.3		0.75
+	Animate	HudSuit		BgColor		"0 0 0 0"	Linear	0.0	0.0
 	
 	Animate HudSuit		Blur		"3"			Linear	0.0		0.1
 	Animate HudSuit		Blur		"0"			Deaccel	0.1		2.0
@@ -301,6 +300,8 @@ event SuitPowerZero
 	StopEvent	SuitPulse 0.0
 	StopEvent	SuitArmorLow 0.0
 	StopEvent	SuitDamageTaken 0.0
+	
+	Animate	HudSuit		BgColor		"0 0 0 0"	Linear	0.0	0.0
 
 	Animate	HudSuit Alpha		"255"			Linear 0.0 0.4
 }
@@ -342,8 +343,8 @@ event HealthLow
 	StopEvent HealthPulse	0.0
 	StopEvent HealthLoop	0.0	
 	
-	Animate HudHealth	BgColor		"DamagedBg"		Linear	0.0		0.1
-	Animate HudHealth	BgColor		"BgColor"		Deaccel	0.1		1.75
+	Animate HudHealth	BgColor		"0 0 0 0"		Linear	0.0		0.1
+	Animate HudHealth	BgColor		"0 0 0 0"		Deaccel	0.1		1.75
 	
 	Animate HudHealth	FgColor		"BrightFg"	Linear	0.0		0.2
 	Animate HudHealth	FgColor		"DamagedFg"		Linear	0.2		1.2
@@ -363,8 +364,8 @@ event HealthPulse
 	Animate HudHealth		Blur		"2"			Deaccel	0.1		0.8
 	Animate HudHealth		TextColor	"BrightDamagedFg"	Linear	0.0		0.1
 	Animate HudHealth		TextColor	"DamagedFg"		Deaccel	0.1		0.8
-//	Animate HudHealth		BgColor	"100 0 0 80"		Linear	0.0		0.1
-//	Animate HudHealth		BgColor	"BgColor"		Deaccel	0.1		0.8
+//	Animate HudHealth		BgColor	"0 0 0 0"		Linear	0.0		0.1
+//	Animate HudHealth		BgColor	"0 0 0 0"		Deaccel	0.1		0.8
 
 	RunEvent HealthLoop	0.8
 }
@@ -387,8 +388,8 @@ event SuitArmorLow
 //	so, there will be no special indication (redness, flashing)
 //	in the hud that the suit armor is low
 	
-//	Animate HudSuit	BgColor		"DamagedBg"		Linear	0.0		0.1
-//	Animate HudSuit	BgColor		"BgColor"		Deaccel	0.1		1.75
+	Animate HudSuit	BgColor		"0 0 0 0"		Linear	0.0		0.1
+	Animate HudSuit	BgColor		"0 0 0 0"		Deaccel	0.1		1.75
 	
 	Animate HudSuit		FgColor	"BrightFg"	Linear	0.0		0.25
 	Animate HudSuit		FgColor	"FgColor"		Linear	0.3		0.75
@@ -409,8 +410,8 @@ event SuitPulse
 	Animate HudSuit		Blur		"2"			Deaccel	0.1		0.8
 	Animate HudSuit		TextColor	"BrightDamagedFg"	Linear	0.0		0.1
 	Animate HudSuit		TextColor	"DamagedFg"		Deaccel	0.1		0.8
-	Animate HudSuit		BgColor	"100 0 0 80"	Linear	0.0		0.1
-	Animate HudSuit		BgColor	"BgColor"		Deaccel	0.1		0.8
+	Animate HudSuit		BgColor	"0 0 0 0"	Linear	0.0		0.1
+	Animate HudSuit		BgColor	"0 0 0 0"		Deaccel	0.1		0.8
 	RunEvent SuitLoop	0.8
 }
 
@@ -502,7 +503,7 @@ event WeaponChanged
 {
 	Animate HudAmmo		FgColor		"255 255 0 255"	Linear	0.0		0.1
 	Animate HudAmmo		FgColor		"FgColor"		Deaccel	0.1		1.0
-//	Animate HudAmmo		BgColor		"BgColor"		Deaccel	0.1		1.0
+	Animate HudAmmo		BgColor		"0 0 0 0"		Deaccel	0.1		1.0
 //	Animate HudAmmo		FgColor		"BrightFg"		Linear	0.0		0.1
 //	Animate HudAmmo		FgColor		"FgColor"		Linear	0.2		1.5
 }
@@ -529,7 +530,7 @@ event WeaponUsesSecondaryAmmo
 
 	Animate HudAmmoSecondary	FgColor		"255 255 0 255"	Linear	0.0		0.1
 	Animate HudAmmoSecondary	FgColor		"FgColor"		Deaccel	0.1		1.0
-//	Animate HudAmmoSecondary	BgColor		"250 220 0 60"	Linear	0.0		0.1
+	Animate HudAmmoSecondary	BgColor		"0 0 0 0"	Linear	0.0		0.1
 //	Animate HudAmmoSecondary	BgColor		"BgColor"		Deaccel	0.1		1.0
 //	Animate HudAmmoSecondary	FgColor		"BrightFg"	Linear	0.0		0.1
 //	Animate HudAmmoSecondary	FgColor		"FgColor"		Linear	0.2		1.5
@@ -662,8 +663,8 @@ event PoisonPulse
 {
 	Animate HudPoisonDamageIndicator	TextColor	"BrightFg"		Linear	0.0		0.1
 	Animate HudPoisonDamageIndicator	TextColor	"FgColor"		Deaccel	0.1		0.8
-	Animate HudPoisonDamageIndicator	BgColor		"100 0 0 80"		Linear	0.0		0.1
-	Animate HudPoisonDamageIndicator	BgColor		"BgColor"		Deaccel	0.1		0.8
+	Animate HudPoisonDamageIndicator	BgColor		"0 0 0 0"		Linear	0.0		0.1
+	Animate HudPoisonDamageIndicator	BgColor		"0 0 0 0"		Deaccel	0.1		0.8
 
 	RunEvent PoisonLoop	0.8
 }

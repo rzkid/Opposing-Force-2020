@@ -53,5 +53,15 @@
 				"font"		"OF2HudIcons"
 				"character"	"A"
 		}
+		"bg_zero"
+		{
+				"font"		"OF2HudNumbers"
+				"character"	"000"
+		}
+		"bg_zero_small"
+		{
+				"font"		"OF2HudNumbersSmall"
+				"character"	"000"
+		}
 	}	
 }

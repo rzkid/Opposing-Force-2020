@@ -43,10 +43,10 @@ protected:
 
 	virtual void PaintNumbers(vgui::HFont font, int xpos, int ypos, int value);
 
+
 protected:
 
 	int m_iValue;
-	int m_iBGValue;
 	int m_iSecondaryValue;
 	wchar_t m_LabelText[32];
 	wchar_t m_LabelText2[32];
@@ -75,6 +75,9 @@ protected:
 	CPanelAnimationVarAliasType( float, digit_ypos, "digit_ypos", "2", "proportional_float" );
 	CPanelAnimationVarAliasType( float, digit2_xpos, "digit2_xpos", "98", "proportional_float" );
 	CPanelAnimationVarAliasType( float, digit2_ypos, "digit2_ypos", "16", "proportional_float" );
+
+private:
+	CHudTexture *m_iconZero;
 };
 
 

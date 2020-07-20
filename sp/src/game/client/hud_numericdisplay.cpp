@@ -28,7 +28,7 @@ CHudNumericDisplay::CHudNumericDisplay(vgui::Panel *parent, const char *name) : 
 	SetParent( pParent );
 
 	m_iValue = 0;
-	m_iBGValue = 0;
+//	m_iBGValue = 000;
 	m_LabelText[0] = 0;
 	m_iSecondaryValue = 0;
 	m_bDisplayValue = true;
@@ -51,7 +51,7 @@ void CHudNumericDisplay::Reset()
 void CHudNumericDisplay::SetDisplayValue(int value)
 {
 	m_iValue = value;
-	m_iBGValue = 0;
+//	m_iBGValue = 000;
 }
 
 //-----------------------------------------------------------------------------
@@ -163,21 +163,56 @@ void CHudNumericDisplay::PaintLabel( void )
 void CHudNumericDisplay::Paint()
 {
 	if (m_bDisplayValue)
-	{ 
-		surface()->DrawSetTextColor(Color(0, 255, 0, 64));
+	{	
+//		surface()->DrawSetTextColor(Color(76, 76, 76, 128));
+		//PaintNumbers(m_hNumberFont, digit_xpos, digit_ypos, m_iBGValue);
+
+		//bg grey zero's not small 1
+		m_iconZero = gHUD.GetIcon("bg_zero");
+		m_iconZero->DrawSelf(digit_xpos, digit_ypos, Color(76, 76, 76, 128));
+
+		//bg grey zero's not small 2
+		m_iconZero = gHUD.GetIcon("bg_zero");
+		m_iconZero->DrawSelf(digit_xpos + 30, digit_ypos, Color(76, 76, 76, 128));
+
+		//bg grey zero's not small 3
+		m_iconZero = gHUD.GetIcon("bg_zero");
+		m_iconZero->DrawSelf(digit_xpos + 63, digit_ypos, Color(76, 76, 76, 128));
+
+		//set color for glow
+		surface()->DrawSetTextColor(Color(0, 255, 0, 48));
+		//make that glow
 		PaintNumbers(m_hNumberGlowFont, digit_xpos, digit_ypos, m_iValue);
+		//set color to FgColor
 		surface()->DrawSetTextColor(GetFgColor());
 		Color col = GetFgColor();
 		col[3] *= 1.0f;
 		surface()->DrawSetTextColor(col);
+		//make normal numbers
 		PaintNumbers(m_hNumberFont, digit_xpos, digit_ypos, m_iValue);
 	}
 
 	// total ammo
 	if (m_bDisplaySecondaryValue)
 	{
-		surface()->DrawSetTextColor(Color(0, 255, 0, 64));
-		PaintNumbers(m_hSmallNumberGlowFont, digit2_xpos - 4, digit2_ypos, m_iSecondaryValue);
+//		surface()->DrawSetTextColor(Color(76, 76, 76, 128));
+//		PaintNumbers(m_hSmallNumberFont, digit2_xpos, digit2_ypos, m_iBGValue);
+
+		//bg grey zero's small 1
+		m_iconZero = gHUD.GetIcon("bg_zero_small");
+		m_iconZero->DrawSelf(digit2_xpos, digit2_ypos, Color(76, 76, 76, 128));
+
+		//bg grey zero's small 2
+		m_iconZero = gHUD.GetIcon("bg_zero_small");
+		m_iconZero->DrawSelf(digit2_xpos + 14, digit2_ypos, Color(76, 76, 76, 128));
+
+		//bg grey zero's small 3
+		m_iconZero = gHUD.GetIcon("bg_zero_small");
+		m_iconZero->DrawSelf(digit2_xpos + 28, digit2_ypos, Color(76, 76, 76, 128));
+
+		//repeat that but for secondary (smol) numbers
+		surface()->DrawSetTextColor(Color(0, 255, 0, 48));
+		PaintNumbers(m_hSmallNumberGlowFont, digit2_xpos - 5, digit2_ypos + 1, m_iSecondaryValue);
 		surface()->DrawSetTextColor(GetFgColor());
 		Color col = GetFgColor();
 		col[3] *= 1.0f;

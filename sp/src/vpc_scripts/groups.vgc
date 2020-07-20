@@ -28,6 +28,7 @@ $Group "of2projects"
 {
 	"client"
 	"server"
+	"gameui2"
 	"mathlib"
 	"raytrace"
 	"tier1"

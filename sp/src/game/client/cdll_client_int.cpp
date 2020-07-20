@@ -165,6 +165,8 @@ extern vgui::IInputInternal *g_InputInternal;
 #include "PortalRender.h"
 #endif
 
+#include "J:\Opfor-code\sp\src\game\gameui2\igameui2.h"
+
 #ifdef SIXENSE
 #include "sixense/in_sixense.h"
 #endif
@@ -216,6 +218,8 @@ IReplaySystem *g_pReplay = NULL;
 #endif
 
 IHaptics* haptics = NULL;// NVNT haptics system interface singleton
+
+IGameUI2* GameUI2 = nullptr;
 
 //=============================================================================
 // HPE_BEGIN
@@ -1152,6 +1156,44 @@ void CHLClient::PostInit()
 		}
 	}
 #endif
+	if (CommandLine()->FindParm("-nogameui2") == 0)
+	{
+		char GameUI2Path[2048];
+		Q_snprintf(GameUI2Path, sizeof(GameUI2Path), "%s\\bin\\gameui2.dll", engine->GetGameDirectory());
+
+		CSysModule* GameUI2Module = Sys_LoadModule(GameUI2Path);
+		if (GameUI2Module != nullptr)
+		{
+			ConColorMsg(Color(0, 148, 255, 255), "Loaded gameui2.dll\n");
+
+			CreateInterfaceFn GameUI2Factory = Sys_GetFactory(GameUI2Module);
+			if (GameUI2Factory)
+			{
+				GameUI2 = (IGameUI2*)GameUI2Factory(GAMEUI2_DLL_INTERFACE_VERSION, NULL);
+				if (GameUI2 != nullptr)
+				{
+					ConColorMsg(Color(0, 148, 255, 255), "Initializing IGameUI2 interface...\n");
+
+					factorylist_t Factories;
+					FactoryList_Retrieve(Factories);
+					GameUI2->Initialize(Factories.appSystemFactory);
+					GameUI2->OnInitialize();
+				}
+				else
+				{
+					ConColorMsg(Color(0, 148, 255, 255), "Unable to pull IGameUI2 interface.\n");
+				}
+			}
+			else
+			{
+				ConColorMsg(Color(0, 148, 255, 255), "Unable to get gameui2 factory.\n");
+			}
+		}
+		else
+		{
+			ConColorMsg(Color(0, 148, 255, 255), "Unable to load gameui2.dll from:\n%s\n", GameUI2Path);
+		}
+	}
 }
 
 //-----------------------------------------------------------------------------
@@ -1196,6 +1238,12 @@ void CHLClient::Shutdown( void )
 	gHUD.Shutdown();
 	VGui_Shutdown();
 	
+	if (GameUI2 != nullptr)
+	{
+		GameUI2->OnShutdown();
+		GameUI2->Shutdown();
+	}
+
 	ParticleMgr()->Term();
 	
 	ClearKeyValuesCache();
@@ -1288,6 +1336,9 @@ void CHLClient::HudUpdate( bool bActive )
 		g_pSixenseInput->SixenseFrame( 0, NULL ); 
 	}
 #endif
+
+	if (GameUI2 != nullptr)
+		GameUI2->OnUpdate();
 }
 
 //-----------------------------------------------------------------------------
@@ -1627,6 +1678,9 @@ void CHLClient::LevelInitPreEntity( char const* pMapName )
 
 	gHUD.LevelInit();
 
+	if (GameUI2 != nullptr)
+		GameUI2->OnLevelInitializePreEntity();
+
 #if defined( REPLAY_ENABLED )
 	// Initialize replay ragdoll recorder
 	if ( !engine->IsPlayingDemo() )
@@ -1645,6 +1699,9 @@ void CHLClient::LevelInitPostEntity( )
 	IGameSystem::LevelInitPostEntityAllSystems();
 	C_PhysPropClientside::RecreateAll();
 	internalCenterPrint->Clear();
+
+	if (GameUI2 != nullptr)
+		GameUI2->OnLevelInitializePostEntity();
 }
 
 //-----------------------------------------------------------------------------
@@ -1716,6 +1773,9 @@ void CHLClient::LevelShutdown( void )
 	internalCenterPrint->Clear();
 
 	messagechars->Clear();
+
+	if (GameUI2 != nullptr)
+		GameUI2->OnLevelShutdown();
 
 #ifndef TF_CLIENT_DLL
 	// don't want to do this for TF2 because we have particle systems in our

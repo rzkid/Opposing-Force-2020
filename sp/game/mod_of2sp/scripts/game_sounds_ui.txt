@@ -152,3 +152,17 @@
 
 	"wave"	"#music\HL2_song7.mp3"
 }
+
+"Interface.Music"
+{
+	"channel"		"CHAN_AUTO"
+	"volume"		"1.0"
+	"pitch"			"100"
+	"soundlevel"	"SNDLVL_NONE"
+	"rndwave"
+	{
+		"wave"		"*#music\breathing01.wav"
+		"wave"		"*#music\breathing02.wav"
+		"wave"		"*#music\breathing03.wav"
+	}
+}

@@ -74,6 +74,8 @@
 #include "c_point_camera.h"
 #endif // USE_MONITORS
 
+#include "J:\Opfor-code\sp\src\game\gameui2\igameui2.h"
+
 // Projective textures
 #include "C_Env_Projected_Texture.h"
 
@@ -1973,6 +1975,27 @@ void CViewRender::RenderView( const CViewSetup &view, int nClearFlags, int whatT
 		pRenderContext.GetFrom( materials );
 		pRenderContext->TurnOnToneMapping();
 		pRenderContext.SafeRelease();
+
+		if (GameUI2 != nullptr)
+		{
+			GameUI2->SetFrustum(GetFrustum());
+			GameUI2->SetView(view);
+
+			if (materials->GetRenderContext() != nullptr)
+				GameUI2->SetRenderContext(materials->GetRenderContext());
+
+			//ITexture* GameUI2MaskTexture = materials->FindTexture("_rt_MaskGameUI", TEXTURE_GROUP_RENDER_TARGET);
+			//if (GameUI2MaskTexture != nullptr)
+			//{
+			//	CMatRenderContextPtr RenderContext(materials);
+			//	RenderContext->PushRenderTargetAndViewport(GameUI2MaskTexture);
+			//	RenderContext->ClearColor4ub(0, 0, 0, 255);
+			//	RenderContext->ClearBuffers(true, true, true);
+			//	RenderContext->PopRenderTargetAndViewport();
+//
+//				GameUI2->SetMaskTexture(GameUI2MaskTexture);
+//			}
+		}
 
 		// clear happens here probably
 		SetupMain3DView( view, nClearFlags );

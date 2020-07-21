@@ -247,8 +247,8 @@ void CHudCredits::ReadParams(KeyValues *pKeyValue)
 
 	m_cColor = pKeyValue->GetColor("color");
 
-	Q_strncpy(m_szLogo, pKeyValue->GetString("logo", "H ' L F -L I F E"), sizeof(m_szLogo));
-	Q_strncpy(m_szLogo2, pKeyValue->GetString("logo2", "== opposing force @  =="), sizeof(m_szLogo2));
+	Q_strncpy(m_szLogo, pKeyValue->GetString("logo", "O P P O S I N G  F O R C E  2"), sizeof(m_szLogo));
+	Q_strncpy(m_szLogo2, pKeyValue->GetString("logo2", ""), sizeof(m_szLogo2));
 }
 
 int CHudCredits::GetStringPixelWidth(wchar_t *pString, vgui::HFont hFont)

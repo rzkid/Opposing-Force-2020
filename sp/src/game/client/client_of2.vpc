@@ -35,6 +35,7 @@ $Project "Client (OF2)"
 		$File	"$SRCDIR\game\client\of2\OverrideUI_RootPanel.h"
 		$File	"$SRCDIR\game\client\of2\OverrideUI_RootPanel.cpp"
 		$File	"$SRCDIR\game\client\of2\IOverrideInterface.h"
+		$File	"$SRCDIR\game\client\of2\OverrideInterface.cpp"
 		$File	"$SRCDIR\game\client\BetaPanel.cpp"
 		$File	"$SRCDIR\game\client\IBetaPanel.h"
 		}

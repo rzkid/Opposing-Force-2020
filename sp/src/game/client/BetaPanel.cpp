@@ -21,9 +21,11 @@ protected:
 	virtual void OnTick();
 	virtual void OnCommand(const char* pcCommand);
 	virtual void Paint();
+	virtual void PaintBackground(void);
 
 private:
 	//Other used VGUI control Elements:
+	CPanelAnimationVar(float, m_flBackgroundAlpha, "BgAlpha", "0");
 };
 
 // Constuctor: Initializes the Panel
@@ -44,6 +46,7 @@ CBetaPanel::CBetaPanel(vgui::VPANEL parent)
 	SetSizeable(false);
 	SetMoveable(false);
 	SetVisible(true);
+	SetPaintBackgroundEnabled(false);
 
 	SetScheme(vgui::scheme()->LoadSchemeFromFile("resource/ClientScheme.res", "ClientScheme"));
 
@@ -104,4 +107,10 @@ void CBetaPanel::Paint(void)
 	surface()->DrawSetTextColor(255, 255, 255, 255); // full red
 	surface()->DrawSetTextPos(10, 10); // x,y position
 	surface()->DrawPrintText(pText, wcslen(pText)); // print text
+}
+
+void CBetaPanel::PaintBackground(void)
+{
+	Color bgColor = GetBgColor();
+	bgColor[3] = m_flBackgroundAlpha;
 }

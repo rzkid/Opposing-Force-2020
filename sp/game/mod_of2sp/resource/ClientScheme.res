@@ -767,7 +767,7 @@ Scheme
 			"1"
 			{
 				"name"			"Facile Sans" // "Facile Sans"
-				"tall"			"48" // "65"
+				"tall"			"24" // "65"
 				"weight"		"400"
 				"antialias"		"1"
 			}

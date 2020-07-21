@@ -755,12 +755,21 @@ Scheme
 		{
 			"1"
 			{
-				"name"  "K12HL2"
-				"tall"			"28"
-				"tall_hidef"	"34"
-				"weight" "0"
-				"additive" "0"
-				"antialias" "1"
+				"name"			"Facile Sans" // "Facile Sans"
+				"tall"			"65" // "65"
+				"weight"		"400"
+				"antialias"		"1"
+			}
+		}
+		
+		"MainMenu.Font"
+		{
+			"1"
+			{
+				"name"			"Facile Sans" // "Facile Sans"
+				"tall"			"48" // "65"
+				"weight"		"400"
+				"antialias"		"1"
 			}
 		}
 		CreditsLogo
@@ -964,7 +973,7 @@ Scheme
 		"2"		"resource/HL2crosshairs.ttf"
 		"3"	    "resource/fonts/HL2EP2.ttf"		
 		"4"		"resource/fonts/Cstrike.ttf"
-		"5"		"resource/fonts/gautami.ttf"
+		"5"		"resource/fonts/FacileSans.ttf"
 		"6"	    "resource/fonts/Eurosti.ttf"	
 		"7"	    "resource/fonts/K12HL2.ttf"	
 		"8"	    "resource/fonts/12619.otf"

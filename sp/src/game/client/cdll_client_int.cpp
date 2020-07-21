@@ -165,7 +165,7 @@ extern vgui::IInputInternal *g_InputInternal;
 #include "PortalRender.h"
 #endif
 
-#include "J:\Opfor-code\sp\src\game\gameui2\igameui2.h"
+#include "..\gameui2\igameui2.h"
 
 #ifdef SIXENSE
 #include "sixense/in_sixense.h"

@@ -8,8 +8,8 @@
 		"MainMenu.Logo.AttachToMenu"					"1"
 		"MainMenu.Logo.AlignToLeft"						"1"
 	
-		"MainMenu.Buttons.OffsetX"						"128" // "32"
-		"MainMenu.Buttons.OffsetY"						"48" // "32"
+		"MainMenu.Buttons.OffsetX"						"64" // "32" // 128
+		"MainMenu.Buttons.OffsetY"						"48" // "32" //
 		"MainMenu.Buttons.Space"						"0"
 	
 		"MainMenu.Button.Width.Out"						"392"
@@ -57,8 +57,8 @@
 
 	"Colors"
 	{
-		"MainMenu.Logo.Left"							"201 255 0 255"
-		"MainMenu.Logo.Right"							"211 255 0 255" // "255 217 73 255"
+		"MainMenu.Logo.Left"							"255 255 255 255"
+		"MainMenu.Logo.Right"							"201 255 0 255" // "255 217 73 255"
 		
 		"MainMenu.Button.Background.Out"				"0 0 0 0"
 		"MainMenu.Button.Background.Over"				"125 125 125 35" // "0 0 0 50"
@@ -118,7 +118,7 @@
 				"tall"			"25"
 				"weight"		"400"
 				"antialias"		"0"
-				"blur"			"3"
+				"blur"			"5"
 			}
 		}
 

@@ -74,7 +74,7 @@
 #include "c_point_camera.h"
 #endif // USE_MONITORS
 
-#include "J:\Opfor-code\sp\src\game\gameui2\igameui2.h"
+#include "..\gameui2\igameui2.h"
 
 // Projective textures
 #include "C_Env_Projected_Texture.h"

@@ -25,6 +25,7 @@
 #include "matsys_controls/matsyscontrols.h"
 #include "OverrideUI_RootPanel.h"
 #include "IOverrideInterface.h"
+#include "IBetaPanel.h"
 
 #ifdef SIXENSE
 #include "sixense/in_sixense.h"
@@ -206,10 +207,13 @@ void VGui_CreateGlobalPanels( void )
 #if defined( TRACK_BLOCKING_IO )
 	VPANEL gameDLLPanel = enginevgui->GetPanel( PANEL_GAMEDLL );
 #endif
+//	VPANEL gameParent = enginevgui->GetPanel(PANEL_CLIENTDLL);
+
 	// Part of game
 	internalCenterPrint->Create( gameToolParent );
 	loadingdisc->Create( gameToolParent );
 	messagechars->Create( gameToolParent );
+	betapanel->Create(gameToolParent);
 
 	// Debugging or related tool
 	fps->Create( toolParent );
@@ -251,6 +255,8 @@ void VGui_Shutdown()
 	{
 		g_pClientMode->VGui_Shutdown();
 	}
+
+	betapanel->Destroy();
 
 	// Make sure anything "marked for deletion"
 	//  actually gets deleted before this dll goes away

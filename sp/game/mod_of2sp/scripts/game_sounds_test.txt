@@ -4,7 +4,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro01.wav"
+	"wave"	"gman/oldtoo/gman_intro01.wav"
 }
 
 "g.test2"
@@ -22,7 +22,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro02.wav"
+	"wave"	"gman/oldtoo/gman_intro02.wav"
 }
 
 "g.intro3a"
@@ -31,7 +31,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro03a.wav"
+	"wave"	"gman/oldtoo/gman_intro03a.wav"
 }
 
 "g.intro3b"
@@ -40,7 +40,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro03b.wav"
+	"wave"	"gman/oldtoo/gman_intro03b.wav"
 }
 
 "g.intro3c"
@@ -49,7 +49,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro03c.wav"
+	"wave"	"gman/oldtoo/gman_intro03c.wav"
 }
 
 "g.intro4"
@@ -58,7 +58,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro04.wav"
+	"wave"	"gman/oldtoo/gman_intro04.wav"
 }
 
 "g.intro5"
@@ -67,7 +67,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro05.wav"
+	"wave"	"gman/oldtoo/gman_intro05.wav"
 }
 
 "g.intro6"
@@ -76,7 +76,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro06.wav"
+	"wave"	"gman/oldtoo/gman_intro06.wav"
 }
 
 "g.intro7"
@@ -85,7 +85,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro07.wav"
+	"wave"	"gman/oldtoo/gman_intro07.wav"
 }
 
 "g.intro8"
@@ -94,7 +94,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro08.wav"
+	"wave"	"gman/oldtoo/gman_intro08.wav"
 }
 
 "g.intro9"
@@ -103,7 +103,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro09.wav"
+	"wave"	"gman/oldtoo/gman_intro09.wav"
 }
 
 "g.intro10"
@@ -112,7 +112,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro10.wav"
+	"wave"	"gman/oldtoo/gman_intro10.wav"
 }
 
 "g.intro11"
@@ -121,7 +121,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro11.wav"
+	"wave"	"gman/oldtoo/gman_intro11.wav"
 }
 
 "g.intro12"
@@ -130,7 +130,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro12.wav"
+	"wave"	"gman/oldtoo/gman_intro12.wav"
 }
 
 "g.intro13"
@@ -139,7 +139,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro13.wav"
+	"wave"	"gman/oldtoo/gman_intro13.wav"
 }
 
 "g.intro14"
@@ -148,7 +148,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro14.wav"
+	"wave"	"gman/oldtoo/gman_intro14.wav"
 }
 
 "g.intro15"
@@ -157,7 +157,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro15.wav"
+	"wave"	"gman/oldtoo/gman_intro15.wav"
 }
 
 "g.intro16"
@@ -166,7 +166,7 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro16.wav"
+	"wave"	"gman/oldtoo/gman_intro16.wav"
 }
 
 "g.intro17"
@@ -175,5 +175,5 @@
 	"volume"		"1.0"
 	"soundlevel"	"SNDLVL_TALKING"
 
-	"wave"	"gman/gman_intro17.wav"
+	"wave"	"gman/oldtoo/gman_intro17.wav"
 }

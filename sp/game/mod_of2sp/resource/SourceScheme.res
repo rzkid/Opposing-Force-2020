@@ -462,6 +462,17 @@ Scheme
 			}
 		}
 
+		"MainMenu.Font"
+		{
+			"1"
+			{
+				"name"			"Facile Sans" // "Facile Sans"
+				"tall"			"48" // "65"
+				"weight"		"400"
+				"antialias"		"1"
+			}
+		}
+		
 		"Trebuchet20"
 		{
 			"1"
@@ -1207,5 +1218,6 @@ Scheme
 		    "range" "0x0000 0xFFFF"
 		  }
 		}
+		"7"		"resource/fonts/FacileSans.ttf"
 	}
 }

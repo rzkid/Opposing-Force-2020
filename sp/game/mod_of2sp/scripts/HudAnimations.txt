@@ -101,7 +101,7 @@ event SuitAuxPowerMax
 event SuitAuxPowerNotMax
 {
 	// show suit power
-	Animate HudSuitPower BgColor		"BgColor"		Linear 0.0 0.4
+	Animate HudSuitPower BgColor		"0 0 0 100"		Linear 0.0 0.4
 	Animate HudSuitPower AuxPowerColor	"FgColor"		Linear 0.0 0.4
 }
 

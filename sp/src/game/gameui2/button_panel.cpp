@@ -41,7 +41,7 @@ void Button_Panel::Initialize()
 {
 	BaseClass::Initialize();
 	
-	vgui::HScheme Scheme = vgui::scheme()->LoadSchemeFromFile("resource2/schemepanel.res", "SchemePanel");
+	vgui::HScheme Scheme = vgui::scheme()->LoadSchemeFromFile("resource/schemepanel.res", "SchemePanel");
 	SetScheme(Scheme);
 
 	SetProportional(false);

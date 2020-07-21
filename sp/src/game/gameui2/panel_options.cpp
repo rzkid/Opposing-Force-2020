@@ -40,19 +40,19 @@ Panel_Options::Panel_Options(vgui::VPANEL Parent, const char* PanelName) : BaseC
 
 	Activate();
 
-	PanelTitle = GetGameUI2().ConvertToLocalizedString("#GameUI2_TitleOptions");
+	PanelTitle = GetGameUI2().ConvertToLocalizedString("#GameUI_Options");
 	PanelTitle = wcsupr(PanelTitle);
 
 	ButtonDone = new Button_Panel(this, this, "");
-	ButtonDone->SetButtonText("#GameUI2_Done");
+	ButtonDone->SetButtonText("#GameUI_Done");
 	ButtonDone->SetButtonDescription("");
 
 	ButtonApply = new Button_Panel(this, this, "");
-	ButtonApply->SetButtonText("#GameUI2_Apply");
+	ButtonApply->SetButtonText("#GameUI_Apply");
 	ButtonApply->SetButtonDescription("");
 
 	ButtonBack = new Button_Panel(this, this, "action_back");
-	ButtonBack->SetButtonText("#GameUI2_Back");
+	ButtonBack->SetButtonText("#GameUI_Back");
 	ButtonBack->SetButtonDescription("");
 }
 

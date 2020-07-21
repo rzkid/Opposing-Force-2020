@@ -1743,7 +1743,7 @@ void Frame::ApplySettings(KeyValues *inResourceData)
 	inResourceData->SetInt("visible", -1);
 	BaseClass::ApplySettings(inResourceData);
 
-	SetCloseButtonVisible( inResourceData->GetBool( "setclosebuttonvisible", true ) );
+	SetCloseButtonVisible( inResourceData->GetBool( "setclosebuttonvisible", false ) );
 
 	if( !inResourceData->GetInt("settitlebarvisible", 1 ) ) // if "title" is "0" then don't draw the title bar
 	{

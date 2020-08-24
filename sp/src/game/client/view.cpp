@@ -736,7 +736,8 @@ void CViewRender::SetUpViews()
 	float flFOVOffset = fDefaultFov - view.fov;
 
 	//Adjust the viewmodel's FOV to move with any FOV offsets on the viewer's end
-	view.fovViewmodel = g_pClientMode->GetViewModelFOV() - flFOVOffset;
+	//Fixes a bug where viewmodels would get rotated 180 degrees when zooming in from https://github.com/Nbc66/source-sdk-2013-ce/commit/b00fc2421af7b7b5cc9113529675c094fcfed851
+	view.fovViewmodel = fabs(g_pClientMode->GetViewModelFOV() - flFOVOffset);
 
 	if ( UseVR() )
 	{

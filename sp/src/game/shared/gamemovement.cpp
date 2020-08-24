@@ -4191,9 +4191,10 @@ void CGameMovement::FinishUnDuckJump( trace_t &trace )
 //-----------------------------------------------------------------------------
 void CGameMovement::FinishDuck( void )
 {
+	/* Schrodinger's crouch fix from https://github.com/Nbc66/source-sdk-2013-ce/commit/a23226eb40d983a8b87a57d1a24e76e311027180
 	if ( player->GetFlags() & FL_DUCKING )
 		return;
-
+    */
 	player->AddFlag( FL_DUCKING );
 	player->m_Local.m_bDucked = true;
 	player->m_Local.m_bDucking = false;

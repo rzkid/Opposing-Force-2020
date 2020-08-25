@@ -340,7 +340,7 @@ void CHudAmmo::Paint(void)
 	BaseClass::Paint();
 
 	m_iconAmmo = gHUD.GetIcon("ammo_label");
-	m_iconAmmo->DrawSelf(icon_xpos, icon_ypos, GetFgColor());
+	m_iconAmmo->DrawSelf(icon_xpos, icon_ypos, Color(76, 76, 76, 128));
 }
 
 //-----------------------------------------------------------------------------
